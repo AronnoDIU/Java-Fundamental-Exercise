@@ -1,4 +1,4 @@
-package Interface.NestedInterface;
+package InterfaceProblems.NestedInterface;
 
 /**
  * 

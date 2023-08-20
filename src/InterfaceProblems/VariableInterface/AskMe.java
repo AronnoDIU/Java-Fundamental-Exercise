@@ -1,4 +1,4 @@
-package Interface.VariableInterface;
+package InterfaceProblems.VariableInterface;
 
 import java.util.Random;
 

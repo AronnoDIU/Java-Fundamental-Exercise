@@ -1,5 +1,5 @@
 // A simple  package
-package Interface;
+package InterfaceProblems;
 
 /**
  * 

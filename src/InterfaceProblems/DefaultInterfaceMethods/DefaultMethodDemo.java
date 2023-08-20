@@ -1,4 +1,4 @@
-package Interface.DefaultInterfaceMethods;
+package InterfaceProblems.DefaultInterfaceMethods;
 
 /**
  * 

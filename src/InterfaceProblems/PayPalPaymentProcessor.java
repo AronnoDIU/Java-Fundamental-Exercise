@@ -1,4 +1,4 @@
-package Interface;
+package InterfaceProblems;
 
 public class PayPalPaymentProcessor implements PaymentProcessor {
 

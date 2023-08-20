@@ -1,4 +1,4 @@
-package Interface.PartialImplementation;
+package InterfaceProblems.PartialImplementation;
 
 public abstract class Incomplete implements CallBack {
 	

@@ -1,4 +1,4 @@
-package Interface.DefaultInterfaceMethods.PrivateInterfaceMethods;
+package InterfaceProblems.DefaultInterfaceMethods.PrivateInterfaceMethods;
 
 /**
  * 

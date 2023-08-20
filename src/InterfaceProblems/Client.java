@@ -1,4 +1,4 @@
-package Interface;
+package InterfaceProblems;
 
 /**
  * 
@@ -16,7 +16,7 @@ public class Client {
 	public void checkout(PaymentData payment) {
 		// ... some methods calls goes here
 		paymentProcessor.processPayment(payment);
-		Interface.PaymentProcessor.someStaticMethod(); // demo of static method invocation
+		InterfaceProblems.PaymentProcessor.someStaticMethod(); // demo of static method invocation
 	}
 
 	public void setPaymentProcessor(PaymentProcessor paymentProcessor) {

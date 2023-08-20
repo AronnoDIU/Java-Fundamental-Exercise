@@ -1,4 +1,4 @@
-package Interface.ApplyingInterface;
+package InterfaceProblems.ApplyingInterface;
 /**
  * 
  * @author Aronno
