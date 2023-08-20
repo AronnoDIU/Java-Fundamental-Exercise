@@ -5,14 +5,9 @@ package Encapsulation.PackageB;
  * @author Aronno
  *
  */
-public class ClassC extends ClassB {
+public class ClassC extends Encapsulation.PackageB.ClassB {
 
-//	@Override
-//	protected void doSomething() {
-//		
-//	}
 
-	@Override
 	public void doSomethingClassB() {
 
 	}

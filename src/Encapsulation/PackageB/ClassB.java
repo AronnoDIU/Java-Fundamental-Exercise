@@ -9,7 +9,7 @@ import Encapsulation.PackageA.ClassA;
 
 public class ClassB extends ClassA {
 	
-	void doSomethingClassB() {
+	 void doSomethingClassB() {
 		doSomething2();				// protected modifier demo
 		doSomethingClassBPrivate(); // private modifier demo
 	}

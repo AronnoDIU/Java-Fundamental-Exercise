@@ -2,11 +2,6 @@ package Encapsulation;
 
 import Encapsulation.PackageA.ClassA;
 
-/**
- * 
- * @author Yeasir Arafat Aronno
- *
- */
 public class EncapDemo {
 
 	public static void main(String[] args) {
