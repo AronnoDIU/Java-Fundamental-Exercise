@@ -1,0 +1,60 @@
+#Need of Wrapper Classes
+
+There are certain needs for using the Wrapper class in Java as mentioned below:
+
+    They convert primitive data types into objects. Objects are needed if we wish
+  to modify the arguments passed into a method (because primitive types are passed by value).
+
+    The classes in java.util package handles only objects and hence wrapper classes
+  help in this case also.
+
+    Data structures in the Collection framework, such as ArrayList and Vector, store only
+  objects (reference types) and not primitive types.
+
+    An object is needed to support synchronization in multithreading.
+
+#Advantages of Wrapper Classes
+
+    Collections allowed only object data.
+    On object data we can call multiple methods compareTo(), equals(), toString()
+    Cloning process only objects
+    Object data allowed null values.
+    Serialization can allow only object data.
+
+Below are given examples of wrapper classes in Java with their corresponding Primitive data types in Java.
+Primitive Data Types and their Corresponding Wrapper Class
+
+
+
+Primitive Data Type             Wrapper Class
+
+char                            Character
+
+byte                            Byte
+
+short                           Short
+
+int                             Integer
+
+long                            Long
+
+float                           Float
+
+double                          Double
+
+boolean                         Boolean
+
+
+#Autoboxing and Unboxing
+1. Autoboxing
+
+    The automatic conversion of primitive types to the object of their corresponding
+wrapper classes is known as autoboxing. For example – conversion of int to Integer,
+long to Long, double to Double, etc.
+
+
+2. Unboxing
+
+    It is just the reverse process of autoboxing. Automatically converting an object of
+a wrapper class to its corresponding primitive type is known as unboxing.
+For example – conversion of Integer to int, Long to long, Double to double, etc.
