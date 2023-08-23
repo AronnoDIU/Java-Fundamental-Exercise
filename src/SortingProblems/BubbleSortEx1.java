@@ -3,14 +3,14 @@ package SortingProblems;
 public class BubbleSortEx1 {
     static void bubbleSort(int[] arrays) {
         int number = arrays.length;
-        int temp = 0;
+        int temporaryValue = 0;
         for (int i = 0; i < number; i++) {
             for (int j = 1; j < (number - i); j++) {
                 if (arrays[j - 1] > arrays[j]) {
                     //swap elements
-                    temp = arrays[j - 1];
+                    temporaryValue = arrays[j - 1];
                     arrays[j - 1] = arrays[j];
-                    arrays[j] = temp;
+                    arrays[j] = temporaryValue;
                 }
 
             }
