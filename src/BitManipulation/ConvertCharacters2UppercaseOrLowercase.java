@@ -16,13 +16,21 @@ public class ConvertCharacters2UppercaseOrLowercase {
 
     /* Driver program */
     public static void main(String[] args) {
-        String str = "CheRrY";
+        String string = "CheRrY";
         System.out.print("Toggle case: ");
-        str = toggleCase(str.toCharArray());
-        System.out.println(str);
+        string = toggleCase(string.toCharArray());
+        System.out.println(string);
 
         System.out.print("Original string: ");
-        str = toggleCase(str.toCharArray());
-        System.out.println(str);
+        string = toggleCase(string.toCharArray());
+        System.out.println(string);
     }
 }
+
+/*
+Expected Output::
+
+Toggle case: cHErRy
+Original string: CheRrY
+
+* */

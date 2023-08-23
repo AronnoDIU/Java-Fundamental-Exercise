@@ -19,6 +19,14 @@ public class Bitwise_OR_NumberOfFlips {
         int a = 2;
         int b = 6;
         int c = 5;
-        System.out.println("Min Flips required to make two numbers equal to third is : " + helper(a, b, c));
+        System.out.println("Min Flips required to make two numbers equal to third is : "
+                + helper(a, b, c));
     }
 }
+
+/*
+Expected Output::
+
+Min Flips required to make two numbers equal to third is : 3
+
+* */

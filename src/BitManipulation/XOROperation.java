@@ -7,3 +7,10 @@ public class XOROperation {
         System.out.println("Bitwise XOR of (x , y) is : " + (x ^ y)); // yields to 6
     }
 }
+
+/*
+Expected Output::
+
+Bitwise XOR of (x , y) is : 6
+
+* */

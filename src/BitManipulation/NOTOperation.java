@@ -6,3 +6,10 @@ public class NOTOperation {
         System.out.println("Bitwise NOT of a is : " + ~a);
     }
 }
+
+/*
+Expected Output::
+
+Bitwise NOT of a is : -2
+
+* */

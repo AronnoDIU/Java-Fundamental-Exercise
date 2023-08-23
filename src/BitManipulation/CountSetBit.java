@@ -15,3 +15,10 @@ class CountSetBit {
         System.out.println("SetBit Count is : " + helper(number));
     }
 }
+
+/*
+Expected Output::
+
+SetBit Count is : 6
+
+* */

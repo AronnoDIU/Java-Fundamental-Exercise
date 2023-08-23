@@ -13,3 +13,13 @@ public class LeftShift {
         System.out.println(number + " shifted 4 positions left, yields to " + helper(number, 4));
     }
 }
+
+/*
+Expected Output::
+
+100 shifted 1 position left, yields to 200
+100 shifted 2 positions left, yields to 400
+100 shifted 3 positions left, yields to 800
+100 shifted 4 positions left, yields to 1600
+
+* */

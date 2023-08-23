@@ -7,3 +7,10 @@ public class AndOperation {
         System.out.println("Bitwise AND of (" + x + " , " + y + ") is: " + (x & y)); // yields to 8
     }
 }
+
+/*
+Expected Output::
+
+Bitwise AND of (12 , 10) is: 8
+
+* */

@@ -10,3 +10,10 @@ public class OROperation {
         System.out.println("Bitwise OR of " + x + ", " + y + " is: " + helper(x, y)); // yields to 14
     }
 }
+
+/*
+Expected Output::
+
+Bitwise OR of 12, 10 is: 14
+
+* */

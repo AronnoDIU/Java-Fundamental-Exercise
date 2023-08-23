@@ -1,11 +1,9 @@
 package BitManipulation;
 
-// Java program to implement all the
-// above functionalities
+// Java program about Bit Manipulation to implement all the above functionalities.
 public class BitManipulationEx1 {
 
-    // Function to get the bit at the
-// ith position
+    // Function to get the bit at the 'i' th position.
     static boolean getBit(int num, int i) {
 
         // Return true if the ith bit is
@@ -13,8 +11,7 @@ public class BitManipulationEx1 {
         return ((num & (1 << i)) != 0);
     }
 
-    // Function to set the ith bit of the
-// given number num
+    // Function to set the ith bit of the given number 'num'
     static int setBit(int num, int i) {
 
         // Sets the ith bit and return
@@ -22,12 +19,10 @@ public class BitManipulationEx1 {
         return num | (1 << i);
     }
 
-    // Function to clear the ith bit of
-// the given number num
+    // Function to clear the ith bit of the given number 'num'
     static int clearBit(int num, int i) {
 
-        // Create the mask for the ith
-        // bit unset
+        // Create the mask for the 'i' th bit unset
         int mask = ~(1 << i);
 
         // Return the updated value

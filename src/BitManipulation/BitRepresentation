@@ -4,7 +4,7 @@ Bitwise operations take one or more bit patterns or binary numerals and manipula
 the bit level. They’re essentially our tool to manipulate bits to achieve our operations.
 
 While arithmetic operations perform operations on human-readable values (1+2), bitwise operators
- manipulate the low-level data directly.
+manipulate the low-level data directly.
 Difference in steps between arithmetic and bit operations
 
 Advantages
@@ -44,7 +44,8 @@ The bit representation of a number is either signed or unsigned.
 Usually, a signed representation is used, which means that both negative and positive numbers can
 be represented.
 A signed variable of n bits can contain any integer between -2n-1 and 2n-1 – 1
-The int type in C++ is a signed type,so an int variable can contain any integer between -231 and 231 – 1.
+The int type in C++ is a signed type,so an int variable can contain any integer
+between -231 and 231 – 1.
 
 The first bit in a signed representation is the sign of the number, 0 for non-negative numbers
 and 1 for negative numbers and the remaining n−1 bits contain the magnitude of the number.
