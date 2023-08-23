@@ -1,12 +1,8 @@
 package IntroducingClasses;
-/**
- * 
- * @author Aronno
- *
- */
+
 public class StringProcessor {
 	
-	// TODO: mention StringBuilder 
+	// Done: mention StringBuilder
 	
 		public static final String INPUT_DATA = "Login;Name;Email" + System.lineSeparator() +
 				"peterson;Chris Peterson;peterson@outlook.com" + System.lineSeparator() +
@@ -25,26 +21,43 @@ public class StringProcessor {
 	}
 	
 	public static String convert1(String input) {
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		String[] lines = input.split(System.lineSeparator());
 		for (int i = 1; i < lines.length; i++) {
 			String[] wordsInLine = lines[i].split(";");
-			result += wordsInLine[0] + " ==> " + wordsInLine[2] + System.lineSeparator();
+			result.append(wordsInLine[0]).append(" ==> ").append(wordsInLine[2]).append(System.lineSeparator());
 		}
-		return result;
+		return result.toString();
 	
 	}
 	
 	
 	public static String convert2(String input) {
-		String result = new String();
+		StringBuilder result = new StringBuilder();
 		String[] lines = input.split(System.lineSeparator());
 		for (int i = 1; i < lines.length; i++) {
 			String[] wordsInLine = lines[i].split(";");
-			result += wordsInLine[1] + " (email: " + wordsInLine[2] + ")" + System.lineSeparator();
+			result.append(wordsInLine[1]).append(" (email: ").append(wordsInLine[2]).append(")").append(System.lineSeparator());
 		}
-		return result;
+		return result.toString();
 
 	}
 
 }
+
+/*
+Expected Output::
+
+===== Convert 1 demo =====
+peterson ==> peterson@outlook.com
+james ==> james@gmail.com
+jackson ==> jackson@gmail.com
+gregory ==> gregory@yahoo.com
+
+===== Convert 2 demo =====
+Chris Peterson (email: peterson@outlook.com)
+Derek James (email: james@gmail.com)
+Walter Jackson (email: jackson@gmail.com)
+Mike Gregory (email: gregory@yahoo.com)
+
+* */

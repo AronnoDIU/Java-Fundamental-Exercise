@@ -1,15 +1,9 @@
 package ObjectOrientedConcept.SOLIDprinciple.SingleResponsibilityPrinciple;
 
-/**
- * 
- * @author Yeasir Arafat Aronno
- *
- */
 public class Demo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Auto-generated method stub");
 	}
 
 }

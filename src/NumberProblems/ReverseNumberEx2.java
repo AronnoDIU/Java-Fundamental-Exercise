@@ -1,4 +1,4 @@
-package JavaNumberPrograms;
+package NumberProblems;
 
 public class ReverseNumberEx2 {
     public static void main(String[] args) {

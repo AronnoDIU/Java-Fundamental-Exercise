@@ -1,4 +1,4 @@
-package JavaNumberPrograms;
+package NumberProblems;
 
 import java.util.Scanner;
 

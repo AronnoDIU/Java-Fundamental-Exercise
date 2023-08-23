@@ -1,14 +1,15 @@
 package JavaCollectionFramework;
-/**
- * 
- * @author Yeasir Arafat Aronno
- *
- */
+
 public class Demo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		System.out.println("Auto-generated method stub for creating Packages");
 	}
-
 }
+
+/*
+Expected Output::
+
+Auto-generated method stub for creating Packages
+
+* */
