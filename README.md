@@ -1,2 +1,2 @@
 # Java-Fundamental-Exercise
-A Core-Java Fundamental Exercises
+A Complete Core JAVA from Basic to Advanced topics Exercises 
