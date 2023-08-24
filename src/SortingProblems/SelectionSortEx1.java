@@ -7,14 +7,14 @@ public class SelectionSortEx1 {
         // One by one move boundary of unsorted subarray
         for (int i = 0; i < number - 1; i++) {
             // Find the minimum element in unsorted array
-            int min_idx = i;
+            int minimumIndex = i;
             for (int j = i + 1; j < number; j++)
-                if (array[j] < array[min_idx])
-                    min_idx = j;
+                if (array[j] < array[minimumIndex])
+                    minimumIndex = j;
 
             // Swap the found minimum element with the first element.
-            int temporaryValue = array[min_idx];
-            array[min_idx] = array[i];
+            int temporaryValue = array[minimumIndex];
+            array[minimumIndex] = array[i];
             array[i] = temporaryValue;
         }
     }

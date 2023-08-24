@@ -11,7 +11,7 @@ public class SelectionSortingEx2 {
         int[] array = {7, 8, 3, 1, 2};
 
         // Selection Sorting
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length-1; i++) {
             int smallestIndex = i;
             for (int j = i + 1; j < array.length; j++) {
                 if (array[smallestIndex] > array[j]) {
