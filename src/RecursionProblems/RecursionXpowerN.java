@@ -1,5 +1,6 @@
 package RecursionProblems;
 
+// This JAVA program Print X^n ( Stack height n).
 public class RecursionXpowerN {
     public static int calculatePower(int x, int n) {
         if (x == 0) {
