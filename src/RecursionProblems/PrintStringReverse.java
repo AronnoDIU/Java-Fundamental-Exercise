@@ -11,7 +11,7 @@ public class PrintStringReverse {
     }
 
     public static void main(String[] args) {
-        String string = "abcd";
+        String string = "abed";
         printReverse(string, string.length() - 1);
     }
 }
