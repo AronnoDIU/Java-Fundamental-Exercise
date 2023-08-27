@@ -15,13 +15,13 @@ public class CheckArraySortedEx2 {
 
     public static void main(String[] args) {
         int[] array = {1, 3, 5};
-        System.out.println(isSorted(array, 0));
+        System.out.println("Is Array Sorted? " + isSorted(array, 0));
     }
 }
 
 /*
 Expected Output::
 
-true
+Is Array Sorted? true
 
 * */
