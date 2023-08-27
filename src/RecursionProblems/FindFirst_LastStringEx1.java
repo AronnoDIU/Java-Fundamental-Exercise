@@ -1,7 +1,7 @@
 package RecursionProblems;
 
 // Java program to find first and last character of a string
-public class FindFirstLastOccurrenceEx2 {
+public class FindFirst_LastStringEx1 {
     // Using String.charAt() method
 
     // Function to print first and last
