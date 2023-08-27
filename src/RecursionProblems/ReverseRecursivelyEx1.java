@@ -9,7 +9,6 @@ public class ReverseRecursivelyEx1 {
         // base condition to end recursive calls
         if (number < 10) {
             System.out.println(number);
-            return;
         } else {
 
             // print the unit digit of the given number

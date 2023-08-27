@@ -5,7 +5,7 @@ public class FindFirstLastOccurrence {
     public static int lastIndex = -1;
 
     public static void findOccurrence(String string, int index, char element) {
-        if (index == string.length()) {
+        if (index == string.length()) {  // Base Case
             System.out.println("The First Index Number is " + firstIndex);
             System.out.println("The Last Index Number is " + lastIndex);
 
