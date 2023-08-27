@@ -1,4 +1,4 @@
-package RecursionProblems;
+package String;
 
 // Java program to find first and last character of a string
 public class FindFirst_LastStringEx1 {
