@@ -6,6 +6,18 @@ import java.util.HashSet;
 
 /*if given String = "aaa";
  Then, Unique Subsequences count as 'a' to print
+      "aaa" =====> aaa| ====>  aaa
+
+                    aa|
+                    aa| ====>   aa
+                    aa|
+
+                     a|
+                     a| ====>    a
+                     a|
+
+ So, the final Subsequences are = aaa, aa, a    ;
+
 * */
 public class PrintStringUniqueSubsequences {
     public static void
