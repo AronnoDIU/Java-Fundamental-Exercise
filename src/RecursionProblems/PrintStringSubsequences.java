@@ -7,7 +7,7 @@ package RecursionProblems;
            if 'a' wanted to come        if 'a' not wanted to come
                         a                       -
                     /      \                /        \
-                  ab         a-          -b           --
+                  ab         a-           -b          --
                 /    \      /   \       /   \       /     \
              abc    ab-   a-c   a--   -bc   -b-   --c     ---
          The last leaf of above sequences is called Subsequences
