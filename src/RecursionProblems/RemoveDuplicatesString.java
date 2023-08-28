@@ -3,8 +3,8 @@ package RecursionProblems;
 // Remove duplicates in a String
 public class RemoveDuplicatesString {
     public static boolean[] mapAlphabet = new boolean[26];
-
-    public static void removeDuplicates(String string, int index, String newString) {
+    public static void
+    removeDuplicates(String string, int index, String newString) {
         if (index == string.length()) {
             System.out.println(newString);
             return;
