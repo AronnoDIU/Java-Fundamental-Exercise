@@ -5,6 +5,12 @@ import java.util.Scanner;
 /*Multiply Of Digit Program in Java
 If a number=1234, then 1*2*3*4 ,Multiply of digit=24 */
 
+/*What isMultiply Of Digit?
+If a number=1234, then 1*2*3*4 ,Multiply of digit=24
+
+What is Multiply Of Digit in Java?
+If a number=1234, then 1*2*3*4 ,Multiply of digit=24  */
+
 public class MultiplyOfDigit {
     public static void main(String[] args) {
         int r, n, num, mul = 1;
