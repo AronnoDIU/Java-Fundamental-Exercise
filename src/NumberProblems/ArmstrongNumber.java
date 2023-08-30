@@ -14,24 +14,19 @@ Examples: 153 is Armstrong
 
 public class ArmstrongNumber {
     public static void main(String[] args) {
-        int n,
-                cubeSum = 0, num, r;
+        int n, cubeSum = 0, num, r;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number=");
         n = sc.nextInt();
         num = n;
-        while (num > 0)
-        {
+        while (num > 0) {
             r = num % 10;
             cubeSum = cubeSum + (r * r * r);
             num = num / 10;
         }
-        if (n == cubeSum)
-        {
+        if (n == cubeSum) {
             System.out.println("Armstrong Number");
-        }
-        else
-        {
+        } else {
             System.out.println("Not Armstrong Number");
         }
     }

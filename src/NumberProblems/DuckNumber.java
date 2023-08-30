@@ -9,12 +9,12 @@ For example 3210*/
 
 public class DuckNumber {
     public static void main(String[] args) {
-        int r, n, num;
+        int r, number, num;
         boolean flag = false;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number=");
-        n = sc.nextInt();
-        num = n;
+        number = sc.nextInt();
+        num = number;
         while (num > 0) {
             r = num % 10;
             if (r == 0) {

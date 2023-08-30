@@ -8,11 +8,11 @@ Example: 1007 is a Buzz Number.*/
 
 public class BuzzNumber {
     public static void main(String[] args) {
-        int n;
+        int number;
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter n=");
-        n = sc.nextInt();
-        if (n % 10 == 7 || n % 7 == 0)
+        System.out.print("Enter number=");
+        number = sc.nextInt();
+        if (number % 10 == 7 || number % 7 == 0)
         {
             System.out.println("Buzz number");
         }
@@ -26,7 +26,7 @@ public class BuzzNumber {
 /*
 Expected Output::
 
-Enter n=66
+Enter number=66
 Not Buzz number
 
 * */

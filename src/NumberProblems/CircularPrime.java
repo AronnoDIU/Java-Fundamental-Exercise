@@ -10,17 +10,17 @@ For example, 1193 is a circular prime, since 1931, 9311 and 3119 all are also pr
 public class CircularPrime {
     public static void main(String[] args) {
         boolean flag = true;
-        int n, num, r, c = 0;
+        int number, num, r, c = 0;
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter number=");
-        n = sc.nextInt();
-        num = n;
+        number = sc.nextInt();
+        num = number;
         while (num > 0) {
             r = num % 10;
             c++;
             num = num / 10;
         }
-        num = n;
+        num = number;
         for (int i = 1; i <= c; i++) {
             r = num % 10;
             num = num / 10;
