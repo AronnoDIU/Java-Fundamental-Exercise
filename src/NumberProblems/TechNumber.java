@@ -31,8 +31,8 @@ public class TechNumber {
         }
         if (digits % 2 == 0) {
             num = n;
-            leftNumber = num % (int) Math.pow(10, digits / 2);
-            rightNumber = num / (int) Math.pow(10, digits / 2);
+            leftNumber = num % (int) Math.pow(10, (double) digits / 2);
+            rightNumber = num / (int) Math.pow(10, (double) digits / 2);
 
             sumSquare = (leftNumber + rightNumber) * (leftNumber + rightNumber);
             if (n == sumSquare) {
