@@ -25,7 +25,6 @@ public class TwinPrime {
     }
 
     static boolean prime(int n) {
-        // TODO code application logic here
         int i = 2;
         boolean flag = true;
         while (n > i) {
