@@ -1,7 +1,6 @@
 package RecursionProblems;
 
 // Place Tiles of size 1*m in a floor of size n*m
-
 public class PlaceTilesInAFloor {
 
     public static int tilesPlacements(int n, int m) {
