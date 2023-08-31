@@ -24,6 +24,13 @@ public class PrintNaturalNumbersSubsets {
             System.out.print(integer + " ");
         }
         System.out.println();
+
+        // OR
+
+//        for (int i = 0; i < subSet.size(); i++) {
+//            System.out.print(subSet.get(i) + " ");
+//        }
+//        System.out.println();
     }
 
     public static void findSubsets(int number, ArrayList<Integer> subSet) {
