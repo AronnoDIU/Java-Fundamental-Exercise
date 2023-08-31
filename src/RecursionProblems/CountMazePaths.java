@@ -2,7 +2,7 @@ package RecursionProblems;
 
 // Count Paths in a Maze to move from (0,0) to (n,m)
 
-// Count all possible paths for (n,m) matrix
+// Count all possible paths for (rowsMatrix,columnsMatrix) matrix
 // Conditions:: Downward and Right moves only
 
 public class CountMazePaths {
