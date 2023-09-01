@@ -1,6 +1,7 @@
 package BacktrackingProblems;
 
 // Arrange them in a Single line
+// Permutations using Backtracking
 public class ArrangeStringAllPossibleWays {
     public static void
     printPermutations(String string, String permutations, int index) {
