@@ -3,9 +3,8 @@ package BacktrackingProblems;
 public class NQueenProblem {
     final int N = 4;
 
-    // A utility function to print solution
-    void printSolution(int[][] board)
-    {
+    // A utility function to print a solution
+    void printSolution(int[][] board) {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 if (board[i][j] == 1)
@@ -22,11 +21,10 @@ public class NQueenProblem {
     // function is called when "col" queens are already
     // placed in columns from 0 to col -1. So we need
     // to check only left side for attacking queens
-    boolean isSafe(int[][] board, int row, int col)
-    {
+    boolean isSafe(int[][] board, int row, int col) {
         int i, j;
 
-        // Check this row on left side
+        // Check this row on the left side
         for (i = 0; i < col; i++)
             if (board[row][i] == 1)
                 return false;
@@ -44,11 +42,9 @@ public class NQueenProblem {
         return true;
     }
 
-    // A recursive utility function to solve N
-    // Queen problem
-    boolean solveNQUtil(int[][] board, int col)
-    {
-        // Base case: If all queens are placed
+    // A recursive utility function to solve an N Queen problem
+    boolean solveNQUtil(int[][] board, int col) {
+        // Base case: If all queens are placed,
         // then return true
         if (col >= N)
             return true;
@@ -65,18 +61,18 @@ public class NQueenProblem {
                 board[i][col] = 1;
 
                 // Recur to place rest of the queens
-                if (solveNQUtil(board, col + 1) == true)
+                if (solveNQUtil(board, col + 1))
                     return true;
 
                 // If placing queen in board[i][col]
-                // doesn't lead to a solution then
+                // doesn't lead to a solution, then
                 // remove queen from board[i][col]
                 board[i][col] = 0; // BACKTRACK
             }
         }
 
         // If the queen can not be placed in any row in
-        // this column col, then return false
+        // this column, col, then return false
         return false;
     }
 
@@ -86,16 +82,15 @@ public class NQueenProblem {
     // cannot be placed, otherwise, return true and
     // prints placement of queens in the form of 1s.
     // Please note that there may be more than one
-    // solutions, this function prints one of the
+    // solution, this function prints one of the
     // feasible solutions.
-    void solveNQ()
-    {
-        int board[][] = { { 0, 0, 0, 0 },
-                { 0, 0, 0, 0 },
-                { 0, 0, 0, 0 },
-                { 0, 0, 0, 0 } };
+    public void solveNQ() {
+        int[][] board = {{0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0},
+                {0, 0, 0, 0}};
 
-        if (solveNQUtil(board, 0) == false) {
+        if (!solveNQUtil(board, 0)) {
             System.out.print("Solution does not exist");
             return;
         }
@@ -103,9 +98,20 @@ public class NQueenProblem {
         printSolution(board);
     }
 
-    // Driver program to test above function
+    // Driver program to test the above function
     public static void main(String[] args) {
         NQueenProblem Queen = new NQueenProblem();
         Queen.solveNQ();
     }
 }
+
+/*
+Expected Output::
+
+. . Q .
+Q . . .
+. . . Q
+. Q . .
+
+* */
+

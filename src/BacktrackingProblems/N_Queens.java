@@ -20,6 +20,8 @@ Column = c;         |____|_Q1_|___|
 
 * */
 public class N_Queens {
+//    final int N = 4;
+
     public boolean isSafe(int rows, int columns, char[][] board) {
         // Check Horizontal Directions
         for (int j = 0; j < board.length; j++) {
@@ -35,9 +37,11 @@ public class N_Queens {
             }
         }
 
-        // Check Upper Left Directions   // cUP = Columns of Upper Left Directions
-        if ( int cUL = columns; int r = rows; cUL >= 0 && r >= 0; cUL--, r--){
-            if (board[r][cUL] == 'Q') {
+        // Check Upper Left Directions
+        int r = rows;
+
+        for (int cUP = columns; r >= 0 && cUP >= 0; r--, cUP--){
+            if (board[r][cUP]=='Q'){      // cUP = Columns of Upper-Left Directions
                 return false;
             }
         }
@@ -59,28 +63,29 @@ public class N_Queens {
         }
 
         // Check Lower Right Directions
-        r = rows;
+//        r = rows;
         for (int cLR = columns; cLR < board.length && r < board.length; cLR++, r++) {
             if (board[r][cLR] == 'Q') {   // cLR = Columns of Lower Right Directions
                 return false;
             }
         }
+        return true;
     }
 
     public void saveBoard(char[][] board, List<List<String>> allBoards) {
-        String rows = "";
+        StringBuilder rows; // = new StringBuilder();
         List<String> newBoard = new ArrayList<>();
 
-        for (int i = 0; i < board.length; i++) {
-            rows = "";
+        for (char[] chars : board) {
+            rows = new StringBuilder();
 
             for (int j = 0; j < board[0].length; j++) {
-                if (board[i][j] == 'Q')
-                    rows += 'Q';
+                if (chars[j] == 'Q')
+                    rows.append('Q');
                 else
-                    rows += '.';
+                    rows.append('.');
             }
-            newBoard.add(rows);
+            newBoard.add(rows.toString());
         }
         allBoards.add(newBoard);
     }
@@ -100,9 +105,9 @@ public class N_Queens {
         }
     }
 
-    public List<List<String>> solveN_Queens(int n) {
+    public List<List<String>> solveN_Queens(int N) {
         List<List<String>> allBoards = new ArrayList<>();
-        char[][] board = new char[n][n];
+        char[][] board = new char[N][N];
 
         helper(board, allBoards, 0);
 
@@ -110,6 +115,9 @@ public class N_Queens {
     }
 
     public static void main(String[] args) {
+        int N = 4;
+        N_Queens queens = new N_Queens();
+        queens.solveN_Queens(N);
 
     }
 }
@@ -117,6 +125,9 @@ public class N_Queens {
 /*
 Expected Output::
 
-Not Completed yet
+. . Q .
+Q . . .
+. . . Q
+. Q . .
 
 * */
