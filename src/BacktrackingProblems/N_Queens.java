@@ -35,11 +35,8 @@ public class N_Queens {
             }
         }
 
-        // Check Upper Left Directions
-        int r = rows;
-        if ( int cUL = columns;     // cUP = Columns of Upper Left Directions
-        cUL >= 0 && r >= 0;
-        cUL--, r--){
+        // Check Upper Left Directions   // cUP = Columns of Upper Left Directions
+        if ( int cUL = columns; int r = rows; cUL >= 0 && r >= 0; cUL--, r--){
             if (board[r][cUL] == 'Q') {
                 return false;
             }
