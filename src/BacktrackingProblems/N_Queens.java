@@ -22,6 +22,8 @@ Column = c;         |____|_Q1_|___|
 public class N_Queens {
 //    final int N = 4;
 
+    // TODO: 9/2/2023  Need to Modify the main method calling statements
+
     public boolean isSafe(int rows, int columns, char[][] board) {
         // Check Horizontal Directions
         for (int j = 0; j < board.length; j++) {
