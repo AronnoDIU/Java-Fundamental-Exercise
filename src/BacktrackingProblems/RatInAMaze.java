@@ -41,13 +41,12 @@ public class RatInAMaze {
                 && y < NSize && maze[x][y] == 1);
     }
 
-    /* This function solves the Maze problem using
-    Backtracking. It mainly uses solveMazeUtil()
-    to solve the problem. It returns false if no
-    path is possible, otherwise return true and
-    prints the path in the form of 1s. Please note
-    that there may be more than one solution, this
-    function prints one of the feasible solutions.*/
+    /* This function solves the Maze problem using Backtracking.
+    It mainly uses solveMazeUtil() to solve the problem.It returns false
+    if no path is possible, otherwise return true and prints the path in the form of 1s.
+
+    Please note that there may be more than one solution,
+    this function prints one of the feasible solutions.*/
     void solveMaze(int[][] maze) {
         int[][] solution = new int[NSize][NSize];
 
@@ -81,14 +80,12 @@ public class RatInAMaze {
             if (solveMazeUtil(maze, x + 1, y, solution))
                 return true;
 
-            /* If moving in x direction doesn't give
-            a solution, then Move down in y direction */
+            // If moving in x direction doesn't give a solution, then Move down in y direction.
             if (solveMazeUtil(maze, x, y + 1, solution))
                 return true;
 
-            /* If none of the above movements works then
-            BACKTRACK: unmark x, y as part of solution
-            path */
+            /* If none of the above movements works then BACKTRACK:
+            unmark x, y as part of solution path */
             solution[x][y] = 0;
             return false;
         }
