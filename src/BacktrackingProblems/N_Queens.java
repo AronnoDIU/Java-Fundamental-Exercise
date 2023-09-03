@@ -22,8 +22,6 @@ Column = c;         |____|_Q1_|___|
 public class N_Queens {
 //    final int N = 4;
 
-    // TODO: 9/2/2023  Need to Modify the main method calling statements
-
     public boolean isSafe(int rows, int columns, char[][] board) {
         // Check Horizontal Directions
         for (int j = 0; j < board.length; j++) {
@@ -42,8 +40,8 @@ public class N_Queens {
         // Check Upper Left Directions
         int r = rows;
 
-        for (int cUP = columns; r >= 0 && cUP >= 0; r--, cUP--){
-            if (board[r][cUP]=='Q'){      // cUP = Columns of Upper-Left Directions
+        for (int cUP = columns; r >= 0 && cUP >= 0; r--, cUP--) {
+            if (board[r][cUP] == 'Q') {      // cUP = Columns of Upper-Left Directions
                 return false;
             }
         }
@@ -119,7 +117,7 @@ public class N_Queens {
     public static void main(String[] args) {
         int N = 4;
         N_Queens queens = new N_Queens();
-        queens.solveN_Queens(N);
+        System.out.println(queens.solveN_Queens(N));
 
     }
 }
@@ -127,9 +125,6 @@ public class N_Queens {
 /*
 Expected Output::
 
-. . Q .
-Q . . .
-. . . Q
-. Q . .
+[[..Q., Q..., ...Q, .Q..], [.Q.., ...Q, Q..., ..Q.]]
 
 * */
