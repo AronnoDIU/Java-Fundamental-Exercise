@@ -21,7 +21,7 @@ public class ColoringGraphBFS {
     static int possiblePaint(ArrayList<Node> nodes, int n, int m) {
 
         // Create a visited array of n nodes
-        ArrayList<Integer> visited = new ArrayList<Integer>();
+        ArrayList<Integer> visited = new ArrayList<>();
         for (int i = 0; i < n + 1; i++) {
             visited.add(0);
         }
@@ -79,7 +79,7 @@ public class ColoringGraphBFS {
                 {1, 0, 1, 0}};
         int colorsNumber = 3; // Number of colors
 
-        ArrayList<Node> nodes = new ArrayList<Node>();
+        ArrayList<Node> nodes = new ArrayList<>();
 
         for (int i = 0; i < n + 1; i++) {
             nodes.add(new Node());
@@ -106,7 +106,7 @@ public class ColoringGraphBFS {
 
 class Node {
     int color = 1;
-    Set<Integer> edges = new HashSet<Integer>();
+    Set<Integer> edges = new HashSet<>();
 }
 
 /*Expected Output::
