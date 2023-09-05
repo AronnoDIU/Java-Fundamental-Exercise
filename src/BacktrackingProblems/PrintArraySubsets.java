@@ -21,18 +21,15 @@ public class PrintArraySubsets {
         // Add the current subset to the result list
         res.add(new ArrayList<>(subset));
 
-        // Generate subsets by recursively including and
-        // excluding elements
+        // Generate subsets by recursively including and excluding elements.
         for (int i = index; i < A.size(); i++) {
             // Include the current element in the subset
             subset.add(A.get(i));
 
-            // Recursively generate subsets with the current
-            // element included
+            // Recursively generate subsets with the current element included
             calcSubset(A, res, subset, i + 1);
 
-            // Exclude the current element from the subset
-            // (backtracking)
+            // Exclude the current element from the subset (backtracking)
             subset.remove(subset.size() - 1);
         }
     }
