@@ -38,18 +38,18 @@ public class CheckStringSummation {
 
             carry = (firstIndex + secondIndex + carry) / 10;
 
-            answer.insert(0, Character.toString((char) (ds + '0')));
+            answer.insert(0, (char) (ds + '0'));
         }
 
         for (int i = n; i < m; i++) {
             int firstIndex = firstString.charAt(m - 1 - i) - '0';
             int ds = (firstIndex + carry) % 10;
             carry = (firstIndex + carry) / 10;
-            answer.insert(0, Character.toString((char) (ds + '0')));
+            answer.insert(0, (char) (ds + '0'));
         }
 
         if (carry != 0) {
-            answer.insert(0, Character.toString((char) (carry + '0')));
+            answer.insert(0, (char) (carry + '0'));
         }
         return answer.toString();
     }
