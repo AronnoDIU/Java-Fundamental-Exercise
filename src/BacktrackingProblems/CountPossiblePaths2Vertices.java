@@ -6,7 +6,7 @@ import java.util.LinkedList;
 directed graph. These paths don’t contain a cycle, the simple enough reason is
 that a cycle contains an infinite number of paths and hence they create a problem*/
 
-/*    For the following Graph:
+/*    For the following AdjacentListGraph:
 
               >     B
              /       |    \
