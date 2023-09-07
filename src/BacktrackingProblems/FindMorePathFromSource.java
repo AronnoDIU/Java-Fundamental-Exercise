@@ -24,11 +24,8 @@ is more than 58.
 Input: Source s = 0, k = 62
 Output: False
 
-In the above graph, the longest simple
-path has distance 61 (0 -> 7 -> 1-> 2
- -> 3 -> 4 -> 5-> 6 -> 8, so output
-should be false for any input greater
-than 61.
+In the above graph, the longest simple path has distance 61 (0 -> 7 -> 1-> 2
+ -> 3 -> 4 -> 5-> 6 -> 8, so output should be false for any input greater than 61.
 */
 public class FindMorePathFromSource {
     static class AdjacentListNode {
