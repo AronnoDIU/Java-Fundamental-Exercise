@@ -16,6 +16,14 @@ public class CalendarExample {
         Date date = calendar.getTime();
         System.out.println(date);
 
+        /*This example creates a calendar, displays it, clones it and displays its clone.*/
+
+        // Cloning the original
+        Calendar copy_calendar = (Calendar) calendar.clone();
+
+        // Print copy calendar
+        System.out.println(copy_calendar.getTime());
+
 
          /*In this example, the CalendarClearExample class demonstrates the use
         of .clear() and .clear(field) methods. The first part clears all fields
@@ -103,8 +111,9 @@ public class CalendarExample {
 
 /*Expected Output::
 
-Fri Sep 08 09:15:59 BDT 2023
-Before clearing: Fri Sep 08 09:15:59 BDT 2023
+Fri Sep 08 12:06:24 BDT 2023
+Fri Sep 08 12:06:24 BDT 2023
+Before clearing: Fri Sep 08 12:06:24 BDT 2023
 After clearing all fields: Thu Jan 01 00:00:00 BDT 1970
 Before clearing specific field: Wed Jul 19 15:30:00 BDT 2023
 After clearing YEAR field: Sun Jul 19 15:30:00 BDT 1970
