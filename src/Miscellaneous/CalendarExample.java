@@ -16,6 +16,38 @@ public class CalendarExample {
         Date date = calendar.getTime();
         System.out.println(date);
 
+
+         /*In this example, the CalendarClearExample class demonstrates the use
+        of .clear() and .clear(field) methods. The first part clears all fields
+        of the Calendar instance, while the second part clears the YEAR field,
+        effectively setting it to its default value (which is 1970).*/
+
+
+        // Create a Calendar instance representing the current date and time
+        // Calendar calendar = Calendar.getInstance();
+
+        System.out.println("Before clearing: " + calendar.getTime());
+
+        // Clear all fields using clear()
+        calendar.clear();
+
+        System.out.println("After clearing all fields: " + calendar.getTime());
+
+        // Set the calendar to a specific date and time
+        calendar.set(Calendar.YEAR, 2023);
+        calendar.set(Calendar.MONTH, Calendar.JULY);
+        calendar.set(Calendar.DAY_OF_MONTH, 19);
+        calendar.set(Calendar.HOUR_OF_DAY, 15);
+        calendar.set(Calendar.MINUTE, 30);
+
+        System.out.println("Before clearing specific field: " + calendar.getTime());
+
+        // Clear the YEAR field using clear(int field)
+        calendar.clear(Calendar.YEAR);
+
+        System.out.println("After clearing YEAR field: " + calendar.getTime());
+
+
         /* In this example, calendar1 is set to August 1, 2023, and calendar2 is set to
         September 1, 2023. Then, the .after() method is used to compare these two instances.*/
 
@@ -71,7 +103,11 @@ public class CalendarExample {
 
 /*Expected Output::
 
-Fri Sep 08 08:31:33 BDT 2023
+Fri Sep 08 09:15:59 BDT 2023
+Before clearing: Fri Sep 08 09:15:59 BDT 2023
+After clearing all fields: Thu Jan 01 00:00:00 BDT 1970
+Before clearing specific field: Wed Jul 19 15:30:00 BDT 2023
+After clearing YEAR field: Sun Jul 19 15:30:00 BDT 1970
 calendar1 is not after calendar2
 myCalendar is before otherCalendar
 myCalendar is not before itself
