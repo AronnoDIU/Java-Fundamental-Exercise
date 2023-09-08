@@ -6,13 +6,13 @@ import java.util.Date;
 public class CalendarExample {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
-// calendar.set(2023, Calendar.SEPTEMBER, 8, 8, 27, 55);
-// calendar.set(Calendar.YEAR, 2023);
-// calendar.set(Calendar.MONTH, 0);
-// calendar.set(Calendar.DATE, 8);
-// calendar.set(Calendar.HOUR_OF_DAY, 0);
-// calendar.set(Calendar.MINUTE, 0);
-// calendar.set(Calendar.SECOND, 0);
+        // calendar.set(2023, Calendar.SEPTEMBER, 8, 8, 27, 55);
+        // calendar.set(Calendar.YEAR, 2023);
+        // calendar.set(Calendar.MONTH, 0);
+        // calendar.set(Calendar.DATE, 8);
+        // calendar.set(Calendar.HOUR_OF_DAY, 0);
+        // calendar.set(Calendar.MINUTE, 0);
+        // calendar.set(Calendar.SECOND, 0);
         Date date = calendar.getTime();
         System.out.println(date);
 
@@ -23,6 +23,20 @@ public class CalendarExample {
 
         // Print copy calendar
         System.out.println(copy_calendar.getTime());
+
+
+        // This example illustrates a basic implementation of the .compareTo() method:
+
+        int calenderValue = calendar.compareTo(copy_calendar);
+
+        // Displaying the result of comparison
+        System.out.println("First" + " comparison result is: " + calenderValue);
+
+        // Comparing the time
+        calenderValue = copy_calendar.compareTo(calendar);
+
+        // Displaying the result of comparison
+        System.out.println("Second"+ " comparison result is: "+ calenderValue);
 
 
          /*In this example, the CalendarClearExample class demonstrates the use
@@ -111,9 +125,11 @@ public class CalendarExample {
 
 /*Expected Output::
 
-Fri Sep 08 12:06:24 BDT 2023
-Fri Sep 08 12:06:24 BDT 2023
-Before clearing: Fri Sep 08 12:06:24 BDT 2023
+Fri Sep 08 12:12:46 BDT 2023
+Fri Sep 08 12:12:46 BDT 2023
+First comparison result is: 0
+Second comparison result is: 0
+Before clearing: Fri Sep 08 12:12:46 BDT 2023
 After clearing all fields: Thu Jan 01 00:00:00 BDT 1970
 Before clearing specific field: Wed Jul 19 15:30:00 BDT 2023
 After clearing YEAR field: Sun Jul 19 15:30:00 BDT 1970
