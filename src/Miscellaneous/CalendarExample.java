@@ -14,10 +14,27 @@ public class CalendarExample {
          calendar.set(Calendar.DATE, 8);
          calendar.set(Calendar.HOUR_OF_DAY, 0);
          calendar.set(Calendar.MINUTE, 0);
-         calendar.set(Calendar.SECOND, 0);      // Line 10 to 16, for user define time.
+         calendar.set(Calendar.SECOND, 0);      // Line 10 to 16, for user defines time.
 
         Date date = calendar.getTime();
         System.out.println(date);
+
+        /*This example demonstrates a basic implementation of the .get function.
+        The code acquires the present-year, Month, and day of the Month from a Calendar
+        instance, adjusting the Month representation to account for the 0-based index.*/
+
+        // Get the Year, Month, and day of the getMonth
+        int getYear = calendar.get(Calendar.YEAR);
+        // Month values are 0-based (0 = January, 11 = December)
+        int getMonth = calendar.get(Calendar.MONTH);
+        int getDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Display the retrieved values
+        System.out.println("Current Year: " + getYear);
+        // Adding 1 to adjust for 0-based months
+        System.out.println("Current Month: " + (getMonth + 1));
+        System.out.println("Day of the Month: " + getDayOfMonth);
+
 
         /*This example creates a calendar, displays it, clones it and displays its clone.*/
 
@@ -50,7 +67,7 @@ public class CalendarExample {
         // Clear the calendar
         calendar.clear();
 
-        // Set a new year and call complete()
+        // Set a new getYear and call complete()
         calendar.set(Calendar.YEAR, 2021);
 //        calendar.complete();
 
@@ -62,10 +79,6 @@ public class CalendarExample {
         of .clear() and .clear(field) methods. The first part clears all fields
         of the Calendar instance, while the second part clears the YEAR field,
         effectively setting it to its default value (which is 1970).*/
-
-
-        // Create a Calendar instance representing the current date and time
-        // Calendar calendar = Calendar.getInstance();
 
         System.out.println("Before clearing: " + calendar.getTime());
 
@@ -145,6 +158,9 @@ public class CalendarExample {
 /*Expected Output::
 
 Sun Jan 08 00:00:00 BDT 2023
+Current Year: 2023
+Current Month: 1
+Day of the Month: 8
 Sun Jan 08 00:00:00 BDT 2023
 First comparison result is: 0
 Second comparison result is: 0
