@@ -36,6 +36,21 @@ public class CalendarExample {
         System.out.println("Day of the Month: " + getDayOfMonth);
 
 
+        /*This example employs the Calendar class to set a fixed date (July 16, 2022) within
+        a Calendar instance. It retrieves the year, month, and day of the month from the
+        configured instance and displays them in a formatted output on the console.*/
+
+        calendar.set(2022, Calendar.JULY, 16);
+
+        // Get the year, month, and day of the month
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+
+        // Display the retrieved values
+        System.out.println("Fixed Date: " + year + "-" + (month + 1) + "-" + dayOfMonth);
+
+
         /*This example creates a calendar, displays it, clones it and displays its clone.*/
 
         // Cloning the original
@@ -161,10 +176,11 @@ Sun Jan 08 00:00:00 BDT 2023
 Current Year: 2023
 Current Month: 1
 Day of the Month: 8
-Sun Jan 08 00:00:00 BDT 2023
+Fixed Date: 2022-7-16
+Sat Jul 16 00:00:00 BDT 2022
 First comparison result is: 0
 Second comparison result is: 0
-The current date is : Sun Jan 08 00:00:00 BDT 2023
+The current date is : Sat Jul 16 00:00:00 BDT 2022
 New date is : Fri Jan 01 00:00:00 BDT 2021
 Before clearing: Fri Jan 01 00:00:00 BDT 2021
 After clearing all fields: Thu Jan 01 00:00:00 BDT 1970
