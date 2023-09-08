@@ -1,21 +1,20 @@
 package Miscellaneous;
 
 //import java.util.GregorianCalendar;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Set;
+
+import java.util.*;
 
 public class CalendarExample {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
 
-         calendar.set(2023, Calendar.SEPTEMBER, 8, 8, 27, 55);
-         calendar.set(Calendar.YEAR, 2023);
-         calendar.set(Calendar.MONTH, 0);
-         calendar.set(Calendar.DATE, 8);
-         calendar.set(Calendar.HOUR_OF_DAY, 0);
-         calendar.set(Calendar.MINUTE, 0);
-         calendar.set(Calendar.SECOND, 0);      // Line 10 to 16, for user defines time.
+        calendar.set(2023, Calendar.SEPTEMBER, 8, 8, 27, 55);
+        calendar.set(Calendar.YEAR, 2023);
+        calendar.set(Calendar.MONTH, 0);
+        calendar.set(Calendar.DATE, 8);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);      // Line 10 to 16, for user defines time.
 
         Date date = calendar.getTime();
         System.out.println(date);
@@ -73,9 +72,47 @@ public class CalendarExample {
 
         System.out.println(" All available calendar types: ");
         Set<String> set = Calendar.getAvailableCalendarTypes();
-        for(Object s:set){
+        for (Object s : set) {
             System.out.println(s);
         }
+
+        /*In the following example, .getDisplayNames() returns a map containing all the days
+        of the week in short form for the US locale.The days are paired with integer values
+        representing the index of the day in the week (Sunday is 1, Monday is 2, etc.).*/
+
+        Map<String, Integer> map =
+                calendar.getDisplayNames(Calendar.DAY_OF_WEEK, Calendar.SHORT, Locale.US);
+
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+
+        /*In the example below, a Calendar object is created and the current
+        date is retrieved using the .getTime() method.*/
+
+        // Get the current date object
+        Date currentDate = calendar.getTime();
+
+        // Print the current date
+        System.out.println("Current date: " + currentDate);
+
+        /*This example code creates a Calendar object, records the current time,
+        sets a new time, and then prints the difference.*/
+
+        // Get the current time in milliseconds
+        long currentTime = calendar.getTimeInMillis();
+
+        // Sets the time back to 12:00 AM today
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+
+        // Get the time in milliseconds of 12:00 AM today
+        long earlierToday = calendar.getTimeInMillis();
+
+        // Prints current number of milliseconds that have passed today
+        System.out.println("Time passed today so far in milliseconds: " + (currentTime - earlierToday));
 
 
         /*This example creates a calendar, displays it, clones it and displays its clone.*/
@@ -98,7 +135,7 @@ public class CalendarExample {
         calenderValue = copy_calendar.compareTo(calendar);
 
         // Displaying the result of comparison
-        System.out.println("Second"+ " comparison result is: "+ calenderValue);
+        System.out.println("Second" + " comparison result is: " + calenderValue);
 
 
         // The example below demonstrates the use of the .complete() method.
@@ -177,7 +214,7 @@ public class CalendarExample {
         }
 
         // Check if the calendar is before itself
-        if(myCalendar.before(myCalendar)) {
+        if (myCalendar.before(myCalendar)) {
             System.out.println("myCalendar is before itself");
         } else {
             System.out.println("myCalendar is not before itself");
@@ -209,6 +246,15 @@ Maximum day of the month: 29
 japanese
 buddhist
 gregory
+Thu : 5
+Tue : 3
+Wed : 4
+Sat : 7
+Fri : 6
+Sun : 1
+Mon : 2
+Current date: Thu Feb 16 00:00:00 BDT 2012
+Time passed today so far in milliseconds: 473
 Thu Feb 16 00:00:00 BDT 2012
 First comparison result is: 0
 Second comparison result is: 0
