@@ -3,6 +3,7 @@ package Miscellaneous;
 //import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 public class CalendarExample {
     public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class CalendarExample {
 
 
         /*This example employs the Calendar class to set a fixed date (July 16, 2022) within
-        a Calendar instance. It retrieves the year, month, and day of the month from the
+        a Calendar instance.It retrieves the year, month, and day of the month from the
         configured instance and displays them in a formatted output on the console.*/
 
         calendar.set(2022, Calendar.JULY, 16);
@@ -49,6 +50,32 @@ public class CalendarExample {
 
         // Display the retrieved values
         System.out.println("Fixed Date: " + year + "-" + (month + 1) + "-" + dayOfMonth);
+
+
+        /*In the following example, .getActualMaximum() is used to retrieve the maximum value
+        of both the Calendar.MONTH and Calendar.YEAR fields.This example will return the
+        maximum day in the month of February of the year 2012*/
+
+        // Set the year field to 2012
+        calendar.set(Calendar.YEAR, 2012);
+
+        // Set the month field to February
+        calendar.set(Calendar.MONTH, Calendar.FEBRUARY);
+
+        // Retrieve the actual maximum day in February of the year 2012
+        int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        // Print the result
+        System.out.println("Maximum day of the month: " + maxDay);
+
+
+        /*The following example demonstrates the basic use of the method.*/
+
+        System.out.println(" All available calendar types: ");
+        Set<String> set = Calendar.getAvailableCalendarTypes();
+        for(Object s:set){
+            System.out.println(s);
+        }
 
 
         /*This example creates a calendar, displays it, clones it and displays its clone.*/
@@ -177,10 +204,15 @@ Current Year: 2023
 Current Month: 1
 Day of the Month: 8
 Fixed Date: 2022-7-16
-Sat Jul 16 00:00:00 BDT 2022
+Maximum day of the month: 29
+ All available calendar types:
+japanese
+buddhist
+gregory
+Thu Feb 16 00:00:00 BDT 2012
 First comparison result is: 0
 Second comparison result is: 0
-The current date is : Sat Jul 16 00:00:00 BDT 2022
+The current date is : Thu Feb 16 00:00:00 BDT 2012
 New date is : Fri Jan 01 00:00:00 BDT 2021
 Before clearing: Fri Jan 01 00:00:00 BDT 2021
 After clearing all fields: Thu Jan 01 00:00:00 BDT 1970
