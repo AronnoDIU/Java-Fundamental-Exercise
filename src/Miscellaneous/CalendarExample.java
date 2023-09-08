@@ -1,18 +1,21 @@
 package Miscellaneous;
 
+//import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.util.Date;
 
 public class CalendarExample {
     public static void main(String[] args) {
         Calendar calendar = Calendar.getInstance();
-        // calendar.set(2023, Calendar.SEPTEMBER, 8, 8, 27, 55);
-        // calendar.set(Calendar.YEAR, 2023);
-        // calendar.set(Calendar.MONTH, 0);
-        // calendar.set(Calendar.DATE, 8);
-        // calendar.set(Calendar.HOUR_OF_DAY, 0);
-        // calendar.set(Calendar.MINUTE, 0);
-        // calendar.set(Calendar.SECOND, 0);
+
+         calendar.set(2023, Calendar.SEPTEMBER, 8, 8, 27, 55);
+         calendar.set(Calendar.YEAR, 2023);
+         calendar.set(Calendar.MONTH, 0);
+         calendar.set(Calendar.DATE, 8);
+         calendar.set(Calendar.HOUR_OF_DAY, 0);
+         calendar.set(Calendar.MINUTE, 0);
+         calendar.set(Calendar.SECOND, 0);      // Line 10 to 16, for user define time.
+
         Date date = calendar.getTime();
         System.out.println(date);
 
@@ -37,6 +40,22 @@ public class CalendarExample {
 
         // Displaying the result of comparison
         System.out.println("Second"+ " comparison result is: "+ calenderValue);
+
+
+        // The example below demonstrates the use of the .complete() method.
+
+        // Print the current date
+        System.out.println("The current date is : " + calendar.getTime());
+
+        // Clear the calendar
+        calendar.clear();
+
+        // Set a new year and call complete()
+        calendar.set(Calendar.YEAR, 2021);
+//        calendar.complete();
+
+        // Print the current date
+        System.out.println("New date is : " + calendar.getTime());
 
 
          /*In this example, the CalendarClearExample class demonstrates the use
@@ -125,11 +144,13 @@ public class CalendarExample {
 
 /*Expected Output::
 
-Fri Sep 08 12:12:46 BDT 2023
-Fri Sep 08 12:12:46 BDT 2023
+Sun Jan 08 00:00:00 BDT 2023
+Sun Jan 08 00:00:00 BDT 2023
 First comparison result is: 0
 Second comparison result is: 0
-Before clearing: Fri Sep 08 12:12:46 BDT 2023
+The current date is : Sun Jan 08 00:00:00 BDT 2023
+New date is : Fri Jan 01 00:00:00 BDT 2021
+Before clearing: Fri Jan 01 00:00:00 BDT 2021
 After clearing all fields: Thu Jan 01 00:00:00 BDT 1970
 Before clearing specific field: Wed Jul 19 15:30:00 BDT 2023
 After clearing YEAR field: Sun Jul 19 15:30:00 BDT 1970
