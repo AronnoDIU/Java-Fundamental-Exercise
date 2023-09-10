@@ -17,7 +17,7 @@ Examples:
 
 /*Follow the given steps to solve the problem:
 
-    1. Create a function permute() with parameters as input string,
+    1. Create a function makePermutations() with parameters as input string,
     starting index of the string, ending index of string
     2. Call this function with values input string, 0, size of string – 1
          a). In this function, if the value of L and R is the same, then print the same string
@@ -26,46 +26,57 @@ Examples:
          c). Then again, call this same function by increasing the value of L by 1
          d). After that again swap the previously swapped values to initiate backtracking */
 public class PermutationsOfGivenString {
-    public static void main(String[] args) {
-        String str = "ABC";
-        int n = str.length();
-        PermutationsOfGivenString permutation = new PermutationsOfGivenString();
-        permutation.permute(str, 0, n - 1);
-    }
-
     /**
      * permutation function
-     * @param str string to calculate permutation for
-     * @param l starting index
-     * @param r end index
+     *
+     * @param string string to calculate permutation for
+     * @param indexL starting index
+     * @param indexR end index
      */
-    private void permute(String str, int l, int r)
-    {
-        if (l == r)
-            System.out.println(str);
+    private void makePermutations(String string, int indexL, int indexR) {
+        if (indexL == indexR)
+            System.out.println(string);
         else {
-            for (int i = l; i <= r; i++) {
-                str = swap(str, l, i);
-                permute(str, l + 1, r);
-                str = swap(str, l, i);
+            for (int i = indexL; i <= indexR; i++) {
+                string = swap(string, indexL, i);
+                makePermutations(string, indexL + 1, indexR);
+                string = swap(string, indexL, i);
             }
         }
     }
 
     /**
      * Swap Characters at position
-     * @param a string value
-     * @param i position 1
-     * @param j position 2
+     *
+     * @param stringValue string value
+     * @param positionI   position 1
+     * @param positionJ   position 2
      * @return swapped string
      */
-    public String swap(String a, int i, int j)
-    {
-        char temp;
-        char[] charArray = a.toCharArray();
-        temp = charArray[i];
-        charArray[i] = charArray[j];
-        charArray[j] = temp;
+    public String swap(String stringValue, int positionI, int positionJ) {
+        char temporaryValue;
+        char[] charArray = stringValue.toCharArray();
+        temporaryValue = charArray[positionI];
+        charArray[positionI] = charArray[positionJ];
+        charArray[positionJ] = temporaryValue;
         return String.valueOf(charArray);
     }
+
+    public static void main(String[] args) {
+        String string = "ABC";
+        int stringLength = string.length();
+        PermutationsOfGivenString permutation = new PermutationsOfGivenString();
+        permutation.makePermutations(string, 0, stringLength - 1);
+    }
 }
+
+/*Expected Output::
+
+ABC
+ACB
+BAC
+BCA
+CBA
+CAB
+
+* */
