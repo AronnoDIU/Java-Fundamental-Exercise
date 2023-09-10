@@ -17,7 +17,7 @@ Examples:
 
 /*Follow the given steps to solve the problem:
 
-    1. Create a function makePermutations() with parameters as input string,
+    1. Create a function makePermutation() with parameters as input string,
     starting index of the string, ending index of string
     2. Call this function with values input string, 0, size of string – 1
          a). In this function, if the value of L and R is the same, then print the same string
@@ -27,19 +27,18 @@ Examples:
          d). After that again swap the previously swapped values to initiate backtracking */
 public class PermutationsOfGivenString {
     /**
-     * permutation function
-     *
+     * makePermutation method
      * @param string string to calculate permutation for
      * @param indexL starting index
      * @param indexR end index
      */
-    private void makePermutations(String string, int indexL, int indexR) {
+    private void makePermutation(String string, int indexL, int indexR) {
         if (indexL == indexR)
             System.out.println(string);
         else {
             for (int i = indexL; i <= indexR; i++) {
                 string = swap(string, indexL, i);
-                makePermutations(string, indexL + 1, indexR);
+                makePermutation(string, indexL + 1, indexR);
                 string = swap(string, indexL, i);
             }
         }
@@ -66,7 +65,7 @@ public class PermutationsOfGivenString {
         String string = "ABC";
         int stringLength = string.length();
         PermutationsOfGivenString permutation = new PermutationsOfGivenString();
-        permutation.makePermutations(string, 0, stringLength - 1);
+        permutation.makePermutation(string, 0, stringLength - 1);
     }
 }
 
