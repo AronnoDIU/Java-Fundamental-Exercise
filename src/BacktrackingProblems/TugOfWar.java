@@ -74,34 +74,28 @@ public class TugOfWar {
     void tugOfWar(int[] array) {
         int arrayLength = array.length;
 
-        // the boolean array that contains the
-        // inclusion and exclusion of an element
-        // in current set. The number excluded
-        // automatically form the other set
-        boolean[] curr_elements = new boolean[arrayLength];
+        // the boolean array that contains the inclusion and exclusion of an element
+        // in current set. The number excluded automatically form the other set
+        boolean[] currentElements = new boolean[arrayLength];
 
-        // The inclusion/exclusion array for
-        // final solution
+        // The inclusion/exclusion array for final solution
         boolean[] solution = new boolean[arrayLength];
 
         minimumDifference = Integer.MAX_VALUE;
 
-        int sum = 0;
-        for (int i = 0; i < arrayLength; i++)
-        {
-            sum += array[i];
-            curr_elements[i] = solution[i] = false;
+        int summation = 0;
+        for (int i = 0; i < arrayLength; i++) {
+            summation += array[i];
+            currentElements[i] = solution[i] = false;
         }
 
-        // Find the solution using recursive
-        // function TOWUtil()
-        TOWUtil(array, arrayLength, curr_elements, 0,
-                solution, sum, 0, 0);
+        // Find the solution using recursive function TOWUtil()
+        TOWUtil(array, arrayLength, currentElements, 0,
+                solution, summation, 0, 0);
 
         // Print the solution
         System.out.print("The first subset is: ");
-        for (int i = 0; i < arrayLength; i++)
-        {
+        for (int i = 0; i < arrayLength; i++) {
             if (solution[i])
                 System.out.print(array[i] + " ");
         }
@@ -113,9 +107,8 @@ public class TugOfWar {
         }
     }
     public static void main(String[] args) {
-        int[] array = {23, 45, -34, 12, 0, 98,
-                -99, 4, 189, -1, 4};
-        TugOfWar a = new TugOfWar();
-        a.tugOfWar(array);
+        int[] array = {23, 45, -34, 12, 0, 98, -99, 4, 189, -1, 4};
+        TugOfWar tugOfWar = new TugOfWar();
+        tugOfWar.tugOfWar(array);
     }
 }
