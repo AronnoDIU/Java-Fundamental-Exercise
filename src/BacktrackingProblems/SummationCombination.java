@@ -19,29 +19,32 @@ Examples:
     [2, 2, 4]
     [2, 6]
     [4, 4]
-    [8]*/
+    [8] */
+
 public class SummationCombination {
-    static ArrayList<ArrayList<Integer>>
+    public static ArrayList<ArrayList<Integer>>
     combinationSummation(ArrayList<Integer> integerArrayList, int summation) {
 
         ArrayList<ArrayList<Integer>> Answer = new ArrayList<>();
         ArrayList<Integer> temporaryList = new ArrayList<>();
 
-        // first do hashing since hashset does not always sort
-        // removing the duplicates using HashSet and Sorting the arrayList
+        // first do hashing since hashset does not always sort removing
+        // the duplicates using HashSet and Sorting the arrayList
 
         Set<Integer> integerHashSet = new HashSet<>(integerArrayList);
+
         integerArrayList.clear();
         integerArrayList.addAll(integerHashSet);
         Collections.sort(integerArrayList);
 
         findNumbers(Answer, integerArrayList, summation, 0, temporaryList);
+
         return Answer;
     }
 
-    static void findNumbers(ArrayList<ArrayList<Integer>> answerList,
-                            ArrayList<Integer> integerArrayList, int summation,
-                            int index, ArrayList<Integer> temporaryList) {
+    public static void
+    findNumbers(ArrayList<ArrayList<Integer>> answerList, ArrayList<Integer> integerArrayList,
+                int summation, int index, ArrayList<Integer> temporaryList) {
 
         if (summation == 0) {
 
@@ -58,8 +61,8 @@ public class SummationCombination {
                 // adding element which can contribute to summation
                 temporaryList.add(integerArrayList.get(i));
 
-                findNumbers(answerList, integerArrayList,
-                        summation - integerArrayList.get(i), i, temporaryList);
+                findNumbers(answerList, integerArrayList, summation
+                        - integerArrayList.get(i), i, temporaryList);
 
                 // removing element from list (backtracking)
                 temporaryList.remove(integerArrayList.get(i));
@@ -78,8 +81,8 @@ public class SummationCombination {
 
         int summation = 8;
 
-        ArrayList<ArrayList<Integer>> answerList
-                = combinationSummation(integerArrayList, summation);
+        ArrayList<ArrayList<Integer>>
+                answerList = combinationSummation(integerArrayList, summation);
 
         // If result is empty
         if (answerList.isEmpty()) {
