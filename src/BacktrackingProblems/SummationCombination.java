@@ -22,83 +22,76 @@ Examples:
     [8]*/
 public class SummationCombination {
     static ArrayList<ArrayList<Integer>>
-    combinationSum(ArrayList<Integer> arr, int sum) {
-        ArrayList<ArrayList<Integer> > ans
-                = new ArrayList<>();
-        ArrayList<Integer> temp = new ArrayList<>();
+    combinationSummation(ArrayList<Integer> integerArrayList, int summation) {
 
-        // first do hashing since hashset does not always
-        // sort
-        //  removing the duplicates using HashSet and
-        // Sorting the arrayList
+        ArrayList<ArrayList<Integer>> Answer = new ArrayList<>();
+        ArrayList<Integer> temporaryList = new ArrayList<>();
 
-        Set<Integer> set = new HashSet<>(arr);
-        arr.clear();
-        arr.addAll(set);
-        Collections.sort(arr);
+        // first do hashing since hashset does not always sort
+        // removing the duplicates using HashSet and Sorting the arrayList
 
-        findNumbers(ans, arr, sum, 0, temp);
-        return ans;
+        Set<Integer> integerHashSet = new HashSet<>(integerArrayList);
+        integerArrayList.clear();
+        integerArrayList.addAll(integerHashSet);
+        Collections.sort(integerArrayList);
+
+        findNumbers(Answer, integerArrayList, summation, 0, temporaryList);
+        return Answer;
     }
 
-    static void
-    findNumbers(ArrayList<ArrayList<Integer> > ans,
-                ArrayList<Integer> arr, int sum, int index,
-                ArrayList<Integer> temp)
-    {
+    static void findNumbers(ArrayList<ArrayList<Integer>> answerList,
+                            ArrayList<Integer> integerArrayList, int summation,
+                            int index, ArrayList<Integer> temporaryList) {
 
-        if (sum == 0) {
+        if (summation == 0) {
 
-            // Adding deep copy of list to ans
-
-            ans.add(new ArrayList<>(temp));
+            // Adding deep copy of list to answerList
+            answerList.add(new ArrayList<>(temporaryList));
             return;
         }
 
-        for (int i = index; i < arr.size(); i++) {
+        for (int i = index; i < integerArrayList.size(); i++) {
 
-            // checking that sum does not become negative
+            // checking that summation does not become negative
+            if ((summation - integerArrayList.get(i)) >= 0) {
 
-            if ((sum - arr.get(i)) >= 0) {
+                // adding element which can contribute to summation
+                temporaryList.add(integerArrayList.get(i));
 
-                // adding element which can contribute to
-                // sum
-
-                temp.add(arr.get(i));
-
-                findNumbers(ans, arr, sum - arr.get(i), i,
-                        temp);
+                findNumbers(answerList, integerArrayList,
+                        summation - integerArrayList.get(i), i, temporaryList);
 
                 // removing element from list (backtracking)
-                temp.remove(arr.get(i));
+                temporaryList.remove(integerArrayList.get(i));
             }
         }
     }
+
     public static void main(String[] args) {
-        ArrayList<Integer> arr = new ArrayList<>();
 
-        arr.add(2);
-        arr.add(4);
-        arr.add(6);
-        arr.add(8);
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
 
-        int sum = 8;
+        integerArrayList.add(2);
+        integerArrayList.add(4);
+        integerArrayList.add(6);
+        integerArrayList.add(8);
 
-        ArrayList<ArrayList<Integer> > ans
-                = combinationSum(arr, sum);
+        int summation = 8;
 
-        // If result is empty, then
-        if (ans.isEmpty()) {
+        ArrayList<ArrayList<Integer>> answerList
+                = combinationSummation(integerArrayList, summation);
+
+        // If result is empty
+        if (answerList.isEmpty()) {
             System.out.println("Empty");
             return;
         }
 
-        // print all combinations stored in ans
-
-        for (ArrayList<Integer> an : ans) {
+        // print all combinations stored in answerList
+        for (ArrayList<Integer> EnhancedAnswerList : answerList) {
 
             System.out.print("(");
-            for (Integer integer : an) {
+            for (Integer integer : EnhancedAnswerList) {
                 System.out.print(integer + " ");
             }
             System.out.print(") ");
