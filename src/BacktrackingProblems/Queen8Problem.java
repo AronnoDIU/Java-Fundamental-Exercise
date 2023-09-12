@@ -38,25 +38,21 @@ public class Queen8Problem {
                 return false;
 
         // check if there is a queen in the lower left diagonal
-        for (int x = Rows, y = Column; x < N && y >= 0;
-             x++, y--)
+        for (int x = Rows, y = Column; x < N && y >= 0; x++, y--)
             if (board[x][y] == 1)
                 return false;
 
-        // if there is no queen in any of the above
-        // positions, then it is safe to place a queen
+        // if there is no queen in any of the above positions, then it is safe to place a queen
         return true;
     }
 
-    // function to solve the N-queens problem using
-    // backtracking
-    static boolean solveNQueens(int[][] board, int col)
-    {
+    // function to solve the N-queens problem using backtracking
+    static boolean solveNQueens(int[][] board, int Column) {
 
         // if all queens are placed, print the board
-        if (col == N) {
-            for (int[] row : board)
-                System.out.println(Arrays.toString(row));
+        if (Column == N) {
+            for (int[] Rows : board)
+                System.out.println(Arrays.toString(Rows));
             System.out.println();
             return true;
         }
@@ -64,14 +60,14 @@ public class Queen8Problem {
         // try placing a queen in each row of the current
         // column
         for (int i = 0; i < N; i++) {
-            if (isSafe(board, i, col)) {
-                board[i][col] = 1; // place the queen
-                if (solveNQueens(board, col + 1))
+            if (isSafe(board, i, Column)) {
+                board[i][Column] = 1; // place the queen
+                if (solveNQueens(board, Column + 1))
                     return true;
 
                 // backtrack if placing the queen doesn't
                 // lead to a solution
-                board[i][col] = 0;
+                board[i][Column] = 0;
             }
         }
 
