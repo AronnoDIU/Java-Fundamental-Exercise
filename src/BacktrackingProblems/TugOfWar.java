@@ -25,109 +25,91 @@ When the size of current set becomes n/2, we check whether these
 solutions are better than the best solution available so far.
 If it is, then we update the best solution.*/
 public class TugOfWar {
-    public int min_diff;
+    public int minimumDifference;
 
     // function that tries every possible solution
     // by calling itself recursively
-    void TOWUtil(int[] arr, int n, boolean[] currentElements,
+    void TOWUtil(int[] array, int number, boolean[] currentElements,
                  int numberOfSelectedElements, boolean[] solution,
-                 int summation, int currentSummation, int curr_position)
-    {
+                 int summation, int currentSummation, int currentPosition) {
         // checks whether it is going out of bound
-        if (curr_position == n)
+        if (currentPosition == number)
             return;
 
-        // checks that the numbers of elements left
-        // are not less than the number of elements
-        // required to form the solution
-        if ((n / 2 - numberOfSelectedElements) >
-                (n - curr_position))
+        // checks that the numbers of elements left are not less than
+        // the number of elements required to form the solution.
+        if ((number / 2 - numberOfSelectedElements) > (number - currentPosition))
             return;
 
         // consider the cases when current element
         // is not included in the solution
-        TOWUtil(arr, n, currentElements,
-                numberOfSelectedElements, solution, summation,
-                currentSummation, curr_position+1);
+        TOWUtil(array, number, currentElements, numberOfSelectedElements,
+                solution, summation, currentSummation, currentPosition+1);
 
         // add the current element to the solution
         numberOfSelectedElements++;
-        currentSummation = currentSummation + arr[curr_position];
-        currentElements[curr_position] = true;
+        currentSummation = currentSummation + array[currentPosition];
+        currentElements[currentPosition] = true;
 
         // checks if a solution is formed
-        if (numberOfSelectedElements == n / 2)
-        {
-            // checks if the solution formed is
-            // better than the best solution so
-            // far
-            if (Math.abs(summation / 2 - currentSummation) <
-                    min_diff)
-            {
-                min_diff = Math.abs(summation / 2 -
-                        currentSummation);
-                for (int i = 0; i < n; i++)
-                    solution[i] = currentElements[i];
+        if (numberOfSelectedElements == number / 2) {
+            // checks if the solution formed is better than the best solution so far
+            if (Math.abs(summation / 2 - currentSummation) < minimumDifference) {
+                minimumDifference = Math.abs(summation / 2 - currentSummation);
+                if (number >= 0)
+                    System.arraycopy(currentElements, 0, solution, 0, number);
             }
         }
-        else
-        {
-            // consider the cases where current
-            // element is included in the
-            // solution
-            TOWUtil(arr, n, currentElements,
-                    numberOfSelectedElements,
-                    solution, summation, currentSummation,
-                    curr_position + 1);
+        else {
+            // consider the cases where current element is included in the solution
+            TOWUtil(array, number, currentElements, numberOfSelectedElements,
+                    solution, summation, currentSummation, currentPosition + 1);
         }
 
-        // removes current element before
-        // returning to the caller of this
-        // function
-        currentElements[curr_position] = false;
+        // removes current element before returning to the caller of this function
+        currentElements[currentPosition] = false;
     }
 
-    // main function that generate an arr
-    void tugOfWar(int[] arr)
-    {
-        int n = arr.length;
+    // main function that generate an array
+    void tugOfWar(int[] array) {
+        int arrayLength = array.length;
 
         // the boolean array that contains the
         // inclusion and exclusion of an element
         // in current set. The number excluded
         // automatically form the other set
-        boolean[] curr_elements = new boolean[n];
+        boolean[] curr_elements = new boolean[arrayLength];
 
         // The inclusion/exclusion array for
         // final solution
-        boolean[] solution = new boolean[n];
+        boolean[] solution = new boolean[arrayLength];
 
-        min_diff = Integer.MAX_VALUE;
+        minimumDifference = Integer.MAX_VALUE;
 
         int sum = 0;
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < arrayLength; i++)
         {
-            sum += arr[i];
+            sum += array[i];
             curr_elements[i] = solution[i] = false;
         }
 
         // Find the solution using recursive
         // function TOWUtil()
-        TOWUtil(arr, n, curr_elements, 0,
+        TOWUtil(array, arrayLength, curr_elements, 0,
                 solution, sum, 0, 0);
 
         // Print the solution
         System.out.print("The first subset is: ");
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < arrayLength; i++)
         {
             if (solution[i])
-                System.out.print(arr[i] + " ");
+                System.out.print(array[i] + " ");
         }
         System.out.print("\nThe second subset is: ");
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < arrayLength; i++)
         {
             if (!solution[i])
-                System.out.print(arr[i] + " ");
+                System.out.print(array[i] + " ");
         }
     }
     public static void main(String[] args) {
