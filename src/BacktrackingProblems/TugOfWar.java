@@ -29,45 +29,45 @@ public class TugOfWar {
 
     // function that tries every possible solution
     // by calling itself recursively
-    void TOWUtil(int arr[], int n, boolean curr_elements[],
-                 int no_of_selected_elements, boolean soln[],
-                 int sum, int curr_sum, int curr_position)
+    void TOWUtil(int[] arr, int n, boolean[] currentElements,
+                 int numberOfSelectedElements, boolean[] solution,
+                 int summation, int currentSummation, int curr_position)
     {
-        // checks whether the it is going out of bound
+        // checks whether it is going out of bound
         if (curr_position == n)
             return;
 
         // checks that the numbers of elements left
         // are not less than the number of elements
         // required to form the solution
-        if ((n / 2 - no_of_selected_elements) >
+        if ((n / 2 - numberOfSelectedElements) >
                 (n - curr_position))
             return;
 
         // consider the cases when current element
         // is not included in the solution
-        TOWUtil(arr, n, curr_elements,
-                no_of_selected_elements, soln, sum,
-                curr_sum, curr_position+1);
+        TOWUtil(arr, n, currentElements,
+                numberOfSelectedElements, solution, summation,
+                currentSummation, curr_position+1);
 
         // add the current element to the solution
-        no_of_selected_elements++;
-        curr_sum = curr_sum + arr[curr_position];
-        curr_elements[curr_position] = true;
+        numberOfSelectedElements++;
+        currentSummation = currentSummation + arr[curr_position];
+        currentElements[curr_position] = true;
 
         // checks if a solution is formed
-        if (no_of_selected_elements == n / 2)
+        if (numberOfSelectedElements == n / 2)
         {
             // checks if the solution formed is
             // better than the best solution so
             // far
-            if (Math.abs(sum / 2 - curr_sum) <
+            if (Math.abs(summation / 2 - currentSummation) <
                     min_diff)
             {
-                min_diff = Math.abs(sum / 2 -
-                        curr_sum);
+                min_diff = Math.abs(summation / 2 -
+                        currentSummation);
                 for (int i = 0; i < n; i++)
-                    soln[i] = curr_elements[i];
+                    solution[i] = currentElements[i];
             }
         }
         else
@@ -75,20 +75,20 @@ public class TugOfWar {
             // consider the cases where current
             // element is included in the
             // solution
-            TOWUtil(arr, n, curr_elements,
-                    no_of_selected_elements,
-                    soln, sum, curr_sum,
+            TOWUtil(arr, n, currentElements,
+                    numberOfSelectedElements,
+                    solution, summation, currentSummation,
                     curr_position + 1);
         }
 
         // removes current element before
         // returning to the caller of this
         // function
-        curr_elements[curr_position] = false;
+        currentElements[curr_position] = false;
     }
 
     // main function that generate an arr
-    void tugOfWar(int arr[])
+    void tugOfWar(int[] arr)
     {
         int n = arr.length;
 
@@ -100,7 +100,7 @@ public class TugOfWar {
 
         // The inclusion/exclusion array for
         // final solution
-        boolean[] soln = new boolean[n];
+        boolean[] solution = new boolean[n];
 
         min_diff = Integer.MAX_VALUE;
 
@@ -108,32 +108,32 @@ public class TugOfWar {
         for (int i = 0; i < n; i++)
         {
             sum += arr[i];
-            curr_elements[i] = soln[i] = false;
+            curr_elements[i] = solution[i] = false;
         }
 
         // Find the solution using recursive
         // function TOWUtil()
         TOWUtil(arr, n, curr_elements, 0,
-                soln, sum, 0, 0);
+                solution, sum, 0, 0);
 
         // Print the solution
         System.out.print("The first subset is: ");
         for (int i = 0; i < n; i++)
         {
-            if (soln[i] == true)
+            if (solution[i])
                 System.out.print(arr[i] + " ");
         }
         System.out.print("\nThe second subset is: ");
         for (int i = 0; i < n; i++)
         {
-            if (soln[i] == false)
+            if (!solution[i])
                 System.out.print(arr[i] + " ");
         }
     }
     public static void main(String[] args) {
-        int arr[] = {23, 45, -34, 12, 0, 98,
+        int[] array = {23, 45, -34, 12, 0, 98,
                 -99, 4, 189, -1, 4};
         TugOfWar a = new TugOfWar();
-        a.tugOfWar(arr);
+        a.tugOfWar(array);
     }
 }
