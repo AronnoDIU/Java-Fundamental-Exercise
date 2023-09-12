@@ -57,16 +57,14 @@ public class Queen8Problem {
             return true;
         }
 
-        // try placing a queen in each row of the current
-        // column
+        // try placing a queen in each row of the current column
         for (int i = 0; i < N; i++) {
             if (isSafe(board, i, Column)) {
                 board[i][Column] = 1; // place the queen
                 if (solveNQueens(board, Column + 1))
                     return true;
 
-                // backtrack if placing the queen doesn't
-                // lead to a solution
+                // backtrack if placing the queen doesn't lead to a solution
                 board[i][Column] = 0;
             }
         }
