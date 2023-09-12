@@ -100,8 +100,7 @@ public class TugOfWar {
                 System.out.print(array[i] + " ");
         }
         System.out.print("\nThe second subset is: ");
-        for (int i = 0; i < arrayLength; i++)
-        {
+        for (int i = 0; i < arrayLength; i++) {
             if (!solution[i])
                 System.out.print(array[i] + " ");
         }
@@ -112,3 +111,10 @@ public class TugOfWar {
         tugOfWar.tugOfWar(array);
     }
 }
+
+/*Expected Output::
+
+The first subset is: 45 -34 12 98 -1
+The second subset is: 23 0 -99 4 189 4
+
+* */
