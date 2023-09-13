@@ -76,8 +76,7 @@ public class WarnsdorffAlgorithmKnightTour {
             nx = cell.x + cx[i];
             ny = cell.y + cy[i];
             if ((isEmpty(a, nx, ny)) &&
-                    (c = getDegree(a, nx, ny)) < min_deg)
-            {
+                    (c = getDegree(a, nx, ny)) < min_deg) {
                 min_deg_idx = i;
                 min_deg = c;
             }
@@ -104,13 +103,11 @@ public class WarnsdorffAlgorithmKnightTour {
 
     /* displays the chessboard with all the
     legal knight's moves */
-    void print(int a[])
-    {
-        for (int i = 0; i < N; ++i)
-        {
+    void print(int[] a) {
+        for (int i = 0; i < N; ++i) {
             for (int j = 0; j < N; ++j)
                 System.out.printf("%d\t", a[j * N + i]);
-            System.out.printf("\n");
+            System.out.println();
         }
     }
 
@@ -118,8 +115,7 @@ public class WarnsdorffAlgorithmKnightTour {
     /* If the knight ends on a square that is one
     knight's move from the beginning square,
     then tour is closed */
-    boolean neighbour(int x, int y, int xx, int yy)
-    {
+    boolean neighbour(int x, int y, int xx, int yy) {
         for (int i = 0; i < N; ++i)
             if (((x + cx[i]) == xx) &&
                     ((y + cy[i]) == yy))
@@ -130,10 +126,9 @@ public class WarnsdorffAlgorithmKnightTour {
 
     /* Generates the legal moves using warnsdorff's
     heuristics. Returns false if not possible */
-    boolean findClosedTour()
-    {
+    boolean findClosedTour() {
         // Filling up the chessboard matrix with -1's
-        int a[] = new int[N * N];
+        int[] a = new int[N * N];
         for (int i = 0; i < N * N; ++i)
             a[i] = -1;
 
@@ -146,11 +141,9 @@ public class WarnsdorffAlgorithmKnightTour {
 
         a[cell.y * N + cell.x] = 1; // Mark first move.
 
-        // Keep picking next points using
-        // Warnsdorff's heuristic
+        // Keep picking next points using Warnsdorff's heuristic
         Cell ret = null;
-        for (int i = 0; i < N * N - 1; ++i)
-        {
+        for (int i = 0; i < N * N - 1; ++i) {
             ret = nextMove(a, cell);
             if (ret == null)
                 return false;
@@ -164,23 +157,35 @@ public class WarnsdorffAlgorithmKnightTour {
         print(a);
         return true;
     }
+
     public static void main(String[] args) {
         // While we don't get a solution
-        while (!new WarnsdorffAlgorithmKnightTour().findClosedTour())
-        {
-            ;
+        while (!new WarnsdorffAlgorithmKnightTour().findClosedTour()) {
+
         }
     }
 }
 
-class Cell
-{
+class Cell {
     int x;
     int y;
 
-    public Cell(int x, int y)
-    {
+    public Cell(int x, int y) {
         this.x = x;
         this.y = y;
     }
 }
+
+/*
+Expected Output::
+
+30	33	16	47	20	35	14	49
+17	2	31	34	15	48	21	36
+32	29	54	19	46	37	50	13
+3	18	1	56	61	52	45	22
+28	55	60	53	38	57	12	51
+7	4	39	64	59	62	23	44
+40	27	6	9	42	25	58	11
+5	8	41	26	63	10	43	24
+
+* */
