@@ -42,11 +42,13 @@ public class WarnsdorffAlgorithmKnightTour {
 
     // function restricts the knight to remain within the 8x8 chessboard
     boolean limits(int x, int y) {
+
         return ((x >= 0 && y >= 0) && (x < N && y < N));
     }
 
     /* Checks whether a square is valid and empty or not */
     boolean isEmpty(int[] a, int x, int y) {
+
         return (limits(x, y)) && (a[y * N + x] < 0);
     }
 
@@ -70,11 +72,14 @@ public class WarnsdorffAlgorithmKnightTour {
         // Try all N adjacent of (*x, *y) starting
         // from a random adjacent. Find the adjacent
         // with minimum degree.
-        int start = ThreadLocalRandom.current().nextInt(1000) % N;
+        int start =
+                ThreadLocalRandom.current().nextInt(1000) % N;
+
         for (int count = 0; count < N; ++count) {
             int i = (start + count) % N;
             nx = cell.x + cx[i];
             ny = cell.y + cy[i];
+
             if ((isEmpty(a, nx, ny)) &&
                     (c = getDegree(a, nx, ny)) < min_deg) {
                 min_deg_idx = i;
@@ -143,6 +148,7 @@ public class WarnsdorffAlgorithmKnightTour {
 
         // Keep picking next points using Warnsdorff's heuristic
         Cell ret = null;
+
         for (int i = 0; i < N * N - 1; ++i) {
             ret = nextMove(a, cell);
             if (ret == null)
@@ -161,7 +167,7 @@ public class WarnsdorffAlgorithmKnightTour {
     public static void main(String[] args) {
         // While we don't get a solution
         while (!new WarnsdorffAlgorithmKnightTour().findClosedTour()) {
-
+            System.out.print("");
         }
     }
 }
@@ -179,13 +185,13 @@ class Cell {
 /*
 Expected Output::
 
-30	33	16	47	20	35	14	49
-17	2	31	34	15	48	21	36
-32	29	54	19	46	37	50	13
-3	18	1	56	61	52	45	22
-28	55	60	53	38	57	12	51
-7	4	39	64	59	62	23	44
-40	27	6	9	42	25	58	11
-5	8	41	26	63	10	43	24
+20	45	16	63	26	43	14	61
+17	2	19	44	15	62	27	42
+46	21	52	25	64	57	60	13
+3	18	1	58	51	34	41	28
+22	47	24	53	56	59	12	35
+7	4	55	50	33	38	29	40
+48	23	6	9	54	31	36	11
+5	8	49	32	37	10	39	30
 
 * */
