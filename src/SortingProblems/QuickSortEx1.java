@@ -29,7 +29,7 @@ Choice of Pivot:
     we swap the current element with arr[i]. Otherwise, we ignore the current element.*/
 public class QuickSortEx1 {
     public static int partition(int[] array, int firstIndex, int lastIndex) {
-        int pivotElement = array[lastIndex];
+        int pivotElement = array[lastIndex]; // Pick the last element as a Pivot
 
         // Find Empty space to store smaller Elements of Pivot Element.
         int findEmptySpace = firstIndex - 1;
