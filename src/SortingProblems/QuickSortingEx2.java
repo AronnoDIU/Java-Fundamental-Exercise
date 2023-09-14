@@ -8,10 +8,8 @@ public class QuickSortingEx2 {
         Arrays[j] = temp;
     }
 
-    // This function
-    // places the pivot element at its correct position
-    // in sorted array, and places all smaller to left
-    // of pivot and all greater elements to right of pivot
+    // places the pivot element at its correct position in sorted array,
+    // and places all smaller to left of pivot and all greater elements to right of pivot
     static int partition(int[] Arrays, int low, int high) {
         // Choosing the pivot
         int pivot = Arrays[high];  // Takes last Elements of Pivot.
