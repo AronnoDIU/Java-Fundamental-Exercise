@@ -1,13 +1,13 @@
 package BacktrackingProblems;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 /*Problem : A knight is placed on the first block of an empty board and,
 moving according to the rules of chess, must visit each square exactly once.
 
 Following is an example path followed by Knight to cover all the cells.
 The below grid represents a chessboard with 8 x 8 cells.
 Numbers in cells indicate move number of Knight. */
-
-import java.util.concurrent.ThreadLocalRandom;
 
 /*Warnsdorff’s Rule:
 
@@ -118,8 +118,7 @@ public class WarnsdorffAlgorithmKnightTour {
 
     /* checks its neighbouring squares */
     /* If the knight ends on a square that is one
-    knight's move from the beginning square,
-    then tour is closed */
+    knight's move from the beginning square, then tour is closed */
     boolean neighbour(int x, int y, int xx, int yy) {
         for (int i = 0; i < N; ++i)
             if (((x + cx[i]) == xx) &&
@@ -173,9 +172,7 @@ public class WarnsdorffAlgorithmKnightTour {
 }
 
 class Cell {
-    int x;
-    int y;
-
+    int x, y;
     public Cell(int x, int y) {
         this.x = x;
         this.y = y;
