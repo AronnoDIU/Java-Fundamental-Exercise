@@ -28,13 +28,40 @@ Choice of Pivot:
     of smaller (or equal) elements as i. While traversing, if we find a smaller element,
     we swap the current element with arr[i]. Otherwise, we ignore the current element.*/
 public class QuickSortEx1 {
-    public static void  quickSort(int [] array, int lowerIndex, int higherIndex){
+    public static int partition(int[] array, int firstIndex, int lastIndex) {
+        int pivotElement = array[lastIndex];
 
+        // Find Empty space to store smaller Elements of Pivot Element.
+        int findEmptySpace = firstIndex - 1;
+
+        // Now Traverse the given Arrays
+        for (int j=firstIndex; j<lastIndex;j++){
+            if (array[j]<pivotElement){
+                findEmptySpace++; //Find Empty space to store smaller Elements.
+
+                // Swapping between Smaller Elements with Bigger Elements
+                int temporaryElement = array[findEmptySpace];
+                array[findEmptySpace] = array[j];
+                array[j] = temporaryElement;
+            }
+        }
+
+        return 1;
     }
+
+    public static void quickSort(int[] array, int firstIndex, int lastIndex) {
+        if (firstIndex < lastIndex) {
+            int pivotIndex = partition(array, firstIndex, lastIndex);
+
+            quickSort(array, firstIndex, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, lastIndex);
+        }
+    }
+
     public static void main(String[] args) {
-        int [] array = {6, 3, 9, 5, 2, 8};
+        int[] array = {6, 3, 9, 5, 2, 8};
         int arraySize = array.length;
 
-        quickSort(array,0,arraySize-1);
+        quickSort(array, 0, arraySize - 1);
     }
 }
