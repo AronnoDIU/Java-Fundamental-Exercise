@@ -35,8 +35,8 @@ public class QuickSortEx1 {
         int findEmptySpace = firstIndex - 1;
 
         // Now Traverse the given Arrays
-        for (int j=firstIndex; j<lastIndex;j++){
-            if (array[j]<pivotElement){
+        for (int j = firstIndex; j < lastIndex; j++) {
+            if (array[j] < pivotElement) {
                 findEmptySpace++; //Find Empty space to store smaller Elements.
 
                 // Swapping between Smaller Elements with Bigger Elements
@@ -45,8 +45,13 @@ public class QuickSortEx1 {
                 array[j] = temporaryElement;
             }
         }
+        findEmptySpace++;
 
-        return 1;
+        int temporaryValue = array[findEmptySpace];
+        array[findEmptySpace] = pivotElement;
+        array[lastIndex] = temporaryValue;
+
+        return findEmptySpace;  // Pivot original Index
     }
 
     public static void quickSort(int[] array, int firstIndex, int lastIndex) {
@@ -63,5 +68,10 @@ public class QuickSortEx1 {
         int arraySize = array.length;
 
         quickSort(array, 0, arraySize - 1);
+
+        // Print the desire sorted value
+        for (int EnhancedArraysPrinted : array) {
+            System.out.print(EnhancedArraysPrinted + " ");
+        }
     }
 }
