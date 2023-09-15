@@ -30,16 +30,37 @@ public class ArrayListEx1 {
         booleanArrayList.add(true);
         booleanArrayList.add(false);
 
+        System.out.println("ArrayList Adding method(Integer)");
         System.out.println(integerArrayList);
+        System.out.println("ArrayList Adding method(String)");
         System.out.println(stringArrayList);
+        System.out.println("ArrayList Adding method(Boolean)");
         System.out.println(booleanArrayList);
+
+        // ArrayList Getting method(Integer)
+
+        int getElement = integerArrayList.get(3);
+        System.out.println("ArrayList Getting method(Integer)");
+        System.out.println(getElement);
+
+        // Add two ArrayList Values
+        int getElementAdd = integerArrayList.get(4) + integerArrayList.get(5);
+        System.out.println("Adding two ArrayList Values");
+        System.out.println(getElementAdd);
     }
 }
 
 /*Expected Output::
 
+ArrayList Adding method(Integer)
 [0, 2, 5, 8, 7, 9, 3, 4]
+ArrayList Adding method(String)
 [This , is , Aronno , here]
+ArrayList Adding method(Boolean)
 [true, false, true, false]
+ArrayList Getting method(Integer)
+8
+Adding two ArrayList Values
+16
 
 * */
