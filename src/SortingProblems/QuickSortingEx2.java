@@ -51,8 +51,8 @@ public class QuickSortingEx2 {
     }
     // To print sorted array
     public static void printSortedArray(int[] Arrays) {
-        for (int j : Arrays) {
-            System.out.print(j + " ");
+        for (int EnhancedArrays : Arrays) {
+            System.out.print(EnhancedArrays + " ");
         }
     }
     public static void main(String[] args) {
@@ -61,7 +61,7 @@ public class QuickSortingEx2 {
 
         // Function call
         quickSort(Arrays, 0, ArraySize - 1);
-        System.out.println("Sorted array:");
+        System.out.println("Sorted Arrays:");
         printSortedArray(Arrays);
     }
 }
