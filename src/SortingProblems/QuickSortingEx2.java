@@ -34,29 +34,26 @@ public class QuickSortingEx2 {
 
     // The main function that implements QuickSort
     // Arrays[] --> Array to be sorted,
-    // low --> Starting index,
-    // high --> Ending index
-    static void quickSort(int[] Arrays, int low, int high) {
-        if (low < high) {
+    static void quickSort(int[] Arrays, int firstIndex, int lastIndex) {
+        if (firstIndex < lastIndex) {
 
-            // pi is partitioning index, Arrays[p]
-            // is now at right place
-            int pi = partition(Arrays, low, high);
+            int partitioningIndex = partition(Arrays, firstIndex, lastIndex);
 
-            // Separately sort elements before
-            // partition and after partition
-            quickSort(Arrays, low, pi - 1);
-            quickSort(Arrays, pi + 1, high);
+            // Separately sort elements before partition and after partition
+            quickSort(Arrays, firstIndex, partitioningIndex - 1);
+            quickSort(Arrays, partitioningIndex + 1, lastIndex);
         }
     }
+
     // To print sorted array
     public static void printSortedArray(int[] Arrays) {
         for (int EnhancedArrays : Arrays) {
             System.out.print(EnhancedArrays + " ");
         }
     }
+
     public static void main(String[] args) {
-        int[] Arrays = { 10, 7, 8, 9, 1, 5 };
+        int[] Arrays = {10, 7, 8, 9, 1, 5};
         int ArraySize = Arrays.length;
 
         // Function call
