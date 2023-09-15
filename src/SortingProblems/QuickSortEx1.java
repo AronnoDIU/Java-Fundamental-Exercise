@@ -70,8 +70,16 @@ public class QuickSortEx1 {
         quickSort(array, 0, arraySize - 1);
 
         // Print the desire sorted value
+        System.out.println("Sorted Arrays:");
         for (int EnhancedArraysPrinted : array) {
             System.out.print(EnhancedArraysPrinted + " ");
         }
     }
 }
+
+/*Expected Output::
+
+Sorted Arrays:
+2 3 5 6 8 9
+
+* */
