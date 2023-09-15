@@ -28,6 +28,8 @@ Choice of Pivot:
     of smaller (or equal) elements as i. While traversing, if we find a smaller element,
     we swap the current element with arr[i]. Otherwise, we ignore the current element.*/
 public class QuickSortEx1 {
+    /* places the pivot element at its correct position in sorted array,
+     and places all smaller to left of pivot and all greater elements to right of pivot*/
     public static int partition(int[] array, int firstIndex, int lastIndex) {
         int pivotElement = array[lastIndex]; // Pick the last element as a Pivot
 

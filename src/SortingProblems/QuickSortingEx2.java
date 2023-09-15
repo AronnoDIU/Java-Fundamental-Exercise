@@ -2,7 +2,7 @@ package SortingProblems;
 
 public class QuickSortingEx2 {
     // A utility function to swap two elements
-    static void swap(int[] Arrays, int i, int j) {
+    public static void swap(int[] Arrays, int i, int j) {
         int temp = Arrays[i];
         Arrays[i] = Arrays[j];
         Arrays[j] = temp;
@@ -10,26 +10,26 @@ public class QuickSortingEx2 {
 
     // places the pivot element at its correct position in sorted array,
     // and places all smaller to left of pivot and all greater elements to right of pivot
-    static int partition(int[] Arrays, int low, int high) {
-        // Choosing the pivot
-        int pivot = Arrays[high];  // Takes last Elements of Pivot.
+    static int partition(int[] Arrays, int firstIndex, int lastIndex) {
+        // Choosing the pivotElement
+        int pivotElement = Arrays[lastIndex];  // Takes last Elements of Pivot.
 
         // Index of smaller element and indicates
-        // the right position of pivot found so far
-        int i = (low - 1);
+        // the right position of pivotElement found so far
+        int findEmptySpace = (firstIndex - 1);
 
-        for (int j = low; j <= high - 1; j++) {
+        for (int j = firstIndex; j <= lastIndex - 1; j++) {
 
-            // If current element is smaller than the pivot
-            if (Arrays[j] < pivot) {
+            // If current element is smaller than the pivotElement
+            if (Arrays[j] < pivotElement) {
 
                 // Increment index of smaller element
-                i++;
-                swap(Arrays, i, j);
+                findEmptySpace++;
+                swap(Arrays, findEmptySpace, j);
             }
         }
-        swap(Arrays, i + 1, high);
-        return (i + 1);
+        swap(Arrays, findEmptySpace + 1, lastIndex);
+        return (findEmptySpace + 1);
     }
 
     // The main function that implements QuickSort
@@ -65,3 +65,10 @@ public class QuickSortingEx2 {
         printSortedArray(Arrays);
     }
 }
+
+/*Expected Output::
+
+Sorted Arrays:
+1 5 7 8 9 10
+
+* */
