@@ -11,8 +11,8 @@ public class ArrayListEx1 {
         // ArrayList Adding method(Integer)
         integerArrayList.add(0);
         integerArrayList.add(2);
-        integerArrayList.add(2, 5);
-        integerArrayList.add(3, 8);
+        integerArrayList.add(5);
+        integerArrayList.add(8);
         integerArrayList.add(7);
         integerArrayList.add(9);
         integerArrayList.add(3);
@@ -47,6 +47,20 @@ public class ArrayListEx1 {
         int getElementAdd = integerArrayList.get(4) + integerArrayList.get(5);
         System.out.println("Adding two ArrayList Values");
         System.out.println(getElementAdd);
+
+        // Add Element in between (Modify) method
+        integerArrayList.add(2, 2);
+        integerArrayList.add(3, 3);
+
+        System.out.println("ArrayList Modify");
+        System.out.println(integerArrayList);
+
+        // Set Element
+        integerArrayList.set(5, 5);
+        integerArrayList.set(6, 6);
+
+        System.out.println("ArrayList Set Elements");
+        System.out.println(integerArrayList);
     }
 }
 
@@ -62,5 +76,9 @@ ArrayList Getting method(Integer)
 8
 Adding two ArrayList Values
 16
+ArrayList Modify
+[0, 2, 2, 3, 5, 8, 7, 9, 3, 4]
+ArrayList Set Elements
+[0, 2, 2, 3, 5, 5, 6, 9, 3, 4]
 
 * */
