@@ -90,7 +90,7 @@ public class ArrayListEx1 {
     }
 }
 
-/*Expected Output::
+/*Expected Output:
 
 ArrayList Adding method(Integer)
 [0, 2, 5, 8, 7, 9, 3, 4]
