@@ -17,7 +17,7 @@ import java.util.PriorityQueue;
     Queue <T> ad = new ArrayDeque<> ();
     Where T is the type of the object.
 
-The most frequently used implementation of the queue interface is the PriorityQueue.
+The most frequently used implementation of the QUEUE interface is the PriorityQueue.
 
 #Priority Queue:
     A PriorityQueue is used when the objects are supposed to be processed based on priority.
@@ -26,7 +26,7 @@ The most frequently used implementation of the queue interface is the PriorityQu
     class is used in these cases. The PriorityQueue is based on the priority heap.
     The elements of the priority queue are ordered according to the natural ordering,
     or by a Comparator provided at queue construction time, depending on which constructor is used. */
-public class QueueEx1 {
+public class PriorityQueueEx1 {
     public static void main(String[] args) {
         // Creating empty priority queue
         PriorityQueue<Integer> integerPriorityQueue = new PriorityQueue<>();
