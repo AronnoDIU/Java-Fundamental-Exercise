@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 /*#Queue Interface:
     As the name suggests, a queue interface maintains the FIFO(First In First Out) order similar
     to a real-world queue line. This interface is dedicated to storing all the elements where
-    the order of the elements matter. For example, whenever we try to book a ticket, the
+    the order of the elements matters. For example, whenever we try to book a ticket, the
     tickets are sold on a first come, first served basis. Therefore, the person whose
     request arrives first into the queue gets the ticket. There are various classes
     like PriorityQueue, ArrayDeque, etc. Since all these subclasses implement the
