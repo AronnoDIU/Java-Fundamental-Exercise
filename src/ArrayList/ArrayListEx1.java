@@ -1,6 +1,7 @@
 package ArrayList;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayListEx1 {
     public static void main(String[] args) {
@@ -40,12 +41,12 @@ public class ArrayListEx1 {
         // ArrayList Getting method(Integer)
 
         int getElement = integerArrayList.get(3);
-        System.out.println("ArrayList Getting method(Integer)");
+        System.out.println("ArrayList Getting method (Integer of index 3)");
         System.out.println(getElement);
 
         // Add two ArrayList Values
         int getElementAdd = integerArrayList.get(4) + integerArrayList.get(5);
-        System.out.println("Adding two ArrayList Values");
+        System.out.println("Adding two ArrayList Values (index 4 + index 5)");
         System.out.println(getElementAdd);
 
         // Add Element in between (Modify) method
@@ -61,6 +62,31 @@ public class ArrayListEx1 {
 
         System.out.println("ArrayList Set Elements");
         System.out.println(integerArrayList);
+
+        // Delete/ Remove Elements
+        integerArrayList.remove(5);
+
+        System.out.println("ArrayList Remove Elements");
+        System.out.println(integerArrayList);
+
+        // Check ArrayList Size
+        int sizeArrayList = integerArrayList.size();
+
+        System.out.println("Check ArrayList Size method");
+        System.out.println(sizeArrayList);
+
+        // Using Loops on ArrayList
+        System.out.println("Using Loops for getting ArrayList");
+        for (Integer EnhancedArrayList : integerArrayList) {
+            System.out.print(EnhancedArrayList + " ");
+        }
+        System.out.println();
+
+        // Sorting method in ArrayList
+        Collections.sort(integerArrayList);
+
+        System.out.println("Sorting method in ArrayList");
+        System.out.println(integerArrayList);
     }
 }
 
@@ -72,13 +98,21 @@ ArrayList Adding method(String)
 [This , is , Aronno , here]
 ArrayList Adding method(Boolean)
 [true, false, true, false]
-ArrayList Getting method(Integer)
+ArrayList Getting method (Integer of index 3)
 8
-Adding two ArrayList Values
+Adding two ArrayList Values (index 4 + index 5)
 16
 ArrayList Modify
 [0, 2, 2, 3, 5, 8, 7, 9, 3, 4]
 ArrayList Set Elements
 [0, 2, 2, 3, 5, 5, 6, 9, 3, 4]
+ArrayList Remove Elements
+[0, 2, 2, 3, 5, 6, 9, 3, 4]
+Check ArrayList Size method
+9
+Using Loops for getting ArrayList
+0 2 2 3 5 6 9 3 4
+Sorting method in ArrayList
+[0, 2, 2, 3, 3, 4, 5, 6, 9]
 
 * */
