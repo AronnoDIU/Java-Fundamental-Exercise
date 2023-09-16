@@ -16,13 +16,13 @@ instantiate a set object with any of these classes.
     Where T is the type of the object.
 
 The following are the classes that implement the Set interface:
-i). HashSet
+# HashSet
 
 The HashSet class is an inherent implementation of the hash table data structure.
 The objects that we insert into the HashSet do not guarantee to be inserted in
 the same order. The objects are inserted based on their hashcode. This class
 also allows the insertion of NULL elements. Let’s understand*/
-public class SetEx1 {
+public class HashSetEx1 {
     public static void main(String[] args) {
         // Creating HashSet and adding elements
         HashSet<String> stringHashSet = new HashSet<>();
