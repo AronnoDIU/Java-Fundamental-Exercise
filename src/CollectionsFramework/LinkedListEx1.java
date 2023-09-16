@@ -3,7 +3,7 @@ package CollectionsFramework;
 import java.util.LinkedList;
 
 /*#LinkedList:
-    The LinkedList class is an implementation of the LinkedList data structure which is a linear
+    The LinkedList class is an implementation of the LinkedList data structure, which is a linear
     data structure where the elements are not stored in contiguous locations and every element
     is a separate object with a data part and address part. The elements are linked using
     pointers and addresses. Each element is known as a node. */
