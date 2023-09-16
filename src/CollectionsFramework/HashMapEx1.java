@@ -47,6 +47,7 @@ public class HashMapEx1 {
 
 /*Expected Output:
 
+Value for 1 is Yeasir
 1 Yeasir
 2 Arafat
 3 Aronno
