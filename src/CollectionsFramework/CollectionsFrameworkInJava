@@ -46,27 +46,15 @@ List.i                              Queue.i                                     
       |
     Stack.c
 
-List Interface:
+A. List Interface:
     1. ArrayList class is most likely Arrays, but variable size DataStructure.
     2. LinkedList class collects or adds different type of object
     3. Vector class is most likely the ArrayList class, but it's offers Thread Safety
         3a. Stack class are commonly used with FIFO or LIFO methods
 
-Queue Interface: used with FIFO methods
+B. Queue Interface: used with FIFO methods
 A Queue is a collection for holding elements prior to processing.Besides basic Collection operations,
 queues provide additional insertion, removal, and inspection operations.
-    1. PriorityQueue class
-    2. LinkedList class
-    3. Deque Interface
-        3a. ArrayDeque class
-
-public interface Queue<E> extends Collection<E> {
-    E element();
-    boolean offer(E e);
-    E peek();
-    E poll();
-    E remove();
-}
 
 Queue Interface Structure
 Type of Operation 	Throws exception 	Returns special value
@@ -74,6 +62,63 @@ Insert              	add(e) 	            offer(e)
 Remove 	                remove()        	poll()
 Examine             	element()       	peek()
 
+
+    1. PriorityQueue class
+    2. LinkedList class
+    3. Deque Interface->Usually pronounced as deck, a deque is a double-ended-queue. A double-ended-queue
+is a linear collection of elements that supports the insertion and removal of elements at both end points.
+The Deque interface is a richer abstract data type than both Stack and Queue because it implements both
+stacks and queues at the same time. The Deque interface, defines methods to access the elements at
+both ends of the Deque instance. Methods are provided to insert, remove, and examine the elements.
+Predefined classes like ArrayDeque and LinkedList implement the Deque interface.
+
+Note that the Deque interface can be used both as last-in-first-out stacks and first-in-first-out queues.
+The methods given in the Deque interface are divided into three parts:
+        3a. ArrayDeque class
+
+Insert: The addfirst and offerFirst methods insert elements at the beginning of the Deque instance.
+The methods addLast and offerLast insert elements at the end of the Deque instance. When the capacity
+of the Deque instance is restricted, the preferred methods are offerFirst and offerLast because
+addFirst might fail to throw an exception if it is full.
+
+Remove: The removeFirst and pollFirst methods remove elements from the beginning of the Deque instance.
+The removeLast and pollLast methods remove elements from the end. The methods pollFirst and pollLast
+return null if the Deque is empty whereas the methods removeFirst and removeLast throw an exception
+if the Deque instance is empty.
+
+Retrieve: The methods getFirst and peekFirst retrieve the first element of the Deque instance.
+These methods dont remove the value from the Deque instance. Similarly, the methods getLast
+and peekLast retrieve the last element. The methods getFirst and getLast throw an exception
+if the deque instance is empty whereas the methods peekFirst and peekLast return NULL.
+
+The 12 methods for insertion, removal and retrieval of Deque elements are summarized in the following table:
+
+Deque Methods
+Type of Operation:First Element (Beginning of the Deque instance):Last Element (End of the Deque instance)
+Insert 	            addFirst(e)      offerFirst(e)                     	addLast(e)       offerLast(e)
+
+Remove 	            removeFirst()    pollFirst()                       	removeLast()     pollLast()
+
+Examine             getFirst()       peekFirst()                       	getLast()        peekLast()
+
+
+C. Set Interface: A Set is a Collection that cannot contain duplicate elements. It models the mathematical
+set abstraction. The Set interface contains only methods inherited from Collection and adds the restriction
+that duplicate elements are prohibited. Set also adds a stronger contract on the behavior of the equals
+and hashCode operations, allowing Set instances to be compared meaningfully even if their implementation
+types differ. Two Set instances are equal if they contain the same elements.
+
+The Java platform contains three general-purpose Set implementations:
+    1. HashSet: which stores its elements in a hash table, is the best-performing implementation; however
+it makes no guarantees concerning the order of iteration. TreeSet,
+
+    2. LinkedHashSet: which is implemented as a hash table with a linked list running through it,
+orders its elements based on the order in which they were inserted into the set (insertion-order).
+LinkedHashSet spares its clients from the unspecified, generally chaotic ordering provided by
+HashSet at a cost that is only slightly higher.
+
+    3. TreeSet: which stores its elements in a red-black tree, orders its elements based on
+their values; it is substantially slower than HashSet.
 
 
 
