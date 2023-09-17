@@ -13,7 +13,18 @@ This is because it was designed prior to the introduction of the Collections fra
 implement the Map interface, which makes it difficult to use in conjunction with other parts of the framework. In addition, the Hashtable class is synchronized, which can result in slower performance compared to other implementations of the Map interface.
 
 In general, it’s recommended to use the Map interface or one of its implementations (such as HashMap
-or ConcurrentHashMap) instead of the Hashtable class.*/
+or ConcurrentHashMap) instead of the Hashtable class.
+
+Features of Hashtable
+
+    It is similar to HashMap, but is synchronized.
+    Hashtable stores key/value pair in hash table.
+    In Hashtable, we specify an object that is used as a key, and the value we want to associate with
+that key. The key is then hashed, and the resulting hash code is used as the index
+at which the value is stored within the table.
+    The initial default capacity of Hashtable class is 11, whereas loadFactor is 0.75.
+    HashMap doesn’t provide any Enumeration, while Hashtable provides no fail-fast Enumeration.
+*/
 public class HashtableEx1 {
     public static void main(String[] args) {
         Hashtable<String, Integer> stringIntegerHashtable = new Hashtable<>();
