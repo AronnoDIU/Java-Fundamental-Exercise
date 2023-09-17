@@ -46,6 +46,36 @@ List.i                              Queue.i                                     
       |
     Stack.c
 
+List Interface:
+    1. ArrayList class is most likely Arrays, but variable size DataStructure.
+    2. LinkedList class collects or adds different type of object
+    3. Vector class is most likely the ArrayList class, but it's offers Thread Safety
+        3a. Stack class are commonly used with FIFO or LIFO methods
+
+Queue Interface: used with FIFO methods
+A Queue is a collection for holding elements prior to processing.Besides basic Collection operations,
+queues provide additional insertion, removal, and inspection operations.
+    1. PriorityQueue class
+    2. LinkedList class
+    3. Deque Interface
+        3a. ArrayDeque class
+
+public interface Queue<E> extends Collection<E> {
+    E element();
+    boolean offer(E e);
+    E peek();
+    E poll();
+    E remove();
+}
+
+Queue Interface Structure
+Type of Operation 	Throws exception 	Returns special value
+Insert              	add(e) 	            offer(e)
+Remove 	                remove()        	poll()
+Examine             	element()       	peek()
+
+
+
 
 #Methods of Collection interface:
     There are many methods declared in the Collection interface. They are as follows:
