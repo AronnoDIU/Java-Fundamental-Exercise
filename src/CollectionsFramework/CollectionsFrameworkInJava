@@ -46,9 +46,45 @@ List.i                              Queue.i                                     
       |
     Stack.c
 
-A. List Interface:
+A. List Interface: A List is an ordered Collection (sometimes called a sequence). Lists may contain
+duplicate elements. In addition to the operations inherited from Collection,
+the List interface includes operations for the following:
+
+    Positional access — manipulates elements based on their numerical position in the list.
+This includes methods such as get, set, add, addAll, and remove.
+
+    Search — searches for a specified object in the list and returns its numerical position.
+Search methods include indexOf and lastIndexOf.
+
+    Iteration — extends Iterator semantics to take advantage of the list's sequential nature.
+The listIterator methods provide this behavior.
+
+    Range-view — The sublist method performs arbitrary range operations on the list.
+
+List Algorithms: Most polymorphic algorithms in the Collections class apply specifically to List.
+Having all these algorithms at your disposal makes it very easy to manipulate lists. Here's a
+summary of these algorithms, which are described in more detail in the Algorithms section.
+
+    sort — sorts a List using a merge sort algorithm, which provides a fast, stable sort.
+(A stable sort is one that does not reorder equal elements.)
+    shuffle — randomly permutes the elements in a List.
+    reverse — reverses the order of the elements in a List.
+    rotate — rotates all the elements in a List by a specified distance.
+    swap — swaps the elements at specified positions in a List.
+    replaceAll — replaces all occurrences of one specified value with another.
+    fill — overwrites every element in a List with the specified value.
+    copy — copies the source List into the destination List.
+    binarySearch — searches for an element in an ordered List using the binary search algorithm.
+    indexOfSubList — returns the index of the first sublist of one List that is equal to another.
+    lastIndexOfSubList — returns the index of the last sublist of one List that is equal to another.
+
+
     1. ArrayList class is most likely Arrays, but variable size DataStructure.
-    2. LinkedList class collects or adds different type of object
+which is usually the better-performing implementation
+
+    2. LinkedList class collects or adds different type of object.
+which offers better performance under certain circumstances.
+
     3. Vector class is most likely the ArrayList class, but it's offers Thread Safety
         3a. Stack class are commonly used with FIFO or LIFO methods
 
@@ -120,6 +156,21 @@ HashSet at a cost that is only slightly higher.
     3. TreeSet: which stores its elements in a red-black tree, orders its elements based on
 their values; it is substantially slower than HashSet.
 
+Set Interface Bulk Operations: Bulk operations are particularly well suited to Sets; when applied, they
+perform standard set-algebraic operations. Suppose s1 and s2 are sets. Here's what bulk operations do:
+
+    s1.containsAll(s2) — returns true if s2 is a subset of s1. (s2 is a subset of s1 if set s1
+contains all of the elements in s2.)
+
+    s1.addAll(s2) — transforms s1 into the union of s1 and s2. (The union of two sets is the
+set containing all of the elements contained in either set.)
+
+    s1.retainAll(s2) — transforms s1 into the intersection of s1 and s2. (The intersection of
+two sets is the set containing only the elements common to both sets.)
+
+    s1.removeAll(s2) — transforms s1 into the (asymmetric) set difference of s1 and s2.
+(For example, the set difference of s1 minus s2 is the set containing all of the elements
+found in s1 but not in s2.)
 
 
 #Methods of Collection interface:
