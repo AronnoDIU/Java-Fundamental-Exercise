@@ -155,8 +155,14 @@ Date 	        Chronological
 CollationKey 	Locale-specific lexicographic
 
 
-    1. PriorityQueue class
-    2. LinkedList class
+    1. PriorityQueue class : A PriorityQueue is used when the objects are supposed to be processed based
+on the priority. It is known that a Queue follows the First-In-First-Out algorithm, but sometimes the
+elements of the queue are needed to be processed according to the priority, that’s when the PriorityQueue
+comes into play. The PriorityQueue is based on the priority heap.
+
+    2. LinkedList class: the array implementation can not be used for the large scale applications where the
+queues are implemented.One of the alternative of array implementation is linked list implementation of queue.
+
     3. Deque Interface->Usually pronounced as deck, a deque is a double-ended-queue. A double-ended-queue
 is a linear collection of elements that supports the insertion and removal of elements at both end points.
 The Deque interface is a richer abstract data type than both Stack and Queue because it implements both
@@ -166,7 +172,12 @@ Predefined classes like ArrayDeque and LinkedList implement the Deque interface.
 
 Note that the Deque interface can be used both as last-in-first-out stacks and first-in-first-out queues.
 The methods given in the Deque interface are divided into three parts:
-        3a. ArrayDeque class
+
+        3a. ArrayDeque class: Resizable-array implementation of the Deque interface. Array deque have no
+capacity restrictions; they grow as necessary to support usage. They are not thread-safe; in the absence
+of external synchronization, they do not support concurrent access by multiple threads. Null elements are
+prohibited. This class is likely to be faster than Stack when used as a stack, and faster than LinkedList
+when used as a queue.
 
 Insert: The addfirst and offerFirst methods insert elements at the beginning of the Deque instance.
 The methods addLast and offerLast insert elements at the end of the Deque instance. When the capacity
