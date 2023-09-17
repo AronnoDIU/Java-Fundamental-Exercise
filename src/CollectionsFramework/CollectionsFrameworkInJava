@@ -255,6 +255,21 @@ The SortedMap interface provides operations for normal Map operations and for th
     Comparator access — returns the Comparator, if any, used to sort the map
 
 
+The Hashtable class: implements a hash table, which maps keys to values. Any non-null object can be used
+as a key or as a value. To successfully store and retrieve objects from a hashtable, the objects used as
+keys must implement the hashCode method and the equals method. The java.util.Hashtable class is a class
+in Java that provides a key-value data structure, similar to the Map interface.
+
+However, the Hashtable class has since been considered obsolete and its use is generally discouraged.
+This is because it was designed prior to the introduction of the Collections framework and does not
+implement the Map interface, which makes it difficult to use in conjunction with other parts of the
+framework. In addition, the Hashtable class is synchronized, which can result in slower performance
+compared to other implementations of the Map interface.
+
+In general, it’s recommended to use the Map interface or one of its implementations (such as HashMap
+or ConcurrentHashMap) instead of the Hashtable class.
+
+
 #Methods of Collection interface:
     There are many methods declared in the Collection interface. They are as follows:
 
