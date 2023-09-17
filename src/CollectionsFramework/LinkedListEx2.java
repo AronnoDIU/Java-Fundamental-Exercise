@@ -5,15 +5,15 @@ package CollectionsFramework;
 public class LinkedListEx2 {
     Node head;
     private int size;
-
     public LinkedListEx2(int size) {
         this.size = size;
     }
-
+    public int getSize() {
+        return size;
+    }
     class Node {
         String data;
         Node next;
-
         public Node(String data) {
             this.data = data;
             this.next = null;
@@ -65,8 +65,6 @@ public class LinkedListEx2 {
             System.out.println("Empty List, nothing to delete");
             return;
         }
-
-
         head = this.head.next;
         size--;
     }
@@ -77,29 +75,18 @@ public class LinkedListEx2 {
             System.out.println("Empty List, nothing to delete");
             return;
         }
-
-
         size--;
         if (head.next == null) {
             head = null;
             return;
         }
-
-
         Node currNode = head;
         Node lastNode = head.next;
         while (lastNode.next != null) {
             currNode = currNode.next;
             lastNode = lastNode.next;
         }
-
-
         currNode.next = null;
-    }
-
-
-    public int getSize() {
-        return size;
     }
 
     // Add middle of the list
@@ -110,22 +97,21 @@ public class LinkedListEx2 {
         }
         size++;
 
-
-        Node newNode = new Node(data);
+        Node addInMiddleNode = new Node(data);
         if (head == null || index == 0) {
-            newNode.next = head;
-            head = newNode;
+            addInMiddleNode.next = head;
+            head = addInMiddleNode;
             return;
         }
-        Node currNode = head;
+        Node currentNode = head;
         for (int i = 1; i < size; i++) {
             if (i == index) {
-                Node nextNode = currNode.next;
-                currNode.next = newNode;
-                newNode.next = nextNode;
+                Node nextNode = currentNode.next;
+                currentNode.next = addInMiddleNode;
+                addInMiddleNode.next = nextNode;
                 break;
             }
-            currNode = currNode.next;
+            currentNode = currentNode.next;
         }
     }
 
@@ -137,6 +123,9 @@ public class LinkedListEx2 {
         linkedList.printList();
 
         linkedList.addFirst("this");
+        linkedList.printList();
+
+        linkedList.addInMiddle(2,"Aronno");
         linkedList.printList();
 
         System.out.println(linkedList.getSize());
@@ -155,8 +144,9 @@ public class LinkedListEx2 {
 
 is -> a -> list -> null
 this -> is -> a -> list -> null
-9
-is -> a -> list -> null
-is -> a -> null
+this -> is -> Aronno -> a -> list -> null
+11
+is -> Aronno -> a -> list -> null
+is -> Aronno -> a -> null
 
 * */
