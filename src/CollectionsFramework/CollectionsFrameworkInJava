@@ -46,37 +46,6 @@ List.i                              Queue.i                                     
       |
     Stack.c
 
-
-The Map Interface: A Map is an object that maps keys to values. A map cannot contain duplicate keys:
-Each key can map to at most one value. It models the mathematical function abstraction. The Map interface
-includes methods for basic operations(such as put, get, remove, containsKey, containsValue, size, and empty),
-bulk operations (such as putAll and clear), and collection views (such as keySet, entrySet, and values).
-
-The Java platform contains three general-purpose Map implementations:
-    1. HashMap
-    2. TreeMap
-    3. LinkedHashMap
-Their behavior and performance are precisely analogous to HashSet, TreeSet, and LinkedHashSet.
-
-Collection Views: The Collection view methods allow a Map to be viewed as a Collection in these three ways:
-    keySet — the Set of keys contained in the Map.
-    values — The Collection of values contained in the Map. This Collection is not a Set,
-because multiple keys can map to the same value.
-    entrySet — the Set of key-value pairs contained in the Map. The Map interface provides
-a small nested interface called Map.Entry, the type of the elements in this Set.
-
-The SortedMap Interface: A SortedMap is a Map that maintains its entries in ascending order, sorted
-according to the keys' natural ordering, or according to a Comparator provided at the time of the
-SortedMap creation. Natural ordering and Comparators are discussed in the Object Ordering section.
-The SortedMap interface provides operations for normal Map operations and for the following:
-
-    Range view — performs arbitrary range operations on the sorted map
-    Endpoints — returns the first or the last key in the sorted map
-    Comparator access — returns the Comparator, if any, used to sort the map
-
-
-
-
 A. List Interface: A List is an ordered Collection (sometimes called a sequence). Lists may contain
 duplicate elements. In addition to the operations inherited from Collection,
 the List interface includes operations for the following:
@@ -211,18 +180,6 @@ that duplicate elements are prohibited. Set also adds a stronger contract on the
 and hashCode operations, allowing Set instances to be compared meaningfully even if their implementation
 types differ. Two Set instances are equal if they contain the same elements.
 
-The Java platform contains three general-purpose Set implementations:
-    1. HashSet: which stores its elements in a hash table, is the best-performing implementation; however
-it makes no guarantees concerning the order of iteration. TreeSet,
-
-    2. LinkedHashSet: which is implemented as a hash table with a linked list running through it,
-orders its elements based on the order in which they were inserted into the set (insertion-order).
-LinkedHashSet spares its clients from the unspecified, generally chaotic ordering provided by
-HashSet at a cost that is only slightly higher.
-
-    3. TreeSet: which stores its elements in a red-black tree, orders its elements based on
-their values; it is substantially slower than HashSet.
-
 Set Interface Bulk Operations: Bulk operations are particularly well suited to Sets; when applied, they
 perform standard set-algebraic operations. Suppose s1 and s2 are sets. Here's what bulk operations do:
 
@@ -239,7 +196,16 @@ two sets is the set containing only the elements common to both sets.)
 (For example, the set difference of s1 minus s2 is the set containing all of the elements
 found in s1 but not in s2.)
 
-C1. The SortedSet Interface: A SortedSet is a Set that maintains its elements in ascending order,
+The Java platform contains three general-purpose Set implementations:
+    1. HashSet class: which stores its elements in a hash table, is the best-performing implementation;
+    however it makes no guarantees concerning the order of iteration. TreeSet,
+
+    2. LinkedHashSet class: which is implemented as a hash table with a linked list running through it,
+orders its elements based on the order in which they were inserted into the set (insertion-order).
+LinkedHashSet spares its clients from the unspecified, generally chaotic ordering provided by
+HashSet at a cost that is only slightly higher.
+
+    3. The SortedSet Interface: A SortedSet is a Set that maintains its elements in ascending order,
 sorted according to the elements' natural ordering or according to a Comparator provided at SortedSet
 creation time. In addition to the normal Set operations,
 the SortedSet interface provides operations for the following:
@@ -256,6 +222,37 @@ on sorted sets and normal sets with two exceptions:
 
 Although the interface doesn't guarantee it, the toString method of the Java platform's SortedSet
 implementations returns a string containing all the elements of the sorted set, in order.
+
+    3a. TreeSet class: which stores its elements in a red-black tree, orders its elements based on
+their values; it is substantially slower than HashSet.
+
+
+The Map Interface: A Map is an object that maps keys to values. A map cannot contain duplicate keys:
+Each key can map to at most one value. It models the mathematical function abstraction. The Map interface
+includes methods for basic operations(such as put, get, remove, containsKey, containsValue, size, and empty),
+bulk operations (such as putAll and clear), and collection views (such as keySet, entrySet, and values).
+
+The Java platform contains three general-purpose Map implementations:
+    1. HashMap
+    2. TreeMap
+    3. LinkedHashMap
+Their behavior and performance are precisely analogous to HashSet, TreeSet, and LinkedHashSet.
+
+Collection Views: The Collection view methods allow a Map to be viewed as a Collection in these three ways:
+    keySet — the Set of keys contained in the Map.
+    values — The Collection of values contained in the Map. This Collection is not a Set,
+because multiple keys can map to the same value.
+    entrySet — the Set of key-value pairs contained in the Map. The Map interface provides
+a small nested interface called Map.Entry, the type of the elements in this Set.
+
+The SortedMap Interface: A SortedMap is a Map that maintains its entries in ascending order, sorted
+according to the keys' natural ordering, or according to a Comparator provided at the time of the
+SortedMap creation. Natural ordering and Comparators are discussed in the Object Ordering section.
+The SortedMap interface provides operations for normal Map operations and for the following:
+
+    Range view — performs arbitrary range operations on the sorted map
+    Endpoints — returns the first or the last key in the sorted map
+    Comparator access — returns the Comparator, if any, used to sort the map
 
 
 #Methods of Collection interface:
