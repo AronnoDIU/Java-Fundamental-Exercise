@@ -233,9 +233,9 @@ their values; it is substantially slower than HashSet.
    ^                ^                            ^                                ^
    |                |                            |                                |
 HashMap.c     LinkedHashMap.c               SortedMap.i                           |
- |                                               ^                                |
- |                                               |                              Hashtable.c
- |                                               |
+                                                 ^                                |
+                                                 |                              Hashtable.c
+                                                 |
                                              TreeMap.c
 
 
