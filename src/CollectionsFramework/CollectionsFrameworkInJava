@@ -226,16 +226,30 @@ implementations returns a string containing all the elements of the sorted set, 
     3a. TreeSet class: which stores its elements in a red-black tree, orders its elements based on
 their values; it is substantially slower than HashSet.
 
+                                  Map Interface
+                                        ^
+                                        |
+------------------------------------------------------------------------------------
+   ^                ^                            ^                                ^
+   |                |                            |                                |
+HashMap.c     LinkedHashMap.c               SortedMap.i                           |
+ |                                               ^                                |
+ |                                               |                              Hashtable.c
+ |                                               |
+                                             TreeMap.c
 
-The Map Interface: A Map is an object that maps keys to values. A map cannot contain duplicate keys:
+
+    D. The Map Interface: A Map is an object that maps keys to values. A map cannot contain duplicate keys:
 Each key can map to at most one value. It models the mathematical function abstraction. The Map interface
 includes methods for basic operations(such as put, get, remove, containsKey, containsValue, size, and empty),
 bulk operations (such as putAll and clear), and collection views (such as keySet, entrySet, and values).
 
 The Java platform contains three general-purpose Map implementations:
     1. HashMap
-    2. TreeMap
+    2. TreeMap --> implements SortedMap --> implements Map
     3. LinkedHashMap
+    and other one, 4. Hashtable
+
 Their behavior and performance are precisely analogous to HashSet, TreeSet, and LinkedHashSet.
 
 Collection Views: The Collection view methods allow a Map to be viewed as a Collection in these three ways:
