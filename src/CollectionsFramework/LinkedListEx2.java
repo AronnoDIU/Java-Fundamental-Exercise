@@ -6,16 +6,18 @@ public class LinkedListEx2 {
     Node head;
     private int size;
 
-    public LinkedListEx2(int size) {
-        this.size = size;
+    public LinkedListEx2() {
+        size = 0;
     }
+
     public int getSize() {
         return size;
     }
 
-    class Node {
+    public class Node {
         String data;
         Node next;
+
         public Node(String data) {
             this.data = data;
             this.next = null;
@@ -52,7 +54,7 @@ public class LinkedListEx2 {
 
     // Print node
     public void printList() {
-        if (head==null){
+        if (head == null) {
             System.out.println("List is Empty");
             return;
         }
@@ -66,50 +68,25 @@ public class LinkedListEx2 {
         System.out.println("null");
     }
 
-    public void removeFirst() {
-        if (head == null) {
-            System.out.println("Empty List, nothing to delete");
-            return;
-        }
-        head = this.head.next;
-        size--;
-    }
-
-    // Remove node
-    public void removeLast() {
-        if (head == null) {
-            System.out.println("Empty List, nothing to delete");
-            return;
-        }
-        size--;
-        if (head.next == null) {
-            head = null;
-            return;
-        }
-        Node currNode = head;
-        Node lastNode = head.next;
-        while (lastNode.next != null) {
-            currNode = currNode.next;
-            lastNode = lastNode.next;
-        }
-        currNode.next = null;
-    }
-
     // Add middle of the list
     public void addInMiddle(int index, String data) {
         if (index > size || index < 0) {
             System.out.println("Invalid Index value");
             return;
         }
+
         size++;
 
         Node addInMiddleNode = new Node(data);
+
         if (head == null || index == 0) {
             addInMiddleNode.next = head;
             head = addInMiddleNode;
             return;
         }
+
         Node currentNode = head;
+
         for (int i = 1; i < size; i++) {
             if (i == index) {
                 Node nextNode = currentNode.next;
@@ -121,8 +98,42 @@ public class LinkedListEx2 {
         }
     }
 
+    // Remove First Node
+    public void removeFirst() {
+        if (head == null) {
+            System.out.println("Empty List, nothing to delete");
+            return;
+        }
+        head = this.head.next;
+        size--;
+    }
+
+    // Remove Last Node
+    public void removeLast() {
+        if (head == null) {
+            System.out.println("Empty List, nothing to delete");
+            return;
+        }
+
+        /*Size doesn't appear in below Because, if the existing Node is single,
+        then the statement will return & Size doesn't change */
+        size--;
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+        Node secondLast = head;
+        Node lastNode = head.next;      // if head.next = null then, lastNode = null
+        while (lastNode.next != null) { // so, lastNode.next == null.next which is error!
+            lastNode = lastNode.next;
+            secondLast = secondLast.next;
+        }
+        secondLast.next = null;
+    }
+
     public static void main(String[] args) {
-        LinkedListEx2 linkedList = new LinkedListEx2(5);
+        LinkedListEx2 linkedList = new LinkedListEx2();
         linkedList.addFirst("a");
         linkedList.addFirst("is");
         linkedList.printList();
@@ -136,13 +147,13 @@ public class LinkedListEx2 {
         linkedList.addInMiddle(3, "Aronno's");
         linkedList.printList();
 
-        System.out.println(linkedList.getSize());
-
         linkedList.removeFirst();
         linkedList.printList();
 
         linkedList.removeLast();
         linkedList.printList();
+
+        System.out.println(linkedList.getSize());
     }
 }
 
@@ -152,8 +163,8 @@ is -> a -> null
 is -> a -> list -> null
 this -> is -> a -> list -> null
 this -> is -> a -> Aronno's -> list -> null
-11
 is -> a -> Aronno's -> list -> null
 is -> a -> Aronno's -> null
+4
 
 * */
