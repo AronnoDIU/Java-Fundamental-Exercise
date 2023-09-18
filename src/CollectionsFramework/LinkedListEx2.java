@@ -9,7 +9,6 @@ public class LinkedListEx2 {
     public LinkedListEx2(int size) {
         this.size = size;
     }
-
     public int getSize() {
         return size;
     }
@@ -17,7 +16,6 @@ public class LinkedListEx2 {
     class Node {
         String data;
         Node next;
-
         public Node(String data) {
             this.data = data;
             this.next = null;
@@ -54,6 +52,11 @@ public class LinkedListEx2 {
 
     // Print node
     public void printList() {
+        if (head==null){
+            System.out.println("List is Empty");
+            return;
+        }
+
         Node currentNode = head;
 
         while (currentNode != null) {
@@ -122,21 +125,21 @@ public class LinkedListEx2 {
         LinkedListEx2 linkedList = new LinkedListEx2(5);
         linkedList.addFirst("a");
         linkedList.addFirst("is");
+        linkedList.printList();
+
         linkedList.addLast("list");
         linkedList.printList();
 
         linkedList.addFirst("this");
         linkedList.printList();
 
-        linkedList.addInMiddle(2, "Aronno");
+        linkedList.addInMiddle(3, "Aronno's");
         linkedList.printList();
 
         System.out.println(linkedList.getSize());
 
-
         linkedList.removeFirst();
         linkedList.printList();
-
 
         linkedList.removeLast();
         linkedList.printList();
@@ -145,11 +148,12 @@ public class LinkedListEx2 {
 
 /*Expected Output:
 
+is -> a -> null
 is -> a -> list -> null
 this -> is -> a -> list -> null
-this -> is -> Aronno -> a -> list -> null
+this -> is -> a -> Aronno's -> list -> null
 11
-is -> Aronno -> a -> list -> null
-is -> Aronno -> a -> null
+is -> a -> Aronno's -> list -> null
+is -> a -> Aronno's -> null
 
 * */
