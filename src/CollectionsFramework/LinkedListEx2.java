@@ -5,15 +5,19 @@ package CollectionsFramework;
 public class LinkedListEx2 {
     Node head;
     private int size;
+
     public LinkedListEx2(int size) {
         this.size = size;
     }
+
     public int getSize() {
         return size;
     }
+
     class Node {
         String data;
         Node next;
+
         public Node(String data) {
             this.data = data;
             this.next = null;
@@ -41,21 +45,20 @@ public class LinkedListEx2 {
             head = addLastNode;
             return;
         }
-        Node lastNode = head;
-        while (lastNode.next != null) {
-            lastNode = lastNode.next;
+        Node currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
         }
-
-        lastNode.next = addLastNode;
+        currentNode.next = addLastNode;  // Assign as a last Node
     }
 
     // Print node
     public void printList() {
-        Node currNode = head;
+        Node currentNode = head;
 
-        while (currNode != null) {
-            System.out.print(currNode.data + " -> ");
-            currNode = currNode.next;
+        while (currentNode != null) {
+            System.out.print(currentNode.data + " -> ");
+            currentNode = currentNode.next;
         }
         System.out.println("null");
     }
@@ -125,7 +128,7 @@ public class LinkedListEx2 {
         linkedList.addFirst("this");
         linkedList.printList();
 
-        linkedList.addInMiddle(2,"Aronno");
+        linkedList.addInMiddle(2, "Aronno");
         linkedList.printList();
 
         System.out.println(linkedList.getSize());
