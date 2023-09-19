@@ -6,14 +6,14 @@ import java.util.ArrayList;
     arrays but can be helpful in programs where lots of manipulation in the array is needed.
     The size of an ArrayList is increased automatically if the collection grows or shrinks
     if the objects are removed from the collection. Java ArrayList allows us to randomly
-    access the list. ArrayList cannot be used for primitive types, like int, char, etc.
+    access the GenericLinkedLists. ArrayList cannot be used for primitive types, like int, char, etc.
     We will need a wrapper class for such cases.*/
 public class ArrayListEx2 {
     public static void main(String[] args) {
         // Declaring the ArrayList with initial size n
         ArrayList<Integer> integerArrayList = new ArrayList<>();
 
-        // Appending new elements at the end of the list
+        // Appending new elements at the end of the GenericLinkedLists
         for (int index = 1; index <= 5; index++)
             integerArrayList.add(index);
 

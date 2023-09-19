@@ -13,7 +13,7 @@ public class VectorEx1 {
         // Declaring the Vector
         Vector<Integer> integerVector = new Vector<>();
 
-        // Appending new elements at the end of the list
+        // Appending new elements at the end of the GenericLinkedLists
         for (int index = 1; index <= 5; index++)
             integerVector.add(index);
 

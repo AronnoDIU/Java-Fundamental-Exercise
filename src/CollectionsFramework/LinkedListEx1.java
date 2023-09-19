@@ -6,13 +6,13 @@ import java.util.LinkedList;
     The LinkedList class is an implementation of the LinkedList data structure, which is a linear
     data structure where the elements are not stored in contiguous locations and every element
     is a separate object with a data part and address part. The elements are linked using
-    pointers and addresses. Each element is known as a node. */
+    pointers and addresses. Each element is known as a GenericNode. */
 public class LinkedListEx1 {
     public static void main(String[] args) {
         // Declaring the LinkedList
         LinkedList<Integer> integerLinkedList = new LinkedList<>();
 
-        // Appending new elements at the end of the list
+        // Appending new elements at the end of the GenericLinkedLists
         for (int index = 1; index <= 5; index++)
             integerLinkedList.add(index);
 

@@ -42,7 +42,7 @@ public class SortObjectsArrayListByDate {
         // Display message
         System.out.println("Sorted in Ascending Order");
 
-        // Iterating the list using it for-each loop
+        // Iterating the GenericLinkedLists using it for-each loop
         for (DateItem EnhancedDateItemArrayList : dateItemArrayList) {
 
             // Printing the sorted items from the List

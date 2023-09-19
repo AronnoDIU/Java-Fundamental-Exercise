@@ -52,7 +52,7 @@ public class LinkedListEx2 {
         currentNode.next = addLastNode;  // Assign as a last Node
     }
 
-    // Print node
+    // Print GenericNode
     public void printList() {
         if (head == null) {
             System.out.println("List is Empty");
@@ -68,7 +68,7 @@ public class LinkedListEx2 {
         System.out.println("null");
     }
 
-    // Add middle of the list
+    // Add middle of the GenericLinkedLists
     public void addInMiddle(int index, String data) {
         if (index > size || index < 0) {
             System.out.println("Invalid Index value");
@@ -138,7 +138,7 @@ public class LinkedListEx2 {
         linkedList.addFirst("is");
         linkedList.printList();
 
-        linkedList.addLast("list");
+        linkedList.addLast("GenericLinkedLists");
         linkedList.printList();
 
         linkedList.addFirst("this");
@@ -160,10 +160,10 @@ public class LinkedListEx2 {
 /*Expected Output:
 
 is -> a -> null
-is -> a -> list -> null
-this -> is -> a -> list -> null
-this -> is -> a -> Aronno's -> list -> null
-is -> a -> Aronno's -> list -> null
+is -> a -> GenericLinkedLists -> null
+this -> is -> a -> GenericLinkedLists -> null
+this -> is -> a -> Aronno's -> GenericLinkedLists -> null
+is -> a -> Aronno's -> GenericLinkedLists -> null
 is -> a -> Aronno's -> null
 4
 

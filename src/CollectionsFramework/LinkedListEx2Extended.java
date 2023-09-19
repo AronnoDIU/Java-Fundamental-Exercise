@@ -8,7 +8,7 @@ public class LinkedListEx2Extended {
 
         stringLinkedList.add("is");
         stringLinkedList.add("a");
-        stringLinkedList.addLast("list");
+        stringLinkedList.addLast("GenericLinkedLists");
         stringLinkedList.addFirst("this");
         stringLinkedList.add(3, "linked");
         System.out.println(stringLinkedList);
@@ -25,7 +25,7 @@ public class LinkedListEx2Extended {
 
 /*Expected Output:
 
-[this, is, a, linked, list]
+[this, is, a, linked, GenericLinkedLists]
 this
 5
 [is, a]

@@ -4,7 +4,7 @@ import java.util.LinkedHashSet;
 
 /*#LinkedHashSet:
     A LinkedHashSet is very similar to a HashSet. The difference is that this uses a doubly
-    linked list to store the data and retains the ordering of the elements. */
+    linked GenericLinkedLists to store the data and retains the ordering of the elements. */
 public class LinkedHashSetEx1 {
     public static void main(String[] args) {
         // Creating LinkedHashSet and adding elements
