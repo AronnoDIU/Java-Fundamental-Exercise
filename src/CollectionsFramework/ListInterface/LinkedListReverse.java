@@ -36,7 +36,7 @@ public class LinkedListReverse {
         head = addFirstNode;
     }
 
-    // Add - last
+    // Add - last String data
     public void addLast(String data) {
         Node addLastNode = new Node(data);
 
@@ -130,14 +130,73 @@ public class LinkedListReverse {
         }
         secondLast.next = null;
     }
+
+    // Reversed Node
+    public void reversedIterate() {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node previousNode = head;
+        Node currentNode = head.next;
+
+        while (currentNode != null) {
+            Node nextNode = currentNode.next;
+            currentNode.next = previousNode;
+
+            // Update the Nodes
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        head.next = null;
+        head = previousNode;
+    }
+
     public static void main(String[] args) {
-        System.out.println();
+        LinkedListReverse linkedListReverse = new LinkedListReverse();
+
+        linkedListReverse.addLast("1");
+        linkedListReverse.addLast("2");
+        linkedListReverse.addLast("3");
+        linkedListReverse.addLast("4");
+        linkedListReverse.printList();
+
+        linkedListReverse.reversedIterate();
+        linkedListReverse.printList();
+
+        linkedListReverse.addFirst("a");
+        linkedListReverse.addFirst("is");
+        linkedListReverse.printList();
+
+        linkedListReverse.addLast("Lists");
+        linkedListReverse.printList();
+
+        linkedListReverse.addFirst("this");
+        linkedListReverse.printList();
+
+        linkedListReverse.addInMiddle(3, "Aronno's");
+        linkedListReverse.printList();
+
+        linkedListReverse.removeFirst();
+        linkedListReverse.printList();
+
+        linkedListReverse.removeLast();
+        linkedListReverse.printList();
+
+        System.out.println(linkedListReverse.getSize());
     }
 }
 
 /*Expected Output:
 
-25
-false
-2
+1 -> 2 -> 3 -> 4 -> null
+4 -> 3 -> 2 -> 1 -> null
+is -> a -> 4 -> 3 -> 2 -> 1 -> null
+is -> a -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+this -> is -> a -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+this -> is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> null
+8
+
 * */
