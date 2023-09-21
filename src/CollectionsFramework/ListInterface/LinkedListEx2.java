@@ -138,7 +138,7 @@ public class LinkedListEx2 {
         linkedList.addFirst("is");
         linkedList.printList();
 
-        linkedList.addLast("GenericLinkedLists");
+        linkedList.addLast("Lists");
         linkedList.printList();
 
         linkedList.addFirst("this");
@@ -160,10 +160,10 @@ public class LinkedListEx2 {
 /*Expected Output:
 
 is -> a -> null
-is -> a -> GenericLinkedLists -> null
-this -> is -> a -> GenericLinkedLists -> null
-this -> is -> a -> Aronno's -> GenericLinkedLists -> null
-is -> a -> Aronno's -> GenericLinkedLists -> null
+is -> a -> Lists -> null
+this -> is -> a -> Lists -> null
+this -> is -> a -> Aronno's -> Lists -> null
+is -> a -> Aronno's -> Lists -> null
 is -> a -> Aronno's -> null
 4
 
