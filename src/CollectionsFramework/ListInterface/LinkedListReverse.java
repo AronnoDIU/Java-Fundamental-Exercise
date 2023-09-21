@@ -183,6 +183,17 @@ public class LinkedListReverse {
         linkedListReverse.removeLast();
         linkedListReverse.printList();
 
+        // Reversed Purpose
+
+        linkedListReverse.addInMiddle(3, "Lists");
+        linkedListReverse.printList();
+
+        linkedListReverse.addFirst("this");
+        linkedListReverse.printList();
+
+        linkedListReverse.reversedIterate();
+        linkedListReverse.printList();
+
         System.out.println(linkedListReverse.getSize());
     }
 }
