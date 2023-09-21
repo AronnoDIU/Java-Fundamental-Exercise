@@ -15,8 +15,8 @@ This allows for a quick lookup of values based on keys.
 The key is used to look up the associated value.
     Supports null keys and values: HashMaps allow for null values and keys.
 This means that a null key can be used to store a value, and a null value can be associated with a key.
-    Not ordered: HashMaps are not ordered, which means that the order in which elements
-are added to the map is not preserved. However, LinkedHashMap is a variation of HashMap that preserves the insertion order.
+    Not ordered: HashMaps are not ordered, which means that the order in which elements are added to the
+map is not preserved. However, LinkedHashMap is a variation of HashMap that preserves the insertion order.
     Allows duplicates: HashMaps allow for duplicate values, but not duplicate keys.
 If a duplicate key is added, the previous value associated with the key is overwritten.
     Thread-unsafe: HashMaps are not thread-safe, which means that if multiple threads access
