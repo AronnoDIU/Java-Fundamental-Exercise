@@ -208,7 +208,8 @@ public class LinkedListReverse {
         linkedListReverse.printList();
 
         // Reversed Purpose for a Recursive process
-        linkedListReverse.reversedRecursive(linkedListReverse.head);
+        linkedListReverse.head =
+                linkedListReverse.reversedRecursive(linkedListReverse.head);
         linkedListReverse.printList();
 
         System.out.println(linkedListReverse.getSize());
@@ -228,7 +229,7 @@ is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> null
 is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
 this -> is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
 1 -> 2 -> 3 -> 4 -> Lists -> Aronno's -> a -> is -> this -> null
-1 -> null
+this -> is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
 11
 
 * */
