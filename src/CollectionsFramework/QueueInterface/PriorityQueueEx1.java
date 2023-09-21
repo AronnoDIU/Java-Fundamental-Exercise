@@ -1,4 +1,4 @@
-package CollectionsFramework;
+package CollectionsFramework.QueueInterface;
 
 import java.util.PriorityQueue;
 

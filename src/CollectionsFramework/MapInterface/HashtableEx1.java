@@ -1,4 +1,4 @@
-package CollectionsFramework;
+package CollectionsFramework.MapInterface;
 
 import java.util.Enumeration;
 import java.util.Hashtable;

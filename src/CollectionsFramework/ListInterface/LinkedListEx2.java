@@ -1,4 +1,4 @@
-package CollectionsFramework;
+package CollectionsFramework.ListInterface;
 
 // LinkedList class Implementation (Collection Framework)
 // Scratch Implementation
