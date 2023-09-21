@@ -1,12 +1,11 @@
 package CollectionsFramework.ListInterface;
 
-// LinkedList class Implementation (Collection Framework)
-// Scratch Implementation
-public class LinkedListEx2 {
+// Iterative/Classical Approach
+public class LinkedListReverse {
     Node head;
     private int size;
 
-    public LinkedListEx2() {
+    public LinkedListReverse() {
         size = 0;
     }
 
@@ -131,40 +130,14 @@ public class LinkedListEx2 {
         }
         secondLast.next = null;
     }
-
     public static void main(String[] args) {
-        LinkedListEx2 linkedList = new LinkedListEx2();
-        linkedList.addFirst("a");
-        linkedList.addFirst("is");
-        linkedList.printList();
-
-        linkedList.addLast("GenericLinkedLists");
-        linkedList.printList();
-
-        linkedList.addFirst("this");
-        linkedList.printList();
-
-        linkedList.addInMiddle(3, "Aronno's");
-        linkedList.printList();
-
-        linkedList.removeFirst();
-        linkedList.printList();
-
-        linkedList.removeLast();
-        linkedList.printList();
-
-        System.out.println(linkedList.getSize());
+        System.out.println();
     }
 }
 
 /*Expected Output:
 
-is -> a -> null
-is -> a -> GenericLinkedLists -> null
-this -> is -> a -> GenericLinkedLists -> null
-this -> is -> a -> Aronno's -> GenericLinkedLists -> null
-is -> a -> Aronno's -> GenericLinkedLists -> null
-is -> a -> Aronno's -> null
-4
-
+25
+false
+2
 * */
