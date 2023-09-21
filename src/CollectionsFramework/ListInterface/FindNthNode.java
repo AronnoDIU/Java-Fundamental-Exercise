@@ -5,7 +5,7 @@ package CollectionsFramework.ListInterface;
 public class FindNthNode {
     ListNode head;
 
-    public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode removeNthFromEnd(ListNode head, int n) {
         if (head.next == null) {
             return null;
         }
@@ -67,13 +67,15 @@ public class FindNthNode {
 
     public static void main(String[] args) {
         FindNthNode findNthNode = new FindNthNode();
-        int n = 3;
+        int n = 3; // Find & Remove the Nth Node
 
         findNthNode.addLast(1);
         findNthNode.addLast(2);
         findNthNode.addLast(3);
         findNthNode.addLast(4);
         findNthNode.addLast(5);
+
+        findNthNode.printList();
 
         findNthNode.head = findNthNode.removeNthFromEnd(findNthNode.head, n);
 
@@ -85,15 +87,14 @@ class ListNode {
     int val;
     ListNode next;
 
-    ListNode() {
-    }
-
     ListNode(int val) {
         this.val = val;
     }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
-    }
 }
+
+/*Expected Output:
+
+1 -> 2 -> 3 -> 4 -> 5 -> null
+1 -> 2 -> 4 -> 5 -> null
+
+* */
