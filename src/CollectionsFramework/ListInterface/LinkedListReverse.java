@@ -13,7 +13,7 @@ public class LinkedListReverse {
         return size;
     }
 
-    class Node {
+    public class Node {
         String data;
         Node next;
 
@@ -131,7 +131,7 @@ public class LinkedListReverse {
         secondLast.next = null;
     }
 
-    // Reversed Node
+    // Reversed Node Iterate Based
     public void reversedIterate() {
         if (head == null || head.next == null) {
             return;
@@ -150,6 +150,20 @@ public class LinkedListReverse {
         }
         head.next = null;
         head = previousNode;
+    }
+
+    // Reversed Node Recursive Based
+    public Node reversedRecursive(Node head) {
+        if (head == null || head.next == null) {    //Corner Point
+            return head;
+        }
+
+        Node newHead = reversedRecursive(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
     }
 
     public static void main(String[] args) {
@@ -183,8 +197,7 @@ public class LinkedListReverse {
         linkedListReverse.removeLast();
         linkedListReverse.printList();
 
-        // Reversed Purpose
-
+        // Reversed Purpose for an Iteration process
         linkedListReverse.addInMiddle(3, "Lists");
         linkedListReverse.printList();
 
@@ -192,6 +205,10 @@ public class LinkedListReverse {
         linkedListReverse.printList();
 
         linkedListReverse.reversedIterate();
+        linkedListReverse.printList();
+
+        // Reversed Purpose for a Recursive process
+        linkedListReverse.reversedRecursive(linkedListReverse.head);
         linkedListReverse.printList();
 
         System.out.println(linkedListReverse.getSize());
@@ -208,6 +225,10 @@ this -> is -> a -> 4 -> 3 -> 2 -> 1 -> Lists -> null
 this -> is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> Lists -> null
 is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> Lists -> null
 is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> null
-8
+is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
+this -> is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
+1 -> 2 -> 3 -> 4 -> Lists -> Aronno's -> a -> is -> this -> null
+1 -> null
+11
 
 * */
