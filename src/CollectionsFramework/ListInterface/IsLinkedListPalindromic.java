@@ -43,8 +43,14 @@ public class IsLinkedListPalindromic {
 
     // Find Middle Node
     PalindromeNode findMiddle(PalindromeNode head) {
+        PalindromeNode hare = head;
+        PalindromeNode turtle = head;
 
-        return head;
+        while (hare.next != null && hare.next.next != null) {
+            hare = hare.next.next;
+            turtle = turtle.next;
+        }
+        return turtle;
     }
 
     public static void main(String[] args) {
