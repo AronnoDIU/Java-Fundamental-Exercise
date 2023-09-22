@@ -77,3 +77,10 @@ class ListNoteCycle {
         this.next = null;
     }
 }
+
+/*Expected Output:
+
+1 -> 2 -> 3 -> 4 -> null
+Is this list has Cycle ? true
+
+* */
