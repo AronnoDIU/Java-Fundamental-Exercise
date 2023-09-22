@@ -53,8 +53,50 @@ public class IsLinkedListPalindromic {
         return turtle;
     }
 
+    // Adding Last Node
+    // Add - last Integer data
+    public void addLast(int val) {
+        PalindromeNode addLastNode = new PalindromeNode(val);
+
+        if (head == null) {
+            head = addLastNode;
+            return;
+        }
+        PalindromeNode currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = addLastNode;  // Assign as a last Node
+    }
+
+    // Print GenericNode
+    public void printList() {
+        if (head == null) {
+            System.out.println("List is Empty");
+            return;
+        }
+
+        PalindromeNode currentNode = head;
+
+        while (currentNode != null) {
+            System.out.print(currentNode.val + " -> ");
+            currentNode = currentNode.next;
+        }
+        System.out.println("null");
+    }
+
     public static void main(String[] args) {
-        System.out.println();
+        IsLinkedListPalindromic isPalindromic =
+                new IsLinkedListPalindromic();
+
+        isPalindromic.addLast(1);
+        isPalindromic.addLast(2);
+        isPalindromic.addLast(2);
+        isPalindromic.addLast(1);
+        isPalindromic.printList();
+
+        System.out.println("Is this list Palindromic? "
+                + isPalindromic.isPalindrome(isPalindromic.head));
     }
 }
 
@@ -66,3 +108,10 @@ class PalindromeNode {
         this.val = val;
     }
 }
+
+/*Expected Output:
+
+1 -> 2 -> 2 -> 1 -> null
+Is this list Palindromic? true
+
+* */
