@@ -1,4 +1,4 @@
-package CollectionsFramework.ListInterface;
+package CollectionsFramework.ListInterface.VectorStack;
 
 import java.util.Iterator;
 import java.util.Stack;

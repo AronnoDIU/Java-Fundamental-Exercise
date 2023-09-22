@@ -1,4 +1,4 @@
-package CollectionsFramework.ListInterface;
+package CollectionsFramework.ListInterface.LinkedListClass;
 
 // Find the N th Node from Last in LinkedList
 // Delete the N th Node from LinkedList

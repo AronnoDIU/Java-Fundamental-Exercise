@@ -1,4 +1,4 @@
-package CollectionsFramework.ListInterface;
+package CollectionsFramework.ListInterface.LinkedListClass;
 
 /*Linked List is Linear Data Structures that store values in nodes. As we do know here,
 each Node possesses two properties, namely the value of the GenericNode and link to the next

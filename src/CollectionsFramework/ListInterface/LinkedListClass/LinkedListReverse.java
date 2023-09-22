@@ -1,12 +1,11 @@
-package CollectionsFramework.ListInterface;
+package CollectionsFramework.ListInterface.LinkedListClass;
 
-// LinkedList class Implementation (Collection Framework)
-// Scratch Implementation
-public class LinkedListEx2 {
+// Iterative/Classical Approach
+public class LinkedListReverse {
     Node head;
     private int size;
 
-    public LinkedListEx2() {
+    public LinkedListReverse() {
         size = 0;
     }
 
@@ -14,7 +13,7 @@ public class LinkedListEx2 {
         return size;
     }
 
-    class Node {
+    public class Node {
         String data;
         Node next;
 
@@ -37,7 +36,7 @@ public class LinkedListEx2 {
         head = addFirstNode;
     }
 
-    // Add - last
+    // Add - last String data
     public void addLast(String data) {
         Node addLastNode = new Node(data);
 
@@ -132,39 +131,105 @@ public class LinkedListEx2 {
         secondLast.next = null;
     }
 
+    // Reversed Node Iterate Based
+    public void reversedIterate() {
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node previousNode = head;
+        Node currentNode = head.next;
+
+        while (currentNode != null) {
+            Node nextNode = currentNode.next;
+            currentNode.next = previousNode;
+
+            // Update the Nodes
+            previousNode = currentNode;
+            currentNode = nextNode;
+        }
+        head.next = null;
+        head = previousNode;
+    }
+
+    // Reversed Node Recursive Based
+    public Node reversedRecursive(Node head) {
+        if (head == null || head.next == null) {    //Corner Point
+            return head;
+        }
+
+        Node newHead = reversedRecursive(head.next);
+
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
     public static void main(String[] args) {
-        LinkedListEx2 linkedList = new LinkedListEx2();
-        linkedList.addFirst("a");
-        linkedList.addFirst("is");
-        linkedList.printList();
+        LinkedListReverse linkedListReverse = new LinkedListReverse();
 
-        linkedList.addLast("Lists");
-        linkedList.printList();
+        linkedListReverse.addLast("1");
+        linkedListReverse.addLast("2");
+        linkedListReverse.addLast("3");
+        linkedListReverse.addLast("4");
+        linkedListReverse.printList();
 
-        linkedList.addFirst("this");
-        linkedList.printList();
+        linkedListReverse.reversedIterate();
+        linkedListReverse.printList();
 
-        linkedList.addInMiddle(3, "Aronno's");
-        linkedList.printList();
+        linkedListReverse.addFirst("a");
+        linkedListReverse.addFirst("is");
+        linkedListReverse.printList();
 
-        linkedList.removeFirst();
-        linkedList.printList();
+        linkedListReverse.addLast("Lists");
+        linkedListReverse.printList();
 
-        linkedList.removeLast();
-        linkedList.printList();
+        linkedListReverse.addFirst("this");
+        linkedListReverse.printList();
 
-        System.out.println(linkedList.getSize());
+        linkedListReverse.addInMiddle(3, "Aronno's");
+        linkedListReverse.printList();
+
+        linkedListReverse.removeFirst();
+        linkedListReverse.printList();
+
+        linkedListReverse.removeLast();
+        linkedListReverse.printList();
+
+        // Reversed Purpose for an Iteration process
+        linkedListReverse.addInMiddle(3, "Lists");
+        linkedListReverse.printList();
+
+        linkedListReverse.addFirst("this");
+        linkedListReverse.printList();
+
+        linkedListReverse.reversedIterate();
+        linkedListReverse.printList();
+
+        // Reversed Purpose for a Recursive process
+        linkedListReverse.head =
+                linkedListReverse.reversedRecursive(linkedListReverse.head);
+        linkedListReverse.printList();
+
+        System.out.println(linkedListReverse.getSize());
     }
 }
 
 /*Expected Output:
 
-is -> a -> null
-is -> a -> Lists -> null
-this -> is -> a -> Lists -> null
-this -> is -> a -> Aronno's -> Lists -> null
-is -> a -> Aronno's -> Lists -> null
-is -> a -> Aronno's -> null
-4
+1 -> 2 -> 3 -> 4 -> null
+4 -> 3 -> 2 -> 1 -> null
+is -> a -> 4 -> 3 -> 2 -> 1 -> null
+is -> a -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+this -> is -> a -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+this -> is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> Lists -> null
+is -> a -> Aronno's -> 4 -> 3 -> 2 -> 1 -> null
+is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
+this -> is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
+1 -> 2 -> 3 -> 4 -> Lists -> Aronno's -> a -> is -> this -> null
+this -> is -> a -> Aronno's -> Lists -> 4 -> 3 -> 2 -> 1 -> null
+11
 
 * */
