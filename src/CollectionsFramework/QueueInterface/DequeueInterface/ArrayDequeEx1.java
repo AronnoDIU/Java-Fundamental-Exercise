@@ -1,4 +1,4 @@
-package CollectionsFramework.QueueInterface;
+package CollectionsFramework.QueueInterface.DequeueInterface;
 
 import java.util.ArrayDeque;
 
