@@ -1,5 +1,6 @@
 package CollectionsFramework.ListInterface.VectorStack;
 
+// //stack using Linked List
 public class StackScratch {
     // Node class for LinkedList Implementation
     private static class Node {
