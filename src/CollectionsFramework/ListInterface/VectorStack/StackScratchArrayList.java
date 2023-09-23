@@ -2,6 +2,7 @@ package CollectionsFramework.ListInterface.VectorStack;
 
 import java.util.ArrayList;
 
+// stack using Array List
 public class StackScratchArrayList {
     static class Stack {
         ArrayList<Integer> list = new ArrayList<>();
