@@ -16,23 +16,26 @@ public class StackReversed {
         integerStack.push(temp);
     }
 
-    public static void reverse(Stack<Integer> integerStack) {
+    public static void reverseStack(Stack<Integer> integerStack) {
         if (integerStack.isEmpty()) {
             return;
         }
 
         int top = integerStack.pop();
-        reverse(integerStack);
+        reverseStack(integerStack);
         pushAtBottom(integerStack, top);
     }
 
     public static void main(String[] args) {
         Stack<Integer> integerStack = new Stack<>();
+
         integerStack.push(1);
         integerStack.push(2);
         integerStack.push(3);
         integerStack.push(4);
         integerStack.push(5);
+
+        reverseStack(integerStack);
 
         while (!integerStack.isEmpty()) {
             System.out.println(integerStack.pop());
@@ -42,10 +45,10 @@ public class StackReversed {
 
 /*Expected Output:
 
-5
-4
-3
-2
 1
+2
+3
+4
+5
 
 * */
