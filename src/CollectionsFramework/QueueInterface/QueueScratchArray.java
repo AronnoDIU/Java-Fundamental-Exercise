@@ -1,5 +1,6 @@
 package CollectionsFramework.QueueInterface;
 
+// Time complexity is High using Array
 public class QueueScratchArray {
     static int[] arr;
     static int size;
