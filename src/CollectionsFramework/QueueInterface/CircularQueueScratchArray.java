@@ -44,7 +44,7 @@ public class CircularQueueScratchArray {
                 System.out.println("empty queue");
                 return -1;
             }
-            int res = array[front];
+            int result = array[front];
 
 
             //if only 1 element is present
@@ -53,7 +53,7 @@ public class CircularQueueScratchArray {
             } else {
                 front = (front + 1) % size;
             }
-            return res;
+            return result;
         }
 
 
