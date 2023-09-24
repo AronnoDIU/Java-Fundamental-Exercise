@@ -13,12 +13,10 @@ public class QueueCFex1 {
         integerArrayDeque.add(4);
         integerArrayDeque.add(5);
 
-
         while (!integerArrayDeque.isEmpty()) {
             System.out.println(integerArrayDeque.peek());
             integerArrayDeque.remove();
         }
-
     }
 }
 
