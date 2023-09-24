@@ -60,7 +60,7 @@ public class QueueScratchArray {
 
         while (!isEmpty()) {
             System.out.println(peek());
-            remove();
+            remove(); // after remove: Everyone should leave
         }
 
         System.out.println(); //There is no Queue left to remove
