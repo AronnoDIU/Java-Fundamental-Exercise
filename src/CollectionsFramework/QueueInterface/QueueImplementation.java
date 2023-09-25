@@ -1,6 +1,16 @@
 package CollectionsFramework.QueueInterface;
 
 // Queue Implementation using an Array:
+/**The queue supports the following core operations:
+
+ Enqueue/add: Insert an item at the rear of the queue.
+ Dequeue/remove: Removes the object from the front of the queue and returns it,
+            thereby decrementing the queue size by one.
+ Peek: Returns the object at the front of the queue without removing it.
+ IsEmpty: Tests if the queue is empty or not.
+ Size: Returns the total number of elements present in the queue.
+
+ */
 public class QueueImplementation {
     public static void main(String[] args) {
         // create a Queue of capacity 5
