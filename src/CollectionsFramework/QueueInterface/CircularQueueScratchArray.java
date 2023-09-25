@@ -38,7 +38,7 @@ public class CircularQueueScratchArray {
             array[rear] = data;
         }
 
-        // dequeue - O(1) time complexity
+        // remove - O(1) time complexity
         public static int remove() {
             if (isEmpty()) {
                 System.out.println("empty queue");

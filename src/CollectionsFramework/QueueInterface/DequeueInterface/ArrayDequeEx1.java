@@ -18,7 +18,7 @@ The class which implements the DEQUE interface is ArrayDeque.
 #ArrayDeque:
     ArrayDeque class which is implemented in the collection framework provides us with a way
     to apply a resizable array. This is a special kind of array that grows and allows users
-    to add or remove an element from both sides of the queue. Array dequeue have no
+    to add or remove an element from both sides of the queue. Array remove have no
     capacity restrictions, and they grow as necessary to support usage. */
 public class ArrayDequeEx1 {
     public static void main(String[] args) {
