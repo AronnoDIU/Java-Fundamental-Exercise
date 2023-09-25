@@ -1,6 +1,6 @@
 package CollectionsFramework.QueueInterface;
 
-// Queue Implementation
+// Queue Implementation using an Array:
 public class QueueImplementation {
     public static void main(String[] args) {
         // create a Queue of capacity 5
