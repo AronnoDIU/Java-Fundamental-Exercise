@@ -4,7 +4,7 @@ package CollectionsFramework.QueueInterface;
 public class QueueImplementation {
     public static void main(String[] args) {
         // create a Queue of capacity 5
-        Queue queue = new Queue(5);
+        QueueImplement queue = new QueueImplement(5);
 
         queue.add(1);
         queue.add(2);
@@ -28,7 +28,7 @@ public class QueueImplementation {
 }
 
 // A class to represent a queue
-class Queue {
+class QueueImplement {
     private final int[] array;     // array to store queue elements
     private int front;             // front points to the front element in the queue
     private int rear;              // rear points to the last element in the queue
@@ -36,7 +36,7 @@ class Queue {
     private int currentSize;             // current size of the queue
 
     // Constructor to initialize a Queue
-    Queue(int size) {
+    QueueImplement(int size) {
         array = new int[size];
         capacity = size;
         front = 0;
