@@ -15,7 +15,7 @@ import java.util.Queue;
 
  2. To pop an item from the stack, return the front item from the first queue.
  */
-// // Implement stack using two queues
+// Implement stack using two queues
 public class QueueStacksEx2 {
     public static void main(String[] args) {
         int[] keys = { 1, 2, 3, 4, 5 };

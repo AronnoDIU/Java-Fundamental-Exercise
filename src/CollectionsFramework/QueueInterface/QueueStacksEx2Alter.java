@@ -12,6 +12,7 @@ import java.util.Queue;
  * second queue except the last element, and then return the last element after
  * moving all elements back to the first queue.
  */
+// Implement stack using two queues
 public class QueueStacksEx2Alter {
     public static void main(String[] args) {
         int[] keys = {1, 2, 3, 4, 5};
