@@ -45,6 +45,7 @@ class Queue2StackImp<T> {
         // Move all elements from the first stack to the second stack
         while (!stack1.isEmpty()) {
             stack2.push(stack1.pop());
+//  the elements are exchanged between the stacks twice for every enqueue operation
         }
 
         // push item into the first stack
