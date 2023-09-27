@@ -17,15 +17,15 @@ import java.util.Stack;
 public class QueueUsing2Stack {
     public static void main(String[] args) {
         int[] keys = {1, 2, 3, 4, 5};
-        Queue2StackImp<Integer> q = new Queue2StackImp<>();
+        Queue2StackImp<Integer> queue2StackImp = new Queue2StackImp<>();
 
         // insert the above keys
         for (int key : keys) {
-            q.add(key);
+            queue2StackImp.add(key);
         }
 
-        System.out.println(q.remove());    // print 1
-        System.out.println(q.remove());    // print 2
+        System.out.println(queue2StackImp.remove());    // print 1
+        System.out.println(queue2StackImp.remove());    // print 2
     }
 }
 
