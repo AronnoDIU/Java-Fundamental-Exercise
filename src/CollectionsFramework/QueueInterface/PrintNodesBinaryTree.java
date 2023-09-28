@@ -53,7 +53,7 @@ public class PrintNodesBinaryTree {
         queue.add(root);
 
         // to store the current node
-        Nodes curr = null;
+        Nodes curr;
 
         // maintains the level of the current node
         int level = 0;
@@ -117,3 +117,10 @@ class Nodes {
         this.key = key;
     }
 }
+
+/*Expected Output:
+
+10 20
+8 12 16 25
+
+* */
