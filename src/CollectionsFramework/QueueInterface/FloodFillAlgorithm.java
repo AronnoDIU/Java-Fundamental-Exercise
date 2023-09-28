@@ -17,34 +17,33 @@ package CollectionsFramework.QueueInterface;
  * color is “BLACK” and replacement color is “GREY”, the algorithm looks for all
  * nodes in the matrix that are connected to the start node by a path of the target
  * color and changes them to the replacement color.
- */
-// Stack-based recursive implementation (four-way)
-/*Flood-fill (node):
- 1. If node is not Inside return.
- 2. Set the node
- 3. Perform Flood-fill one step to the south of the node.
- 4. Perform Flood-fill one step to the north of node
- 5. Perform Flood-fill one step to the west of node
- 6. Perform Flood-fill one step to the east of node
- 7. Return.*/
-
-// Moving the recursion into a data structure
-/*Flood-fill (node):
-  1. Set Q to the empty queue or stack.
-  2. Add node to the end of Q.
-  3. While Q is not empty:
-  4.   Set n equal to the first element of Q.
-  5.   Remove a first element from Q.
-  6.   If n is Inside:
-         Set the n
-         Add the node to the west of n to the end of Q.
-         Add the node to the east of n to the end of Q.
-         Add the node to the north of n to the end of Q.
-         Add the node to the south of n to the end of Q.
-  7. Continue looping until Q is exhausted.
-  8. Return.*/
-
-/**
+ * <p>
+ * // Stack-based recursive implementation (four-way)
+ * /*Flood-fill (node):
+ * 1. If node is not Inside return.
+ * 2. Set the node
+ * 3. Perform Flood-fill one step to the south of the node.
+ * 4. Perform Flood-fill one step to the north of node
+ * 5. Perform Flood-fill one step to the west of node
+ * 6. Perform Flood-fill one step to the east of node
+ * 7. Return.
+ * <p>
+ * Moving the recursion into a data structure
+ * Flood-fill (node):
+ * 1. Set Q to the empty queue or stack.
+ * 2. Add node to the end of Q.
+ * 3. While Q is not empty:
+ * 4.   Set n equal to the first element of Q.
+ * 5.   Remove a first element from Q.
+ * 6.   If n is Inside:
+ * Set the n
+ * Add the node to the west of n to the end of Q.
+ * Add the node to the east of n to the end of Q.
+ * Add the node to the north of n to the end of Q.
+ * Add the node to the south of n to the end of Q.
+ * 7. Continue looping until Q is exhausted.
+ * 8. Return.
+ * <p>
  * Approach 1: (Using BFS)
  * <p>
  * A queue-based implementation using Breadth–first search (BFS) is shown below in pseudocode.
@@ -53,7 +52,7 @@ package CollectionsFramework.QueueInterface;
  * Create an empty queue.
  * Enqueue starting pixel and mark it as processed.
  * <p>
- * Loop till queue is empty
+ * Loop till queue is emptily
  * Dequeue the front node and process it.
  * Replace the color of the current pixel (popped node) with that of the replacement.
  * Process all eight adjacent pixels of the current pixel and enqueue each valid pixel that has the same color as that of the current pixel.
