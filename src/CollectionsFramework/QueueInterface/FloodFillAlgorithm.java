@@ -43,6 +43,21 @@ package CollectionsFramework.QueueInterface;
          Add the node to the south of n to the end of Q.
   7. Continue looping until Q is exhausted.
   8. Return.*/
+
+/**
+ * Approach 1: (Using BFS)
+ * <p>
+ * A queue-based implementation using Breadth–first search (BFS) is shown below in pseudocode.
+ * BFS (starting-pixel, replacement-color):
+ * <p>
+ * Create an empty queue.
+ * Enqueue starting pixel and mark it as processed.
+ * <p>
+ * Loop till queue is empty
+ * Dequeue the front node and process it.
+ * Replace the color of the current pixel (popped node) with that of the replacement.
+ * Process all eight adjacent pixels of the current pixel and enqueue each valid pixel that has the same color as that of the current pixel.
+ */
 public class FloodFillAlgorithm {
     public static void main(String[] args) {
 
