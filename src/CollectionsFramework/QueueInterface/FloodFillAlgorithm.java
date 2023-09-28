@@ -109,7 +109,7 @@ public class FloodFillAlgorithm {
             // enqueue each valid pixel
             for (int k = 0; k < row.length; k++) {
                 // if the adjacent pixel at position (x + row[k], y + col[k]) is
-                // is valid and has the same color as the current pixel
+                // valid and has the same color as the current pixel
                 if (isSafe(mat, x + row[k], y + col[k], target)) {
                     // enqueue adjacent pixel
                     q.add(new Pair(x + row[k], y + col[k]));
@@ -120,7 +120,7 @@ public class FloodFillAlgorithm {
 
     public static void main(String[] args) {
         // matrix showing a portion of the screen having different colors
-        char[][] mat = {
+        char[][] matrix = {
                 "YYYGGGGGGG".toCharArray(),
                 "YYYYYYGXXX".toCharArray(),
                 "GGGGGGGXXX".toCharArray(),
@@ -140,10 +140,10 @@ public class FloodFillAlgorithm {
         char replacement = 'C';
 
         // replace the target color with a replacement color
-        floodFill(mat, x, y, replacement);
+        floodFill(matrix, x, y, replacement);
 
         // print the colors after replacement
-        for (char[] row : mat) {
+        for (char[] row : matrix) {
             System.out.println(Arrays.toString(row));
         }
     }
@@ -157,3 +157,18 @@ class Pair {
         this.y = y;
     }
 }
+
+/*Expected Output:
+
+[Y, Y, Y, G, G, G, G, G, G, G]
+[Y, Y, Y, Y, Y, Y, G, C, C, C]
+[G, G, G, G, G, G, G, C, C, C]
+[W, W, W, W, W, G, G, G, G, C]
+[W, R, R, R, R, R, G, C, C, C]
+[W, W, W, R, R, G, G, C, C, C]
+[W, B, W, R, R, R, R, R, R, C]
+[W, B, B, B, B, R, R, C, C, C]
+[W, B, B, C, B, B, B, B, C, C]
+[W, B, B, C, C, C, C, C, C, C]
+
+* */
