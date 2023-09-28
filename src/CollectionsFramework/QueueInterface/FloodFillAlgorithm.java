@@ -88,7 +88,7 @@ public class FloodFillAlgorithm {
         // get the target color
         char target = mat[x][y];
 
-        // target color is same as replacement
+        // target color is the same as replacement
         if (target == replacement) {
             return;
         }
