@@ -66,12 +66,12 @@ public class FloodFillAlgorithm {
     private static final int[] row = {-1, -1, -1, 0, 0, 1, 1, 1};
     private static final int[] col = {-1, 0, 1, -1, 1, -1, 0, 1};
 
-    // check if it is possible to go to pixel (x, y) from the
+    // Check if it is possible to go to pixel (x, y) from the
     // current pixel. The function returns false if the pixel
     // has a different color, or it's not a valid pixel
-    public static boolean isSafe(char[][] mat, int x, int y, char target) {
-        return x >= 0 && x < mat.length && y >= 0 && y < mat[0].length
-                && mat[x][y] == target;
+    public static boolean isSafe(char[][] matrix, int x, int y, char target) {
+        return x >= 0 && x < matrix.length && y >= 0 && y < matrix[0].length
+                && matrix[x][y] == target;
     }
 
     // Flood fill using BFS
