@@ -26,8 +26,7 @@ public class RemoveDuplicatesArrayListEx3 {
         List<Integer> list = new ArrayList<>(
                 Arrays.asList(1, 10, 1, 2, 2, 3, 10, 3, 3, 4, 5, 5));
         // Print the Arraylist
-        System.out.println("ArrayList with duplicates: "
-                + list);
+        System.out.println("ArrayList with duplicates: " + list);
 
         // Construct a new list from the set constructed from elements
         // of the original list
