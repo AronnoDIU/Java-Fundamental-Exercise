@@ -24,6 +24,7 @@ The Collection framework represents a unified architecture for storing and manip
 
 [comment]: <> (Hierarchy of Collection Framework)
 ![](C:\Users\aronn\IdeaProjects\zzzLinksFolder\hierarchy-of-collection-framework-in-java.webp)
+![](C:\Users\aronn\IdeaProjects\zzzLinksFolder\Java-Collections-Framework-Hierarchy.png)
 
 ## A. List Interface
 A List is an ordered Collection (sometimes called a sequence). Lists may contain duplicate elements.
