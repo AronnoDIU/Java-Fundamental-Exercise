@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Method 2: Using remove() method by values
  */
-public class RemoveElementArrayListAlter {
+public class RemoveElementArrayListEx2 {
     public static void main(String[] args) {
         // Creating an object of List interface with reference to ArrayList
         List<Integer> al = new ArrayList<>();
