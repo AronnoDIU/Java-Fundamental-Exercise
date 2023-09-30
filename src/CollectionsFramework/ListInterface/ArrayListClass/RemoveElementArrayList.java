@@ -29,8 +29,7 @@ public class RemoveElementArrayList {
         // Printing the current ArrayList
         System.out.println(integerArrayList);
 
-        // This makes a call to remove(int) and
-        // removes element 20
+        // This makes a call to remove(int) and removes element 20
         integerArrayList.remove(1);
 
         // Now element 30 is moved one position back
