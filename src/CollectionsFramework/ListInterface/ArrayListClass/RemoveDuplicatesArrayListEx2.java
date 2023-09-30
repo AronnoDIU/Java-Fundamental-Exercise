@@ -61,5 +61,4 @@ public class RemoveDuplicatesArrayListEx2 {
 ArrayList with duplicates: [1, 10, 1, 2, 2, 3, 10, 3, 3, 4, 5, 5]
 ArrayList with duplicates removed: [1, 10, 2, 3, 4, 5]
 
-
 * */
