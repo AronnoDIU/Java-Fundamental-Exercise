@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Java.util.ArrayList.add() Method in Java
- * boolean add(Object o) :
+ * 1. boolean add(Object o) :
  * This method appends the specified element to the end of this list.
  */
 public class AddElementArrayList {
