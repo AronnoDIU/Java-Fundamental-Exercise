@@ -20,14 +20,15 @@ package CollectionsFramework.QueueInterface;
  * int col[] = { -1, 0, 1, -1, 1, -1, 0, 1 }
  * <p>
  * So, from position (x, y), we can move to:
- * (x – 1, y – 1)
- * (x – 1, y)
- * (x – 1, y + 1)
- * (x, y – 1)
- * (x, y + 1)
- * (x + 1, y – 1)
- * (x + 1, y)
- * (x + 1, y + 1)
+ * <p>
+     * (x – 1, y – 1)
+     * (x – 1, y)
+     * (x – 1, y + 1)
+     * (x, y – 1)
+     * (x, y + 1)
+     * (x + 1, y – 1)
+     * (x + 1, y)
+     * (x + 1, y + 1)
  */
 public class CountIslands {
     public static void main(String[] args) {
