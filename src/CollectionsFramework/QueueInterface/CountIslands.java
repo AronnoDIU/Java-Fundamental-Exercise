@@ -39,10 +39,10 @@ public class CountIslands {
     private static final int[] row = {-1, -1, -1, 0, 1, 0, 1, 1};
     private static final int[] col = {-1, 1, 0, -1, -1, 1, 0, 1};
 
-    // Function to check if it is safe to go to position (x, y)
-    // from the current position. The function returns false if (x, y)
-    // is not valid matrix coordinates or (x, y) represents water or
-    // position (x, y) is already processed
+/*     Function to check if it is safe to go to position (x, y)
+     from the current position. The function returns false if (x, y)
+     is not valid matrix coordinates or (x, y) represents water or
+     position (x, y) is already processed*/
 
     public static boolean
     isSafe(int[][] mat, int x, int y, boolean[][] processed) {
@@ -54,8 +54,8 @@ public class CountIslands {
     public static void
     BFS(int[][] mat, boolean[][] processed, int i, int j) {
         // create an empty queue and enqueue source node
-        Queue<Pair> q = new ArrayDeque<>();
-        q.add(new Pair(i, j));
+        Queue<Pairs> q = new ArrayDeque<>();
+        q.add(new Pairs(i, j));
 
         // mark source node as processed
         processed[i][j] = true;
@@ -75,21 +75,21 @@ public class CountIslands {
                     // skip if the location is invalid, or it is already
                     // processed, or consists of water
                     processed[x + row[k]][y + col[k]] = true;
-                    q.add(new Pair(x + row[k], y + col[k]));
+                    q.add(new Pairs(x + row[k], y + col[k]));
                 }
             }
         }
     }
 
-    public static int countIslands(int[][] mat) {
+    public static int countIslands(int[][] matrix) {
         // base case
-        if (mat == null || mat.length == 0) {
+        if (matrix == null || matrix.length == 0) {
             return 0;
         }
 
         // `M × N` matrix
-        int M = mat.length;
-        int N = mat[0].length;
+        int M = matrix.length;
+        int N = matrix[0].length;
 
         // stores if a cell is processed or not
         boolean[][] processed = new boolean[M][N];
@@ -99,8 +99,8 @@ public class CountIslands {
             for (int j = 0; j < N; j++) {
                 // start BFS from each unprocessed node and
                 // increment island count
-                if (mat[i][j] == 1 && !processed[i][j]) {
-                    BFS(mat, processed, i, j);
+                if (matrix[i][j] == 1 && !processed[i][j]) {
+                    BFS(matrix, processed, i, j);
                     island++;
                 }
             }
@@ -136,3 +136,9 @@ class Pairs {
         this.y = y;
     }
 }
+
+/*Expected Output:
+
+The total number of islands is 5
+
+* */
