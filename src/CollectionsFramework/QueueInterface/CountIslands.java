@@ -36,8 +36,8 @@ import java.util.Queue;
 public class CountIslands {
     // Below arrays detail all eight possible movements from a cell
     // (top, right, bottom, left, and four diagonal moves)
-    private static final int[] row = { -1, -1, -1, 0, 1, 0, 1, 1 };
-    private static final int[] col = { -1, 1, 0, -1, -1, 1, 0, 1 };
+    private static final int[] row = {-1, -1, -1, 0, 1, 0, 1, 1};
+    private static final int[] col = {-1, 1, 0, -1, -1, 1, 0, 1};
 
     // Function to check if it is safe to go to position (x, y)
     // from the current position. The function returns false if (x, y)
@@ -71,8 +71,7 @@ public class CountIslands {
             // and enqueue each valid movement
             for (int k = 0; k < row.length; k++) {
                 // skip if the location is invalid, or already processed, or has water
-                if (isSafe(mat, x + row[k], y + col[k], processed))
-                {
+                if (isSafe(mat, x + row[k], y + col[k], processed)) {
                     // skip if the location is invalid, or it is already
                     // processed, or consists of water
                     processed[x + row[k]][y + col[k]] = true;
@@ -82,8 +81,7 @@ public class CountIslands {
         }
     }
 
-    public static int countIslands(int[][] mat)
-    {
+    public static int countIslands(int[][] mat) {
         // base case
         if (mat == null || mat.length == 0) {
             return 0;
@@ -97,14 +95,11 @@ public class CountIslands {
         boolean[][] processed = new boolean[M][N];
 
         int island = 0;
-        for (int i = 0; i < M; i++)
-        {
-            for (int j = 0; j < N; j++)
-            {
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
                 // start BFS from each unprocessed node and
                 // increment island count
-                if (mat[i][j] == 1 && !processed[i][j])
-                {
+                if (mat[i][j] == 1 && !processed[i][j]) {
                     BFS(mat, processed, i, j);
                     island++;
                 }
@@ -113,8 +108,23 @@ public class CountIslands {
 
         return island;
     }
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        int[][] matrix =
+                {
+                        {1, 0, 1, 0, 0, 0, 1, 1, 1, 1},
+                        {0, 0, 1, 0, 1, 0, 1, 0, 0, 0},
+                        {1, 1, 1, 1, 0, 0, 1, 0, 0, 0},
+                        {1, 0, 0, 1, 0, 1, 0, 0, 0, 0},
+                        {1, 1, 1, 1, 0, 0, 0, 1, 1, 1},
+                        {0, 1, 0, 1, 0, 0, 1, 1, 1, 1},
+                        {0, 0, 0, 0, 0, 1, 1, 1, 0, 0},
+                        {0, 0, 0, 1, 0, 0, 1, 1, 1, 0},
+                        {1, 0, 1, 0, 1, 0, 0, 1, 0, 0},
+                        {1, 1, 1, 1, 0, 0, 0, 1, 1, 1}
+                };
+
+        System.out.print("The total number of islands is " + countIslands(matrix));
     }
 }
 
