@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--Simulation purpose of projectile motion.
+Equations of projectile motion are used to calculate
+the value of 'x' and 'y' to display the current
+position of a thrown object with time. After find
+the values are placing on a 2D graph.-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Projectile Motion</title>
+</head>
+<body>
+<input type="number" id="init-velocity" placeholder="Enter initial velocity">
+<input type="number" id="angle" placeholder="Enter angle">
+<button onclick="start()">GO!</button>
+<canvas id="canvas" width="1800" height="800" style="border: 1px solid black"></canvas>
+
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.transform(1,0, 0, -1, 0, canvas.height);
+    ctx.fillStyle = "red";
+
+    function draw(Vo, angle){
+        const  Vx = Vo * Math.cos(angle);
+        const  Vy = Vo * Math.sin(angle);
+        const   g = 9.8;
+
+
+        const start_time = Date.now();
+
+        function update() {
+            //ctx.clearRect(0, 0, canvas.width, canvas.height);
+            t = (Date.now() - start_time) / 100;
+            let x = Vx * t;
+            let y = Vy * t - (0.5 * g * Math.pow(t, 2));
+            ctx.beginPath();
+            ctx.arc(x, y, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (y < 0)
+                return;
+
+            setTimeout(update, t);
+        }
+        update();
+    }
+
+    function degreeToRadian(degree) {
+        return degree * (Math.PI / 180);
+    }
+
+    function start() {
+        const velocity = document.getElementById("init-velocity").value;
+        const angle = document.getElementById("angle").value;
+        draw(velocity, degreeToRadian(angle));
+    }
+</script>
+
+</body>
+</html>
