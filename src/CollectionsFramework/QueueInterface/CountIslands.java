@@ -21,17 +21,26 @@ package CollectionsFramework.QueueInterface;
  * <p>
  * So, from position (x, y), we can move to:
  * <p>
-     * (x – 1, y – 1)
-     * (x – 1, y)
-     * (x – 1, y + 1)
-     * (x, y – 1)
-     * (x, y + 1)
-     * (x + 1, y – 1)
-     * (x + 1, y)
-     * (x + 1, y + 1)
+ * (x – 1, y – 1)
+ * (x – 1, y)
+ * (x – 1, y + 1)
+ * (x, y – 1)
+ * (x, y + 1)
+ * (x + 1, y – 1)
+ * (x + 1, y)
+ * (x + 1, y + 1)
  */
 public class CountIslands {
     public static void main(String[] args) {
 
+    }
+}
+
+class Pairs {
+    int x, y;
+
+    public Pairs(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }
