@@ -16,6 +16,19 @@ package CollectionsFramework.QueueInterface;
  * Go Left: (x, y) ——> (x, y – 1)
  * Go Down: (x, y) ——> (x + 1, y)
  * Go Right: (x, y) ——> (x, y + 1)
+ * <p>
+ * The idea is to use Breadth–first search (BFS) since it is the shortest path problem.
+ * Following is the complete algorithm:
+ * <p>
+ *     1. Create a queue and enqueue every safe cell of the first column and set
+ *     their distance as 0 from the source (itself).
+ *     Also, mark them as visited as we enqueue them.
+ *     2. Loop till queue is empty
+ *         A) Dequeue the front node.
+ *         B) If the popped node is the destination node (last column), return its distance.
+ *         C) Otherwise, for each of the four adjacent cells of the current cell,
+ *         enqueue each valid cell with +1 distance and mark them as visited.
+ *     If all the queue nodes are processed, and the destination is not reached, then return false.
  */
 
 // Find the shortest safe route in a field with sensors present
