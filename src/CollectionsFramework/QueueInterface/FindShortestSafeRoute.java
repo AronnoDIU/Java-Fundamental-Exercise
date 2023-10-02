@@ -188,3 +188,9 @@ class NodeFSSR {
         this.dist = dist;
     }
 }
+
+/*Expected Output:
+
+The shortest safe path has a length of 11
+
+* */
