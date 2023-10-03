@@ -13,7 +13,11 @@ public class CalculateHeightBinaryTreeIterative {
             return 0;
         }
 
-        // create an empty queue and enqueue the root node
+        /*If you need efficient random access or require frequent modifications
+        at both ends of the queue, ArrayDeque is a better choice.
+        On the other hand, if fast insertion and removal at the beginning or
+        end of the queue are the main concerns, LinkedList can be a suitable option.*/
+        // Create an empty queue and enqueue the root node
         Queue<NodeCHBTI> queue = new ArrayDeque<>();
         queue.add(root);
 
