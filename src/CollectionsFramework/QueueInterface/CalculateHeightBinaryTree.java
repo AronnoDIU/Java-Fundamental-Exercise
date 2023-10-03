@@ -1,6 +1,6 @@
 package CollectionsFramework.QueueInterface;
 
-// Calculate the height of a binary tree – Iterative and Recursive
+// Calculate the height of a binary tree-Recursive Solution
 public class CalculateHeightBinaryTree {
     // Recursive function to calculate the height of a given binary tree
     static int height(NodeCHBTIR root) {
