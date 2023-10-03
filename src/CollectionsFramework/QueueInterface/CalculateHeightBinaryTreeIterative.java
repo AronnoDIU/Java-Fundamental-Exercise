@@ -17,7 +17,7 @@ public class CalculateHeightBinaryTreeIterative {
         Queue<NodeCHBTI> queue = new ArrayDeque<>();
         queue.add(root);
 
-        Node front = null;
+        NodeCHBTI front;
         int height = 0;
 
         // loop till queue is empty
@@ -30,6 +30,12 @@ public class CalculateHeightBinaryTreeIterative {
             while (size-- > 0) {
                 front = queue.poll();
 
+                /*An assertion is a statement in the Java programming language
+                 * that enables you to test your assumptions about your program.
+                 * For example, if you write a method that calculates the speed
+                 * of a particle, you might assert that the calculated speed is
+                 * less than the speed of light.*/
+                assert front != null;
                 if (front.left != null) {
                     queue.add(front.left);
                 }
@@ -71,15 +77,6 @@ class NodeCHBTI {
 
 /*Expected Output:
 
-Inserting 1
-Inserting 2
-Inserting 3
-Inserting 4
-The front element is 1
-Removing 1
-Removing 2
-Removing 3
-Removing 4
-The queue is empty
+The height of the binary tree is 3
 
 * */
