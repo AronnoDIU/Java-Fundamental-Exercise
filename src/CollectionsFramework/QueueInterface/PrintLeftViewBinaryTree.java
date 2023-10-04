@@ -12,7 +12,7 @@ import java.util.Queue;
  */
 public class PrintLeftViewBinaryTree {
     // Iterative function to print the left view of a given binary tree
-    public static void leftView(NodePLVBT root) {
+    static void leftView(NodePLVBT root) {
         // return if the tree is empty
         if (root == null) {
             return;
@@ -23,7 +23,7 @@ public class PrintLeftViewBinaryTree {
         queue.add(root);
 
         // to store the current node
-        NodePLVBT curr;
+        NodePLVBT current;
 
         // loop till queue is empty
         while (!queue.isEmpty()) {
@@ -34,19 +34,21 @@ public class PrintLeftViewBinaryTree {
             // process every node of the current level and enqueue their
             // non-empty left and right child
             while (i++ < size) {
-                curr = queue.poll();
+                current = queue.poll();
 
                 // if this is the first node of the current level, print it
                 if (i == 1) {
-                    System.out.print(curr.key + " ");
+                    assert current != null;
+                    System.out.print(current.key + " ");
                 }
 
-                if (curr.left != null) {
-                    queue.add(curr.left);
+                assert current != null;
+                if (current.left != null) {
+                    queue.add(current.left);
                 }
 
-                if (curr.right != null) {
-                    queue.add(curr.right);
+                if (current.right != null) {
+                    queue.add(current.right);
                 }
             }
         }
