@@ -3,13 +3,15 @@ package CollectionsFramework.QueueInterface;
 import java.util.HashMap;
 import java.util.Map;
 
-/**2. Recursive implementation using hashing
-
- We can also solve this problem by using hashing. The idea is to traverse the tree
- in a pre-order fashion and pass level information in function arguments. If the
- level is visited for the first time, insert the current node and level information
- into the map. Finally, when all nodes are processed,
- traverse the map and print the left view.*/
+/**
+ * 2. Recursive implementation using hashing
+ * <p>
+ * We can also solve this problem by using hashing. The idea is to traverse the tree
+ * in a pre-order fashion and pass level information in function arguments. If the
+ * level is visited for the first time, insert the current node and level information
+ * into the map. Finally, when all nodes are processed,
+ * traverse the map and print the left view.
+ */
 public class PrintLeftViewBinaryTreeRecursive {
     // Recursive function to traverse the nodes in a preorder fashion
     static void
@@ -41,8 +43,18 @@ public class PrintLeftViewBinaryTreeRecursive {
             System.out.print(map.get(i) + " ");
         }
     }
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        NodePLVBTR root = new NodePLVBTR(1);
+        root.left = new NodePLVBTR(2);
+        root.right = new NodePLVBTR(3);
+        root.left.right = new NodePLVBTR(4);
+        root.right.left = new NodePLVBTR(5);
+        root.right.right = new NodePLVBTR(6);
+        root.right.left.left = new NodePLVBTR(7);
+        root.right.left.right = new NodePLVBTR(8);
+
+        leftView(root);
     }
 }
 
