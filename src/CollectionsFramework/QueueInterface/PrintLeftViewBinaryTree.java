@@ -3,11 +3,13 @@ package CollectionsFramework.QueueInterface;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-/**1. Iterative Implementation
-
- In the iterative version, perform a level order traversal on the tree.
- We can modify level order traversal to maintain nodes at the current level.
- Then, if the current node is the first node of the current level, print it.*/
+/**
+ * 1. Iterative Implementation
+ * <p>
+ * In the iterative version, perform a level order traversal on the tree.
+ * We can modify level order traversal to maintain nodes at the current level.
+ * Then, if the current node is the first node of the current level, print it.
+ */
 public class PrintLeftViewBinaryTree {
     // Iterative function to print the left view of a given binary tree
     public static void leftView(NodePLVBT root) {
@@ -49,8 +51,18 @@ public class PrintLeftViewBinaryTree {
             }
         }
     }
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        NodePLVBT root = new NodePLVBT(1);
+        root.left = new NodePLVBT(2);
+        root.right = new NodePLVBT(3);
+        root.left.right = new NodePLVBT(4);
+        root.right.left = new NodePLVBT(5);
+        root.right.right = new NodePLVBT(6);
+        root.right.left.left = new NodePLVBT(7);
+        root.right.left.right = new NodePLVBT(8);
+
+        leftView(root);
     }
 }
 
