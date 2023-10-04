@@ -36,7 +36,12 @@ public class PrintLeftViewBinaryTree {
             while (i++ < size) {
                 current = queue.poll();
 
-                // if this is the first node of the current level, print it
+                /*An assertion is a statement in the Java programming language
+                 * that enables you to test your assumptions about your program.
+                 * For example, if you write a method that calculates the speed
+                 * of a particle, you might assert that the calculated speed is
+                 * less than the speed of light.*/
+                // If this is the first node of the current level, print it
                 if (i == 1) {
                     assert current != null;
                     System.out.print(current.key + " ");
@@ -77,3 +82,9 @@ class NodePLVBT {
         this.key = key;
     }
 }
+
+/*Expected Output:
+
+1 2 4 7
+
+* */
