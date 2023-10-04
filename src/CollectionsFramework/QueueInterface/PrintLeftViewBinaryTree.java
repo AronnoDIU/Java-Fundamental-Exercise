@@ -10,3 +10,13 @@ public class PrintLeftViewBinaryTree {
 
     }
 }
+
+// A class to store a binary tree NodePLVBT
+class NodePLVBT {
+    int key;
+    NodePLVBT left = null, right = null;
+
+    NodePLVBT(int key) {
+        this.key = key;
+    }
+}
