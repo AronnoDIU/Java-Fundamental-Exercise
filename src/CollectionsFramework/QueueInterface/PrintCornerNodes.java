@@ -91,3 +91,12 @@ class NodePCN {
         this.data = data;
     }
 }
+
+/*Expected Output:
+
+1
+2 3
+4 6
+7 10
+
+* */
