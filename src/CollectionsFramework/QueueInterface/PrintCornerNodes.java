@@ -10,3 +10,13 @@ public class PrintCornerNodes {
 
     }
 }
+
+// A class to store a binary tree node
+class NodePCN {
+    int data;
+    NodePCN left = null, right = null;
+
+    NodePCN(int data) {
+        this.data = data;
+    }
+}
