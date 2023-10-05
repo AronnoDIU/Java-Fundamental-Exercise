@@ -49,7 +49,15 @@ public class LevelOrderTraversalBinaryTree {
     }
 
     public static void main(String[] args) {
+        NodeLOTB root = new NodeLOTB(15);
+        root.left = new NodeLOTB(10);
+        root.right = new NodeLOTB(20);
+        root.left.left = new NodeLOTB(8);
+        root.left.right = new NodeLOTB(12);
+        root.right.left = new NodeLOTB(16);
+        root.right.right = new NodeLOTB(25);
 
+        levelOrderTraversal(root);
     }
 }
 
