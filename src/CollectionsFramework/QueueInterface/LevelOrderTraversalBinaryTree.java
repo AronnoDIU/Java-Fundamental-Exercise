@@ -21,3 +21,12 @@ public class LevelOrderTraversalBinaryTree {
 
     }
 }
+
+class NodeLOTB {
+    int key;
+    NodeLOTB left = null, right = null;
+
+    NodeLOTB(int key) {
+        this.key = key;
+    }
+}
