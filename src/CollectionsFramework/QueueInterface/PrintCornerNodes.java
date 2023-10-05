@@ -3,10 +3,12 @@ package CollectionsFramework.QueueInterface;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-/**First, modify the level order traversal on a given binary tree to maintain the
+/**
+ * First, modify the level order traversal on a given binary tree to maintain the
  * level of each node. Then while doing level order traversal,
  * if the current node happens to be the first or last
- * node at the current level, print it.*/
+ * node at the current level, print it.
+ */
 // Print corner nodes of every level in a binary tree
 public class PrintCornerNodes {
     // Iterative function to print corner nodes of every level in the binary tree
@@ -53,8 +55,30 @@ public class PrintCornerNodes {
             System.out.println();
         }
     }
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
+        /* Construct the following tree
+                     1
+                   /   \
+                  2     3
+                /     /   \
+               4     5     6
+             /     /   \     \
+            7     8     9     10
+        */
+
+        NodePCN root = new NodePCN(1);
+        root.left = new NodePCN(2);
+        root.right = new NodePCN(3);
+        root.left.left = new NodePCN(4);
+        root.right.left = new NodePCN(5);
+        root.right.right = new NodePCN(6);
+        root.left.left.left = new NodePCN(7);
+        root.right.left.left = new NodePCN(8);
+        root.right.left.right = new NodePCN(9);
+        root.right.right.right = new NodePCN(10);
+
+        print(root);
     }
 }
 
