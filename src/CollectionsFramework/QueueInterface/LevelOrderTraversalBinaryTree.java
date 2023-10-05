@@ -17,6 +17,37 @@ package CollectionsFramework.QueueInterface;
  */
 // Level order traversal of a binary tree
 public class LevelOrderTraversalBinaryTree {
+    // Function to print all nodes of a given level from left to right
+    static boolean printLevel(NodeLOTB root, int level) {
+        // base case
+        if (root == null) {
+            return false;
+        }
+
+        if (level == 1) {
+            System.out.print(root.key + " ");
+
+            // return true if at least one node is present at a given level
+            return true;
+        }
+
+        boolean left = printLevel(root.left, level - 1);
+        boolean right = printLevel(root.right, level - 1);
+
+        return left || right;
+    }
+
+    // Function to print level order traversal of a given binary tree
+    static void levelOrderTraversal(NodeLOTB root) {
+        // start from level 1 — till the height of the tree
+        int level = 1;
+
+        // run till printLevel() returns false
+        while (printLevel(root, level)) {
+            level++;
+        }
+    }
+
     public static void main(String[] args) {
 
     }
