@@ -27,44 +27,44 @@ public class SnakeLadderProblem {
 
 // A class to store a graph edge
 class EdgeSLP {
-    int src, dest;
+    int source, destination;
 
-    public EdgeSLP(int src, int dest) {
-        this.src = src;
-        this.dest = dest;
+    public EdgeSLP(int source, int destination) {
+        this.source = source;
+        this.destination = destination;
     }
 }
 
-// A queue node
+// A Class of queue node
 class NodeSLP {
     // stores number associated with graph node
-    int ver;
+    int vertex;
 
-    // `min_dist` stores the minimum distance of a node from the starting vertex
-    int min_dist;
+    // 'minimumDistance' Stores the minimum distance of a node from the starting vertex
+    int minimumDistance;
 
-    public NodeSLP(int ver, int min_dist) {
-        this.ver = ver;
-        this.min_dist = min_dist;
+    public NodeSLP(int vertex, int minimumDistance) {
+        this.vertex = vertex;
+        this.minimumDistance = minimumDistance;
     }
 }
 
 // A class to represent a graph object
 class GraphNLP {
     // A list of lists to represent an adjacency list
-    List<List<Integer>> adjList = null;
+    List<List<Integer>> adjacentList = null;
 
     // Constructor
-    GraphNLP(List<EdgeSLP> edges, int n) {
-        adjList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            adjList.add(new ArrayList<>());
+    GraphNLP(List<EdgeSLP> edgeSLPList, int number) {
+        adjacentList = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            adjacentList.add(new ArrayList<>());
         }
 
-        // add edges to the graph
-        for (EdgeSLP edge : edges) {
+        // add edgeSLPList to the graph
+        for (EdgeSLP edge : edgeSLPList) {
             // Please note that the graph is directed
-            adjList.get(edge.src).add(edge.dest);
+            adjacentList.get(edge.source).add(edge.destination);
         }
     }
 }
