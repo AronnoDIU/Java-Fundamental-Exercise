@@ -1,7 +1,6 @@
 package CollectionsFramework.QueueInterface;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * The idea is to consider the snake and ladders board as a directed graph and run
@@ -20,6 +19,84 @@ import java.util.List;
  */
 // Find the minimum number of throws required to win a given Snakes and Ladders board game.
 public class SnakeLadderProblem {
+    // Perform BFS on graph `graphSLP` starting from a given source vertex
+    static int BFS(GraphSLP graphSLP, int number) {
+        // create a queue for doing BFS
+        Queue<NodeSLP> nodeSLPArrayDeque = new ArrayDeque<>();
+
+        // to keep track of whether a vertex is discovered or not
+        boolean[] discovered = new boolean[number + 1];
+
+        // mark the source vertex as discovered
+        discovered[0] = true;
+
+        // assign the minimum distance of the source vertex as 0 and
+        // enqueue it
+        NodeSLP nodeSLP = new NodeSLP(0, 0);
+        nodeSLPArrayDeque.add(nodeSLP);
+
+        // loop till queue is empty
+        while (!nodeSLPArrayDeque.isEmpty()) {
+            // dequeue front nodeSLP
+            nodeSLP = nodeSLPArrayDeque.poll();
+
+            // Stop BFS if the last nodeSLP is reached
+            if (nodeSLP.vertex == number) {
+                return nodeSLP.minimumDistance;
+            }
+
+            // do for every adjacent nodeSLP of the current nodeSLP
+            for (int EnhancedGraph : graphSLP.adjacentList.get(nodeSLP.vertex)) {
+                if (!discovered[EnhancedGraph]) {
+                    // mark it as discovered and enqueue it
+                    discovered[EnhancedGraph] = true;
+
+                    // assign the minimum distance of the current nodeSLP
+                    // one more than the minimum distance of the parent nodeSLP
+                    nodeSLPArrayDeque.add(new NodeSLP
+                            (EnhancedGraph, nodeSLP.minimumDistance + 1));
+                }
+            }
+        }
+
+        return -1;
+    }
+
+    public static int
+    findMinimumMoves(Map<Integer, Integer> ladder, Map<Integer, Integer> snake) {
+        // total number of nodes in the graph
+        int number = 10 * 10;
+
+        // find all edges involved and store them in a list
+        List<EdgeSLP> edges = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            for (int j = 1; j <= 6 && i + j <= number; j++) {
+
+                // update destination if there is any ladder
+                // or snake from the current position.
+                int destination;
+
+                int _ladder = (ladder.get(i + j) != null) ? ladder.get(i + j) : 0;
+                int _snake = (snake.get(i + j) != null) ? snake.get(i + j) : 0;
+
+                if (_ladder != 0 || _snake != 0) {
+                    destination = _ladder + _snake;
+                } else {
+                    destination = i + j;
+                }
+
+                // add an edge from src to destination
+                edges.add(new EdgeSLP(i, destination));
+            }
+        }
+
+        // construct a directed graph
+        GraphSLP graphSLP = new GraphSLP(edges, number);
+
+        // Find the shortest path between 1 and 100 using BFS
+        return BFS(graphSLP, number);
+    }
+
     public static void main(String[] args) {
 
     }
@@ -50,12 +127,12 @@ class NodeSLP {
 }
 
 // A class to represent a graph object
-class GraphNLP {
+class GraphSLP {
     // A list of lists to represent an adjacency list
     List<List<Integer>> adjacentList = null;
 
     // Constructor
-    GraphNLP(List<EdgeSLP> edgeSLPList, int number) {
+    GraphSLP(List<EdgeSLP> edgeSLPList, int number) {
         adjacentList = new ArrayList<>();
         for (int i = 0; i < number; i++) {
             adjacentList.add(new ArrayList<>());
