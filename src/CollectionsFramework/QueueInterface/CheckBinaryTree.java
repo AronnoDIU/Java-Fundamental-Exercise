@@ -74,7 +74,27 @@ public class CheckBinaryTree {
     }
 
     public static void main(String[] args) {
+         /* Construct the following tree
+                  1
+               /     \
+              2       3
+             / \     / \
+            4   5   6   7
+        */
 
+        NodeCBT root = new NodeCBT(1);
+        root.left = new NodeCBT(2);
+        root.right = new NodeCBT(3);
+        root.left.left = new NodeCBT(4);
+        root.left.right = new NodeCBT(5);
+        root.right.left = new NodeCBT(6);
+        root.right.right = new NodeCBT(7);
+
+        if (isComplete(root)) {
+            System.out.println("Complete binary tree");
+        } else {
+            System.out.println("Not a complete binary tree");
+        }
     }
 }
 
