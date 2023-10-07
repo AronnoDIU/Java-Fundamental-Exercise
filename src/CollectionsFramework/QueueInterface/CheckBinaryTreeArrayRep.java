@@ -15,3 +15,13 @@ public class CheckBinaryTreeArrayRep {
 
     }
 }
+
+// A class to store a binary tree node
+class NodeCBTAR {
+    int key;
+    NodeCBTAR left = null, right = null;
+
+    NodeCBTAR(int key) {
+        this.key = key;
+    }
+}
