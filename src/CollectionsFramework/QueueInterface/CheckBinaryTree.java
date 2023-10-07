@@ -1,5 +1,8 @@
 package CollectionsFramework.QueueInterface;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * 1. Level Order Traversal (BFS)
  * <p>
@@ -14,6 +17,62 @@ package CollectionsFramework.QueueInterface;
  */
 // Check if a binary tree is a complete binary tree or not
 public class CheckBinaryTree {
+    // Function to check if a given binary tree is complete or not
+    static boolean isComplete(NodeCBT root) {
+        // return if the tree is empty
+        if (root == null) {
+            return true;
+        }
+
+        // create an empty queue and enqueue the root node
+        Queue<NodeCBT> queue = new ArrayDeque<>();
+        queue.add(root);
+
+        // to store the current node
+        NodeCBT front;
+
+        // flag to mark the end of full nodes
+        boolean flag = false;
+
+        // loop till queue is empty
+        while (!queue.isEmpty()) {
+            // dequeue front node
+            front = queue.poll();
+
+            // if we have encountered a non-full node before and the current node
+            // is not a leaf, a tree cannot be complete
+            if (flag && (front.left != null || front.right != null)) {
+                return false;
+            }
+
+            // if the left child is empty and the right child exists,
+            // a tree cannot be complete
+            if (front.left == null && front.right != null) {
+                return false;
+            }
+
+            // if the left child exists, enqueue it
+            if (front.left != null) {
+                queue.add(front.left);
+            }
+            // if the current node is a non-full node, set the flag to true
+            else {
+                flag = true;
+            }
+
+            // if the right child exists, enqueue it
+            if (front.right != null) {
+                queue.add(front.right);
+            }
+            // if the current node is a non-full node, set the flag to true
+            else {
+                flag = true;
+            }
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
 
     }
