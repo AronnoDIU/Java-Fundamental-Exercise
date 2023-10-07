@@ -169,3 +169,9 @@ class GraphSLP {
         }
     }
 }
+
+/*Expected Output:
+
+7
+
+* */
