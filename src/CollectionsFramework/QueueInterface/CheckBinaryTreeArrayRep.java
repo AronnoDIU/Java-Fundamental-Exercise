@@ -59,7 +59,27 @@ public class CheckBinaryTreeArrayRep {
     }
 
     public static void main(String[] args) {
+        /* Construct the following tree
+                  1
+               /     \
+              2       3
+             / \     / \
+            4   5   6   7
+        */
 
+        NodeCBTAR root = new NodeCBTAR(1);
+        root.left = new NodeCBTAR(2);
+        root.right = new NodeCBTAR(3);
+        root.left.left = new NodeCBTAR(4);
+        root.left.right = new NodeCBTAR(5);
+        root.right.left = new NodeCBTAR(6);
+        root.right.right = new NodeCBTAR(7);
+
+        if (isComplete(root, size(root))) {
+            System.out.println("Complete binary tree");
+        } else {
+            System.out.println("Not a complete binary tree");
+        }
     }
 }
 
@@ -72,3 +92,9 @@ class NodeCBTAR {
         this.key = key;
     }
 }
+
+/*Expected Output:
+
+Complete binary tree
+
+* */
