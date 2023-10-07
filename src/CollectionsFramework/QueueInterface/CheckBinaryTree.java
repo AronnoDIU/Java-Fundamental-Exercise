@@ -18,3 +18,13 @@ public class CheckBinaryTree {
 
     }
 }
+
+// A class to store a binary tree node
+class NodeCBT {
+    int key;
+    NodeCBT left = null, right = null;
+
+    NodeCBT(int key) {
+        this.key = key;
+    }
+}
