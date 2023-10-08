@@ -40,7 +40,28 @@ public class CheckBinaryTreeSpaceOpt {
     }
 
     public static void main(String[] args) {
+        /* Construct the following tree
+                  1
+                /   \
+               /     \
+              2       3
+             / \     / \
+            4   5   6   7
+        */
 
+        NodeCBTSO root = new NodeCBTSO(1);
+        root.left = new NodeCBTSO(2);
+        root.right = new NodeCBTSO(3);
+        root.left.left = new NodeCBTSO(4);
+        root.left.right = new NodeCBTSO(5);
+        root.right.left = new NodeCBTSO(6);
+        root.right.right = new NodeCBTSO(7);
+
+        if (isComplete(root, 0, size(root))) {
+            System.out.println("Complete binary tree");
+        } else {
+            System.out.println("Not a complete binary tree");
+        }
     }
 }
 
