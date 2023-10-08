@@ -31,12 +31,8 @@ public class CheckBinaryTreeSpaceOpt {
             return false;
         }
 
-        if ((root.right != null && 2 * i + 2 >= n) ||
-                !isComplete(root.right, 2 * i + 2, n)) {
-            return false;
-        }
-
-        return true;
+        return (root.right == null || 2 * i + 2 < n) &&
+                isComplete(root.right, 2 * i + 2, n);
     }
 
     public static void main(String[] args) {
@@ -75,3 +71,9 @@ class NodeCBTSO {
         this.key = key;
     }
 }
+
+/*Expected Output:
+
+Complete binary tree
+
+* */
