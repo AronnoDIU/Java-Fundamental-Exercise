@@ -16,3 +16,14 @@ public class CheckBinaryTreeSpaceOpt {
 
     }
 }
+
+
+// A class to store a binary tree node
+class NodeCBTSO {
+    int key;
+    NodeCBTSO left = null, right = null;
+
+    NodeCBTSO(int key) {
+        this.key = key;
+    }
+}
