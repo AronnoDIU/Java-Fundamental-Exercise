@@ -12,6 +12,33 @@ package CollectionsFramework.QueueInterface;
  */
 // Space-optimized previous Approach
 public class CheckBinaryTreeSpaceOpt {
+    private static int size(NodeCBTSO root) {
+        if (root == null) {
+            return 0;
+        }
+        return 1 + size(root.left) + size(root.right);
+    }
+
+    // Recursive function to check if a given binary tree is a complete tree or not
+    static boolean isComplete(NodeCBTSO root, int i, int n) {
+        // return if the tree is empty
+        if (root == null) {
+            return true;
+        }
+
+        if ((root.left != null && 2 * i + 1 >= n) ||
+                !isComplete(root.left, 2 * i + 1, n)) {
+            return false;
+        }
+
+        if ((root.right != null && 2 * i + 2 >= n) ||
+                !isComplete(root.right, 2 * i + 2, n)) {
+            return false;
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
 
     }
