@@ -47,3 +47,13 @@ public class FindMinimumPassesMatrix {
 
     }
 }
+
+// A class to store the cell coordinates of the matrix
+class PointFMPM {
+    int x, y;
+
+    PointFMPM(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
