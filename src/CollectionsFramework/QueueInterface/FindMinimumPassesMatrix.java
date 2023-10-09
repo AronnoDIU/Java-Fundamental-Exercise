@@ -142,7 +142,20 @@ public class FindMinimumPassesMatrix {
     }
 
     public static void main(String[] args) {
+        int[][] matrix =
+                {
+                        {-1, -9, 0, -1, 0},
+                        {-8, -3, -2, 9, -7},
+                        {2, 0, 0, -6, 0},
+                        {0, -7, -3, 5, -4}
+                };
 
+        int pass = findMinPasses(matrix);
+        if (pass != -1) {
+            System.out.print("The total number of passes required is " + pass);
+        } else {
+            System.out.print("Invalid Input");
+        }
     }
 }
 
