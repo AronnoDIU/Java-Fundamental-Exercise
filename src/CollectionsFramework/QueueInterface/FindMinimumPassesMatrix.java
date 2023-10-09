@@ -152,9 +152,9 @@ public class FindMinimumPassesMatrix {
 
         int pass = findMinPasses(matrix);
         if (pass != -1) {
-            System.out.print("The total number of passes required is " + pass);
+            System.out.println("The total number of passes required is " + pass);
         } else {
-            System.out.print("Invalid Input");
+            System.out.println("Invalid Input");
         }
     }
 }
@@ -168,3 +168,9 @@ class PointFMPM {
         this.y = y;
     }
 }
+
+/*Expected Output:
+
+The total number of passes required is 3
+
+* */
