@@ -34,14 +34,14 @@ public class BuildTreePreorderSequence {
 
     /*Tree Traversals*/
 //    Preorder -> root -> left -> right
-    static void preorder(Node root) {
+    static void preOrder(Node root) {
         if (root == null) {
             System.out.print(-1 + " ");
             return;
         }
         System.out.print(root.data + " ");
-        preorder(root.left);
-        preorder(root.right);
+        preOrder(root.left);
+        preOrder(root.right);
     }
 
     //    Inorder
@@ -211,6 +211,8 @@ public class BuildTreePreorderSequence {
         assert root != null;
         System.out.println(root.data);
 
+//        Tree Traversals
+        preOrder(root);
     }
 }
 
