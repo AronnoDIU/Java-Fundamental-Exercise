@@ -55,14 +55,14 @@ public class BuildTreePreorderSequence {
         inOrder(root.right);
     }
 
-    //    Postorder
-    static void postorder(Node root) {
+    //    Postorder => left Subtree -> right Subtree -> root
+    static void postOrder(Node root) {
         if (root == null) {
             System.out.print(-1 + " ");
             return;
         }
-        postorder(root.left);
-        postorder(root.right);
+        postOrder(root.left);
+        postOrder(root.right);
         System.out.print(root.data + " ");
     }
 
@@ -212,16 +212,23 @@ public class BuildTreePreorderSequence {
         System.out.println(root.data);
 
 //        Tree Traversals
+        System.out.println("PreOrder Sequence");
         preOrder(root); // PreOrder Sequence
-        System.out.println();
+        System.out.println("\nInOrder Sequence");
         inOrder(root); // InOrder Sequence
+        System.out.println("\nPostOrder Sequence");
+        postOrder(root); // PostOrder Sequence
     }
 }
 
 /*Expected Output:
 
 1
+PreOrder Sequence
 1 2 4 -1 -1 5 -1 -1 3 -1 6 -1 -1
+InOrder Sequence
 -1 4 -1 2 -1 5 -1 1 -1 3 -1 6 -1
+PostOrder Sequence
+-1 -1 4 -1 -1 5 2 -1 -1 -1 6 3 1
 
 * */
