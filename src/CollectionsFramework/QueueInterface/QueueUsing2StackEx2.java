@@ -36,15 +36,17 @@ public class QueueUsing2StackEx2 {
     }
 
     public static void main(String[] args) {
-        Queue2Stack queue = new Queue2Stack();
-        queue.add(1);
-        queue.add(2);
-        queue.add(3);
+//        Queue2Stack queue = new Queue2Stack();
+        Queue2Stack.add(1);
+        Queue2Stack.add(2);
+        Queue2Stack.add(3);
+        Queue2Stack.add(4);
+        Queue2Stack.add(5);
 
 
-        while (!queue.isEmpty()) {
-            System.out.println(queue.peek());
-            queue.remove();
+        while (!Queue2Stack.isEmpty()) {
+            System.out.println(Queue2Stack.peek());
+            Queue2Stack.remove();
         }
     }
 }
@@ -54,5 +56,7 @@ public class QueueUsing2StackEx2 {
 1
 2
 3
+4
+5
 
 * */
