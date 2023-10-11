@@ -155,6 +155,12 @@ public class BuildTreePreorderSequence {
             this.height = height;
             this.diameter = diameter;
         }
+
+        @Override
+        public String toString() {
+            return "TreeInfo{" + "Height of Nodes =" + height +
+                    ", Diameter of Nodes =" + diameter + '}';
+        }
     }
 
     static TreeInfo diameterApproach2(Node root) {
@@ -255,6 +261,6 @@ Count Nodes: 6
 Summation of Nodes: 21
 Height of Nodes: 3
 Diameter of Nodes (Approach 1): 5
-Diameter of Nodes (Approach 2): CollectionsFramework.SetInterface.SortedSetInterface.BuildTreePreorderSequence$TreeInfo@5b6f7412
+Diameter of Nodes (Approach 2): TreeInfo{Height of Nodes =3, Diameter of Nodes =5}
 
 * */
