@@ -66,7 +66,8 @@ public class BuildTreePreorderSequence {
         System.out.print(root.data + " ");
     }
 
-    //     Level Order
+    //     Level Order => 1st Level(Root) -> 2nd Level -> Nth Level(Leaf)
+    // In Queue, when root will pop then child will be added.
     static void levelOrder(Node root) {
         if (root == null) {
             return;
@@ -78,8 +79,7 @@ public class BuildTreePreorderSequence {
             Node currentNode = nodeQueue.remove();
             if (currentNode == null) {
                 System.out.println();
-                //queue empty
-                if (nodeQueue.isEmpty()) {
+                if (nodeQueue.isEmpty()) { // When the Queue is empty
                     break;
                 } else {
                     nodeQueue.add(null);
@@ -218,6 +218,8 @@ public class BuildTreePreorderSequence {
         inOrder(root); // InOrder Sequence
         System.out.println("\nPostOrder Sequence");
         postOrder(root); // PostOrder Sequence
+        System.out.println("\nLevelOrder Sequence");
+        levelOrder(root); // LevelOrder Sequence
     }
 }
 
@@ -230,5 +232,9 @@ InOrder Sequence
 -1 4 -1 2 -1 5 -1 1 -1 3 -1 6 -1
 PostOrder Sequence
 -1 -1 4 -1 -1 5 2 -1 -1 -1 6 3 1
+LevelOrder Sequence
+1
+2 3
+4 5 6
 
 * */
