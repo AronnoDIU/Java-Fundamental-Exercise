@@ -124,8 +124,7 @@ public class BuildTreePreorderSequence {
         if (root == null) {
             return 0;
         }
-
-
+        // Summation Of Nodes => Total Left Subtrees + Total Right Subtrees + Roots
         int leftSum = sumOfNodes(root.left);
         int rightSum = sumOfNodes(root.right);
         return leftSum + rightSum + root.data;
@@ -221,6 +220,8 @@ public class BuildTreePreorderSequence {
         levelOrder(root); // LevelOrder Sequence
         System.out.print("Count Nodes: ");
         System.out.println(countOfNodes(root));
+        System.out.print("Summation of Nodes: ");
+        System.out.println(sumOfNodes(root));
     }
 }
 
@@ -238,5 +239,6 @@ LevelOrder Sequence
 2 3
 4 5 6
 Count Nodes: 6
+Summation of Nodes: 21
 
 * */
