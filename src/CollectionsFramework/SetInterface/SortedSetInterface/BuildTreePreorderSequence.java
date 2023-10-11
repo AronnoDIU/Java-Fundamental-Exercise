@@ -75,8 +75,8 @@ public class BuildTreePreorderSequence {
         nodeQueue.add(root);
         nodeQueue.add(null);
         while (!nodeQueue.isEmpty()) {
-            Node curr = nodeQueue.remove();
-            if (curr == null) {
+            Node currentNode = nodeQueue.remove();
+            if (currentNode == null) {
                 System.out.println();
                 //queue empty
                 if (nodeQueue.isEmpty()) {
@@ -85,12 +85,12 @@ public class BuildTreePreorderSequence {
                     nodeQueue.add(null);
                 }
             } else {
-                System.out.print(curr.data + " ");
-                if (curr.left != null) {
-                    nodeQueue.add(curr.left);
+                System.out.print(currentNode.data + " ");
+                if (currentNode.left != null) {
+                    nodeQueue.add(currentNode.left);
                 }
-                if (curr.right != null) {
-                    nodeQueue.add(curr.right);
+                if (currentNode.right != null) {
+                    nodeQueue.add(currentNode.right);
                 }
             }
         }
