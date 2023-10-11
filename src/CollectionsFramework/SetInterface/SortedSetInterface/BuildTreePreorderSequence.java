@@ -101,8 +101,7 @@ public class BuildTreePreorderSequence {
         if (root == null) {
             return 0;
         }
-
-
+        // Height of Tree => Distance of root to the deepest leaf
         int leftHeight = height(root.left);
         int rightHeight = height(root.right);
         return Math.max(leftHeight, rightHeight) + 1;
@@ -222,6 +221,8 @@ public class BuildTreePreorderSequence {
         System.out.println(countOfNodes(root));
         System.out.print("Summation of Nodes: ");
         System.out.println(sumOfNodes(root));
+        System.out.print("Height of Nodes: ");
+        System.out.println(height(root));
     }
 }
 
@@ -240,5 +241,6 @@ LevelOrder Sequence
 4 5 6
 Count Nodes: 6
 Summation of Nodes: 21
+Height of Nodes: 3
 
 * */
