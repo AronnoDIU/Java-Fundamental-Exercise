@@ -113,8 +113,7 @@ public class BuildTreePreorderSequence {
         if (root == null) {
             return 0;
         }
-
-
+        // Count Nodes => Left Subtree + Right Subtree + Root
         int leftNodes = countOfNodes(root.left);
         int rightNodes = countOfNodes(root.right);
         return leftNodes + rightNodes + 1;
@@ -220,6 +219,8 @@ public class BuildTreePreorderSequence {
         postOrder(root); // PostOrder Sequence
         System.out.println("\nLevelOrder Sequence");
         levelOrder(root); // LevelOrder Sequence
+        System.out.print("Count Nodes: ");
+        System.out.println(countOfNodes(root));
     }
 }
 
@@ -236,5 +237,6 @@ LevelOrder Sequence
 1
 2 3
 4 5 6
+Count Nodes: 6
 
 * */
