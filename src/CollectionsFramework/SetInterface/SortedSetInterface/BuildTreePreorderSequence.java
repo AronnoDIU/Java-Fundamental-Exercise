@@ -97,13 +97,13 @@ public class BuildTreePreorderSequence {
     }
 
     //    3. Height of Tree
-    static int height(Node root) {
+    static int heightOfNodes(Node root) {
         if (root == null) {
             return 0;
         }
         // Height of Tree => Distance of root to the deepest leaf
-        int leftHeight = height(root.left);
-        int rightHeight = height(root.right);
+        int leftHeight = heightOfNodes(root.left);
+        int rightHeight = heightOfNodes(root.right);
         return Math.max(leftHeight, rightHeight) + 1;
     }
 
@@ -130,35 +130,37 @@ public class BuildTreePreorderSequence {
     }
 
     //    6. Diameter of Tree - Approach1 O(N^2)
-    static int diameter(Node root) {
+    static int diameterOfNodes(Node root) {
         if (root == null) {
             return 0;
         }
+        // Finds All paths between Left Height & Right Height through Root;
+        // Finally, Root will add plus 1 => LH + RH +1;
+        int diameter1 = heightOfNodes(root.left)
+                + heightOfNodes(root.right) + 1;
+        // Finds More paths in Left Subtrees without Root
+        int diameter2 = diameterOfNodes(root.left);
+        // Finds More paths in Right Subtrees without Root
+        int diameter3 = diameterOfNodes(root.right);
 
-
-        int diam1 = height(root.left) + height(root.right) + 1;
-        int diam2 = diameter(root.left);
-        int diam3 = diameter(root.right);
-
-
-        return Math.max(diam1, Math.max(diam2, diam3));
+        return Math.max(diameter1, Math.max(diameter2, diameter3));
     }
 
 //    7. Diameter of Tree - Approach2 O(N)
-     /*static TreeInfo diameter(Node root) {
+     /*static TreeInfo diameterOfNodes(Node root) {
         if(root == null) {
             return new TreeInfo(0, 0);
         }
 
 
-        TreeInfo leftTI = diameter(root.left);
-        TreeInfo rightTI = diameter(root.right);
+        TreeInfo leftTI = diameterOfNodes(root.left);
+        TreeInfo rightTI = diameterOfNodes(root.right);
 
 
-        int myHeight = Math.max(leftTI.height, rightTI.height) + 1;
+        int myHeight = Math.max(leftTI.heightOfNodes, rightTI.heightOfNodes) + 1;
 
 
-        Int diam1 = leftTI.height + rightTI.height + 1;
+        Int diam1 = leftTI.heightOfNodes + rightTI.heightOfNodes + 1;
         int diam2 = leftTI.diam;
         int diam3 = rightTI.diam;
 
@@ -222,7 +224,9 @@ public class BuildTreePreorderSequence {
         System.out.print("Summation of Nodes: ");
         System.out.println(sumOfNodes(root));
         System.out.print("Height of Nodes: ");
-        System.out.println(height(root));
+        System.out.println(heightOfNodes(root));
+        System.out.print("Diameter of Nodes (Approach 1): ");
+        System.out.println(diameterOfNodes(root));
     }
 }
 
@@ -242,5 +246,6 @@ LevelOrder Sequence
 Count Nodes: 6
 Summation of Nodes: 21
 Height of Nodes: 3
+Diameter of Nodes (Approach 1): 5
 
 * */
