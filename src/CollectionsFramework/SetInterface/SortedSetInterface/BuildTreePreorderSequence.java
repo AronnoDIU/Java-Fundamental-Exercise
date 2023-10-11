@@ -5,12 +5,12 @@ import java.util.Queue;
 
 // Build Tree from given Preorder Sequence
 public class BuildTreePreorderSequence {
-    static class Node {
+    static class TreeNode {
         int data;
-        Node left;
-        Node right;
+        TreeNode left;
+        TreeNode right;
 
-        Node(int data) {
+        TreeNode(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
@@ -20,21 +20,21 @@ public class BuildTreePreorderSequence {
     static class BinaryTree {
         static int index = -1;
 
-        public static Node buildTree(int[] nodes) {
+        public static TreeNode buildTree(int[] nodes) {
             index++;
             if (nodes[index] == -1) {
                 return null;
             }
-            Node newNode = new Node(nodes[index]);
-            newNode.left = buildTree(nodes);
-            newNode.right = buildTree(nodes);
-            return newNode;
+            TreeNode newTreeNode = new TreeNode(nodes[index]);
+            newTreeNode.left = buildTree(nodes);
+            newTreeNode.right = buildTree(nodes);
+            return newTreeNode;
         }
     }
 
     /*Tree Traversals*/
 //    Preorder => root -> left Subtree -> right Subtree
-    static void preOrder(Node root) {
+    static void preOrder(TreeNode root) {
         if (root == null) {
             System.out.print(-1 + " ");
             return;
@@ -45,7 +45,7 @@ public class BuildTreePreorderSequence {
     }
 
     //    Inorder => left Subtree -> root -> right Subtree
-    static void inOrder(Node root) {
+    static void inOrder(TreeNode root) {
         if (root == null) {
             System.out.print(-1 + " ");
             return;
@@ -56,7 +56,7 @@ public class BuildTreePreorderSequence {
     }
 
     //    Postorder => left Subtree -> right Subtree -> root
-    static void postOrder(Node root) {
+    static void postOrder(TreeNode root) {
         if (root == null) {
             System.out.print(-1 + " ");
             return;
@@ -68,36 +68,36 @@ public class BuildTreePreorderSequence {
 
     //     Level Order => 1st Level(Root) -> 2nd Level -> Nth Level(Leaf)
     // In Queue, when root will pop then child will be added.
-    static void levelOrder(Node root) {
+    static void levelOrder(TreeNode root) {
         if (root == null) {
             return;
         }
-        Queue<Node> nodeQueue = new LinkedList<>();
-        nodeQueue.add(root);
-        nodeQueue.add(null);
-        while (!nodeQueue.isEmpty()) {
-            Node currentNode = nodeQueue.remove();
-            if (currentNode == null) {
+        Queue<TreeNode> treeNodeQueue = new LinkedList<>();
+        treeNodeQueue.add(root);
+        treeNodeQueue.add(null);
+        while (!treeNodeQueue.isEmpty()) {
+            TreeNode currentTreeNode = treeNodeQueue.remove();
+            if (currentTreeNode == null) {
                 System.out.println();
-                if (nodeQueue.isEmpty()) { // When the Queue is empty
+                if (treeNodeQueue.isEmpty()) { // When the Queue is empty
                     break;
                 } else {
-                    nodeQueue.add(null);
+                    treeNodeQueue.add(null);
                 }
             } else {
-                System.out.print(currentNode.data + " ");
-                if (currentNode.left != null) {
-                    nodeQueue.add(currentNode.left);
+                System.out.print(currentTreeNode.data + " ");
+                if (currentTreeNode.left != null) {
+                    treeNodeQueue.add(currentTreeNode.left);
                 }
-                if (currentNode.right != null) {
-                    nodeQueue.add(currentNode.right);
+                if (currentTreeNode.right != null) {
+                    treeNodeQueue.add(currentTreeNode.right);
                 }
             }
         }
     }
 
     //    3. Height of Tree
-    static int heightOfNodes(Node root) {
+    static int heightOfNodes(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -108,7 +108,7 @@ public class BuildTreePreorderSequence {
     }
 
     //    4. Count of Nodes of Tree
-    static int countOfNodes(Node root) {
+    static int countOfNodes(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -119,7 +119,7 @@ public class BuildTreePreorderSequence {
     }
 
     //    5. Sum of Nodes of Tree
-    static int sumOfNodes(Node root) {
+    static int sumOfNodes(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -130,7 +130,7 @@ public class BuildTreePreorderSequence {
     }
 
     //    6. Diameter of Tree - Approach1 O(N^2)
-    static int diameterOfNodes(Node root) {
+    static int diameterOfNodes(TreeNode root) {
         if (root == null) {
             return 0;
         }
@@ -163,7 +163,7 @@ public class BuildTreePreorderSequence {
         }
     }
 
-    static TreeInfo diameterApproach2(Node root) {
+    static TreeInfo diameterApproach2(TreeNode root) {
         if (root == null) {
             return new TreeInfo(0, 0);
         }
@@ -186,32 +186,32 @@ public class BuildTreePreorderSequence {
 
 //    8. Subtree of another tree
 
-    /*public boolean isIdentical(TreeNode root,TreeNode subRoot){
-        if(subRoot == null && root == null){
+    boolean isIdentical(TreeNode root, TreeNode subRoot) {
+        if (subRoot == null && root == null) {
             return true;
         }
-        if(root == null || subRoot == null){
+        if (root == null || subRoot == null) {
             return false;
         }
-        if(root.val == subRoot.val){
-            return isIdentical(root.left, subRoot.left) && isIdentical(root.right, subRoot.right);
+        if (root.data == subRoot.data) {
+            return isIdentical(root.left, subRoot.left)
+                    && isIdentical(root.right, subRoot.right);
         }
         return false;
     }
 
-    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        if(subRoot == null){
+    boolean isSubtree(TreeNode root, TreeNode subRoot) {
+        if (subRoot == null) {
             return true;
         }
-        if(root == null){
+        if (root == null) {
             return false;
         }
-        if(isIdentical(root, subRoot)){
+        if (isIdentical(root, subRoot)) {
             return true;
         }
         return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
-    }*/
-
+    }
 
     public static void main(String[] args) {
         // Tree data given from Preorder Sequence
@@ -219,7 +219,7 @@ public class BuildTreePreorderSequence {
 
 //        BinaryTree tree = new BinaryTree();
 
-        Node root = BinaryTree.buildTree(nodes);
+        TreeNode root = BinaryTree.buildTree(nodes);
         assert root != null;
         System.out.println(root.data);
 
@@ -243,6 +243,9 @@ public class BuildTreePreorderSequence {
         System.out.print("Diameter of Nodes (Approach 2): ");
 //        System.out.println(diameterApproach2(root).diameter);
         System.out.println(diameterApproach2(root)); // or, class toString
+        System.out.println("SubTrees of the Main Trees");
+        System.out.println();
+
     }
 }
 
