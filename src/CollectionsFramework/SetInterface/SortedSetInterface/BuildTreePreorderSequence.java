@@ -179,6 +179,7 @@ public class BuildTreePreorderSequence {
 
         int currentDiameter = Math.max(diameter1, Math.max(diameter2, diameter3));
 
+//        TreeInfo treeInfo = new TreeInfo(currentHeight,currentDiameter);
         return new TreeInfo(currentHeight, currentDiameter);
     }
 
@@ -240,7 +241,8 @@ public class BuildTreePreorderSequence {
         System.out.print("Diameter of Nodes (Approach 1): ");
         System.out.println(diameterOfNodes(root));
         System.out.print("Diameter of Nodes (Approach 2): ");
-        System.out.println(diameterApproach2(root));
+//        System.out.println(diameterApproach2(root).diameter);
+        System.out.println(diameterApproach2(root)); // or, class toString
     }
 }
 
