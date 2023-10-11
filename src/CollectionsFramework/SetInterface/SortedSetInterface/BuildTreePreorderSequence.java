@@ -146,30 +146,36 @@ public class BuildTreePreorderSequence {
         return Math.max(diameter1, Math.max(diameter2, diameter3));
     }
 
-//    7. Diameter of Tree - Approach2 O(N)
-     /*static TreeInfo diameterOfNodes(Node root) {
-        if(root == null) {
+    //    7. Diameter of Tree - Approach2 O(N)
+    static class TreeInfo {
+        int height;
+        int diameter;
+
+        TreeInfo(int height, int diameter) {
+            this.height = height;
+            this.diameter = diameter;
+        }
+    }
+
+    static TreeInfo diameterApproach2(Node root) {
+        if (root == null) {
             return new TreeInfo(0, 0);
         }
 
+        TreeInfo leftTreeInfo = diameterApproach2(root.left);
+        TreeInfo rightTreeInfo = diameterApproach2(root.right);
 
-        TreeInfo leftTI = diameterOfNodes(root.left);
-        TreeInfo rightTI = diameterOfNodes(root.right);
+        int currentHeight = Math.max(leftTreeInfo.height, rightTreeInfo.height) + 1;
 
+        int diameter1 = leftTreeInfo.height + rightTreeInfo.height + 1;
+        int diameter2 = leftTreeInfo.diameter;
+        int diameter3 = rightTreeInfo.diameter;
 
-        int myHeight = Math.max(leftTI.heightOfNodes, rightTI.heightOfNodes) + 1;
+        int currentDiameter = Math.max(diameter1, Math.max(diameter2, diameter3));
 
+        return new TreeInfo(currentHeight, currentDiameter);
+    }
 
-        Int diam1 = leftTI.heightOfNodes + rightTI.heightOfNodes + 1;
-        int diam2 = leftTI.diam;
-        int diam3 = rightTI.diam;
-
-
-        Int myDiam = Math.max(diam1, Math.max(diam2, diam3));
-
-
-        return new TreeInfo(myHeight, myDiam);
-    }*/
 
 //    8. Subtree of another tree
 
@@ -181,8 +187,7 @@ public class BuildTreePreorderSequence {
             return false;
         }
         if(root.val == subRoot.val){
-            return isIdentical(root.left, subRoot.left) &&
-                    isIdentical(root.right, subRoot.right);
+            return isIdentical(root.left, subRoot.left) && isIdentical(root.right, subRoot.right);
         }
         return false;
     }
@@ -199,6 +204,7 @@ public class BuildTreePreorderSequence {
         }
         return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
     }*/
+
 
     public static void main(String[] args) {
         // Tree data given from Preorder Sequence
@@ -227,6 +233,8 @@ public class BuildTreePreorderSequence {
         System.out.println(heightOfNodes(root));
         System.out.print("Diameter of Nodes (Approach 1): ");
         System.out.println(diameterOfNodes(root));
+        System.out.print("Diameter of Nodes (Approach 2): ");
+        System.out.println(diameterApproach2(root));
     }
 }
 
@@ -247,5 +255,6 @@ Count Nodes: 6
 Summation of Nodes: 21
 Height of Nodes: 3
 Diameter of Nodes (Approach 1): 5
+Diameter of Nodes (Approach 2): CollectionsFramework.SetInterface.SortedSetInterface.BuildTreePreorderSequence$TreeInfo@5b6f7412
 
 * */
