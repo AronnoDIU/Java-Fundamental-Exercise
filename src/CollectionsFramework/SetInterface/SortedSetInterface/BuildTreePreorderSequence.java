@@ -3,6 +3,20 @@ package CollectionsFramework.SetInterface.SortedSetInterface;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 1. Build Tree from given Preorder Sequence
+ * 2. Tree Traversals,
+ * Preorder => root -> left Subtree -> right Subtree
+ * Inorder => left Subtree -> root -> right Subtree
+ * Postorder => left Subtree -> right Subtree -> root
+ * Level Order => 1st Level(Root) -> 2nd Level -> Nth Level(Leaf)
+ * 3. Height of Tree
+ * 4. Count of Nodes of Tree
+ * 5. Sum of Nodes of Tree
+ * 6. Diameter of Tree - Approach1 O(N^2)
+ * 7. Diameter of Tree - Approach2 O(N)
+ * 8. Subtree of another tree
+ */
 // Build Tree from given Preorder Sequence
 public class BuildTreePreorderSequence {
     static class TreeNode {
@@ -184,15 +198,16 @@ public class BuildTreePreorderSequence {
     }
 
 
-//    8. Subtree of another tree
-
+    //    8. Subtree of another tree
     boolean isIdentical(TreeNode root, TreeNode subRoot) {
-        if (subRoot == null && root == null) {
+        if (root == null && subRoot == null) {
             return true;
         }
         if (root == null || subRoot == null) {
             return false;
         }
+        /* Check if the data of both roots is same and data
+           of left and right subtrees are also same */
         if (root.data == subRoot.data) {
             return isIdentical(root.left, subRoot.left)
                     && isIdentical(root.right, subRoot.right);
@@ -207,19 +222,25 @@ public class BuildTreePreorderSequence {
         if (root == null) {
             return false;
         }
+        /* Check the tree with root as current node */
         if (isIdentical(root, subRoot)) {
             return true;
         }
-        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+        /* If the tree with root as current node doesn't match,
+        then try left and right subtrees one by one */
+        return isSubtree(root.left, subRoot)
+                || isSubtree(root.right, subRoot);
     }
 
     public static void main(String[] args) {
         // Tree data given from Preorder Sequence
-        int[] nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+        int[] NodesData1 = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+
+        int[] NodesData2 = {4, 1, 2, -1, -1, -1, -1}; // Subtree of another tree
 
 //        BinaryTree tree = new BinaryTree();
 
-        TreeNode root = BinaryTree.buildTree(nodes);
+        TreeNode root = BinaryTree.buildTree(NodesData1);
         assert root != null;
         System.out.println(root.data);
 
@@ -243,8 +264,10 @@ public class BuildTreePreorderSequence {
         System.out.print("Diameter of Nodes (Approach 2): ");
 //        System.out.println(diameterApproach2(root).diameter);
         System.out.println(diameterApproach2(root)); // or, class toString
-        System.out.println("SubTrees of the Main Trees");
-        System.out.println();
+
+//        Subtree of another tree
+//        TreeNode subRoot = BinaryTree.buildTree(NodesData2);
+//        assert subRoot != null;
 
     }
 }
