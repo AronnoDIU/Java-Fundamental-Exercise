@@ -19,6 +19,8 @@ import java.util.Queue;
  */
 // Build Tree from given Preorder Sequence
 public class BuildTreePreorderSequence {
+    TreeNode root, subRoot;
+
     static class TreeNode {
         int data;
         TreeNode left;
@@ -238,7 +240,7 @@ public class BuildTreePreorderSequence {
         // Tree data given from Preorder Sequence
         int[] NodesData1 = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
 
-        int[] NodesData2 = {4, 1, 2}; // Subtree of another tree
+//        int[] NodesData2 = {4, 1, 2}; // Subtree of another tree
 
 //        BinaryTree tree = new BinaryTree();
 
@@ -268,9 +270,32 @@ public class BuildTreePreorderSequence {
         System.out.println(diameterApproach2(root)); // or, class toString
 
 //        Subtree of another tree
-        TreeNode subRoot = BinaryTree.buildTree(NodesData2);
-        assert subRoot != null;
-        System.out.println(" is Subtree of another tree: " + isSubtree(root, subRoot));
+
+        // TREE 2
+        /* Construct the following tree
+           10
+         /    \
+         4      6
+          \
+          30  */
+
+        BuildTreePreorderSequence tree = new BuildTreePreorderSequence();
+
+        tree.subRoot = new TreeNode(2);
+        tree.subRoot.right = new TreeNode(4);
+        tree.subRoot.left = new TreeNode(5);
+        tree.subRoot.left.right = new TreeNode(30);
+
+        if (isSubtree(tree.root, tree.subRoot))
+            System.out.println(
+                    "Tree 2 is subtree of Tree 1 ");
+        else
+            System.out.println(
+                    "Tree 2 is not a subtree of Tree 1");
+
+//        TreeNode subRoot = BinaryTree.buildTree(NodesData2);
+//        assert subRoot != null;
+//        System.out.println(" is Subtree of another tree": + isSubtree(root, subRoot));
 
     }
 }
@@ -293,5 +318,6 @@ Summation of Nodes: 21
 Height of Nodes: 3
 Diameter of Nodes (Approach 1): 5
 Diameter of Nodes (Approach 2): TreeInfo{Height of Nodes =3, Diameter of Nodes =5}
+Tree 2 is not a subtree of Tree 1
 
 * */
