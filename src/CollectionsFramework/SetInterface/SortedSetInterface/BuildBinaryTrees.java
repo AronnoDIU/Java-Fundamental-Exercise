@@ -18,7 +18,7 @@ import java.util.Queue;
  * 8. Subtree of another tree
  */
 // Build Tree from given Preorder Sequence
-public class BuildTreePreorderSequence {
+public class BuildBinaryTrees {
     TreeNode subRoot;
 
     static class TreeNode {
@@ -279,7 +279,7 @@ public class BuildTreePreorderSequence {
           \
           30  */
 
-        BuildTreePreorderSequence tree = new BuildTreePreorderSequence();
+        BuildBinaryTrees tree = new BuildBinaryTrees();
 
         tree.subRoot = new TreeNode(2);
         tree.subRoot.right = new TreeNode(5);
