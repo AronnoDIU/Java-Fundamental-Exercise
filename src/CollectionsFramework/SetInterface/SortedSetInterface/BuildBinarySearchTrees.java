@@ -11,17 +11,17 @@ public class BuildBinarySearchTrees {
         }
     }
 
-    static NodeBST insert(NodeBST root, int key) {
+    static NodeBST insert(NodeBST root, int values) {
         if (root == null) {
-            root = new NodeBST(key);
+            root = new NodeBST(values);
             return root;
         }
 
-        if (root.data > key) {
+        if (root.data > values) {
             // left subtree
-            root.left = insert(root.left, key);
+            root.left = insert(root.left, values);
         } else {
-            root.right = insert(root.right, key);
+            root.right = insert(root.right, values);
         }
         return root;
     }
