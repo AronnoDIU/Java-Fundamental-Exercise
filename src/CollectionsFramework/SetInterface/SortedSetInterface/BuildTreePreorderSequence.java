@@ -282,9 +282,9 @@ public class BuildTreePreorderSequence {
         BuildTreePreorderSequence tree = new BuildTreePreorderSequence();
 
         tree.subRoot = new TreeNode(2);
-        tree.subRoot.right = new TreeNode(4);
-        tree.subRoot.left = new TreeNode(5);
-        tree.subRoot.left.right = new TreeNode(30);
+        tree.subRoot.right = new TreeNode(5);
+        tree.subRoot.left = new TreeNode(4);
+//        tree.subRoot.left.right = new TreeNode(30);
 
         if (isSubtree(root, tree.subRoot))
             System.out.println(
@@ -318,6 +318,6 @@ Summation of Nodes: 21
 Height of Nodes: 3
 Diameter of Nodes (Approach 1): 5
 Diameter of Nodes (Approach 2): TreeInfo{Height of Nodes =3, Diameter of Nodes =5}
-Tree 2 is not a subtree of Tree 1
+Tree 2 is subtree of Tree 1
 
 * */
