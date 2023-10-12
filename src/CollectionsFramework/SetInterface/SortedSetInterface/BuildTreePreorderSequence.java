@@ -19,7 +19,7 @@ import java.util.Queue;
  */
 // Build Tree from given Preorder Sequence
 public class BuildTreePreorderSequence {
-    TreeNode root, subRoot;
+    TreeNode subRoot;
 
     static class TreeNode {
         int data;
@@ -286,7 +286,7 @@ public class BuildTreePreorderSequence {
         tree.subRoot.left = new TreeNode(5);
         tree.subRoot.left.right = new TreeNode(30);
 
-        if (isSubtree(tree.root, tree.subRoot))
+        if (isSubtree(root, tree.subRoot))
             System.out.println(
                     "Tree 2 is subtree of Tree 1 ");
         else
