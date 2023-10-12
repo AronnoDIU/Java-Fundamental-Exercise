@@ -199,7 +199,7 @@ public class BuildTreePreorderSequence {
 
 
     //    8. Subtree of another tree
-    boolean isIdentical(TreeNode root, TreeNode subRoot) {
+    static boolean isIdentical(TreeNode root, TreeNode subRoot) {
         if (root == null && subRoot == null) {
             return true;
         }
@@ -215,7 +215,7 @@ public class BuildTreePreorderSequence {
         return false;
     }
 
-    boolean isSubtree(TreeNode root, TreeNode subRoot) {
+    static boolean isSubtree(TreeNode root, TreeNode subRoot) {
         if (subRoot == null) {
             return true;
         }
@@ -223,8 +223,10 @@ public class BuildTreePreorderSequence {
             return false;
         }
         /* Check the tree with root as current node */
-        if (isIdentical(root, subRoot)) {
-            return true;
+        if (root.data == subRoot.data) {
+            if (isIdentical(root, subRoot)) {
+                return true;
+            }
         }
         /* If the tree with root as current node doesn't match,
         then try left and right subtrees one by one */
@@ -236,7 +238,7 @@ public class BuildTreePreorderSequence {
         // Tree data given from Preorder Sequence
         int[] NodesData1 = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
 
-        int[] NodesData2 = {4, 1, 2, -1, -1, -1, -1}; // Subtree of another tree
+        int[] NodesData2 = {4, 1, 2}; // Subtree of another tree
 
 //        BinaryTree tree = new BinaryTree();
 
@@ -266,8 +268,9 @@ public class BuildTreePreorderSequence {
         System.out.println(diameterApproach2(root)); // or, class toString
 
 //        Subtree of another tree
-//        TreeNode subRoot = BinaryTree.buildTree(NodesData2);
-//        assert subRoot != null;
+        TreeNode subRoot = BinaryTree.buildTree(NodesData2);
+        assert subRoot != null;
+        System.out.println(" is Subtree of another tree: " + isSubtree(root, subRoot));
 
     }
 }
