@@ -26,8 +26,29 @@ public class BuildBinarySearchTrees {
         return root;
     }
 
+    //    Inorder => left Subtree -> root -> right Subtree
+    static void inOrder(NodeBST root) {
+        if (root == null) {
+            return;
+        }
+        inOrder(root.left);
+        System.out.print(root.data + " "); // Always Sorted in BST
+        inOrder(root.right);
+    }
+
     public static void main(String[] args) {
         int[] values = {5, 1, 3, 4, 2, 7};
         NodeBST root = null;
+
+        for (int EnhancedValue : values) {
+            root = insert(root, EnhancedValue);
+        }
+        inOrder(root);
     }
 }
+
+/*Expected Output:
+
+1 2 3 4 5 7
+
+* */
