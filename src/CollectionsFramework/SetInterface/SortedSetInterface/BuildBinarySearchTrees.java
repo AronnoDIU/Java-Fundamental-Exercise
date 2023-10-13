@@ -37,36 +37,39 @@ public class BuildBinarySearchTrees {
     }
 
     static boolean search(NodeBST root, int key) {
-        if (root == null) {
+        if (root == null) { // Base Case
             return false;
         }
         if (root.data > key) { // left subtree
             return search(root.left, key);
-        }
-        else if (root.data == key) {
+        } else if (root.data == key) {
             return true;
-        }
-        else if (root.data < key) {
+        } else {
             return search(root.right, key);
-        }
-        else {
-            return false;
         }
     }
 
     public static void main(String[] args) {
-        int[] values = {5, 1, 3, 4, 2, 7};
+//        int[] values = {5, 1, 3, 4, 2, 7};
+        int[] values = {8, 5, 3, 1, 4, 6, 10, 11, 14};
         NodeBST root = null;
 
         for (int EnhancedValue : values) {
             root = insert(root, EnhancedValue);
         }
         inOrder(root);
+        System.out.println();
+        if (search(root, 1)) {
+            System.out.println("Found");
+        } else {
+            System.out.println("Not Found");
+        }
     }
 }
 
 /*Expected Output:
 
-1 2 3 4 5 7
+1 3 4 5 6 8 10 11 14
+Found
 
 * */
