@@ -70,9 +70,13 @@ public class BuildBinarySearchTrees {
             root.data = IS.data;
             root.right = delete(root.right, IS.data);
         }
+        return root;
     }
 
     static NodeBST inOrderSuccessor(NodeBST root) {
+        while (root.left != null) {
+            root = root.left;
+        }
         return root;
     }
 
@@ -91,6 +95,9 @@ public class BuildBinarySearchTrees {
         } else {
             System.out.println("Not Found");
         }
+
+        delete(root, 4);
+        inOrder(root);
     }
 }
 
@@ -98,5 +105,6 @@ public class BuildBinarySearchTrees {
 
 1 3 4 5 6 8 10 11 14
 Found
+1 3 5 6 8 10 11 14
 
 * */
