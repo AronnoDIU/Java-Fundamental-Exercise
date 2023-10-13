@@ -36,6 +36,24 @@ public class BuildBinarySearchTrees {
         inOrder(root.right);
     }
 
+    static boolean search(NodeBST root, int key) {
+        if (root == null) {
+            return false;
+        }
+        if (root.data > key) { // left subtree
+            return search(root.left, key);
+        }
+        else if (root.data == key) {
+            return true;
+        }
+        else if (root.data < key) {
+            return search(root.right, key);
+        }
+        else {
+            return false;
+        }
+    }
+
     public static void main(String[] args) {
         int[] values = {5, 1, 3, 4, 2, 7};
         NodeBST root = null;
