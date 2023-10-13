@@ -54,11 +54,26 @@ public class BuildBinarySearchTrees {
             root.left = delete(root.left, values);
         } else if (root.data < values) {
             root.right = delete(root.right, values);
-        } else {
+        } else {    // root.data == values
+            // Case 1
             if (root.left == null && root.right == null) {
                 return null;
             }
+            // Case 2
+            if (root.left == null) {
+                return root.right;
+            } else if (root.right == null) {
+                return root.left;
+            }
+            // Case 3
+            NodeBST IS = inOrderSuccessor(root.right);
+            root.data = IS.data;
+            root.right = delete(root.right, IS.data);
         }
+    }
+
+    static NodeBST inOrderSuccessor(NodeBST root) {
+        return root;
     }
 
     public static void main(String[] args) {
