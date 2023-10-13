@@ -36,7 +36,7 @@ public class BuildBinarySearchTrees {
         inOrder(root.right);
     }
 
-    static boolean search(NodeBST root, int key) {
+    static boolean search(NodeBST root, int key) { // TimeComplexity:O(H)
         if (root == null) { // Base Case
             return false;
         }
