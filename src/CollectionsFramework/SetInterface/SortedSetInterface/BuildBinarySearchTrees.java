@@ -49,6 +49,18 @@ public class BuildBinarySearchTrees {
         }
     }
 
+    static NodeBST delete(NodeBST root, int values) {
+        if (root.data > values) {
+            root.left = delete(root.left, values);
+        } else if (root.data < values) {
+            root.right = delete(root.right, values);
+        } else {
+            if (root.left == null && root.right == null) {
+                return null;
+            }
+        }
+    }
+
     public static void main(String[] args) {
 //        int[] values = {5, 1, 3, 4, 2, 7};
         int[] values = {8, 5, 3, 1, 4, 6, 10, 11, 14};
