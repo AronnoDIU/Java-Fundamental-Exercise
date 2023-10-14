@@ -144,6 +144,7 @@ public class BuildBinarySearchTrees {
         if (root == null) {
             return;
         }
+
         path.add(root.data);
 
         // Leaf Node
@@ -153,9 +154,8 @@ public class BuildBinarySearchTrees {
             printRoot2LeafPaths(root.left, path);
             printRoot2LeafPaths(root.right, path);
         }
-
-        printRoot2LeafPaths(root.left, path);
-        printRoot2LeafPaths(root.right, path);
+//        printRoot2LeafPaths(root.left, path);
+//        printRoot2LeafPaths(root.right, path);
         path.remove(path.size() - 1);
     }
 
@@ -178,7 +178,7 @@ public class BuildBinarySearchTrees {
         printInRange(root, 6, 10);
 
         System.out.println();
-//        printRoot2LeafPaths(root,);
+        printRoot2LeafPaths(root, new ArrayList<>());
 
 //        System.out.println();
         delete(root, 4);
@@ -190,6 +190,11 @@ public class BuildBinarySearchTrees {
 
 1 3 4 5 6 8 10 11 14
 Found
+6 8 10
+8 -> 5 -> 3 -> 1 ->
+8 -> 5 -> 3 -> 4 ->
+8 -> 5 -> 6 ->
+8 -> 10 -> 11 -> 14 ->
 1 3 5 6 8 10 11 14
 
 * */
