@@ -105,7 +105,7 @@ public class BuildBinarySearchTrees {
         // case 1, X <= root <= Y ==> Left & Right
         if (root.data >= X && root.data <= Y) {
             printInRange(root.left, X, Y);
-            System.out.println(root.data + " ");
+            System.out.print(root.data + " ");
             printInRange(root.right, X, Y);
         }
         // Case 3, Y < root ==> Left
@@ -134,6 +134,9 @@ public class BuildBinarySearchTrees {
             System.out.println("Not Found");
         }
 
+        printInRange(root, 6, 10);
+
+        System.out.println();
         delete(root, 4);
         inOrder(root);
     }
