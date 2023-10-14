@@ -54,8 +54,6 @@ public class BuildBinarySearchTrees {
      * 2. One Child => Delete Node & replace with child Node
      * 3. Two Children => Replace value with in-Order successor
      *         & Delete the Node for in-Order successor.
-     *
-     * In in-Order Successor in BST => Left most in Right Subtree.
      * */
     static NodeBST delete(NodeBST root, int values) {
         if (root.data > values) {
@@ -63,17 +61,19 @@ public class BuildBinarySearchTrees {
         } else if (root.data < values) {
             root.right = delete(root.right, values);
         } else {    // root.data == values
-            // Case 1
+            // Case 1, No Child(Leaf Node) => Delete Node & Return Null to parent.
             if (root.left == null && root.right == null) {
                 return null;
             }
-            // Case 2
+            // Case 2, One Child => Delete Node & replace with child Node
             if (root.left == null) {
                 return root.right;
             } else if (root.right == null) {
                 return root.left;
             }
-            // Case 3
+            // In in-Order Successor in BST => Left most in Right Subtree.
+            // Case 3, Two Children => Replace value with in-Order successor
+            //              & Delete the Node for in-Order successor.
             NodeBST IS = inOrderSuccessor(root.right);
             root.data = IS.data;
             root.right = delete(root.right, IS.data);
