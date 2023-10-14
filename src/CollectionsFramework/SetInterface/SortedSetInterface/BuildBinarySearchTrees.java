@@ -93,6 +93,31 @@ public class BuildBinarySearchTrees {
         return root;
     }
 
+    /*Print in Range, X = 6 && Y = 10
+     *   Case 1, X <= root <= Y ==> Left & Right
+     *   Case 2, X > root ==> Right
+     *   Case 3, Y < root ==> Left
+     * */
+    static void printInRange(NodeBST root, int X, int Y) {
+        if (root == null) {    // Base Case
+            return;
+        }
+        // case 1, X <= root <= Y ==> Left & Right
+        if (root.data >= X && root.data <= Y) {
+            printInRange(root.left, X, Y);
+            System.out.println(root.data + " ");
+            printInRange(root.right, X, Y);
+        }
+        // Case 3, Y < root ==> Left
+        else if (root.data >= Y) {
+            printInRange(root.left, X, Y);
+        }
+        // Case 2, X > root ==> Right
+        else {
+            printInRange(root.right, X, Y);
+        }
+    }
+
     public static void main(String[] args) {
 //        int[] values = {5, 1, 3, 4, 2, 7};
         int[] values = {8, 5, 3, 1, 4, 6, 10, 11, 14};
