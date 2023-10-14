@@ -1,5 +1,14 @@
 package CollectionsFramework.SetInterface.SortedSetInterface;
 
+/**
+ * Cases for Deletion
+ * 1. No Child (Leaf Node) => Delete Node & Return Null to parent.
+ * 2. One Child => Delete Node & replace with child Node
+ * 3. Two Children => Replace value with in-Order successor
+ * & Delete the Node for in-Order successor.
+ * <p>
+ * N.B. => in-Order Successor always has 0 or 1 children.
+ */
 public class BuildBinarySearchTrees {
     static class NodeBST {
         int data;
@@ -49,12 +58,6 @@ public class BuildBinarySearchTrees {
         }
     }
 
-    /*Cases for Deletion
-     * 1. No Child(Leaf Node) => Delete Node & Return Null to parent.
-     * 2. One Child => Delete Node & replace with child Node
-     * 3. Two Children => Replace value with in-Order successor
-     *         & Delete the Node for in-Order successor.
-     * */
     static NodeBST delete(NodeBST root, int values) {
         if (root.data > values) {
             root.left = delete(root.left, values);
@@ -71,9 +74,10 @@ public class BuildBinarySearchTrees {
             } else if (root.right == null) {
                 return root.left;
             }
-            // In in-Order Successor in BST => Left most in Right Subtree.
-            // Case 3, Two Children => Replace value with in-Order successor
-            //              & Delete the Node for in-Order successor.
+            /* In in-Order Successor in BST => Left most in Right Subtree.
+             Case 3, Two Children => Replace value with in-Order successor
+                          & Delete the Node for in-Order successor.
+             N.B. => in-Order Successor always has 0 or 1 children.*/
             NodeBST IS = inOrderSuccessor(root.right);
             root.data = IS.data;
             root.right = delete(root.right, IS.data);
