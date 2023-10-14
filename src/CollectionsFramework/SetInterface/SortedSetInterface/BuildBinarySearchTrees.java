@@ -161,7 +161,8 @@ public class BuildBinarySearchTrees {
 
     public static void main(String[] args) {
 //        int[] values = {5, 1, 3, 4, 2, 7};
-        int[] values = {8, 5, 3, 1, 4, 6, 10, 11, 14};
+        int[] values = {8, 5, 3, 1, 4, 6, 10, 11, 14}; // Changed, when printRoot added
+//        int[] values = {8, 5, 3, 6, 10, 11, 14}; // For testing methods
         NodeBST root = null;
 
         for (int EnhancedValue : values) {
@@ -181,7 +182,7 @@ public class BuildBinarySearchTrees {
         printRoot2LeafPaths(root, new ArrayList<>());
 
 //        System.out.println();
-        delete(root, 4);
+        delete(root, 6);
         inOrder(root);
     }
 }
@@ -195,6 +196,6 @@ Found
 8 -> 5 -> 3 -> 4 ->
 8 -> 5 -> 6 ->
 8 -> 10 -> 11 -> 14 ->
-1 3 5 6 8 10 11 14
+1 3 4 5 8 10 11 14
 
 * */
