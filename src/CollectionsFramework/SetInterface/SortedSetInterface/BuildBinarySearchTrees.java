@@ -118,6 +118,15 @@ public class BuildBinarySearchTrees {
         }
     }
 
+    /*Root to Leaf Paths,
+     * Path 1, 8 -> 5 -> 3
+     * Path 2, 8 -> 5 -> 6
+     * Path 3, 8 -> 10 -> 11 -> 14
+     * */
+    static void rootToLeafPaths(NodeBST root) {
+        System.out.println("Paths printed");
+    }
+
     public static void main(String[] args) {
 //        int[] values = {5, 1, 3, 4, 2, 7};
         int[] values = {8, 5, 3, 1, 4, 6, 10, 11, 14};
@@ -137,6 +146,9 @@ public class BuildBinarySearchTrees {
         printInRange(root, 6, 10);
 
         System.out.println();
+        rootToLeafPaths(root);
+
+//        System.out.println();
         delete(root, 4);
         inOrder(root);
     }
