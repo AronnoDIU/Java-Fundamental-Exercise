@@ -124,7 +124,9 @@ public class BuildBinarySearchTrees {
      * Path 3, 8 -> 10 -> 11 -> 14
      * */
     static void rootToLeafPaths(NodeBST root) {
-        System.out.println("Paths printed");
+        if (root == null) {
+            System.out.println("Paths printed");
+        }
     }
 
     public static void main(String[] args) {
