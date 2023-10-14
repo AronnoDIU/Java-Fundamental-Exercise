@@ -1,5 +1,7 @@
 package CollectionsFramework.SetInterface.SortedSetInterface;
 
+import java.util.ArrayList;
+
 /**
  * Cases for Deletion
  * 1. No Child (Leaf Node) => Delete Node & Return Null to parent.
@@ -119,14 +121,42 @@ public class BuildBinarySearchTrees {
     }
 
     /*Root to Leaf Paths,
+                           8
+                         /    \
+                        5       10
+                      /    \       \
+                     3      6        11
+                                       \
+                                       14
+
      * Path 1, 8 -> 5 -> 3
      * Path 2, 8 -> 5 -> 6
      * Path 3, 8 -> 10 -> 11 -> 14
      * */
-    static void rootToLeafPaths(NodeBST root) {
-        if (root == null) {
-            System.out.println("Paths printed");
+    static void printPath(ArrayList<Integer> path) {
+        for (Integer EnhancedPaths : path) {
+            System.out.print(EnhancedPaths + " -> ");
         }
+        System.out.println();
+    }
+
+    static void printRoot2LeafPaths(NodeBST root, ArrayList<Integer> path) {
+        if (root == null) {
+            return;
+        }
+        path.add(root.data);
+
+        // Leaf Node
+        if (root.left == null && root.right == null) {
+            printPath(path);
+        } else {    // Non-leaf
+            printRoot2LeafPaths(root.left, path);
+            printRoot2LeafPaths(root.right, path);
+        }
+
+        printRoot2LeafPaths(root.left, path);
+        printRoot2LeafPaths(root.right, path);
+        path.remove(path.size() - 1);
     }
 
     public static void main(String[] args) {
@@ -148,7 +178,7 @@ public class BuildBinarySearchTrees {
         printInRange(root, 6, 10);
 
         System.out.println();
-        rootToLeafPaths(root);
+//        printRoot2LeafPaths(root,);
 
 //        System.out.println();
         delete(root, 4);
