@@ -49,6 +49,10 @@ public class BuildBinarySearchTrees {
         }
     }
 
+    /*Cases for Deletion
+     * 1. No Child(Leaf Node)
+     * 2. One Child
+     * 3. Two Children*/
     static NodeBST delete(NodeBST root, int values) {
         if (root.data > values) {
             root.left = delete(root.left, values);
