@@ -2,54 +2,50 @@ package CollectionsFramework.SetInterface;
 
 import java.util.HashSet;
 
+// HashSet is the most important Data Structure
+// Because of it's Time Complexity
 public class HashSetEx2 {
     public static void main(String[] args) {
-        HashSet<Integer> set = new HashSet<>();
+        HashSet<Integer> integerHashSet = new HashSet<>();
 
-        //Add
-        set.add(1);
-        set.add(2);
-        set.add(3);
-        set.add(1);
-
+        // Insert
+        integerHashSet.add(1);
+        integerHashSet.add(2);
+        integerHashSet.add(3);
+        integerHashSet.add(1);
 
         //Size
-        System.out.println("size of set is : " + set.size());
-
+        System.out.println("size of integerHashSet is : " + integerHashSet.size());
 
         //Search
-        if (set.contains(1)) {
+        if (integerHashSet.contains(1)) {
             System.out.println("present");
         }
 
-
-        if (!set.contains(6)) {
+        if (!integerHashSet.contains(6)) {
             System.out.println("absent");
         }
-
 
         //Delete
-        set.remove(1);
-        if (!set.contains(1)) {
+        integerHashSet.remove(1);
+        if (!integerHashSet.contains(1)) {
             System.out.println("absent");
         }
 
-
         //Print all elements
-        System.out.println(set);
+        System.out.println(integerHashSet);
 
 
         //Iteration - HashSet does not have an order
-        set.add(0);
-        for (Integer integer : set) {
+        integerHashSet.add(0);
+        for (Integer integer : integerHashSet) {
             System.out.print(integer + ", ");
         }
         System.out.println();
 
-
         //isEmpty
-        if (!set.isEmpty()) {
-            System.out.println("set is not empty");
+        if (!integerHashSet.isEmpty()) {
+            System.out.println("integerHashSet is not empty");
         }
     }
 }
