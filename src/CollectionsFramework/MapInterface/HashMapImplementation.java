@@ -3,37 +3,49 @@ package CollectionsFramework.MapInterface;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+/**
+ * HashMap implements in JAVA with the help of
+ * Array of LinkedList.<p>
+ * Array of LL ==> Creates/Stored LinkedList in every index of Arrays
+ * Lambda (λ) = NodeNumber/ArraySize;<p>
+ * (λ) =< K(Constant Value) or, Threshold Value.
+ * <p>
+ * Threshold Value = A value that sets a limit or boundary,
+ * above or below which a different state or condition is observed.
+ */
 public class HashMapImplementation {
-    static class HashMap<K, V> { //generics
+    static class HashMap<Keys, Values> { //generics
         private class Node {
-            K key;
-            V value;
+            Keys key;
+            Values value;
 
-            public Node(K key, V value) {
+            public Node(Keys key, Values value) {
                 this.key = key;
                 this.value = value;
             }
         }
 
-        private int n; //n - nodes
-        private final int N; //N - buckets
+        private int NodeNumber; // Total Number of Nodes
+        private final int ArraySize; // Size of an Array - buckets
+        /*Buckets ==> Every Index of Arrays of LinkedList
+         * So that, index[0-2] == Buckets0, Buckets1, Buckets2 */
         private LinkedList<Node>[] buckets; //N = buckets.length
 
         @SuppressWarnings("unchecked")
         public HashMap() {
-            this.N = 4;
+            this.ArraySize = 4;
             this.buckets = new LinkedList[4];
             for (int i = 0; i < 4; i++) {
                 this.buckets[i] = new LinkedList<>();
             }
         }
 
-        private int hashFunction(K key) {
+        private int hashFunction(Keys key) {
             int bi = key.hashCode();
-            return Math.abs(bi) % N;
+            return Math.abs(bi) % ArraySize;
         }
 
-        private int searchInLL(K key, int bi) {
+        private int searchInLL(Keys key, int bi) {
             LinkedList<Node> ll = buckets[bi];
 
             for (int i = 0; i < ll.size(); i++) {
@@ -48,8 +60,8 @@ public class HashMapImplementation {
         @SuppressWarnings("unchecked")
         private void rehash() {
             LinkedList<Node>[] oldBucket = buckets;
-            buckets = new LinkedList[N * 2];
-            for (int i = 0; i < N * 2; i++) {
+            buckets = new LinkedList[ArraySize * 2];
+            for (int i = 0; i < ArraySize * 2; i++) {
                 buckets[i] = new LinkedList<>();
             }
             for (LinkedList<Node> ll : oldBucket) {
@@ -59,36 +71,36 @@ public class HashMapImplementation {
             }
         }
 
-        public void put(K key, V value) {
+        public void put(Keys key, Values value) {
             int bi = hashFunction(key);
             int di = searchInLL(key, bi); //di = -1
             if (di == -1) { //key doesn't exist
                 buckets[bi].add(new Node(key, value));
-                n++;
+                NodeNumber++;
             } else { //key exists
                 Node node = buckets[bi].get(di);
                 node.value = value;
             }
-            double lambda = (double) n / N;
+            double lambda = (double) NodeNumber / ArraySize;
 
             if (lambda > 2.0) {
                 rehash();
             }
         }
 
-        public V remove(K key) {
+        public Values remove(Keys key) {
             int bi = hashFunction(key);
             int di = searchInLL(key, bi); //di = -1
             if (di == -1) { //key doesn't exist
                 return null;
             } else { //key exists
                 Node node = buckets[bi].remove(di);
-                n--;
+                NodeNumber--;
                 return node.value;
             }
         }
 
-        public V get(K key) {
+        public Values get(Keys key) {
             int bi = hashFunction(key);
             int di = searchInLL(key, bi); //di = -1
             if (di == -1) { //key doesn't exist
@@ -99,7 +111,7 @@ public class HashMapImplementation {
             }
         }
 
-        public boolean containsKey(K key) {
+        public boolean containsKey(Keys key) {
             int bi = hashFunction(key);
             int di = searchInLL(key, bi); //di = -1
             //key doesn't exist
@@ -107,8 +119,8 @@ public class HashMapImplementation {
             return di != -1;
         }
 
-        public ArrayList<K> keySet() {
-            ArrayList<K> keys = new ArrayList<>();
+        public ArrayList<Keys> keySet() {
+            ArrayList<Keys> keys = new ArrayList<>();
             for (LinkedList<Node> ll : buckets) { //bisexual
                 for (Node node : ll) { //di
                     keys.add(node.key);
@@ -118,7 +130,7 @@ public class HashMapImplementation {
         }
 
         public boolean isEmpty() {
-            return n == 0;
+            return NodeNumber == 0;
         }
     }
 
