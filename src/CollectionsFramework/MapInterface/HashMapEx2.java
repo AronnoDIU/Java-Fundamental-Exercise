@@ -4,17 +4,16 @@ import java.util.HashMap;
 
 public class HashMapEx2 {
     public static void main(String[] args) {
-        // Create a HashMap object called capitalCities
         HashMap<String, String> capitalCities = new HashMap<>();
 
-        // Add keys and values (Country, City)
+        // Add keys = Country <String>, and values = City <String>
         capitalCities.put("England", "London");
         capitalCities.put("Germany", "Berlin");
         capitalCities.put("Norway", "Oslo");
         capitalCities.put("USA", "Washington DC");
         System.out.println(capitalCities);
 
-        // Access an Item
+        // Access an Item using Keys
         capitalCities.get("England");
 
         // Remove an Item
@@ -23,20 +22,20 @@ public class HashMapEx2 {
         // HashMap Size
 //        capitalCities.size();
 
-        // Loop Through a HashMap
-        // Print keys
-        for (String i : capitalCities.keySet()) {
-            System.out.println(i);
+        // Loop Through a HashMap for Printing keys
+        for (String EnhancedKeys : capitalCities.keySet()) {
+            System.out.println(EnhancedKeys);
         }
 
         // Print values
-        for (String i : capitalCities.values()) {
-            System.out.println(i);
+        for (String EnhancedValues : capitalCities.values()) {
+            System.out.println(EnhancedValues);
         }
 
         // Print keys and values
-        for (String i : capitalCities.keySet()) {
-            System.out.println("key: " + i + " value: " + capitalCities.get(i));
+        for (String EnhancedKeysValues : capitalCities.keySet()) {
+            System.out.println("key: " + EnhancedKeysValues
+                    + " value: " + capitalCities.get(EnhancedKeysValues));
         }
 
         // To remove all items, use the clear() method:
