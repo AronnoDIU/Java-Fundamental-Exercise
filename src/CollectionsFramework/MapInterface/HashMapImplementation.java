@@ -12,6 +12,13 @@ import java.util.LinkedList;
  * <p>
  * Threshold Value = A value that sets a limit or boundary,
  * above or below which a different state or condition is observed.
+ * <p>
+ * if (λ) Lambda Value increases equal to Threshold Value or more,
+ * then, Buckets will be increased by times.
+ * So that, ArraySize will be increased.
+ * That is called ReHashing technique.
+ * <p>
+ * Input<Key> ==> Hash Function ==> Output<Bucket, index number>.
  */
 public class HashMapImplementation {
     static class HashMap<Keys, Values> { //generics
@@ -29,7 +36,7 @@ public class HashMapImplementation {
         private final int ArraySize; // Size of an Array - buckets
         /*Buckets ==> Every Index of Arrays of LinkedList
          * So that, index[0-2] == Buckets0, Buckets1, Buckets2 */
-        private LinkedList<Node>[] buckets; //N = buckets.length
+        private LinkedList<Node>[] buckets; //ArraySize = buckets.length
 
         @SuppressWarnings("unchecked")
         public HashMap() {
