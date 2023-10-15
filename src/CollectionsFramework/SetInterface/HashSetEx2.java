@@ -1,6 +1,7 @@
 package CollectionsFramework.SetInterface;
 
 import java.util.HashSet;
+//import java.util.Iterator;
 
 // HashSet is the most important Data Structure
 // Because of it's Time Complexity
@@ -12,7 +13,7 @@ public class HashSetEx2 {
         integerHashSet.add(1);
         integerHashSet.add(2);
         integerHashSet.add(3);
-        integerHashSet.add(1);
+//        integerHashSet.add(1);  //HashSet Doesn't contain duplicates
 
         //Size
         System.out.println("size of integerHashSet is : " + integerHashSet.size());
@@ -36,6 +37,15 @@ public class HashSetEx2 {
         System.out.println(integerHashSet);
 
         //Iteration - HashSet does not have an order
+//        integerHashSet.add(0);
+//        Iterator it = integerHashSet.iterator();
+//        while (it.hasNext()) {
+//            System.out.print(it.next() + ", ");
+//        }
+//        System.out.println();
+
+        // OR,
+
         integerHashSet.add(0);
         for (Integer integer : integerHashSet) {
             System.out.print(integer + ", ");
