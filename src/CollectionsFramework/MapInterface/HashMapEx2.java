@@ -20,7 +20,7 @@ public class HashMapEx2 {
         capitalCities.remove("England");
 
         // HashMap Size
-//        capitalCities.size();
+        System.out.println("Size of CapitalCities is:- " + capitalCities.size());
 
         // Loop Through a HashMap for Printing keys
         for (String EnhancedKeys : capitalCities.keySet()) {
@@ -46,6 +46,7 @@ public class HashMapEx2 {
 /*Expected Output:
 
 {USA=Washington DC, Norway=Oslo, England=London, Germany=Berlin}
+Size of CapitalCities is:- 3
 USA
 Norway
 Germany
