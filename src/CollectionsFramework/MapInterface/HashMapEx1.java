@@ -40,8 +40,10 @@ public class HashMapEx1 {
         System.out.println("Value for 1 is " + integerStringHashMap.get(1));
 
         // Traversing through the HashMap
-        for (Map.Entry<Integer, String> integerStringEntry : integerStringHashMap.entrySet())
-            System.out.println(integerStringEntry.getKey() + " " + integerStringEntry.getValue());
+        for (Map.Entry<Integer, String> integerStringEntry :
+                integerStringHashMap.entrySet())
+            System.out.println(integerStringEntry.getKey()
+                    + " " + integerStringEntry.getValue());
     }
 }
 

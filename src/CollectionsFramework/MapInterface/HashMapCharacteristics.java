@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /*Characteristics of HashMap:
 
-A HashMap is a data structure that is used to store and retrieve values based on keys.
+A HashMap is a data structure used to store and retrieve values based on keys.
 Some of the key characteristics of a hashmap include:
 
     Fast access time: HashMaps provide constant time access to elements, which means that
@@ -30,6 +30,7 @@ public class HashMapCharacteristics {
         HashMap<String, Integer> hashMap = new HashMap<>();
 
         // Add elements to the HashMap
+        //    Key="Name"<String>, Values=Age<Integer>
         hashMap.put("John", 25);
         hashMap.put("Jane", 30);
         hashMap.put("Jim", 35);
@@ -53,4 +54,5 @@ public class HashMapCharacteristics {
 25
 false
 2
+
 * */
