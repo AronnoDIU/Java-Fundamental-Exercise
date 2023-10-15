@@ -19,22 +19,21 @@ public class HashSetEx2 {
 
         //Search
         if (integerHashSet.contains(1)) {
-            System.out.println("present");
+            System.out.println("Present");
         }
 
         if (!integerHashSet.contains(6)) {
-            System.out.println("absent");
+            System.out.println("Absent");
         }
 
         //Delete
         integerHashSet.remove(1);
         if (!integerHashSet.contains(1)) {
-            System.out.println("absent");
+            System.out.println("Absent");
         }
 
         //Print all elements
         System.out.println(integerHashSet);
-
 
         //Iteration - HashSet does not have an order
         integerHashSet.add(0);
@@ -49,3 +48,15 @@ public class HashSetEx2 {
         }
     }
 }
+
+/*Expected Output:
+
+size of integerHashSet is : 3
+Present
+Absent
+Absent
+[2, 3]
+0, 2, 3,
+integerHashSet is not empty
+
+* */
