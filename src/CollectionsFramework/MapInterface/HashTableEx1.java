@@ -19,13 +19,13 @@ Features of Hashtable
 
     It is similar to HashMap, but is synchronized.
     Hashtable stores key/value pair in hash table.
-    In Hashtable, we specify an object that is used as a key, and the value we want to associate with
+    In Hashtable, we specify an object used as a key, and the value we want to associate with
 that key. The key is then hashed, and the resulting hash code is used as the index
 at which the value is stored within the table.
     The initial default capacity of Hashtable class is 11, whereas loadFactor is 0.75.
     HashMap doesn’t provide any Enumeration, while Hashtable provides no fail-fast Enumeration.
 */
-public class HashtableEx1 {
+public class HashTableEx1 {
     public static void main(String[] args) {
         Hashtable<String, Integer> stringIntegerHashtable = new Hashtable<>();
 

@@ -2,7 +2,7 @@ package CollectionsFramework.MapInterface;
 
 import java.util.Hashtable;
 
-public class HashtableEx2 {
+public class HashTableEx2 {
     public static void main(String[] args) {
         Hashtable<Integer, String> integerStringHashtable1 = new Hashtable<>();
 
