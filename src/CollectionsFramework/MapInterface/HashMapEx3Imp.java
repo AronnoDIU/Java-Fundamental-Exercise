@@ -6,43 +6,43 @@ import java.util.Set;
 
 public class HashMapEx3Imp {
     public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>();
+        HashMap<String, Integer> hashMap = new HashMap<>();
 
         //Insertion
-        map.put("India", 120);
-        map.put("US", 30);
-        map.put("China", 150);
+        hashMap.put("India", 120);
+        hashMap.put("US", 30);
+        hashMap.put("China", 150);
 
-        System.out.println(map);
+        System.out.println(hashMap);
 
-        map.put("China", 180);
-        System.out.println(map);
+        hashMap.put("China", 180);
+        System.out.println(hashMap);
 
         //Searching
-        if (map.containsKey("Indonesia")) {
-            System.out.println("key is present in the map");
+        if (hashMap.containsKey("Indonesia")) {
+            System.out.println("key is present in the hashMap");
         } else {
-            System.out.println("key is not present in the map");
+            System.out.println("key is not present in the hashMap");
         }
 
-        System.out.println(map.get("China")); //key exists
-        System.out.println(map.get("Indonesia")); //key doesn't exist
+        System.out.println(hashMap.get("China")); //key exists
+        System.out.println(hashMap.get("Indonesia")); //key doesn't exist
 
         //Iteration (1)
-        for (Map.Entry<String, Integer> e : map.entrySet()) {
+        for (Map.Entry<String, Integer> e : hashMap.entrySet()) {
             System.out.println(e.getKey());
             System.out.println(e.getValue());
         }
 
         //Iteration (2)
-        Set<String> keys = map.keySet();
+        Set<String> keys = hashMap.keySet();
         for (String key : keys) {
-            System.out.println(key + " " + map.get(key));
+            System.out.println(key + " " + hashMap.get(key));
         }
 
         //Removing
-        map.remove("China");
-        System.out.println(map);
+        hashMap.remove("China");
+        System.out.println(hashMap);
     }
 }
 
@@ -50,7 +50,7 @@ public class HashMapEx3Imp {
 
 {China=150, US=30, India=120}
 {China=180, US=30, India=120}
-key is not present in the map
+key is not present in the hashMap
 180
 null
 China
