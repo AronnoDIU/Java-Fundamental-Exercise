@@ -1,6 +1,6 @@
 package CollectionsFramework.MapInterface;
 
-// Sorting a HashMap according to keys in Java
+// Sorting a HashMap according to keys in Java Using TreeMap (Constructor)
 
 import java.util.HashMap;
 import java.util.Map;
