@@ -101,12 +101,12 @@ public class HashMapImplementation {
         }
 
         public Values remove(Keys key) {
-            int bi = hashFunction(key);
-            int di = searchInLinkedList(key, bi); //di = -1
-            if (di == -1) { //key doesn't exist
+            int bucketIndex = hashFunction(key);
+            int dataIndex = searchInLinkedList(key, bucketIndex); //dataIndex = -1
+            if (dataIndex == -1) { //key doesn't exist
                 return null;
             } else { //key exists
-                Node node = buckets[bi].remove(di);
+                Node node = buckets[bucketIndex].remove(dataIndex);
                 NodeNumber--;
                 return node.value;
             }
@@ -132,13 +132,13 @@ public class HashMapImplementation {
         }
 
         public ArrayList<Keys> keySet() {
-            ArrayList<Keys> keys = new ArrayList<>();
-            for (LinkedList<Node> ll : buckets) { // Bucket Index
-                for (Node node : ll) { //di
-                    keys.add(node.key);
+            ArrayList<Keys> keysArrayList = new ArrayList<>();
+            for (LinkedList<Node> nodeLinkedList : buckets) { // Bucket Index
+                for (Node node : nodeLinkedList) { //dataIndex
+                    keysArrayList.add(node.key);
                 }
             }
-            return keys;
+            return keysArrayList;
         }
 
         public boolean isEmpty() {
