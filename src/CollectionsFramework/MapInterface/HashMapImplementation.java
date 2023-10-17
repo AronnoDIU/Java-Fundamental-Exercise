@@ -57,11 +57,11 @@ public class HashMapImplementation {
         }
 
         private int searchInLinkedList(Keys key, int bucketIndex) {
-            LinkedList<Node> ll = buckets[bucketIndex];
+            LinkedList<Node> nodeLinkedList = buckets[bucketIndex];
 
-            for (int i = 0; i < ll.size(); i++) {
-                if (ll.get(i).key == key) {
-                    return i; //di
+            for (int dataIndex = 0; dataIndex < nodeLinkedList.size(); dataIndex++) {
+                if (nodeLinkedList.get(dataIndex).key == key) {
+                    return dataIndex; // dataIndex
                 }
             }
 
