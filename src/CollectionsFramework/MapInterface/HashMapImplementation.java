@@ -52,8 +52,8 @@ public class HashMapImplementation {
             return Math.abs(bi) % ArraySize;
         }
 
-        private int searchInLL(Keys key, int bi) {
-            LinkedList<Node> ll = buckets[bi];
+        private int searchInLinkedList(Keys key, int bucketIndex) {
+            LinkedList<Node> ll = buckets[bucketIndex];
 
             for (int i = 0; i < ll.size(); i++) {
                 if (ll.get(i).key == key) {
@@ -79,25 +79,26 @@ public class HashMapImplementation {
         }
 
         public void put(Keys key, Values value) {
-            int bi = hashFunction(key);
-            int di = searchInLL(key, bi); //di = -1
-            if (di == -1) { //key doesn't exist
-                buckets[bi].add(new Node(key, value));
+            int bucketIndex = hashFunction(key);
+            // dataIndex == Represents the LinkedList index in Array Index.
+            int dataIndex = searchInLinkedList(key, bucketIndex); //dataIndex = -1
+            if (dataIndex == -1) { //key doesn't exist
+                buckets[bucketIndex].add(new Node(key, value));
                 NodeNumber++;
             } else { //key exists
-                Node node = buckets[bi].get(di);
-                node.value = value;
+                Node dataNode = buckets[bucketIndex].get(dataIndex);
+                dataNode.value = value;
             }
             double lambda = (double) NodeNumber / ArraySize;
 
-            if (lambda > 2.0) {
+            if (lambda > 2.0) { // K = 2.0 (Constant Value)
                 rehash();
             }
         }
 
         public Values remove(Keys key) {
             int bi = hashFunction(key);
-            int di = searchInLL(key, bi); //di = -1
+            int di = searchInLinkedList(key, bi); //di = -1
             if (di == -1) { //key doesn't exist
                 return null;
             } else { //key exists
@@ -109,7 +110,7 @@ public class HashMapImplementation {
 
         public Values get(Keys key) {
             int bi = hashFunction(key);
-            int di = searchInLL(key, bi); //di = -1
+            int di = searchInLinkedList(key, bi); //di = -1
             if (di == -1) { //key doesn't exist
                 return null;
             } else { //key exists
@@ -120,7 +121,7 @@ public class HashMapImplementation {
 
         public boolean containsKey(Keys key) {
             int bi = hashFunction(key);
-            int di = searchInLL(key, bi); //di = -1
+            int di = searchInLinkedList(key, bi); //di = -1
             //key doesn't exist
             //key exists
             return di != -1;
@@ -128,7 +129,7 @@ public class HashMapImplementation {
 
         public ArrayList<Keys> keySet() {
             ArrayList<Keys> keys = new ArrayList<>();
-            for (LinkedList<Node> ll : buckets) { //bisexual
+            for (LinkedList<Node> ll : buckets) { // Bucket Index
                 for (Node node : ll) { //di
                     keys.add(node.key);
                 }
