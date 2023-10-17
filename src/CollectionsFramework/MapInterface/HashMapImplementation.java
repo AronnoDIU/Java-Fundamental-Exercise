@@ -147,19 +147,19 @@ public class HashMapImplementation {
     }
 
     public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("India", 190);
-        map.put("China", 200);
-        map.put("US", 50);
-        ArrayList<String> keys = map.keySet();
+        HashMap<String, Integer> stringIntegerHashMap = new HashMap<>();
+        stringIntegerHashMap.put("India", 190);
+        stringIntegerHashMap.put("China", 200);
+        stringIntegerHashMap.put("US", 50);
+        ArrayList<String> keys = stringIntegerHashMap.keySet();
         for (String key : keys) {
-            System.out.println(key + " " + map.get(key));
+            System.out.println(key + " " + stringIntegerHashMap.get(key));
         }
 
-        System.out.println(map.containsKey("India"));
+        System.out.println(stringIntegerHashMap.containsKey("India"));
 
-        map.remove("India");
-        System.out.println(map.get("India"));
+        stringIntegerHashMap.remove("India");
+        System.out.println(stringIntegerHashMap.get("India"));
     }
 }
 
