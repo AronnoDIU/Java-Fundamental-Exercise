@@ -124,11 +124,11 @@ public class HashMapImplementation {
         }
 
         public boolean containsKey(Keys key) {
-            int bi = hashFunction(key);
-            int di = searchInLinkedList(key, bi); //di = -1
+            int bucketIndex = hashFunction(key);
+            int dataIndex = searchInLinkedList(key, bucketIndex); //dataIndex = -1
             //key doesn't exist
             //key exists
-            return di != -1;
+            return dataIndex != -1;
         }
 
         public ArrayList<Keys> keySet() {
