@@ -48,8 +48,12 @@ public class HashMapImplementation {
         }
 
         private int hashFunction(Keys key) {
-            int bi = key.hashCode();
-            return Math.abs(bi) % ArraySize;
+            int bucketIndex = key.hashCode();
+            // If hashCode returns negative values, then
+            // we will convert it as a positive one through Math.abs(Absolute value)
+            return Math.abs(bucketIndex) % ArraySize;
+            // BucketIndex should between 0 to ArraySize-1 as always,
+            // That's why, positive values % ArraySize.
         }
 
         private int searchInLinkedList(Keys key, int bucketIndex) {
@@ -65,7 +69,7 @@ public class HashMapImplementation {
         }
 
         @SuppressWarnings("unchecked")
-        private void rehash() {
+        private void reHashing() {
             LinkedList<Node>[] oldBucket = buckets;
             buckets = new LinkedList[ArraySize * 2];
             for (int i = 0; i < ArraySize * 2; i++) {
@@ -92,7 +96,7 @@ public class HashMapImplementation {
             double lambda = (double) NodeNumber / ArraySize;
 
             if (lambda > 2.0) { // K = 2.0 (Constant Value)
-                rehash();
+                reHashing();   // reHashing technique
             }
         }
 
