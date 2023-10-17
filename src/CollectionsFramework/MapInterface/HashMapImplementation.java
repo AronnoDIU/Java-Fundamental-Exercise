@@ -113,12 +113,12 @@ public class HashMapImplementation {
         }
 
         public Values get(Keys key) {
-            int bi = hashFunction(key);
-            int di = searchInLinkedList(key, bi); //di = -1
-            if (di == -1) { //key doesn't exist
+            int bucketIndex = hashFunction(key);
+            int dataIndex = searchInLinkedList(key, bucketIndex); //dataIndex = -1
+            if (dataIndex == -1) { //key doesn't exist
                 return null;
             } else { //key exists
-                Node node = buckets[bi].get(di);
+                Node node = buckets[bucketIndex].get(dataIndex);
                 return node.value;
             }
         }
