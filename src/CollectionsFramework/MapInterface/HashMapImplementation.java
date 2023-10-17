@@ -69,15 +69,15 @@ public class HashMapImplementation {
         }
 
         @SuppressWarnings("unchecked")
-        private void reHashing() {
+        private void reHashing() {  // If Old Buckets getting full
             LinkedList<Node>[] oldBucket = buckets;
             buckets = new LinkedList[ArraySize * 2];
             for (int i = 0; i < ArraySize * 2; i++) {
                 buckets[i] = new LinkedList<>();
             }
-            for (LinkedList<Node> ll : oldBucket) {
-                for (Node node : ll) {
-                    put(node.key, node.value);
+            for (LinkedList<Node> traversOldBucketIndex : oldBucket) {
+                for (Node NodeData : traversOldBucketIndex) {
+                    put(NodeData.key, NodeData.value);
                 }
             }
         }
