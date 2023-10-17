@@ -65,7 +65,7 @@ public class HashMapImplementation {
                 }
             }
 
-            return -1;
+            return -1; // If Key doesn't exist
         }
 
         @SuppressWarnings("unchecked")
