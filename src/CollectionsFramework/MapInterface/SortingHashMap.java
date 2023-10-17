@@ -9,8 +9,8 @@ import java.util.TreeMap;
 /**
  * We are given the details of marks scored by students in the form of a HashMap,
  * where the name of the student is the Key and the marks scored is the Value.
- * Our task is to sort the map according to the key values, i.e.,
- * the names of the students in the alphabetical(lexicographical) order.
+ * Our task is to sort the map according to the key values.
+ * The names of the students in the alphabetical(lexicographical) order.
  * Examples:
  * <p>
  * Input :
