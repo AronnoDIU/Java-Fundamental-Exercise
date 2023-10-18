@@ -1,4 +1,4 @@
-package CollectionsFramework.MapInterface;
+package CollectionsFramework.SetInterface;
 
 import java.util.HashSet;
 
