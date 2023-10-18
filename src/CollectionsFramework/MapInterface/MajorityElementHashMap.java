@@ -10,22 +10,23 @@ import java.util.HashMap;
  * 3. Travers the HashMap Object & find which elements more than N/3.
  */
 public class MajorityElementHashMap {
-    static void majorityElements(int[] Numbers) {
+    public static void majorityElements(int[] Numbers) {
         HashMap<Integer, Integer> hashMap = new HashMap<>();
 
         // Find frequency of all numbers & store in Map
         int N = Numbers.length;
         for (int numberIndex : Numbers) {
             if (hashMap.containsKey(numberIndex)) {
-                hashMap.put(numberIndex, hashMap.get(numberIndex + 1));
+                hashMap.put(numberIndex, hashMap.get(numberIndex) + 1);
             } else {
                 hashMap.put(numberIndex, 1);
             }
         }
 
         for (int KeyIndex : hashMap.keySet()) {
-            if (hashMap.get(KeyIndex) > N / 3) {
-                System.out.println(KeyIndex);
+            System.out.println(KeyIndex + " " + hashMap.get(KeyIndex));
+            if (hashMap.get(KeyIndex) > (N / 3)) {
+                System.out.println(KeyIndex + " Required Answer");
             }
         }
     }
@@ -35,3 +36,13 @@ public class MajorityElementHashMap {
         majorityElements(Numbers);
     }
 }
+
+/*Expected Output:
+
+1 4
+1 Required Answer
+2 1
+3 2
+5 2
+
+* */
