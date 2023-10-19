@@ -18,6 +18,7 @@ public class IntersectionOf2Arrays {
         for (int Array2Index : Array2) {
             if (integerHashSet.contains(Array2Index)) {
                 count++;
+                System.out.print(Array2Index + " ");
                 integerHashSet.remove(Array2Index);
             }
         }
