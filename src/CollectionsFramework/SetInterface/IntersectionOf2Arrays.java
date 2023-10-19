@@ -28,7 +28,13 @@ public class IntersectionOf2Arrays {
         int[] Array1 = {7, 3, 9};
         int[] Array2 = {6, 3, 9, 2, 9, 4};
 
-        System.out.println("Total Number of Intersection: "
+        System.out.println("Total Number of Intersections: "
                 + intersectionElements(Array1, Array2));    // 2
     }
 }
+
+/*Expected Output:
+
+Total Number of Intersections: 2
+
+* */
