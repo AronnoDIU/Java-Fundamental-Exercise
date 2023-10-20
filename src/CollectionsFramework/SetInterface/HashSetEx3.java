@@ -5,17 +5,17 @@ import java.util.HashSet;
 // We are adding books to set and printing all the books.
 public class HashSetEx3 {
     public static void main(String[] args) {
-        HashSet<Book> set= new HashSet<>();
+        HashSet<Book> bookHashSet= new HashSet<>();
         //Creating Books
         Book b1=new Book(101,"Let us C","Yashwant Kanetkar","BPB",8);
         Book b2=new Book(102,"Data Communications & Networking","Forouzan","Mc Graw Hill",4);
         Book b3=new Book(103,"Operating System","Galvin","Wiley",6);
         //Adding Books to HashSet
-        set.add(b1);
-        set.add(b2);
-        set.add(b3);
+        bookHashSet.add(b1);
+        bookHashSet.add(b2);
+        bookHashSet.add(b3);
         //Traversing HashSet
-        for(Book b:set){
+        for(Book b:bookHashSet){
             System.out.println(b.id+" "+b.name+" "+b.author+" "+b.publisher+" "+b.quantity);
         }
     }
