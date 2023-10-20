@@ -6,11 +6,14 @@ import java.util.HashSet;
 public class HashSetEx3 {
     public static void main(String[] args) {
         HashSet<Book> bookHashSet = new HashSet<>();
+
         //Creating Books
         Book book1 = new Book(101, "Let us C",
                 "Washstand Karabiner", "BPB", 8);
+
         Book book2 = new Book(102, "Data Communications & Networking",
                 "Forough", "Mc Grow Hill", 4);
+
         Book book3 = new Book(103, "Operating System",
                 "Galvin", "Wiley", 6);
 
@@ -21,7 +24,8 @@ public class HashSetEx3 {
 
         //Traversing HashSet
         for (Book b : bookHashSet) {
-            System.out.println(b.id + " " + b.name + " " + b.author + " " + b.publisher + " " + b.quantity);
+            System.out.println(b.id + " " + b.name
+                    + " " + b.author + " " + b.publisher + " " + b.quantity);
         }
     }
 }
