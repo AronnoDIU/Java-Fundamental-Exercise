@@ -43,3 +43,11 @@ class Book {
         this.quantity = quantity;
     }
 }
+
+/*Expected Output:
+
+103 Operating System Galvin Wiley 6
+102 Data Communications & Networking Forough Mc Grow Hill 4
+101 Let us C Washstand Karabiner BPB 8
+
+* */
