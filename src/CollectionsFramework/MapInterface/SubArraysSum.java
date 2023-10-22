@@ -32,10 +32,6 @@ public class SubArraysSum {
 
 /*Expected Output:
 
-Key = Abhilasha, Value = 90
-Key = Amit, Value = 75
-Key = Anushka, Value = 80
-Key = Danish, Value = 40
-Key = Jayanti, Value = 80
+3
 
 * */
