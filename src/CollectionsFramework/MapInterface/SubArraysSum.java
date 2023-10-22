@@ -11,22 +11,22 @@ public class SubArraysSum {
         HashMap<Integer, Integer> hashMap = new HashMap<>(); //<Sum, Frequency>
 
         hashMap.put(0, 1);  // Empty Sub-Array
-        int ans = 0;
-        int sum = 0;
+        int Answer = 0;
+        int Summation = 0;
         for (int ArrayLength : array) {
-            sum += ArrayLength;
+            Summation += ArrayLength;
 
-            if (hashMap.containsKey(sum - k)) {
-                ans += hashMap.get(sum - k);
+            if (hashMap.containsKey(Summation - k)) {
+                Answer += hashMap.get(Summation - k);
             }
 
-            if (hashMap.containsKey(sum)) {
-                hashMap.put(sum, hashMap.get(sum) + 1);
+            if (hashMap.containsKey(Summation)) {
+                hashMap.put(Summation, hashMap.get(Summation) + 1);
             } else {
-                hashMap.put(sum, 1);
+                hashMap.put(Summation, 1);
             }
         }
-        System.out.println(ans);
+        System.out.println(Answer);
     }
 }
 
