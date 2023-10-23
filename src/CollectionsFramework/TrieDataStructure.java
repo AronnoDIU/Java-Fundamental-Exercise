@@ -26,45 +26,33 @@ public class TrieDataStructure {
             for (int i = 0; i < 26; i++) {
                 children[i] = null;
             }
-//            endOfWord=false;
         }
     }
 
     static NodeTDS root = new NodeTDS();
 
-
     public static void insert(String word) { //O(n)
-//        int level = 0;
-//        int wLength = word.length();
-//        int index = 0;
-
-
-//        NodeTDS currentNode = root;
-        for (int level = 0; level < word.length(); level++) { //O(L)
+        NodeTDS currentRoot = root;
+        for (int level = 0; level < word.length(); level++) {
             int index = word.charAt(level) - 'a';
-            if (root.children[index] == null) {
-                root.children[index] = new NodeTDS();
+            if (currentRoot.children[index] == null) {
+                currentRoot.children[index] = new NodeTDS();
             }
-            root = root.children[index];
+            currentRoot = currentRoot.children[index];
         }
-        root.endOfWord = true;
+        currentRoot.endOfWord = true;
     }
 
     public static boolean search(String key) { //O(n)
-        int level = 0;
-        int len = key.length();
-        int idx = 0;
-
-
-        NodeTDS curr = root;
-        for (; level < len; level++) {
-            idx = key.charAt(level) - 'a';
-            if (curr.children[idx] == null) {
+        NodeTDS currentRoot = root;
+        for (int level = 0; level < key.length(); level++) {
+            int index = key.charAt(level) - 'a';
+            if (currentRoot.children[index] == null) {
                 return false;
             }
-            curr = curr.children[idx];
+            currentRoot = currentRoot.children[index];
         }
-        return curr.endOfWord == true;
+        return currentRoot.endOfWord;
     }
 
 
