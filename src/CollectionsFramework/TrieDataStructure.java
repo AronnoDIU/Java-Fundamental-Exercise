@@ -34,20 +34,20 @@ public class TrieDataStructure {
 
 
     public static void insert(String word) { //O(n)
-        int level = 0;
-        int len = word.length();
-        int idx = 0;
+//        int level = 0;
+//        int wLength = word.length();
+//        int index = 0;
 
 
-        NodeTDS curr = root;
-        for (; level < len; level++) {
-            idx = word.charAt(level) - 'a';
-            if (curr.children[idx] == null) {
-                curr.children[idx] = new NodeTDS();
+//        NodeTDS currentNode = root;
+        for (int level = 0; level < word.length(); level++) { //O(L)
+            int index = word.charAt(level) - 'a';
+            if (root.children[index] == null) {
+                root.children[index] = new NodeTDS();
             }
-            curr = curr.children[idx];
+            root = root.children[index];
         }
-        curr.endOfWord = true;
+        root.endOfWord = true;
     }
 
     public static boolean search(String key) { //O(n)
@@ -71,9 +71,9 @@ public class TrieDataStructure {
     public static void main(String[] args) {
         String[] words = {"the", "a", "there", "their", "any", "thee"};
 
-        for (String word : words) {
-            insert(word);
-            System.out.println("inserted " + word);
+        for (String wordList : words) {
+            insert(wordList);
+            System.out.println("inserted " + wordList);
         }
 
 
