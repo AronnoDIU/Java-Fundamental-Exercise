@@ -55,7 +55,6 @@ public class TrieDataStructure {
         return currentRoot.endOfWord;
     }
 
-
     public static void main(String[] args) {
         String[] words = {"the", "a", "there", "their", "any", "thee"};
 
@@ -63,7 +62,6 @@ public class TrieDataStructure {
             insert(wordList);
             System.out.println("inserted " + wordList);
         }
-
 
         System.out.println("thee -> " + search("thee"));
         System.out.println("thor -> " + search("thor"));
