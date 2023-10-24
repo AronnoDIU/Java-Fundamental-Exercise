@@ -75,3 +75,14 @@ public class WordBreakTrieDS {
         System.out.println(wordBreak(key));
     }
 }
+
+/*Expected Output:
+
+inserted i
+inserted like
+inserted sam
+inserted samsung
+inserted mobile
+true
+
+* */
