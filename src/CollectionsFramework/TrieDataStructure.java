@@ -17,6 +17,23 @@ package CollectionsFramework;
  * <p>
  * 3. Tries help with the longest prefix matching when we want to find the key.
  */
+/* ## Word Break Problem:
+Given an input string and a dictionary of words, find out if the input string can be
+ * broken into a space-seperated sequence of dictionary words
+ *
+ * Steps to solve
+ * 1. Find all possible parts of String.
+ * 2. Using loop,
+ *      1st part, Trie Search;
+ *      2nd part, call recursive;
+ *          if, 1st & 2nd part return true, then it will return true;
+ * 3. Otherwise, it will return false;
+ * */
+
+/*## StartsWith using Trie Data Structure:
+Create a function boolean startsWith(String prefix) for a trie.
+ * Returns true if there is a previously inserted string word that
+ * has the prefix prefix, and false otherwise. */
 public class TrieDataStructure {
     static class NodeTDS {
         NodeTDS[] children = new NodeTDS[26];
@@ -55,16 +72,70 @@ public class TrieDataStructure {
         return currentRoot.endOfWord;
     }
 
-    public static void main(String[] args) {
-        String[] words = {"the", "a", "there", "their", "any", "thee"};
+    // Word Break Method Implementation
+    public static boolean wordBreak(String key) {
+        if (key.isEmpty()) { // Base Case
+            return true;     // Because the root Node is empty;
+        }
 
-        for (String wordList : words) {
+        for (int index = 1; index <= key.length(); index++) {
+            if (search(key.substring(0, index)) &&  // First Part
+                    wordBreak(key.substring(index))) { // Second Part
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // 3rd Problem of Trie Data Structure.
+    public static boolean startsWith(String prefix) {
+        NodeTDS currentRoot = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            int index = prefix.charAt(i) - 'a';
+            if (currentRoot.children[index] == null) {
+                return false;
+            }
+            currentRoot = currentRoot.children[index];
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        String[] wordsIS = {"the", "a", "there", "their", "any", "thee"};
+
+        for (String wordList : wordsIS) {   // Insert & Search
             insert(wordList);
             System.out.println("inserted " + wordList);
         }
 
         System.out.println("thee -> " + search("thee"));
         System.out.println("thor -> " + search("thor"));
+
+        // Word Break Problem
+        System.out.println("Word Break Problem");
+
+        String[] wordsWBP = {"i", "like", "sam", "samsung", "mobile"};
+        String key = "ilikesamsung";
+
+        for (String wordList : wordsWBP) {  // Word Break Problem
+            insert(wordList);
+            System.out.println("inserted " + wordList);
+        }
+
+        System.out.println(wordBreak(key));
+
+        System.out.println("3rd Problem of Trie Data Structure.");
+
+        String[] wordsSWTDS = {"apple", "app", "mango", "man", "woman"};
+
+        for (String wordList : wordsSWTDS) {
+            insert(wordList);
+            System.out.println("inserted " + wordList);
+        }
+
+        System.out.println(startsWith("the"));
+        System.out.println(startsWith("app"));
+        System.out.println(startsWith("thi"));
     }
 }
 
@@ -78,5 +149,21 @@ inserted any
 inserted thee
 thee -> true
 thor -> false
+Word Break Problem
+inserted i
+inserted like
+inserted sam
+inserted samsung
+inserted mobile
+true
+3rd Problem of Trie Data Structure.
+inserted apple
+inserted app
+inserted mango
+inserted man
+inserted woman
+true
+true
+false
 
 * */
