@@ -87,7 +87,7 @@ public class TrieDataStructure {
         return false;
     }
 
-    // 3rd Problem of Trie Data Structure.
+    // 2nd Problem of Trie Data Structure.
     public static boolean startsWith(String prefix) {
         NodeTDS currentRoot = root;
         for (int i = 0; i < prefix.length(); i++) {
@@ -98,6 +98,47 @@ public class TrieDataStructure {
             currentRoot = currentRoot.children[index];
         }
         return true;
+    }
+
+    // Question 3
+    static void longestWord(NodeTDS root, StringBuilder currentString) {
+
+        for (int i = 0; i < 26; i++) {
+            if (root.children[i] != null
+                    && root.children[i].endOfWord) {
+                currentString.append((char) (i + 'a'));
+                if (currentString.length() > Answer.length()) {
+                    Answer = currentString.toString();
+                }
+                longestWord(root.children[i], currentString);
+                currentString.deleteCharAt(currentString.length() - 1);
+            }
+        }
+    }
+
+    public static String Answer = "";
+
+    // Question 4
+    public static void buildTrie(String string) {
+        //insert all suffixes to Trie
+        root = new NodeTDS();
+        for (int i = 0; i < string.length(); i++) {
+            insert(string.substring(i));
+        }
+    }
+
+    static int countNodes(NodeTDS root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int count = 0;
+        for (int i = 0; i < 26; i++) {
+            if (root.children[i] != null) {
+                count += countNodes(root.children[i]);
+            }
+        }
+        return 1 + count; //extra one for the self-node
     }
 
     public static void main(String[] args) {
