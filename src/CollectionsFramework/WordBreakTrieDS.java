@@ -51,12 +51,12 @@ public class WordBreakTrieDS {
 
     public static boolean wordBreak(String key) {
         if (key.isEmpty()) { // Base Case
-            return true;
+            return true;     // Because the root Node is empty;
         }
 
-        for (int i = 1; i <= key.length(); i++) {
-            if (search(key.substring(0, i)) &&
-                    wordBreak(key.substring(i))) {
+        for (int index = 1; index <= key.length(); index++) {
+            if (search(key.substring(0, index)) &&  // First Part
+                    wordBreak(key.substring(index))) { // Second Part
                 return true;
             }
         }
@@ -64,6 +64,14 @@ public class WordBreakTrieDS {
     }
 
     public static void main(String[] args) {
+        String[] words = {"i", "like", "sam", "samsung", "mobile"};
+        String key = "ilikesamsung";
 
+        for (String wordList : words) {
+            insert(wordList);
+            System.out.println("inserted " + wordList);
+        }
+
+        System.out.println(wordBreak(key));
     }
 }
