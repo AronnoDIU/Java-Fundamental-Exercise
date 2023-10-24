@@ -22,6 +22,47 @@ public class WordBreakTrieDS {
             }
         }
     }
+
+    static NodeWBTDS root = new NodeWBTDS();
+
+    public static void insert(String word) { //O(n)
+        NodeWBTDS currentRoot = root;
+        for (int level = 0; level < word.length(); level++) {
+            int index = word.charAt(level) - 'a';
+            if (currentRoot.children[index] == null) {
+                currentRoot.children[index] = new NodeWBTDS();
+            }
+            currentRoot = currentRoot.children[index];
+        }
+        currentRoot.endOfWord = true;
+    }
+
+    public static boolean search(String key) { //O(n)
+        NodeWBTDS currentRoot = root;
+        for (int level = 0; level < key.length(); level++) {
+            int index = key.charAt(level) - 'a';
+            if (currentRoot.children[index] == null) {
+                return false;
+            }
+            currentRoot = currentRoot.children[index];
+        }
+        return currentRoot.endOfWord;
+    }
+
+    public static boolean wordBreak(String key) {
+        if (key.isEmpty()) { // Base Case
+            return true;
+        }
+
+        for (int i = 1; i <= key.length(); i++) {
+            if (search(key.substring(0, i)) &&
+                    wordBreak(key.substring(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
 
     }
