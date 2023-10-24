@@ -15,7 +15,7 @@ package CollectionsFramework;
  * 2. Tries to take less space when they contain a large number of short strings.
  * As nodes are shared between the keys.
  * <p>
- * 3. Tries help with the longest prefix matching, when we want to find the key.
+ * 3. Tries help with the longest prefix matching when we want to find the key.
  */
 public class TrieDataStructure {
     static class NodeTDS {
