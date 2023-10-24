@@ -67,3 +67,16 @@ public class TrieDataStructure {
         System.out.println("thor -> " + search("thor"));
     }
 }
+
+/*Expected Output:
+
+inserted the
+inserted a
+inserted there
+inserted their
+inserted any
+inserted thee
+thee -> true
+thor -> false
+
+* */
