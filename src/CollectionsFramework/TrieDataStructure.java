@@ -65,10 +65,5 @@ public class TrieDataStructure {
 
         System.out.println("thee -> " + search("thee"));
         System.out.println("thor -> " + search("thor"));
-
-
-//        System.out.println(startsWith("the"));
-//        System.out.println(startsWith("thi"));
-
     }
 }
