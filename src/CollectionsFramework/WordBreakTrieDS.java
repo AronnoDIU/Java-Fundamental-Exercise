@@ -12,6 +12,16 @@ package CollectionsFramework;
  * 3. Otherwise, it will return false;
  * */
 public class WordBreakTrieDS {
+    static class NodeWBTDS {
+        NodeWBTDS[] children = new NodeWBTDS[26];
+        boolean endOfWord;
+
+        public NodeWBTDS() {
+            for (int i = 0; i < 26; i++) {
+                children[i] = null;
+            }
+        }
+    }
     public static void main(String[] args) {
 
     }
