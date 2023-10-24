@@ -41,6 +41,18 @@ public class StartsWithTrieDS {
         return currentRoot.endOfWord;
     }
 
+    public static boolean startsWith(String prefix) {
+        NodeSWTDS currentRoot = root;
+        for (int i = 0; i < prefix.length(); i++) {
+            int index = prefix.charAt(i) - 'a';
+            if (currentRoot.children[index] == null) {
+                return false;
+            }
+            currentRoot = currentRoot.children[index];
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
         String[] words = {"apple", "app", "mango", "man", "woman"};
 
@@ -48,5 +60,21 @@ public class StartsWithTrieDS {
             insert(wordList);
             System.out.println("inserted " + wordList);
         }
+
+        System.out.println(startsWith("the"));
+        System.out.println(startsWith("app"));
+        System.out.println(startsWith("thi"));
     }
 }
+
+/*Expected Output:
+
+inserted apple
+inserted app
+inserted mango
+inserted man
+inserted woman
+false
+true
+false
+* */
