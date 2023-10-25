@@ -28,12 +28,16 @@ Given an input string and a dictionary of words, find out if the input string ca
  *      2nd part, call recursive;
  *          if, 1st & 2nd part return true, then it will return true;
  * 3. Otherwise, it will return false;
- * */
 
-/*## StartsWith using Trie Data Structure:
+## StartsWith using Trie Data Structure:
 Create a function boolean startsWith(String prefix) for a trie.
  * Returns true if there is a previously inserted string word that
- * has the prefix prefix, and false otherwise. */
+ * has the prefix prefix, and false otherwise.
+
+ ## Count Unique SubStrings:
+ Given a string of length N of lowercase alphabet characters, we need
+ to count the total number of distinct/unique substring of this string.
+ */
 public class TrieDataStructure {
     static class NodeTDS {
         NodeTDS[] children = new NodeTDS[26];
@@ -127,6 +131,7 @@ public class TrieDataStructure {
         }
     }
 
+    // Count Unique SubStrings
     static int countNodes(NodeTDS root) {
         if (root == null) {
             return 0;
@@ -165,6 +170,7 @@ public class TrieDataStructure {
 
         System.out.println(wordBreak(key));
 
+        // 3rd Problem of Trie Data Structure
         System.out.println("3rd Problem of Trie Data Structure.");
 
         String[] wordsSWTDS = {"apple", "app", "mango", "man", "woman"};
@@ -177,6 +183,8 @@ public class TrieDataStructure {
         System.out.println(startsWith("the"));
         System.out.println(startsWith("app"));
         System.out.println(startsWith("thi"));
+
+        // 4th problem, Count Unique SubStrings
     }
 }
 
