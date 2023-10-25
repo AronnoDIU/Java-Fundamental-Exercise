@@ -215,6 +215,7 @@ public class TrieDataStructure {
         for (int i = 0; i < stringCount.length(); i++) {
             String Suffix = stringCount.substring(i);
             System.out.println(Suffix); // Print all Suffixes
+            insert(Suffix); // Insert all Suffixes
         }
     }
 }
@@ -245,5 +246,10 @@ inserted woman
 true
 true
 false
+ababa
+baba
+aba
+ba
+a
 
 * */
