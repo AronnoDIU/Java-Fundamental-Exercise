@@ -47,9 +47,15 @@ Create a function boolean startsWith(String prefix) for a trie.
 Only Unique Substrings = a, b, ab, ba, aba, bab, abab, baba, ababa, ""; 10 Ans;
 
 Normally, Substring of a String is,
-            Find all prefixes of all suffixes
+            Find all prefixes of all suffixes (Working with this because of Tries)
             or
             Find all suffixes of all prefixes.
+
+  Steps for Solving Unique SubString.
+    1. Find all Suffixes.
+    2. Create a Trie from Suffixes.
+    3. Count Nodes of Trie (Find Unique Prefixes).
+        Total Number of Trie = Count of unique Prefixes.
  */
 public class TrieDataStructure {
     static class NodeTDS {
@@ -144,7 +150,13 @@ public class TrieDataStructure {
         }
     }
 
-    // Count Unique SubStrings using prefix,suffix concept;
+     /*Count Unique SubStrings using prefix, suffix concept;
+     FoA, Find all Suffixes of given String, then find all unique prefixes.
+    Steps for Solving Unique SubString.
+    1. Find all Suffixes.
+    2. Create a Trie from Suffixes.
+    3. Count Nodes of Trie (Find Unique Prefixes).
+    Total Number of Trie = Count of unique Prefixes.*/
     static int countNodes(NodeTDS root) {
         if (root == null) {
             return 0;
