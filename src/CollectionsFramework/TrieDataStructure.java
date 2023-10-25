@@ -37,6 +37,19 @@ Create a function boolean startsWith(String prefix) for a trie.
  ## Count Unique SubStrings:
  Given a string of length N of lowercase alphabet characters, we need
  to count the total number of distinct/unique substring of this string.
+ Like, Given String = ababa;
+ All possible Substrings = a, b, a, b, a,
+                            ab, ba, ab, ba,
+                            aba, bab, aba,
+                            abab, baba,
+                            ababa, "";
+
+Only Unique Substrings = a, b, ab, ba, aba, bab, abab, baba, ababa, ""; 10 Ans;
+
+Normally, Substring of a String is,
+            Find all prefixes of all suffixes
+            or
+            Find all suffixes of all prefixes.
  */
 public class TrieDataStructure {
     static class NodeTDS {
@@ -131,7 +144,7 @@ public class TrieDataStructure {
         }
     }
 
-    // Count Unique SubStrings
+    // Count Unique SubStrings using prefix,suffix concept;
     static int countNodes(NodeTDS root) {
         if (root == null) {
             return 0;
