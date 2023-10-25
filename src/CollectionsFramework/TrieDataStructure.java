@@ -150,13 +150,13 @@ public class TrieDataStructure {
         }
     }
 
-     /*Count Unique SubStrings using prefix, suffix concept;
-     FoA, Find all Suffixes of given String, then find all unique prefixes.
-    Steps for Solving Unique SubString.
-    1. Find all Suffixes.
-    2. Create a Trie from Suffixes.
-    3. Count Nodes of Trie (Find Unique Prefixes).
-    Total Number of Trie = Count of unique Prefixes.*/
+    /*Count Unique SubStrings using prefix, suffix concept;
+    FoA, Find all Suffixes of given String, then find all unique prefixes.
+   Steps for Solving Unique SubString.
+   1. Find all Suffixes.
+   2. Create a Trie from Suffixes.
+   3. Count Nodes of Trie (Find Unique Prefixes).
+   Total Number of Trie = Count of unique Prefixes.*/
     static int countNodes(NodeTDS root) {
         if (root == null) {
             return 0;
@@ -168,7 +168,7 @@ public class TrieDataStructure {
                 count += countNodes(root.children[i]);
             }
         }
-        return 1 + count; //extra one for the self-node
+        return count + 1; //extra one for the self-node
     }
 
     public static void main(String[] args) {
@@ -210,6 +210,12 @@ public class TrieDataStructure {
         System.out.println(startsWith("thi"));
 
         // 4th problem, Count Unique SubStrings
+        String stringCount = "ababa";
+
+        for (int i = 0; i < stringCount.length(); i++) {
+            String Suffix = stringCount.substring(i);
+            System.out.println(Suffix); // Print all Suffixes
+        }
     }
 }
 
