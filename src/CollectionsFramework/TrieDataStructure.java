@@ -56,6 +56,9 @@ Normally, Substring of a String is,
     2. Create a Trie from Suffixes.
     3. Count Nodes of Trie (Find Unique Prefixes).
         Total Number of Trie = Count of unique Prefixes.
+
+  ## Longest Word with all Prefixes:
+  Find the longest string in words such that every prefix of it is in words.
  */
 public class TrieDataStructure {
     static class NodeTDS {
@@ -123,7 +126,11 @@ public class TrieDataStructure {
         return true;
     }
 
-    // Question 3
+    // Question 3, Longest Word with all-Prefixes
+    /*Case 1, Found the Longest Prefix then print.
+     * Case 2, Found two equal length Prefix, then printed by the Lexicographically
+     * smallest prefix.
+     * Case 3, No Answer does not exist, then print empty string."". */
     static void longestWord(NodeTDS root, StringBuilder currentString) {
 
         for (int i = 0; i < 26; i++) {
@@ -217,6 +224,11 @@ public class TrieDataStructure {
             System.out.println(Suffix); // Print all Suffixes
             insert(Suffix); // Insert all Suffixes
         }
+        // For this particular problem, the answer will be 10;
+        System.out.println("The total Node: " + countNodes(root));
+
+        // 4th Problem, Longest Word with all Prefixes.
+        String[] wordsLWP = {"a", "banana", "app", "appl", "ap", "apply", "apple"};
     }
 }
 
@@ -251,5 +263,6 @@ baba
 aba
 ba
 a
+The total Node: 51
 
 * */
