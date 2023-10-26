@@ -131,6 +131,8 @@ public class TrieDataStructure {
      * Case 2, Found two equal length Prefix, then printed by the Lexicographically
      * smallest prefix.
      * Case 3, No Answer does not exist, then print empty string."". */
+    public static String Answer = "";
+
     static void longestWord(NodeTDS root, StringBuilder tempAnswer) {
         if (root == null) {
             return; // Base Case
@@ -152,14 +154,13 @@ public class TrieDataStructure {
         }
     }
 
-    public static String Answer = "";
-
-    // Question 4
+    // Build Trie using String;
     public static void buildTrie(String string) {
         //insert all suffixes to Trie
         root = new NodeTDS();
         for (int i = 0; i < string.length(); i++) {
             insert(string.substring(i));
+            System.out.println("inserted " + string.substring(i));
         }
     }
 
@@ -229,6 +230,7 @@ public class TrieDataStructure {
             String Suffix = stringCount.substring(i);
             System.out.println(Suffix); // Print all Suffixes
             insert(Suffix); // Insert all Suffixes
+            buildTrie(Suffix);
         }
         // For this particular problem, the answer will be 10;
         System.out.println("The total Node: " + countNodes(root));
@@ -272,11 +274,26 @@ true
 true
 false
 ababa
+inserted ababa
+inserted baba
+inserted aba
+inserted ba
+inserted a
 baba
+inserted baba
+inserted aba
+inserted ba
+inserted a
 aba
+inserted aba
+inserted ba
+inserted a
 ba
+inserted ba
+inserted a
 a
-The total Node: 51
+inserted a
+The total Node: 2
 inserted a
 inserted banana
 inserted app
