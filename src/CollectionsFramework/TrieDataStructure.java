@@ -131,17 +131,23 @@ public class TrieDataStructure {
      * Case 2, Found two equal length Prefix, then printed by the Lexicographically
      * smallest prefix.
      * Case 3, No Answer does not exist, then print empty string."". */
-    static void longestWord(NodeTDS root, StringBuilder currentString) {
+    static void longestWord(NodeTDS root, StringBuilder tempAnswer) {
+        if (root == null) {
+            return; // Base Case
+        }
 
+        // Find LongestWord, which has endOfWord in every Node.
         for (int i = 0; i < 26; i++) {
-            if (root.children[i] != null
-                    && root.children[i].endOfWord) {
-                currentString.append((char) (i + 'a'));
-                if (currentString.length() > Answer.length()) {
-                    Answer = currentString.toString();
+            // Nodes are not Null && End of the Word is true;
+            if (root.children[i] != null && root.children[i].endOfWord) {
+                tempAnswer.append((char) (i + 'a'));
+                // Check & Update from temporary to Final Answer;
+                if (tempAnswer.length() > Answer.length()) {
+                    Answer = tempAnswer.toString();
                 }
-                longestWord(root.children[i], currentString);
-                currentString.deleteCharAt(currentString.length() - 1);
+                longestWord(root.children[i], tempAnswer);
+                // Delete last index char for Backtracking purpose;
+                tempAnswer.deleteCharAt(tempAnswer.length() - 1);
             }
         }
     }
@@ -229,6 +235,13 @@ public class TrieDataStructure {
 
         // 4th Problem, Longest Word with all Prefixes.
         String[] wordsLWP = {"a", "banana", "app", "appl", "ap", "apply", "apple"};
+        for (String wordList : wordsLWP) {
+            insert(wordList);
+            System.out.println("inserted " + wordList);
+        }
+
+        longestWord(root, new StringBuilder());
+        System.out.println(Answer);
     }
 }
 
@@ -264,5 +277,13 @@ aba
 ba
 a
 The total Node: 51
+inserted a
+inserted banana
+inserted app
+inserted appl
+inserted ap
+inserted apply
+inserted apple
+apple
 
 * */
