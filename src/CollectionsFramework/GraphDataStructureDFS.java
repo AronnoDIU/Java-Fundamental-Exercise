@@ -37,6 +37,18 @@ public class GraphDataStructureDFS {
         graph[5].add(new Edge(6, 5, 1));
     }
 
+    static void dfs(ArrayList<Edge>[] graph, int curr, boolean[] visited) {
+        if (visited[curr]) {
+            return;
+        }
+        System.out.print(curr + " ");
+        visited[curr] = true;
+        for (int i = 0; i < graph[curr].size(); i++) {
+            Edge e = graph[curr].get(i);
+            dfs(graph, e.dest, visited);
+        }
+    }
+
     public static void main(String[] args) {
 
     }
