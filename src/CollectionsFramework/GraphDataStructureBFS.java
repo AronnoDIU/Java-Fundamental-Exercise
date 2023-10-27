@@ -5,11 +5,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Graph Data Structure Implementation ==> Network of Nodes.
-public class GraphDataStructure {
+public class GraphDataStructureBFS {
     static class Edge {
         int src;
         int dest;
         int wt;
+
         public Edge(int s, int d, int w) {
             this.src = s;
             this.dest = d;
@@ -18,7 +19,7 @@ public class GraphDataStructure {
     }
 
     static void createGraph(ArrayList<Edge>[] graph) {
-        for(int i=0; i<graph.length; i++) {
+        for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
         graph[0].add(new Edge(0, 1, 1));
@@ -43,12 +44,12 @@ public class GraphDataStructure {
         boolean[] visited = new boolean[V];
         Queue<Integer> q = new LinkedList<>();
         q.add(0); //Source = 0
-        while(!q.isEmpty()) {
+        while (!q.isEmpty()) {
             int curr = q.remove();
-            if(!visited[curr]) {
-                System.out.print(curr+" ");
+            if (!visited[curr]) {
+                System.out.print(curr + " ");
                 visited[curr] = true;
-                for(int i=0; i<graph[curr].size(); i++) {
+                for (int i = 0; i < graph[curr].size(); i++) {
                     Edge e = graph[curr].get(i);
                     q.add(e.dest);
                 }
@@ -56,17 +57,24 @@ public class GraphDataStructure {
         }
         System.out.println();
     }
+
     public static void main(String[] args) {
         /*
-1 --- 3
-/ | \
-0 | 5 -- 6
-\ | /
-2 ---- 4
-*/
+            1 --- 3
+            / | \
+            0 | 5 -- 6
+            \ | /
+            2 ---- 4
+            */
         int V = 7;
         ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
         bfs(graph, V);
     }
 }
+
+/*Expected Output:
+
+0 1 2 3 4 5 6
+
+* */
