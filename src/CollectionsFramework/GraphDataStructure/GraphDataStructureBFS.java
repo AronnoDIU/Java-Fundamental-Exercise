@@ -1,4 +1,4 @@
-package CollectionsFramework;
+package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
