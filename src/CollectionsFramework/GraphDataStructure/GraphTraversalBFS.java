@@ -61,20 +61,21 @@ public class GraphTraversalBFS {
     static void BFS(ArrayList<Edge>[] graph, int Vertex) {
         // Goal to ensure that, each Node is visited once.
         boolean[] visited = new boolean[Vertex];
-        Queue<Integer> list = new LinkedList<>();
-        list.add(0); //Source = 0
+        Queue<Integer> queueList = new LinkedList<>();
+        queueList.add(0); //Source = 0, Starting Node
 
-        while (!list.isEmpty()) {
-            /* list.remove() removes the currentElement of the list
-             and make visited[currentElement] = true && print the currentElement.*/
-            int currentList = list.remove();
+        while (!queueList.isEmpty()) {
+            /* queueList.remove() removes the currentElement of the queueList
+             and makes visited[currentElement] = true && print the currentElement.*/
+            int currentList = queueList.remove();
 
-            if (!visited[currentList]) {
+            if (!visited[currentList]) { // If currentElement is not visited.
                 System.out.print(currentList + " ");
-                visited[currentList] = true;
-                for (int i = 0; i < graph[currentList].size(); i++) {
-                    Edge e = graph[currentList].get(i);
-                    list.add(e.Destination);
+                visited[currentList] = true; // Mark currentElement as visited.
+
+                for (int i = 0; i < graph[currentList].size(); i++) { // For each neighbor
+                    Edge currentEdge = graph[currentList].get(i); // of currentElement
+                    queueList.add(currentEdge.Destination); // Add the neighbor to the Queue.
                 }
             }
         }
