@@ -30,6 +30,7 @@ public class GraphCreation {
          */
         int Vertex = 5;
         // int[] array = new int[Vertex];
+        @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Currently Null Stored.
 
         for (int i = 0; i < Vertex; i++) {
