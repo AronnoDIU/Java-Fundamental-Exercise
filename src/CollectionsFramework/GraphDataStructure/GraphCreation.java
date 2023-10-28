@@ -2,6 +2,13 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
+/**
+ * Graph Data Structure Implementation ==> Network of Nodes.
+ * Adjacency List ==> List of Lists [Using this for crating Graph]
+ * Vertex will be presented as Index
+ * Edge will be presented as ArrayList's List;
+ * It is also possible with Hashmap; there, Vertex will be Key & List will be value;
+ */
 public class GraphCreation {
     static class Edge {
         int Source;

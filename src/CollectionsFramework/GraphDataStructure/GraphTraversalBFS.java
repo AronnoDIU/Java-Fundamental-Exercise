@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// Graph Data Structure Implementation ==> Network of Nodes.
-// Adjacency List ==> List of Lists [Using this for crating Graph]
-// Vertex will be presented as Index
-// Edge will be presented as ArrayList's List;
-// It is also possible with Hashmap; there, Vertex will be Key & List will be value;
-public class GraphDataStructureBFS {
+public class GraphTraversalBFS {
     static class Edge {
         int Source;
         int Destination;
