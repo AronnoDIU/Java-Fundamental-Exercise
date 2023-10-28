@@ -58,8 +58,8 @@ public class GraphTraversalBFS {
         graph[5].add(new Edge(6, 5, 1));
     }
 
-    static void BFS(ArrayList<Edge>[] graph, int Vertex) {
-        // Goal to ensure that, each Node is visited once.
+    static void BFS(ArrayList<Edge>[] graph, int Vertex) { // Time Complexity = O(N).
+        // Goal to ensure that each Node is visited once.
         boolean[] visited = new boolean[Vertex];
         Queue<Integer> queueList = new LinkedList<>();
         queueList.add(0); //Source = 0, Starting Node
