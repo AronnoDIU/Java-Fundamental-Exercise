@@ -5,22 +5,23 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Graph Data Structure Implementation ==> Network of Nodes.
+// Adjacency List ==> List of Lists
 public class GraphDataStructureBFS {
     static class Edge {
-        int src;
-        int dest;
-        int wt;
+        int Source;
+        int Destination;
+        int Weight;
 
-        public Edge(int s, int d, int w) {
-            this.src = s;
-            this.dest = d;
-            this.wt = w;
+        public Edge(int Source, int Destination, int Weight) {
+            this.Source = Source;
+            this.Destination = Destination;
+            this.Weight = Weight;
         }
     }
 
     static void createGraph(ArrayList<Edge>[] graph) {
-        for (int i = 0; i < graph.length; i++) {
-            graph[i] = new ArrayList<>();
+        for (int index = 0; index < graph.length; index++) {
+            graph[index] = new ArrayList<>();
         }
         graph[0].add(new Edge(0, 1, 1));
         graph[0].add(new Edge(0, 2, 1));
@@ -40,18 +41,18 @@ public class GraphDataStructureBFS {
         graph[5].add(new Edge(6, 5, 1));
     }
 
-    static void bfs(ArrayList<Edge>[] graph, int V) {
+    static void BFS(ArrayList<Edge>[] graph, int V) {
         boolean[] visited = new boolean[V];
-        Queue<Integer> q = new LinkedList<>();
-        q.add(0); //Source = 0
-        while (!q.isEmpty()) {
-            int curr = q.remove();
+        Queue<Integer> list = new LinkedList<>();
+        list.add(0); //Source = 0
+        while (!list.isEmpty()) {
+            int curr = list.remove();
             if (!visited[curr]) {
                 System.out.print(curr + " ");
                 visited[curr] = true;
                 for (int i = 0; i < graph[curr].size(); i++) {
                     Edge e = graph[curr].get(i);
-                    q.add(e.dest);
+                    list.add(e.Destination);
                 }
             }
         }
@@ -69,7 +70,7 @@ public class GraphDataStructureBFS {
         int V = 7;
         ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
-        bfs(graph, V);
+        BFS(graph, V);
     }
 }
 
