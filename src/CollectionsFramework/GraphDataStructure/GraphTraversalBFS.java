@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Graph Traversal using Breadth First Search
 public class GraphTraversalBFS {
     static class Edge {
         int Source;
@@ -18,22 +19,34 @@ public class GraphTraversalBFS {
     }
 
     // Array of ArrayList<Edge> ==> Adjacency List/ List of Lists
-    static void createGraph(ArrayList<Edge>[] graph) {
+    static void createGraph(ArrayList<Edge>[] graph) {  // Adjacency List
         for (int index = 0; index < graph.length; index++) {
             graph[index] = new ArrayList<>();
         }
+
+        // for 0 -vertex
         graph[0].add(new Edge(0, 1, 1));
         graph[0].add(new Edge(0, 2, 1));
+
+        // for 1 -vertex
         graph[1].add(new Edge(1, 0, 1));
         graph[1].add(new Edge(1, 3, 1));
+
+        // for 2 -vertex
         graph[2].add(new Edge(2, 0, 1));
         graph[2].add(new Edge(2, 4, 1));
+
+        // for 3 -vertex
         graph[3].add(new Edge(3, 1, 1));
         graph[3].add(new Edge(3, 4, 1));
         graph[3].add(new Edge(3, 5, 1));
+
+        // for 4 -vertex
         graph[4].add(new Edge(4, 2, 1));
         graph[4].add(new Edge(4, 3, 1));
         graph[4].add(new Edge(4, 5, 1));
+
+
         graph[5].add(new Edge(5, 3, 1));
         graph[5].add(new Edge(5, 4, 1));
         graph[5].add(new Edge(5, 6, 1));
@@ -67,6 +80,7 @@ public class GraphTraversalBFS {
             2 ---- 4
             */
         int Vertex = 7;
+        @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
         BFS(graph, Vertex);
