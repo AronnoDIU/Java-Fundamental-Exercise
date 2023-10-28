@@ -6,6 +6,9 @@ import java.util.Queue;
 
 // Graph Data Structure Implementation ==> Network of Nodes.
 // Adjacency List ==> List of Lists
+// Vertex will be presented as Index
+// Edge will be presented as ArrayList's List;
+// It is also possible with Hashmap; there, Vertex will be Key & List will be value;
 public class GraphDataStructureBFS {
     static class Edge {
         int Source;
@@ -41,8 +44,8 @@ public class GraphDataStructureBFS {
         graph[5].add(new Edge(6, 5, 1));
     }
 
-    static void BFS(ArrayList<Edge>[] graph, int V) {
-        boolean[] visited = new boolean[V];
+    static void BFS(ArrayList<Edge>[] graph, int Vertex) {
+        boolean[] visited = new boolean[Vertex];
         Queue<Integer> list = new LinkedList<>();
         list.add(0); //Source = 0
         while (!list.isEmpty()) {
@@ -67,10 +70,10 @@ public class GraphDataStructureBFS {
             \ | /
             2 ---- 4
             */
-        int V = 7;
-        ArrayList<Edge>[] graph = new ArrayList[V];
+        int Vertex = 7;
+        ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
-        BFS(graph, V);
+        BFS(graph, Vertex);
     }
 }
 
