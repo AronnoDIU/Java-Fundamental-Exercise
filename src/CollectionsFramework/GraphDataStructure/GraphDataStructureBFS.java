@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 // Graph Data Structure Implementation ==> Network of Nodes.
-// Adjacency List ==> List of Lists
+// Adjacency List ==> List of Lists [Using this for crating Graph]
 // Vertex will be presented as Index
 // Edge will be presented as ArrayList's List;
 // It is also possible with Hashmap; there, Vertex will be Key & List will be value;
@@ -22,6 +22,7 @@ public class GraphDataStructureBFS {
         }
     }
 
+    // Array of ArrayList<Edge> ==> Adjacency List/ List of Lists
     static void createGraph(ArrayList<Edge>[] graph) {
         for (int index = 0; index < graph.length; index++) {
             graph[index] = new ArrayList<>();
