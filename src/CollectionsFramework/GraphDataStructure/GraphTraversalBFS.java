@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-// Graph Traversal using Breadth First Search
+/**
+ * Graph Traversal using Breadth-First Search
+ * Rules for BFS ==> Go to immediate neighbors first.
+ * We are using FIFO type Queue.
+ * BFS similar to Level Order Search
+ */
 public class GraphTraversalBFS {
     static class Edge {
         int Source;
@@ -54,16 +59,21 @@ public class GraphTraversalBFS {
     }
 
     static void BFS(ArrayList<Edge>[] graph, int Vertex) {
+        // Goal to ensure that, each Node is visited once.
         boolean[] visited = new boolean[Vertex];
         Queue<Integer> list = new LinkedList<>();
         list.add(0); //Source = 0
+
         while (!list.isEmpty()) {
-            int curr = list.remove();
-            if (!visited[curr]) {
-                System.out.print(curr + " ");
-                visited[curr] = true;
-                for (int i = 0; i < graph[curr].size(); i++) {
-                    Edge e = graph[curr].get(i);
+            /* list.remove() removes the currentElement of the list
+             and make visited[currentElement] = true && print the currentElement.*/
+            int currentList = list.remove();
+
+            if (!visited[currentList]) {
+                System.out.print(currentList + " ");
+                visited[currentList] = true;
+                for (int i = 0; i < graph[currentList].size(); i++) {
+                    Edge e = graph[currentList].get(i);
                     list.add(e.Destination);
                 }
             }
@@ -74,16 +84,16 @@ public class GraphTraversalBFS {
     public static void main(String[] args) {
         /*
             1 --- 3
-            / | \
-            0 | 5 -- 6
-            \ | /
+           /      |  \
+          0       |    5 --- 6
+           \      |  /
             2 ---- 4
-            */
+         */
         int Vertex = 7;
         @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] graph = new ArrayList[Vertex];
-        createGraph(graph);
-        BFS(graph, Vertex);
+        ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Adjacency List.
+        createGraph(graph); // Calling the function to create the graph.
+        BFS(graph, Vertex); // Calling the BFS function.
     }
 }
 
