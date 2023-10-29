@@ -51,29 +51,35 @@ public class GraphTraversalDFS {
         graph[5].add(new Edge(5, 3, 1));
         graph[5].add(new Edge(5, 4, 1));
         graph[5].add(new Edge(5, 6, 1));
+
+        // for 6 -vertex
         graph[5].add(new Edge(6, 5, 1));
     }
 
-    static void DFS(ArrayList<Edge>[] graph, int curr, boolean[] visited) {
-        if (visited[curr]) {
+    static void DFS(ArrayList<Edge>[] graph,
+                    int currentList, boolean[] visited) { // Time Complexity = O(V + E).
+        // Goal to ensure that each Node is visited once.
+        if (visited[currentList]) { // If currentElement is not visited.
             return;
         }
-        System.out.print(curr + " ");
-        visited[curr] = true;
-        for (int i = 0; i < graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            DFS(graph, e.Destination, visited);
+        System.out.print(currentList + " ");
+        visited[currentList] = true; // Mark currentElement as visited.
+
+        for (int i = 0; i < graph[currentList].size(); i++) { // For each neighbor
+            Edge currentEdge = graph[currentList].get(i); // of currentElement.
+            DFS(graph, currentEdge.Destination, visited);
         }
     }
 
     public static void main(String[] args) {
         /*
-            1 --- 3
-            / | \
-            0 | 5 -- 6
-            \ | /
+            1 ---- 3
+           /       |  \
+          0        |   5 --- 6
+           \       |  /
             2 ---- 4
             */
+
         int Vertex = 7;
 
         @SuppressWarnings("unchecked")
