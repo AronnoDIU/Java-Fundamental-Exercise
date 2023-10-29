@@ -1,4 +1,4 @@
-package CollectionsFramework;
+package CollectionsFramework.TrieDataStructure;
 
 /**
  * What is Trie?
@@ -60,7 +60,7 @@ Normally, Substring of a String is,
   ## Longest Word with all Prefixes:
   Find the longest string in words such that every prefix of it is in words.
  */
-public class TrieDataStructure {
+public class TrieDS {
     static class NodeTDS {
         NodeTDS[] children = new NodeTDS[26];
         boolean endOfWord;
