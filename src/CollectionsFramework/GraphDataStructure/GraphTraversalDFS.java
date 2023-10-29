@@ -2,7 +2,11 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Graph Traversal using Depth-First Search
+/**
+ * Graph Traversal using Depth-First Search
+ * Rules for DFS ==> Keep going to the first neighbors.
+ * We are using Recursion using implicit Stack.
+ */
 public class GraphTraversalDFS {
     static class Edge {
         int Source;
