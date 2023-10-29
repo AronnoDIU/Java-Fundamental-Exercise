@@ -83,9 +83,9 @@ public class GraphTraversalDFS {
         int Vertex = 7;
 
         @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] graph = new ArrayList[Vertex];
-        createGraph(graph);
-        DFS(graph, 0, new boolean[Vertex]);
+        ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Adjacency List
+        createGraph(graph); // Calling the function to create the graph.
+        DFS(graph, 0, new boolean[Vertex]); // Calling the DFS function.
     }
 }
 
