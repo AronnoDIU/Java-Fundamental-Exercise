@@ -5,16 +5,16 @@ import java.util.ArrayList;
 // Print all paths.
 public class PrintAllPaths {
     static class Edge {
-        int src;
-        int dest;
+        int Source;
+        int Destination;
 
-        public Edge(int s, int d) {
-            this.src = s;
-            this.dest = d;
+        public Edge(int source, int destination) {
+            Source = source;
+            Destination = destination;
         }
     }
 
-    static void createGraph(ArrayList<Edge> graph[]) {
+    static void createGraph(ArrayList<Edge>[] graph) {
         for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
@@ -36,18 +36,18 @@ public class PrintAllPaths {
         graph[6].add(new Edge(6, 5));
     }
 
-    public static void printAllPaths(ArrayList<Edge> graph[], int src, int tar, String
-            path, boolean vis[]) {
+    static void printAllPaths(ArrayList<Edge>[] graph, int src, int tar, String
+            path, boolean[] vis) {
         if (src == tar) {
             System.out.println(path);
             return;
         }
         for (int i = 0; i < graph[src].size(); i++) {
             Edge e = graph[src].get(i);
-            if (!vis[e.dest]) {
-                vis[e.dest] = true;
-                printAllPaths(graph, e.dest, tar, path + "->" + e.dest, vis);
-                vis[e.dest] = false;
+            if (!vis[e.Destination]) {
+                vis[e.Destination] = true;
+                printAllPaths(graph, e.Destination, tar, path + "->" + e.Destination, vis);
+                vis[e.Destination] = false;
             }
         }
     }
