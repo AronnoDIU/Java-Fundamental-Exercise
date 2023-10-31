@@ -60,7 +60,7 @@ public class PrintAllPathsDFS {
 
         if (Source == Destination) { // Base Case.
             System.out.println(Paths);
-            return;
+            return; // Return through the Recursive call.
         }
 
         for (int i = 0; i < graph[Source].size(); i++) {
