@@ -54,18 +54,20 @@ public class PrintAllPathsDFS {
         graph[6].add(new Edge(6, 5));
     }
 
+    // Some kind of Modified Depth-First Search code.
     static void printAllPaths(ArrayList<Edge>[] graph, int Source, int Destination,
-                              String Paths, boolean[] visited) {
+                              String Paths, boolean[] visited) { // Time Complexity = O(V ^ V).
 
         if (Source == Destination) { // Base Case.
             System.out.println(Paths);
             return;
         }
 
-        // If Source is not visited.
         for (int i = 0; i < graph[Source].size(); i++) {
             Edge currentEdge = graph[Source].get(i);
 
+
+            // If neighbor/currentElement is not visited.
             // currentEdge.Destination = neighbor.
             if (!visited[currentEdge.Destination]) {
 
