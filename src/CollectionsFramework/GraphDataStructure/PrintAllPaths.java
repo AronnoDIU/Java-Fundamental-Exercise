@@ -2,8 +2,11 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Print all paths from Source to Destination.
-// For a given source and destination, if there is a path exists from source to destination.
+/**
+ * Print all paths from Source to Destination.
+ * For a given source and destination, if there is a path exists from source to destination.
+ * Using Depth-First Search ==> Keep going to the first neighbors.
+ */
 public class PrintAllPaths {
     static class Edge {
         int Source;
@@ -68,6 +71,15 @@ public class PrintAllPaths {
     }
 
     public static void main(String[] args) {
+        /*
+
+              1 ---- 3
+           /          |   \
+          0           |      5 --- 6
+           \          |   /
+              2 ---- 4
+            */
+
         int Vertex = 7;
 
         @SuppressWarnings("unchecked")
