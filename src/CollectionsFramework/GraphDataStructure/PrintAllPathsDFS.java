@@ -68,13 +68,23 @@ public class PrintAllPathsDFS {
 
             // currentEdge.Destination = neighbor.
             if (!visited[currentEdge.Destination]) {
+
+                /* Before traveling through the Recursive call,
+                 First Mark currentElement as visited.*/
                 visited[currentEdge.Destination] = true;
 
                 printAllPaths(graph, currentEdge.Destination, Destination,
                         Paths + " -> " + currentEdge.Destination, visited);
 
-                // Backtracking.
+                /* After traveling through the Recursive call,
+                 In Backtracking, Unmark currentElement as visited.
+                 So that it will not be shown as visited again.
+                 But it will be used in the next Recursive call.
+                 For printing all possible paths.*/
                 visited[currentEdge.Destination] = false;
+
+                /* [N.B.] -> If currentElement is not tracked as visited or not
+                Visited in Backtracking, Then it will be creating unlimited loop.*/
             }
         }
     }
