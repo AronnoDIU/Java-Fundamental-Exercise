@@ -2,7 +2,8 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Print all paths.
+// Print all paths from Source to Destination.
+// For a given source and destination, if there is a path exists from source to destination.
 public class PrintAllPaths {
     static class Edge {
         int Source;
