@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * For a given source and destination, if there is a path exists from source to destination.
  * Using Depth-First Search ==> Keep going to the first neighbors.
  */
-public class PrintAllPaths {
+public class PrintAllPathsDFS {
     static class Edge {
         int Source;
         int Destination;
@@ -54,18 +54,27 @@ public class PrintAllPaths {
         graph[6].add(new Edge(6, 5));
     }
 
-    static void printAllPaths(ArrayList<Edge>[] graph, int src, int tar, String
-            path, boolean[] vis) {
-        if (src == tar) {
-            System.out.println(path);
+    static void printAllPaths(ArrayList<Edge>[] graph, int Source, int Destination,
+                              String Paths, boolean[] visited) {
+
+        if (Source == Destination) { // Base Case.
+            System.out.println(Paths);
             return;
         }
-        for (int i = 0; i < graph[src].size(); i++) {
-            Edge e = graph[src].get(i);
-            if (!vis[e.Destination]) {
-                vis[e.Destination] = true;
-                printAllPaths(graph, e.Destination, tar, path + "->" + e.Destination, vis);
-                vis[e.Destination] = false;
+
+        // If Source is not visited.
+        for (int i = 0; i < graph[Source].size(); i++) {
+            Edge currentEdge = graph[Source].get(i);
+
+            // currentEdge.Destination = neighbor.
+            if (!visited[currentEdge.Destination]) {
+                visited[currentEdge.Destination] = true;
+
+                printAllPaths(graph, currentEdge.Destination, Destination,
+                        Paths + " -> " + currentEdge.Destination, visited);
+
+                // Backtracking.
+                visited[currentEdge.Destination] = false;
             }
         }
     }
@@ -85,19 +94,22 @@ public class PrintAllPaths {
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
+
         int Source = 0;
         int Destination = 5;
         boolean[] visited = new boolean[Vertex];
+
         visited[Source] = true;
+
         printAllPaths(graph, Source, Destination, "" + Source, visited);
     }
 }
 
 /*Expected Output:
 
-0->1->3->4->5
-0->1->3->5
-0->2->4->3->5
-0->2->4->5
+0 -> 1 -> 3 -> 4 -> 5
+0 -> 1 -> 3 -> 5
+0 -> 2 -> 4 -> 3 -> 5
+0 -> 2 -> 4 -> 5
 
 * */
