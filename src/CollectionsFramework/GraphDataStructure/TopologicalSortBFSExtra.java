@@ -16,7 +16,7 @@ import java.util.Stack;
  * Fact: A DAG has at least one vertex with in-degree 0
  * and at least one vertex with out-degree 0.
  */
-public class TopologicalSortBFS {
+public class TopologicalSortBFSExtra {
     static class Edge {
         int Source;
         int Destination;
@@ -47,29 +47,33 @@ public class TopologicalSortBFS {
         graph[5].add(new Edge(5, 2));
     }
 
-    static void topologicalSortUtil(ArrayList<Edge>[] graph, int curr, boolean[] vis,
-                                    Stack<Integer> s) {
-        vis[curr] = true;
-        for (int i = 0; i < graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            if (!vis[e.Destination]) {
-                topologicalSortUtil(graph, e.Destination, vis, s);
+    static void topologicalSortUtil(ArrayList<Edge>[] graph, int currentVertex,
+                                    boolean[] visited, Stack<Integer> integerStack) {
+        visited[currentVertex] = true;
+
+        for (int i = 0; i < graph[currentVertex].size(); i++) {
+            Edge currentEdge = graph[currentVertex].get(i);
+            if (!visited[currentEdge.Destination]) {
+                topologicalSortUtil(graph, currentEdge.Destination, visited, integerStack);
             }
         }
-        s.push(curr);
+        integerStack.push(currentVertex);
     }
 
     //O(V+E)
     static void topologicalSort(ArrayList<Edge>[] graph) {
-        boolean vis[] = new boolean[graph.length];
-        Stack<Integer> s = new Stack<>();
+        boolean[] InDegree = new boolean[graph.length];
+        Stack<Integer> integerStack = new Stack<>();
+
         for (int i = 0; i < graph.length; i++) {
-            if (!vis[i]) {
-                topologicalSortUtil(graph, i, vis, s);
+            if (!InDegree[i]) {
+                topologicalSortUtil(graph, i, InDegree, integerStack);
             }
         }
-        while (!s.isEmpty()) {
-            System.out.print(s.pop() + " ");
+
+        // BFS traversal.
+        while (!integerStack.isEmpty()) {
+            System.out.print(integerStack.pop() + " ");
         }
     }
 
@@ -87,5 +91,12 @@ public class TopologicalSortBFS {
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Adjacency List.
         createGraph(graph); // Calling the function to create the graph.
+        topologicalSort(graph);
     }
 }
+
+/*Expected Output:
+
+5 4 2 3 1 0
+
+* */
