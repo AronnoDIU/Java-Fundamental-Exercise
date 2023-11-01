@@ -1,6 +1,8 @@
 package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Topological Sort using BFS.
@@ -46,14 +48,70 @@ public class TopologicalSortBFS {
         graph[5].add(new Edge(5, 2));
     }
 
-    public static void main(String[] args) {
+    static void calculateInDegree(ArrayList<Edge>[] graph, int[] InDegree) {
+        for (ArrayList<Edge> edges : graph) {
 
+            for (Edge currentEdge : edges) {
+                InDegree[currentEdge.Destination]++;
+            }
+        }
+    }
+
+    static void topologicalSort(ArrayList<Edge>[] graph) {
+        int[] InDegree = new int[graph.length];
+
+        calculateInDegree(graph, InDegree);
+
+        Queue<Integer> integerQueue = new LinkedList<>();
+
+        for (int i = 0; i < graph.length; i++) {
+            if (InDegree[i] == 0) {
+                integerQueue.add(i);
+            }
+        }
+
+        // BFS traversal.
+        while (!integerQueue.isEmpty()) {
+            int currentVertex = integerQueue.remove();
+
+            // Print the Topological Sort
+            System.out.print(currentVertex + " ");
+
+            // For each neighbor of currentVertex
+            for (int i = 0; i < graph[currentVertex].size(); i++) {
+                Edge currentEdge = graph[currentVertex].get(i);
+                InDegree[currentEdge.Destination]--;
+
+                // If InDegree of currentEdge.Destination is 0, add it to Queue.
+                if (InDegree[currentEdge.Destination] == 0) {
+                    integerQueue.add(currentEdge.Destination);
+                }
+            }
+        }
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+        /*
+             5              4
+             |  \         / |
+             |   \      /   |
+             |    > 0 <     |
+             |              |
+             >              <
+             2---->3------->1
+         */
+        int Vertex = 6;
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Adjacency List.
+        createGraph(graph); // Calling the function to create the graph.
+        topologicalSort(graph);
     }
 }
 
 /*Expected Output:
 
-0 1 3 4 2 5 6
-Source: 0 Destination: 5 path exists? Yes
+4 5 0 2 3 1
 
 * */
