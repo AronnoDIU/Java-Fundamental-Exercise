@@ -20,6 +20,7 @@ public class PrintAllPathsDG {
             graph[i] = new ArrayList<>();
         }
 
+        graph[0].add(new Edge(0, 3));
 
         graph[2].add(new Edge(2, 3));
 
@@ -31,6 +32,24 @@ public class PrintAllPathsDG {
         graph[5].add(new Edge(5, 0));
         graph[5].add(new Edge(5, 2));
     }
+
+    // Exponential Time Complexity O(V^V).
+    static void printAllPaths(ArrayList<Edge>[] graph,
+                              int Source, int Destination, String Path) {
+
+        if (Source == Destination) {    // Base Case
+            System.out.println(Path + " -> " + Destination);
+            return;
+        }
+
+        for (int i = 0; i < graph[Source].size(); i++) {
+            Edge currentEdge = graph[Source].get(i);
+
+            printAllPaths(graph, currentEdge.Destination,
+                    Destination, Path + " -> " + Source);
+        }
+    }
+
 
     public static void main(String[] args) {
         /*
@@ -50,14 +69,14 @@ public class PrintAllPathsDG {
 
         int source = 5;
         int destination = 1;
+
+        printAllPaths(graph, source, destination, "");
     }
 }
 
 /*Expected Output:
 
-0 -> 1 -> 3 -> 4 -> 5
-0 -> 1 -> 3 -> 5
-0 -> 2 -> 4 -> 3 -> 5
-0 -> 2 -> 4 -> 5
+ -> 5 -> 0 -> 3 -> 1
+ -> 5 -> 2 -> 3 -> 1
 
 * */
