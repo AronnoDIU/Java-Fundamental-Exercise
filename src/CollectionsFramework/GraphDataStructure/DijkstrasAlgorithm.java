@@ -2,8 +2,10 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-/** Dijkstra's Algorithm => is an algorithm for finding the shortest paths between
- nodes in a weighted graph, where the weight of each edge is non-negative.*/
+/**
+ * Dijkstra's Algorithm => is an algorithm for finding the shortest paths between
+ * nodes in a weighted graph, where the weight of each edge is non-negative.
+ */
 // Find the shortest path from Source to All Vertices(Weighted Graph).
 // Using Priority-Queue(Min-Heap) for finding the shortest path.
 public class DijkstrasAlgorithm {
@@ -38,6 +40,7 @@ public class DijkstrasAlgorithm {
         graph[4].add(new Edge(4, 0, 1));
         graph[4].add(new Edge(4, 1, 1));
     }
+
     public static void main(String[] args) {
         /*
                          7
@@ -53,5 +56,19 @@ public class DijkstrasAlgorithm {
                           3
          */
         int Vertex = 6;
+
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge>[] graph = new ArrayList[Vertex];
+        createGraph(graph);
+
+        int source = 5;
+        int destination = 1;
     }
 }
+
+/*Expected Output:
+
+ -> 5 -> 0 -> 3 -> 1
+ -> 5 -> 2 -> 3 -> 1
+
+* */
