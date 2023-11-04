@@ -37,8 +37,28 @@ public class DijkstrasAlgorithm {
 
         graph[3].add(new Edge(3, 5, 1));
 
-        graph[4].add(new Edge(4, 0, 1));
-        graph[4].add(new Edge(4, 1, 1));
+        graph[4].add(new Edge(4, 3, 2));
+        graph[4].add(new Edge(4, 5, 5));
+    }
+
+    static class Pair {
+        int Node;
+        int ShortestPath; // Weight of the Shortest Path from Source to Node.
+
+        public Pair(int node, int shortestPath) {
+            Node = node;
+            ShortestPath = shortestPath;
+        }
+    }
+
+    static void Dijkstras(ArrayList<Edge>[] graph, int Source) {
+        int[] distance = new int[graph.length]; // Distance from Source to Node.
+        boolean[] visited = new boolean[graph.length];
+        for (int i = 0; i < graph.length; i++) {
+            distance[i] = Integer.MAX_VALUE;
+            visited[i] = false;
+        }
+        distance[Source] = 0;
     }
 
     public static void main(String[] args) {
@@ -61,8 +81,7 @@ public class DijkstrasAlgorithm {
         ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
 
-        int source = 5;
-        int destination = 1;
+        int source = 0;
     }
 }
 
