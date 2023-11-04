@@ -59,6 +59,10 @@ public class DijkstrasAlgorithm {
         }
     }
 
+    /* Exponential Time Complexity O(V^2).Without using Priority-Queue.
+     Using Priority-Queue, Time Complexity O(V + (E logV)).Which is Less than O(V^2).
+     Time Complexity O(V + (E logV)).Because, Priority-Queue shortens an internal pair.
+     That's why this Time Complexity is shorting based.*/
     static void Dijkstras(ArrayList<Edge>[] graph, int Source) {
         int[] Distance = new int[graph.length]; // Distance from Source to Node.
         boolean[] visited = new boolean[graph.length];
@@ -88,23 +92,26 @@ public class DijkstrasAlgorithm {
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
                     Edge currentEdge = graph[currentPair.Node].get(i);
 
-                    if (Distance[currentEdge.Destination]
-                            > Distance[currentPair.Node] + currentEdge.Weight) {
+                    int initialVelocity = currentEdge.Source; // Source as U.
+                    int finalVelocity = currentEdge.Destination; // Destination as V.
+                    int weight = currentEdge.Weight; // Weight of the Edge.
 
-                        // If the Shortest Path from Source to Node is greater
-                        // than the Shortest Path
-                        Distance[currentEdge.Destination]
-                                = Distance[currentPair.Node] + currentEdge.Weight;
+                    if (Distance[initialVelocity] + weight < Distance[finalVelocity]) {
 
-                        pairPQ.add(new Pair(currentEdge.Destination,
-                                Distance[currentEdge.Destination]
-                                        + currentEdge.Weight));
+                        // Update Distance of Path from initialV to finalVelocity.
+                        Distance[finalVelocity] = Distance[initialVelocity] + weight;
 
-                        Distance[currentEdge.Destination]
-                                = Distance[currentPair.Node] + currentEdge.Weight;
+                        // Add the Shortest Path from Source to Node.
+                        pairPQ.add(new Pair(finalVelocity, Distance[finalVelocity]));
                     }
                 }
             }
+        }
+
+        // Print the Shortest Path from Source to All Nodes.
+        for (int i = 0; i < Distance.length; i++) {
+            System.out.println("Shortest Path from Source to Node "
+                    + i + " : " + Distance[i]);
         }
     }
 
@@ -135,7 +142,11 @@ public class DijkstrasAlgorithm {
 
 /*Expected Output:
 
- -> 5 -> 0 -> 3 -> 1
- -> 5 -> 2 -> 3 -> 1
+Shortest Path from Source to Node 0 : 0
+Shortest Path from Source to Node 1 : 2
+Shortest Path from Source to Node 2 : 3
+Shortest Path from Source to Node 3 : 8
+Shortest Path from Source to Node 4 : 6
+Shortest Path from Source to Node 5 : 9
 
 * */
