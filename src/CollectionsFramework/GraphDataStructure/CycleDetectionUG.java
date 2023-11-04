@@ -1,7 +1,7 @@
 package CollectionsFramework.GraphDataStructure;
 
 // Cycle Detection (Undirected Graph)
-public class CycleDetectionUndirectedGraph {
+public class CycleDetectionUG {
     public static void main(String[] args) {
 
     }
