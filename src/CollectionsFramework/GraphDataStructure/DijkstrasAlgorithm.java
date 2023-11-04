@@ -41,7 +41,7 @@ public class DijkstrasAlgorithm {
         graph[4].add(new Edge(4, 5, 5));
     }
 
-    static class Pair {
+    static class Pair implements Comparable<Pair> {
         int Node;
         int ShortestPath; // Weight of the Shortest Path from Source to Node.
 
@@ -49,16 +49,27 @@ public class DijkstrasAlgorithm {
             Node = node;
             ShortestPath = shortestPath;
         }
+
+        @Override // Compares the Shortest Path from Source to Node.
+        public int compareTo(Pair compair) { // Objects are compared.
+            return this.ShortestPath - compair.ShortestPath;
+            // Path based sorting for pairs.
+            // The shortest Path is using Priority-Queue.
+        }
     }
 
     static void Dijkstras(ArrayList<Edge>[] graph, int Source) {
-        int[] distance = new int[graph.length]; // Distance from Source to Node.
+        int[] Distance = new int[graph.length]; // Distance from Source to Node.
         boolean[] visited = new boolean[graph.length];
         for (int i = 0; i < graph.length; i++) {
-            distance[i] = Integer.MAX_VALUE;
+            if (i == Source) {
+                Distance[i] = 0;
+            } else {    // if Node is not equal to Source.
+                Distance[i] = Integer.MAX_VALUE; // Initialize the Distance to MAX/Infinity.
+            }
             visited[i] = false;
         }
-        distance[Source] = 0;
+//        Distance[Source] = 0;
     }
 
     public static void main(String[] args) {
