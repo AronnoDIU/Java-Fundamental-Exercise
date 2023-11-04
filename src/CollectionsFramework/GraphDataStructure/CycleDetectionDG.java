@@ -2,7 +2,7 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Cycle Detection (Directed Graph)
+// Cycle Detection (Directed Graph) using Modified Depth-First Search.
 public class CycleDetectionDG {
     static class Edge {
         int Source;
@@ -33,16 +33,23 @@ public class CycleDetectionDG {
         graph[3].add(new Edge(3, 0));
     }
 
-    //graph2 - false
-// static void createGraph(ArrayList<Edge> graph[]) {
-// for(int i=0; i<graph.length; i++) {
-// graph[i] = new ArrayList<>();
-// }
-// graph[0].add(new Edge(0, 1));
-// graph[0].add(new Edge(0, 2));
-// graph[1].add(new Edge(1, 3));
-// graph[2].add(new Edge(2, 3));
-// }
+    // Graph2 - return false
+//    static void createGraph2(ArrayList<Edge>[] graph) {
+//        for (int i = 0; i < graph.length; i++) {
+//            graph[i] = new ArrayList<>();
+//        }
+//
+//        // for 0 -vertex
+//        graph[0].add(new Edge(0, 1));
+//        graph[0].add(new Edge(0, 2));
+//
+//        // for 1 -vertex
+//        graph[1].add(new Edge(1, 3));
+//
+//        // for 2 -vertex
+//        graph[2].add(new Edge(2, 3));
+//    }
+
     static boolean isCyclicUtil(ArrayList<Edge>[] graph,
                                 int currentNode, boolean[] visited, boolean[] stack) {
 
