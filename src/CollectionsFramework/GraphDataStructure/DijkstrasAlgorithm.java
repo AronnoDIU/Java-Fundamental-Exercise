@@ -1,6 +1,7 @@
 package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
+import java.util.PriorityQueue;
 
 /**
  * Dijkstra's Algorithm => is an algorithm for finding the shortest paths between
@@ -62,14 +63,49 @@ public class DijkstrasAlgorithm {
         int[] Distance = new int[graph.length]; // Distance from Source to Node.
         boolean[] visited = new boolean[graph.length];
         for (int i = 0; i < graph.length; i++) {
-            if (i == Source) {
-                Distance[i] = 0;
-            } else {    // if Node is not equal to Source.
+            if (i != Source) {
+                // If Node is not equal to Source. Because, Source to Source is always 0.
                 Distance[i] = Integer.MAX_VALUE; // Initialize the Distance to MAX/Infinity.
             }
-            visited[i] = false;
         }
-//        Distance[Source] = 0;
+
+        // Priority-Queue for Shortest Path.
+        PriorityQueue<Pair> pairPQ = new PriorityQueue<>();
+        pairPQ.add(new Pair(Source, 0)); // Add the Source to the Priority-Queue.
+
+        // While the Priority-Queue is not empty.
+        while (!pairPQ.isEmpty()) { // While loop for Breadth First Search.
+            Pair currentPair = pairPQ.poll();
+            // Remove the Shortest Path from Source to Node.
+
+            // If Node is already visited, skip it.
+            if (!visited[currentPair.Node]) { // If Node is not visited.
+
+                visited[currentPair.Node] = true; // Node is visited.
+
+                // These are the Shortest Path from Source to Node
+                // and the Weight of the Shortest Path for the Next Node/Neighbors.
+                for (int i = 0; i < graph[currentPair.Node].size(); i++) {
+                    Edge currentEdge = graph[currentPair.Node].get(i);
+
+                    if (Distance[currentEdge.Destination]
+                            > Distance[currentPair.Node] + currentEdge.Weight) {
+
+                        // If the Shortest Path from Source to Node is greater
+                        // than the Shortest Path
+                        Distance[currentEdge.Destination]
+                                = Distance[currentPair.Node] + currentEdge.Weight;
+
+                        pairPQ.add(new Pair(currentEdge.Destination,
+                                Distance[currentEdge.Destination]
+                                        + currentEdge.Weight));
+
+                        Distance[currentEdge.Destination]
+                                = Distance[currentPair.Node] + currentEdge.Weight;
+                    }
+                }
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -93,6 +129,7 @@ public class DijkstrasAlgorithm {
         createGraph(graph);
 
         int source = 0;
+        Dijkstras(graph, source);
     }
 }
 
