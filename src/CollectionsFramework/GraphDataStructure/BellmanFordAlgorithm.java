@@ -79,6 +79,18 @@ public class BellmanFordAlgorithm {
     }
 
     public static void main(String[] args) {
+        int Vertex = 5;
 
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge>[] graph = new ArrayList[Vertex];
+        createGraph(graph);
+        int Source = 0;
+        bellmanFord(graph, Source);
     }
 }
+
+/*Expected Output:
+
+0 2 -2 0 4
+
+* */
