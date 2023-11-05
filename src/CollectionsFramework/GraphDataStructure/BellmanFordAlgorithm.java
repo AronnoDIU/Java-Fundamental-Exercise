@@ -44,14 +44,14 @@ public class BellmanFordAlgorithm {
             if (i != Source)
                 Destination[i] = Integer.MAX_VALUE;
         }
-//O(V)
+        // Time Complexity O(V)
         for (int i = 0; i < graph.length - 1; i++) {
-//edges - O(E)
+            //edges - O(E)
             for (ArrayList<Edge> edges : graph) {
-                for (Edge e : edges) {
-                    int u = e.Source;
-                    int v = e.Destination;
-                    int wt = e.Weight;
+                for (Edge currentEdge : edges) {
+                    int u = currentEdge.Source;
+                    int v = currentEdge.Destination;
+                    int wt = currentEdge.Weight;
                     if (Destination[u] != Integer.MAX_VALUE
                             && Destination[u] + wt < Destination[v]) {
 
@@ -60,13 +60,15 @@ public class BellmanFordAlgorithm {
                 }
             }
         }
-//Detecting Negative Weight Cycle
+        //Detecting Negative Weight Cycle
         for (ArrayList<Edge> edges : graph) {
-            for (Edge e : edges) {
-                int u = e.Source;
-                int v = e.Destination;
-                int wt = e.Weight;
-                if (Destination[u] != Integer.MAX_VALUE && Destination[u] + wt < Destination[v]) {
+            for (Edge currentEdge : edges) {
+                int u = currentEdge.Source;
+                int v = currentEdge.Destination;
+                int wt = currentEdge.Weight;
+                if (Destination[u] != Integer.MAX_VALUE
+                        && Destination[u] + wt < Destination[v]) {
+
                     System.out.println("negative weight cycle exists");
                     break;
                 }
