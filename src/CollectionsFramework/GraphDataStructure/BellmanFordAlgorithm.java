@@ -5,14 +5,14 @@ import java.util.ArrayList;
 // Bellman Ford Algorithm (Shortest Distance)
 public class BellmanFordAlgorithm {
     static class Edge {
-        int src;
-        int dest;
-        int wt;
+        int Source;
+        int Destination;
+        int Weight;
 
-        public Edge(int s, int d, int w) {
-            this.src = s;
-            this.dest = d;
-            this.wt = w;
+        public Edge(int source, int destination, int weight) {
+            Source = source;
+            Destination = destination;
+            Weight = weight;
         }
     }
 
@@ -20,31 +20,42 @@ public class BellmanFordAlgorithm {
         for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
+
+        // for 0 -vertex
         graph[0].add(new Edge(0, 1, 2));
         graph[0].add(new Edge(0, 2, 4));
+
+        // for 1 -vertex
         graph[1].add(new Edge(1, 2, -4));
+
+        // for 2 -vertex
         graph[2].add(new Edge(2, 3, 2));
+
+        // for 3 -vertex
         graph[3].add(new Edge(3, 4, 4));
+
+        // for 4 -vertex
         graph[4].add(new Edge(4, 1, -1));
     }
 
-    static void bellmanFord(ArrayList<Edge>[] graph, int src) {
-        int[] dist = new int[graph.length];
-        for (int i = 0; i < dist.length; i++) {
-            if (i != src)
-                dist[i] = Integer.MAX_VALUE;
+    static void bellmanFord(ArrayList<Edge>[] graph, int Source) {
+        int[] Destination = new int[graph.length];
+        for (int i = 0; i < Destination.length; i++) {
+            if (i != Source)
+                Destination[i] = Integer.MAX_VALUE;
         }
 //O(V)
         for (int i = 0; i < graph.length - 1; i++) {
 //edges - O(E)
-            for (int j = 0; j < graph.length; j++) {
-                for (int k = 0; k < graph[j].size(); k++) {
-                    Edge e = graph[j].get(k);
-                    int u = e.src;
-                    int v = e.dest;
-                    int wt = e.wt;
-                    if (dist[u] != Integer.MAX_VALUE && dist[u] + wt < dist[v]) {
-                        dist[v] = dist[u] + wt;
+            for (ArrayList<Edge> edges : graph) {
+                for (Edge e : edges) {
+                    int u = e.Source;
+                    int v = e.Destination;
+                    int wt = e.Weight;
+                    if (Destination[u] != Integer.MAX_VALUE
+                            && Destination[u] + wt < Destination[v]) {
+
+                        Destination[v] = Destination[u] + wt;
                     }
                 }
             }
@@ -52,16 +63,16 @@ public class BellmanFordAlgorithm {
 //Detecting Negative Weight Cycle
         for (ArrayList<Edge> edges : graph) {
             for (Edge e : edges) {
-                int u = e.src;
-                int v = e.dest;
-                int wt = e.wt;
-                if (dist[u] != Integer.MAX_VALUE && dist[u] + wt < dist[v]) {
+                int u = e.Source;
+                int v = e.Destination;
+                int wt = e.Weight;
+                if (Destination[u] != Integer.MAX_VALUE && Destination[u] + wt < Destination[v]) {
                     System.out.println("negative weight cycle exists");
                     break;
                 }
             }
         }
-        for (int j : dist) {
+        for (int j : Destination) {
             System.out.print(j + " ");
         }
         System.out.println();
