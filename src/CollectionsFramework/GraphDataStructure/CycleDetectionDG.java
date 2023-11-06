@@ -55,42 +55,58 @@ public class CycleDetectionDG {
 
         visited[currentNode] = true; // Initially mark the current node as visited.
 
-        recursionStack[currentNode] = true;
+        recursionStack[currentNode] = true; // Eventually mark the recursionStack as true.
 
         for (int i = 0; i < graph[currentNode].size(); i++) {
-            Edge currentEdge = graph[currentNode].get(i);
-            if (recursionStack[currentEdge.Destination]) { //cycle exists
-                return true;
+
+            Edge currentEdge = graph[currentNode].get(i); // get the Edge.
+            // Neighbor will be the currentEdge.Destination
+
+            /* If the neighbor exists in recursionStack.
+             Then return true because there is a cycle.*/
+            if (recursionStack[currentEdge.Destination]) {
+                return true; // Cycle exists
             } else if (!visited[currentEdge.Destination] &&
                     isCyclicUtil(graph, currentEdge.Destination, visited, recursionStack)) {
 
                 return true; // Cycle exists
             }
         }
-        // remove the current node from the recursionStack.
+        // remove the current node from the recursionStack in time of Backtracking.
         recursionStack[currentNode] = false;
         return false; // No cycle exists.
     }
 
-    //O(V + E)
+    // Time Complexity = O(V + E)
     static boolean isCyclicDirected(ArrayList<Edge>[] graph) {
         boolean[] visited = new boolean[graph.length];
 
         for (int i = 0; i < graph.length; i++) {
 
             if (!visited[i]) { // if the current node is not visited
-                boolean cycle = isCyclicUtil(graph,
-                        i, visited, new boolean[visited.length]);
+
+                // Mark the current node as visited & call isCyclicUtil for the current node.
+                boolean cycle = isCyclicUtil(graph, i, visited, new boolean[visited.length]);
 
                 if (cycle) { // Cycle exists
                     return true;
                 }
             }
         }
-        return false;
+        return false; // No cycle exists
     }
 
     public static void main(String[] args) {
+        /*
+
+          1 ---- > 0<-------|
+                   |        3
+                   |        /^
+                   |       /
+                  >|      /
+                   2-----
+        * */
+
         int Vertex = 4;
 
         @SuppressWarnings("unchecked")
