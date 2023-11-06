@@ -2,7 +2,7 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Bridge in Graph (Tarjan’s Algorithm)
+// Bridge in Graph (Tarjan’s Algorithm)********
 public class BridgeInGraphTarjansAlgorithm {
     static class Edge {
         int Source;
@@ -37,35 +37,70 @@ public class BridgeInGraphTarjansAlgorithm {
         graph[3].add(new Edge(3, 4));
     }
 
-    static void dfs(ArrayList<Edge> graph[], boolean vis[], int curr) {
+    static void dfs(ArrayList<Edge> graph[], int curr, int par, boolean vis[], int
+            dt[], int low[], int time) {
         vis[curr] = true;
-        System.out.print(curr+" ");
+        dt[curr] = low[curr] = ++time;
         for(int i=0; i<graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
-            if(!vis[e.Destination]) {
-                dfs(graph, vis, e.Destination);
+            if(e.Destination == par)
+                continue;
+            if(vis[e.Destination]) {
+                low[curr] = Math.min(low[curr], dt[e.Destination]);
+            } else {
+                dfs(graph, e.Destination, curr, vis, dt, low, time);
+                low[curr] = Math.min(low[curr], low[e.Destination]);
+                if(dt[curr] < low[e.Destination]) {
+                    System.out.println("BRIDGE : " + curr + "---" + e.Destination);
+                }
             }
         }
     }
 
-    static void tarjanAlgo(ArrayList<Edge>[] graph) {
-        boolean[] visited = new boolean[graph.length];
-        for (int i = 0; i < graph.length; i++) {
-            if(!visited[i]) {
-                dfs(graph, visited, i);
+
+    static void getBridge(ArrayList<Edge> graph[], int V) {
+        int dt[] = new int[V];
+        int low[] = new int[V];
+        int time = 0;
+        boolean vis[] = new boolean[V];
+        for(int i=0; i<V; i++) {
+            if(!vis[i]) {
+                dfs(graph, i, -1, vis, dt, low, time);
             }
         }
     }
+
+//    static void dfs(ArrayList<Edge> graph[], boolean vis[], int curr) {
+//        vis[curr] = true;
+//        System.out.print(curr+" ");
+//        for(int i=0; i<graph[curr].size(); i++) {
+//            Edge e = graph[curr].get(i);
+//            if(!vis[e.Destination]) {
+//                dfs(graph, vis, e.Destination);
+//            }
+//        }
+//    }
+
+//    static void tarjanAlgo(ArrayList<Edge>[] graph) {
+//        boolean[] visited = new boolean[graph.length];
+//        for (int i = 0; i < graph.length; i++) {
+//            if(!visited[i]) {
+//                dfs(graph, visited, i);
+//            }
+//        }
+//    }
     public static void main(String[] args) {
         int V = 6;
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
-        tarjanAlgo(graph);
+//        tarjanAlgo(graph);
+
+        getBridge(graph, V);
     }
 }
 
 /*Expected Output:
 
-0 2 1 4 3 5
+BRIDGE : 1---4
 
 * */
