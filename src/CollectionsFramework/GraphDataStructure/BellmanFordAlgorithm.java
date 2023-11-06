@@ -42,12 +42,16 @@ public class BellmanFordAlgorithm {
         int[] Destination = new int[graph.length];
         for (int i = 0; i < Destination.length; i++) {
             if (i != Source)
-                Destination[i] = Integer.MAX_VALUE;
+
+                Destination[i] = Integer.MAX_VALUE; // Negative weight cycle
         }
+
         // Time Complexity O(V)
         for (int i = 0; i < graph.length - 1; i++) {
-            //edges - O(E)
+
+            // Edges Time Complexity - O(E)
             for (ArrayList<Edge> edges : graph) {
+
                 for (Edge currentEdge : edges) {
                     int u = currentEdge.Source;
                     int v = currentEdge.Destination;
