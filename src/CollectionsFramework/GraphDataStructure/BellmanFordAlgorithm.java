@@ -3,6 +3,7 @@ package CollectionsFramework.GraphDataStructure;
 import java.util.ArrayList;
 
 // Time Complexity of Bellman-Ford Algorithm is greater than Dijkstra's Algorithm.
+
 /**
  * Bellman Ford's Algorithm works when there is a negative weight edge,
  * <p>
@@ -31,6 +32,18 @@ import java.util.ArrayList;
     for all Edges(U, V) such that,
        if (Distance(U) + Weight(U, V) < Distance(V))
        then Distance(V) = Distance(U) + Weight(U, V).
+
+ Bellman-Ford Algorithm doesn't work when there is a negative weight cycle.
+
+  (A)<--------\
+     \         \c
+     a\         \
+      >\         \
+       (B)--------> (C)
+             b
+
+      if, a + b + c < 0, then there is a negative weight cycle.
+   Bellman-Ford Algorithm doesn't work when there is a negative weight cycle.
     * */
 public class BellmanFordAlgorithm {
     static class Edge {
@@ -63,8 +76,11 @@ public class BellmanFordAlgorithm {
         // for 3 -vertex
         graph[3].add(new Edge(3, 4, 4));
 
-        // for 4 -vertex
-        graph[4].add(new Edge(4, 1, -1));
+        // for 4-vertex
+//        graph[4].add(new Edge(4, 1, -1));
+
+        // For Detecting Negative Weight Cycle replace with 4-vertex
+        graph[4].add(new Edge(4, 1, -10));
     }
 
     // Time Complexity O(V*E) where V is number of vertices and E is numbered of edges.
@@ -112,20 +128,29 @@ public class BellmanFordAlgorithm {
                 }
             }
         }
-        //Detecting Negative Weight Cycle
-//        for (ArrayList<Edge> edges : graph) {
-//            for (Edge currentEdge : edges) {
-//                int u = currentEdge.Source;
-//                int v = currentEdge.Destination;
-//                int wt = currentEdge.Weight;
-//                if (Distance[u] != Integer.MAX_VALUE
-//                        && Distance[u] + wt < Distance[v]) {
-//
-//                    System.out.println("negative weight cycle exists");
-//                    break;
-//                }
-//            }
-//        }
+
+        // For Detecting Negative Weight Cycle.
+        for (ArrayList<Edge> edgesList : graph) {
+
+                /*for (int j = 0; j < graph[edgesList].size(); j++) {
+                    Edge currentEdge = graph[edgesList].get(j);*/
+            for (Edge currentEdge : edgesList) { // get all edges.
+
+                int initialVelocity = currentEdge.Source; // Source as U.
+                int finalVelocity = currentEdge.Destination; // Destination as V.
+                int weight = currentEdge.Weight; // Weight of the Edge.
+
+                // Performing Relaxation of Edges.
+                if (Distance[initialVelocity] != Integer.MAX_VALUE // Additional condition.
+                        // Distance[initialVelocity] should not equal Integer.MAX_VALUE
+
+                        && Distance[initialVelocity] + weight < Distance[finalVelocity]) {
+
+                    System.out.println("Negative Weight Cycle Exists.");
+                    break;
+                }
+            }
+        }
 
         // Printing Shortest Distance
         for (int i = 0; i < Distance.length; i++) {
@@ -159,10 +184,11 @@ public class BellmanFordAlgorithm {
 
 /*Expected Output:
 
+Negative Weight Cycle Exists.
 Shortest Path from Source to Node 0 : 0
-Shortest Path from Source to Node 1 : 2
-Shortest Path from Source to Node 2 : -2
-Shortest Path from Source to Node 3 : 0
-Shortest Path from Source to Node 4 : 4
+Shortest Path from Source to Node 1 : -30
+Shortest Path from Source to Node 2 : -26
+Shortest Path from Source to Node 3 : -24
+Shortest Path from Source to Node 4 : -20
 
 * */
