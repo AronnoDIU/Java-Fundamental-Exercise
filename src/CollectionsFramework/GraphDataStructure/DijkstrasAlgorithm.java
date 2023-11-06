@@ -64,8 +64,10 @@ public class DijkstrasAlgorithm {
      Time Complexity O(V + (E logV)).Because, Priority-Queue shortens an internal pair.
      That's why this Time Complexity is shorting based.*/
     static void Dijkstras(ArrayList<Edge>[] graph, int Source) {
+
         int[] Distance = new int[graph.length]; // Distance from Source to Node.
         boolean[] visited = new boolean[graph.length];
+
         for (int i = 0; i < graph.length; i++) {
             if (i != Source) {
                 // If Node is not equal to Source. Because, Source to Source is always 0.
@@ -90,6 +92,7 @@ public class DijkstrasAlgorithm {
                 // These are the Shortest Path from Source to Node
                 // and the Weight of the Shortest Path for the Next Node/Neighbors.
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
+
                     Edge currentEdge = graph[currentPair.Node].get(i);
 
                     int initialVelocity = currentEdge.Source; // Source as U.
