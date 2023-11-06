@@ -51,28 +51,29 @@ public class CycleDetectionDG {
 //    }
 
     static boolean isCyclicUtil(ArrayList<Edge>[] graph,
-                                int currentNode, boolean[] visited, boolean[] stack) {
+                                int currentNode, boolean[] visited, boolean[] recursionStack) {
 
-        visited[currentNode] = true; // mark the current node as visited.
+        visited[currentNode] = true; // Initially mark the current node as visited.
 
-        stack[currentNode] = true;
+        recursionStack[currentNode] = true;
 
         for (int i = 0; i < graph[currentNode].size(); i++) {
             Edge currentEdge = graph[currentNode].get(i);
-            if (stack[currentEdge.Destination]) { //cycle exists
+            if (recursionStack[currentEdge.Destination]) { //cycle exists
                 return true;
-            } else if (!visited[currentEdge.Destination]
-                    && isCyclicUtil(graph, currentEdge.Destination, visited, stack)) {
+            } else if (!visited[currentEdge.Destination] &&
+                    isCyclicUtil(graph, currentEdge.Destination, visited, recursionStack)) {
 
                 return true; // Cycle exists
             }
         }
-        stack[currentNode] = false; // remove the current node from the stack.
+        // remove the current node from the recursionStack.
+        recursionStack[currentNode] = false;
         return false; // No cycle exists.
     }
 
     //O(V + E)
-    static boolean isCyclic(ArrayList<Edge>[] graph) {
+    static boolean isCyclicDirected(ArrayList<Edge>[] graph) {
         boolean[] visited = new boolean[graph.length];
 
         for (int i = 0; i < graph.length; i++) {
@@ -95,7 +96,7 @@ public class CycleDetectionDG {
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
-        System.out.println(isCyclic(graph));
+        System.out.println(isCyclicDirected(graph));
     }
 }
 
