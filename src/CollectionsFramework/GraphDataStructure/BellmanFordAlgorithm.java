@@ -69,50 +69,68 @@ public class BellmanFordAlgorithm {
 
     // Time Complexity O(V*E) where V is number of vertices and E is numbered of edges.
     static void bellmanFord(ArrayList<Edge>[] graph, int Source) {
-        int[] Destination = new int[graph.length];
-        for (int i = 0; i < Destination.length; i++) {
-            if (i != Source)
 
-                Destination[i] = Integer.MAX_VALUE; // Negative weight cycle
+        // graph.length = Total number of vertices.
+        int[] Distance = new int[graph.length];
+
+        // Initialized all distances as INFINITE.
+        for (int i = 0; i < Distance.length; i++) {
+            // Distance.length == Total number of vertices == graph.length.
+
+            if (i != Source) // If Node is not equal to Source.
+
+                // Initialized Negative to positive weight.
+                Distance[i] = Integer.MAX_VALUE;
         }
 
-        // Time Complexity O(V)
+        // Bellman-Ford Algorithm for Outer Loop.
+        // N-1 times, N = Total Number of Vertices.
         for (int i = 0; i < graph.length - 1; i++) {
+            // graph.length = Total number of vertices.
 
-            // Edges Time Complexity - O(E)
-            for (ArrayList<Edge> edges : graph) {
+            // To find all Edges from Vertices.
+            // graph.length = Total number of vertices.
+            for (ArrayList<Edge> edgesList : graph) {
 
-                for (Edge currentEdge : edges) {
-                    int u = currentEdge.Source;
-                    int v = currentEdge.Destination;
-                    int wt = currentEdge.Weight;
-                    if (Destination[u] != Integer.MAX_VALUE
-                            && Destination[u] + wt < Destination[v]) {
+                /*for (int j = 0; j < graph[edgesList].size(); j++) {
+                    Edge currentEdge = graph[edgesList].get(j);*/
+                for (Edge currentEdge : edgesList) { // get all edges.
 
-                        Destination[v] = Destination[u] + wt;
+                    int initialVelocity = currentEdge.Source; // Source as U.
+                    int finalVelocity = currentEdge.Destination; // Destination as V.
+                    int weight = currentEdge.Weight; // Weight of the Edge.
+
+                    // Performing Relaxation of Edges.
+                    if (Distance[initialVelocity] != Integer.MAX_VALUE // Additional condition.
+                            // Distance[initialVelocity] should not equal Integer.MAX_VALUE
+
+                            && Distance[initialVelocity] + weight < Distance[finalVelocity]) {
+
+                        // Update Distance of Path from initialV to finalVelocity.
+                        Distance[finalVelocity] = Distance[initialVelocity] + weight;
                     }
                 }
             }
         }
         //Detecting Negative Weight Cycle
-        for (ArrayList<Edge> edges : graph) {
-            for (Edge currentEdge : edges) {
-                int u = currentEdge.Source;
-                int v = currentEdge.Destination;
-                int wt = currentEdge.Weight;
-                if (Destination[u] != Integer.MAX_VALUE
-                        && Destination[u] + wt < Destination[v]) {
-
-                    System.out.println("negative weight cycle exists");
-                    break;
-                }
-            }
-        }
+//        for (ArrayList<Edge> edges : graph) {
+//            for (Edge currentEdge : edges) {
+//                int u = currentEdge.Source;
+//                int v = currentEdge.Destination;
+//                int wt = currentEdge.Weight;
+//                if (Distance[u] != Integer.MAX_VALUE
+//                        && Distance[u] + wt < Distance[v]) {
+//
+//                    System.out.println("negative weight cycle exists");
+//                    break;
+//                }
+//            }
+//        }
 
         // Printing Shortest Distance
-        for (int i = 0; i < Destination.length; i++) {
+        for (int i = 0; i < Distance.length; i++) {
             System.out.println("Shortest Path from Source to Node "
-                    + i + " : " + Destination[i]);
+                    + i + " : " + Distance[i]);
         }
     }
 
