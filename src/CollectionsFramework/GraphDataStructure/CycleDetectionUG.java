@@ -2,7 +2,7 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Cycle Detection (Undirected Graph)
+// Cycle Detection (Undirected Graph) using Modified Depth-First Search.
 public class CycleDetectionUG {
     static class Edge {
         int Source;
@@ -21,50 +21,68 @@ public class CycleDetectionUG {
 
         // for 0 -vertex
         graph[0].add(new Edge(0, 1));
-        graph[0].add(new Edge(0, 2));
-        graph[0].add(new Edge(0, 3));
+        graph[0].add(new Edge(0, 4));
+//        graph[0].add(new Edge(0, 3));
 
         // for 1 -vertex
         graph[1].add(new Edge(1, 0));
         graph[1].add(new Edge(1, 2));
+        graph[1].add(new Edge(1, 4));
 
         // for 2 -vertex
-        graph[2].add(new Edge(2, 0));
         graph[2].add(new Edge(2, 1));
+        graph[2].add(new Edge(2, 3));
 
         // for 3 -vertex
-        graph[3].add(new Edge(3, 0));
-        graph[3].add(new Edge(3, 4));
+        graph[3].add(new Edge(3, 2));
+//        graph[3].add(new Edge(3, 4));
 
         // for 4 -vertex
-        graph[4].add(new Edge(4, 3));
+        graph[4].add(new Edge(4, 0));
+        graph[4].add(new Edge(4, 1));
+        graph[4].add(new Edge(4, 5));
+
+        // for 5-vertex
+//        graph[5].add(new Edge(5, 3));
+        graph[5].add(new Edge(5, 4));
+//        graph[5].add(new Edge(5, 6));
     }
 
-    static boolean isCyclicUtil(ArrayList<Edge>[] graph, boolean[] visited, int
-            currentNode, int pair) {
-        visited[currentNode] = true;
+    static boolean isCyclicUtil(ArrayList<Edge>[] graph,
+                                boolean[] visited, int currentNode, int Parent) {
+
+        visited[currentNode] = true; // Initially mark the current node as visited.
+
         for (int i = 0; i < graph[currentNode].size(); i++) {
-            Edge currentEdge = graph[currentNode].get(i);
-            //case1
-            if (visited[currentEdge.Destination] && currentEdge.Destination != pair) {
-                boolean isCycle = isCyclicUtil(graph, visited, currentEdge.Destination, currentNode);
-                if (isCycle)
+
+            Edge currentEdge = graph[currentNode].get(i); // Get the current edge.
+            // Neighbor will be the currentEdge.Destination
+
+            // Case 1-> if the neighbor is already visited & != Parent
+            if (visited[currentEdge.Destination] && currentEdge.Destination != Parent) {
+
+                boolean isCycle = isCyclicUtil(graph,
+                        visited, currentEdge.Destination, currentNode);
+
+                if (isCycle) // Cycle exists
                     return true;
             }
-//            else if (currentEdge.Destination == pair) {
-//                //case 2
+
+            // Case 2-> if the neighbor is not visited & == Parent
+//            else if (currentEdge.Destination == Parent) {
 //                continue;
 //            }
+
+            // Case 3-> if the neighbor is not visited & != Parent
             else {
-                //case 3
-                return true;
+                return true; // Cycle exists
             }
         }
         return false;
     }
 
     // Time Complexity = O(V+E)
-    static boolean isCyclic(ArrayList<Edge>[] graph, boolean[] visited) {
+    static boolean isCyclicUndirected(ArrayList<Edge>[] graph, boolean[] visited) {
         for (int i = 0; i < graph.length; i++) {
             if (isCyclicUtil(graph, visited, i, -1)) {
                 return true;
@@ -75,20 +93,22 @@ public class CycleDetectionUG {
 
     public static void main(String[] args) {
         /*
-             0 -------  3
+             1 -------  2
            / |          |
           /  |          |
-        1    |          4
+        0    |          3
           \  |
            \ |
-             2
+             4--------5
         */
-        int V = 5;
+
+        int Vertex = 6; // Number of vertices
 
         @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] graph = new ArrayList[V];
-        createGraph(graph);
-        System.out.println(isCyclic(graph, new boolean[V]));
+        ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Undirected Adjacency List
+
+        createGraph(graph); // Calling the function to create the graph.
+        System.out.println(isCyclicUndirected(graph, new boolean[Vertex]));
     }
 }
 
