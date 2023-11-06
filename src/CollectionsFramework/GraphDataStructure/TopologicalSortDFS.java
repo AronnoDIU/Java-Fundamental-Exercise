@@ -3,7 +3,8 @@ package CollectionsFramework.GraphDataStructure;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class TopologicalSortBFSExtra {
+// Topological Sort (Directed Graph) using Modified Depth-First Search.
+public class TopologicalSortDFS {
     static class Edge {
         int Source;
         int Destination;
@@ -34,6 +35,7 @@ public class TopologicalSortBFSExtra {
         graph[5].add(new Edge(5, 2));
     }
 
+    // Time Complexity = O(V+E)
     static void topologicalSortUtil(ArrayList<Edge>[] graph, int currentVertex,
                                     boolean[] visited, Stack<Integer> integerStack) {
         visited[currentVertex] = true;
@@ -47,7 +49,7 @@ public class TopologicalSortBFSExtra {
         integerStack.push(currentVertex);
     }
 
-    //O(V+E)
+    // Time Complexity = O(V+E)
     static void topologicalSort(ArrayList<Edge>[] graph) {
         boolean[] InDegree = new boolean[graph.length];
         Stack<Integer> integerStack = new Stack<>();
@@ -58,7 +60,7 @@ public class TopologicalSortBFSExtra {
             }
         }
 
-        // BFS traversal.
+        // DFS traversal.
         while (!integerStack.isEmpty()) {
             System.out.print(integerStack.pop() + " ");
         }
@@ -74,9 +76,12 @@ public class TopologicalSortBFSExtra {
              >              <
              2---->3------->1
          */
+
         int Vertex = 6;
+
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex]; // Adjacency List.
+
         createGraph(graph); // Calling the function to create the graph.
         topologicalSort(graph);
     }
