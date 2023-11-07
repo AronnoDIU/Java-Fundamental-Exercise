@@ -87,16 +87,20 @@ public class PrimsAlgorithmMST {
 
         pairQueue.add(new Pair(0, 0));
 
-        int cost = 0;
+        int minimumCost = 0;
 
+        // if a Non-MST set is not empty.
         while (!pairQueue.isEmpty()) {
 
+            // Priority Queue returns Minimum Costs pair by default.
             Pair currentPair = pairQueue.remove();
 
+            // if the Non-MST set is not visited.
             if (!visited[currentPair.Node]) {
 
+                // Add the Node to the MST set.
                 visited[currentPair.Node] = true;
-                cost += currentPair.nodeWeight;
+                minimumCost += currentPair.nodeWeight; // Track the Cost.
 
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
 
@@ -110,7 +114,7 @@ public class PrimsAlgorithmMST {
                 }
             }
         }
-        System.out.println(cost);
+        System.out.println(minimumCost);
     }
 
     public static void main(String[] args) {
