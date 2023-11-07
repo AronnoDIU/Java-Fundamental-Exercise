@@ -110,6 +110,20 @@ public class PrimsAlgorithmMST {
     }
 
     public static void main(String[] args) {
+        /*
+
+                      0
+                  /   |   \
+               10/    |    \15
+                /     |     \
+               1      |30    2
+                \     |     /
+               40\    |    /50
+                  \   |   /
+                      3
+
+        */
+
         int Vertex = 4;
 
         @SuppressWarnings("unchecked")
