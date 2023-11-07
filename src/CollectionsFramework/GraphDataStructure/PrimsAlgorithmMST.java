@@ -26,17 +26,19 @@ import java.util.PriorityQueue;
  */
 public class PrimsAlgorithmMST {
     static class Edge {
-        int src;
-        int dest;
-        int wt;
-        public Edge(int s, int d, int w) {
-            this.src = s;
-            this.dest = d;
-            this.wt = w;
+        int Source;
+        int Destination;
+        int Weight;
+
+        public Edge(int source, int destination, int weight) {
+            Source = source;
+            Destination = destination;
+            Weight = weight;
         }
     }
+
     static void createGraph(ArrayList<Edge> graph[]) {
-        for(int i=0; i<graph.length; i++) {
+        for (int i = 0; i < graph.length; i++) {
             graph[i] = new ArrayList<>();
         }
         graph[0].add(new Edge(0, 1, 10));
@@ -49,39 +51,44 @@ public class PrimsAlgorithmMST {
         graph[3].add(new Edge(3, 1, 40));
         graph[3].add(new Edge(3, 2, 50));
     }
+
     static class Pair implements Comparable<Pair> {
         int v;
         int wt;
+
         public Pair(int v, int wt) {
             this.v = v;
             this.wt = wt;
         }
+
         @Override
         public int compareTo(Pair p2) {
             return this.wt - p2.wt;
         }
     }
+
     //O(ElogE)
     public static void primAlgo(ArrayList<Edge> graph[]) {
         boolean vis[] = new boolean[graph.length];
         PriorityQueue<Pair> pq = new PriorityQueue<>();
         pq.add(new Pair(0, 0));
         int cost = 0;
-        while(!pq.isEmpty()) {
+        while (!pq.isEmpty()) {
             Pair curr = pq.remove();
-            if(!vis[curr.v]) {
+            if (!vis[curr.v]) {
                 vis[curr.v] = true;
                 cost += curr.wt;
-                for(int i=0; i<graph[curr.v].size(); i++) {
+                for (int i = 0; i < graph[curr.v].size(); i++) {
                     Edge e = graph[curr.v].get(i);
-                    if(!vis[e.dest]) {
-                        pq.add(new Pair(e.dest, e.wt));
+                    if (!vis[e.Destination]) {
+                        pq.add(new Pair(e.Destination, e.Weight));
                     }
                 }
             }
         }
         System.out.println(cost);
     }
+
     public static void main(String[] args) {
         int V = 4;
         ArrayList<Edge> graph[] = new ArrayList[V];
