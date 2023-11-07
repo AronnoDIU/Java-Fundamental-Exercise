@@ -62,16 +62,16 @@ public class PrimsAlgorithmMST {
 
     static class Pair implements Comparable<Pair> {
         int Node;
-        int nodeWeight;
+        int nodeCost;
 
-        public Pair(int node, int nodeWeight) {
+        public Pair(int node, int nodeCost) {
             Node = node;
-            this.nodeWeight = nodeWeight;
+            this.nodeCost = nodeCost;
         }
 
         @Override
         public int compareTo(Pair compareWeight) {
-            return this.nodeWeight - compareWeight.nodeWeight;
+            return this.nodeCost - compareWeight.nodeCost;
         }
     }
 
@@ -87,7 +87,7 @@ public class PrimsAlgorithmMST {
 
         pairQueue.add(new Pair(0, 0));
 
-        int minimumCost = 0;
+        int cost = 0;
 
         // if a Non-MST set is not empty.
         while (!pairQueue.isEmpty()) {
@@ -100,7 +100,7 @@ public class PrimsAlgorithmMST {
 
                 // Add the Node to the MST set.
                 visited[currentPair.Node] = true;
-                minimumCost += currentPair.nodeWeight; // Track the Cost.
+                cost += currentPair.nodeCost; // Track the cost.
 
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
 
@@ -114,7 +114,7 @@ public class PrimsAlgorithmMST {
                 }
             }
         }
-        System.out.println(minimumCost);
+        System.out.println(cost);
     }
 
     public static void main(String[] args) {
