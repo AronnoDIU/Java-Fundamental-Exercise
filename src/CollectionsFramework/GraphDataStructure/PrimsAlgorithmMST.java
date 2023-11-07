@@ -61,17 +61,17 @@ public class PrimsAlgorithmMST {
     }
 
     static class Pair implements Comparable<Pair> {
-        int v;
-        int wt;
+        int Node;
+        int nodeWeight;
 
-        public Pair(int v, int wt) {
-            this.v = v;
-            this.wt = wt;
+        public Pair(int node, int nodeWeight) {
+            Node = node;
+            this.nodeWeight = nodeWeight;
         }
 
         @Override
-        public int compareTo(Pair p2) {
-            return this.wt - p2.wt;
+        public int compareTo(Pair compareWeight) {
+            return this.nodeWeight - compareWeight.nodeWeight;
         }
     }
 
@@ -79,8 +79,11 @@ public class PrimsAlgorithmMST {
     static void primsAlgorithm(ArrayList<Edge>[] graph) {
 
         boolean[] visited = new boolean[graph.length];
+        // Playing a role as a MST set.
 
+        // Priority Queue best uses it for Shortest Path repeated times.
         PriorityQueue<Pair> pairQueue = new PriorityQueue<>();
+        // Playing a role as a Non-MST set.
 
         pairQueue.add(new Pair(0, 0));
 
@@ -88,20 +91,21 @@ public class PrimsAlgorithmMST {
 
         while (!pairQueue.isEmpty()) {
 
-            Pair curr = pairQueue.remove();
+            Pair currentPair = pairQueue.remove();
 
-            if (!visited[curr.v]) {
+            if (!visited[currentPair.Node]) {
 
-                visited[curr.v] = true;
-                cost += curr.wt;
+                visited[currentPair.Node] = true;
+                cost += currentPair.nodeWeight;
 
-                for (int i = 0; i < graph[curr.v].size(); i++) {
+                for (int i = 0; i < graph[currentPair.Node].size(); i++) {
 
-                    Edge currentEdge = graph[curr.v].get(i);
+                    Edge currentEdge = graph[currentPair.Node].get(i);
 
                     if (!visited[currentEdge.Destination]) {
 
-                        pairQueue.add(new Pair(currentEdge.Destination, currentEdge.Weight));
+                        pairQueue.add(
+                                new Pair(currentEdge.Destination, currentEdge.Weight));
                     }
                 }
             }
