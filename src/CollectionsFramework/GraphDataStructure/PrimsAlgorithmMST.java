@@ -24,7 +24,7 @@ import java.util.PriorityQueue;
  * <p>
  * Time Complexity of Kruskal's Algorithm is O(ElogE).
  */
-public class PrimsAlgorithm {
+public class PrimsAlgorithmMST {
     static class Edge {
         int src;
         int dest;
