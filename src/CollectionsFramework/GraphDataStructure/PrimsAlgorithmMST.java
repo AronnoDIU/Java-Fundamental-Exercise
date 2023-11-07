@@ -87,7 +87,7 @@ public class PrimsAlgorithmMST {
 
         pairQueue.add(new Pair(0, 0));
 
-        int cost = 0;
+        int minimumCost = 0;
 
         // if a Non-MST set is not empty.
         while (!pairQueue.isEmpty()) {
@@ -100,21 +100,26 @@ public class PrimsAlgorithmMST {
 
                 // Add the Node to the MST set.
                 visited[currentPair.Node] = true;
-                cost += currentPair.nodeCost; // Track the cost.
+                minimumCost += currentPair.nodeCost; // Track the minimumCost.
 
+                // Add the Edge to the Non-MST set.
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
 
+                    // Get the Edge from the Non-MST set.
                     Edge currentEdge = graph[currentPair.Node].get(i);
 
+                    // if the Non-MST set is not visited.
                     if (!visited[currentEdge.Destination]) {
 
-                        pairQueue.add(
-                                new Pair(currentEdge.Destination, currentEdge.Weight));
+                        // Add the Edge to the Non-MST set.
+                        pairQueue.add(new Pair
+                                (currentEdge.Destination, currentEdge.Weight));
                     }
                 }
             }
         }
-        System.out.println(cost);
+        // Print the minimumCost.
+        System.out.println("Minimum Edge weight is: " + minimumCost);
     }
 
     public static void main(String[] args) {
@@ -138,12 +143,12 @@ public class PrimsAlgorithmMST {
         ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
 
-        primsAlgorithm(graph);
+        primsAlgorithm(graph); // Time Complexity O(ElogE)
     }
 }
 
 /*Expected Output:
 
-55
+Minimum Edge weight is: 55
 
 * */
