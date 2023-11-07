@@ -3,7 +3,27 @@ package CollectionsFramework.GraphDataStructure;
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
-// Prim’s Algorithm (Minimum Spanning Tree)
+/**
+ * Minimum-Spanning Tree (Prims Algorithm):
+ * <p></p>
+ * Minimum Spanning Tree is a subgraph of Weighted Graph.
+ * <p>
+ * All vertices of Minimum Spanning Tree are connected with Minimum Spanning Tree.
+ * <p>
+ * There is no cycle in the Minimum-Spanning Tree.
+ * <p>
+ * Minimum Edge weight is used in Kruskal's Algorithm.
+ * <p></p>
+ * 3 rules for Kruskal's Algorithm:
+ * <p></p>
+ * Must be used Undirected Graph in Kruskal's Algorithm.
+ * <p>
+ * All Edges must be Unique & Must be connected.
+ * <p>
+ * All Vertices must be weighted.
+ * <p>
+ * Time Complexity of Kruskal's Algorithm is O(ElogE).
+ */
 public class PrimsAlgorithm {
     static class Edge {
         int src;
