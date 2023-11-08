@@ -39,35 +39,56 @@ public class BridgeInGraphTarjansAlgorithm {
         graph[3].add(new Edge(3, 4));
     }
 
-    static void dfs(ArrayList<Edge>[] graph, int curr, int par, boolean[] vis, int[]
-            dt, int[] low, int time) {
-        vis[curr] = true;
-        dt[curr] = low[curr] = ++time;
-        for(int i=0; i<graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            if(e.Destination == par)
-                continue;
-            if(vis[e.Destination]) {
-                low[curr] = Math.min(low[curr], dt[e.Destination]);
+    static void dfs(ArrayList<Edge>[] graph, int currentNode, int parent, boolean[] visited,
+                    int[] discoveryTime, int[] lowestDiscoveryTime, int timeTracker) {
+
+        visited[currentNode] = true; // Initially mark the current node as visited.
+        discoveryTime[currentNode] = lowestDiscoveryTime[currentNode] = ++timeTracker;
+        // Discovery Time will be increased by 1 after visiting all its neighbors.
+        // Lowest Discovery Time of all neighbors[including current node].
+
+        for (int i = 0; i < graph[currentNode].size(); i++) {
+
+            Edge currentEdge = graph[currentNode].get(i);
+            // Neighbor will be the currentEdge.Destination
+
+            if (currentEdge.Destination == parent)
+                continue; // Skip the parent.
+            if (visited[currentEdge.Destination]) {
+
+                // Here, currentNode => currentEdge.Destination
+                lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
+                        [currentNode], discoveryTime[currentEdge.Destination]);
+
             } else {
-                dfs(graph, e.Destination, curr, vis, dt, low, time);
-                low[curr] = Math.min(low[curr], low[e.Destination]);
-                if(dt[curr] < low[e.Destination]) {
-                    System.out.println("BRIDGE : " + curr + "---" + e.Destination);
+                dfs(graph, currentEdge.Destination, currentNode, visited,
+                        discoveryTime, lowestDiscoveryTime, timeTracker);
+
+                lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
+                        [currentNode], lowestDiscoveryTime[currentEdge.Destination]);
+
+                if (discoveryTime[currentNode] <
+                        lowestDiscoveryTime[currentEdge.Destination]) {
+
+                    System.out.println("BRIDGE : " + currentNode + "---" +
+                            currentEdge.Destination);
                 }
             }
         }
     }
 
 
-    static void getBridge(ArrayList<Edge>[] graph, int V) {
-        int[] dt = new int[V];
-        int[] low = new int[V];
+    static void getBridge(ArrayList<Edge>[] graph, int Vertex) {
+        int[] discoveryTime = new int[Vertex];
+        int[] lowestDiscoveryTime = new int[Vertex];
         int time = 0;
-        boolean[] vis = new boolean[V];
-        for(int i=0; i<V; i++) {
-            if(!vis[i]) {
-                dfs(graph, i, -1, vis, dt, low, time);
+        boolean[] visited = new boolean[Vertex];
+
+        for (int i = 0; i < Vertex; i++) {
+
+            // If a vertex is not visited yet, then call dfs() function.
+            if (!visited[i]) {
+                dfs(graph, i, -1, visited, discoveryTime, lowestDiscoveryTime, time);
             }
         }
     }
@@ -83,7 +104,7 @@ public class BridgeInGraphTarjansAlgorithm {
 //        }
 //    }
 
-//    static void tarjanAlgo(ArrayList<Edge>[] graph) {
+    //    static void tarjanAlgo(ArrayList<Edge>[] graph) {
 //        boolean[] visited = new boolean[graph.length];
 //        for (int i = 0; i < graph.length; i++) {
 //            if(!visited[i]) {
@@ -101,9 +122,18 @@ public class BridgeInGraphTarjansAlgorithm {
         | /                |
         2                  4
 
+
+        1------------0----------3\
+        |          /            |  \
+        |        /              |   \
+        |      /                |     5
+        |    /                  |    /
+        |  /                    |  /
+        2                       4/
+
         */
 
-        int Vertex = 6;
+        int Vertex = 5;
 
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] graph = new ArrayList[Vertex];
