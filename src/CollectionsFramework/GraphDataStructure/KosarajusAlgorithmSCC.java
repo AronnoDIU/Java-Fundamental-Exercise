@@ -7,11 +7,27 @@ import java.util.Stack;
  * Kosaraju-Sharir's Algorithm (Strongly Connected Components)
  * Kosaraju's algorithm) is a linear time algorithm to find
  * the strongly connected components of a directed graph.
+ * <p>
+ * 3 Steps to find Strongly Connected Components:
+ * <p>
+ * 1. Get nodes in stack (as stored topological sort).
+ * <p>
+ * 2. Transpose the graph[N.B. if a Matrix is 3*3 then transpose is 4*3, Reversed].
+ * <p>
+ * 3. Do DFS according to the stack nodes on the transposed graph.
  */
 /* Using Modified Depth-First Search (DFS) algorithm.
  For finding Strongly Connected Components.
  First visit a vertex, which has no outgoing edges.(A Reversed DFS).
- Then visit all the vertices which are reachable from this vertex.*/
+ Then visit all the vertices which are reachable from this vertex.
+
+ Transpose the graph[N.B. if a Matrix is 3*3 then transpose is 4*3, Reversed].
+ (Two or more things to exchange places are called Transpose)
+ (Transpose in Graph: if A is connected to B then B is connected to A)
+ (So we need to reverse the direction of the edges in the graph to make it transposed).
+
+ Strongly Connected Components: Only for directed graphs.
+ */
 public class KosarajusAlgorithmSCC {
     static class Edge {
         int Source;
