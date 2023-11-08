@@ -8,7 +8,10 @@ import java.util.Stack;
  * Kosaraju's algorithm) is a linear time algorithm to find
  * the strongly connected components of a directed graph.
  */
-// Using Modified Depth-First Search (DFS) algorithm.
+/* Using Modified Depth-First Search (DFS) algorithm.
+ For finding Strongly Connected Components.
+ First visit a vertex, which has no outgoing edges.(A Reversed DFS).
+ Then visit all the vertices which are reachable from this vertex.*/
 public class KosarajusAlgorithmSCC {
     static class Edge {
         int Source;
