@@ -2,7 +2,9 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Bridge in Graph (Tarjan’s Algorithm)********
+// Bridge in Graph (Tarjan’s Algorithm)
+// Bridge in Graph is a subgraph of Weighted Graph.
+// Bridge is an edge whose deletion increases the graph's number of connected components.
 public class BridgeInGraphTarjansAlgorithm {
     static class Edge {
         int Source;
@@ -37,8 +39,8 @@ public class BridgeInGraphTarjansAlgorithm {
         graph[3].add(new Edge(3, 4));
     }
 
-    static void dfs(ArrayList<Edge> graph[], int curr, int par, boolean vis[], int
-            dt[], int low[], int time) {
+    static void dfs(ArrayList<Edge>[] graph, int curr, int par, boolean[] vis, int[]
+            dt, int[] low, int time) {
         vis[curr] = true;
         dt[curr] = low[curr] = ++time;
         for(int i=0; i<graph[curr].size(); i++) {
@@ -58,11 +60,11 @@ public class BridgeInGraphTarjansAlgorithm {
     }
 
 
-    static void getBridge(ArrayList<Edge> graph[], int V) {
-        int dt[] = new int[V];
-        int low[] = new int[V];
+    static void getBridge(ArrayList<Edge>[] graph, int V) {
+        int[] dt = new int[V];
+        int[] low = new int[V];
         int time = 0;
-        boolean vis[] = new boolean[V];
+        boolean[] vis = new boolean[V];
         for(int i=0; i<V; i++) {
             if(!vis[i]) {
                 dfs(graph, i, -1, vis, dt, low, time);
@@ -90,12 +92,25 @@ public class BridgeInGraphTarjansAlgorithm {
 //        }
 //    }
     public static void main(String[] args) {
-        int V = 6;
-        ArrayList<Edge> graph[] = new ArrayList[V];
+        /*
+
+        1-------- 0--------3
+        |       /          |
+        |     /            |
+        |   /              |
+        | /                |
+        2                  4
+
+        */
+
+        int Vertex = 6;
+
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
 //        tarjanAlgo(graph);
 
-        getBridge(graph, V);
+        getBridge(graph, Vertex);
     }
 }
 
