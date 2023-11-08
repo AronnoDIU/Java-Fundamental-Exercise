@@ -3,10 +3,13 @@ package CollectionsFramework.GraphDataStructure;
 import java.util.ArrayList;
 import java.util.Stack;
 
-// Kosaraju-Sharir's Algorithm (Strongly Connected Components)
-// Kosaraju's algorithm) is a linear time algorithm to find
-// the strongly connected components of a directed graph.
-public class KosarajusAlgorithm {
+/**
+ * Kosaraju-Sharir's Algorithm (Strongly Connected Components)
+ * Kosaraju's algorithm) is a linear time algorithm to find
+ * the strongly connected components of a directed graph.
+ */
+// Using Modified Depth-First Search (DFS) algorithm.
+public class KosarajusAlgorithmSCC {
     static class Edge {
         int Source;
         int Destination;
@@ -36,48 +39,54 @@ public class KosarajusAlgorithm {
         graph[3].add(new Edge(3, 4));
     }
 
-    static void topSort(ArrayList<Edge>[] graph, int curr, Stack<Integer> s,
-                        boolean[] vis) {
-        vis[curr] = true;
+    static void topSort(ArrayList<Edge>[] graph,
+                        int curr, Stack<Integer> s, boolean[] visited) {
+        visited[curr] = true;
         for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
-            if (!vis[e.Destination]) {
-                topSort(graph, e.Destination, s, vis);
+            if (!visited[e.Destination]) {
+                topSort(graph, e.Destination, s, visited);
             }
         }
         s.push(curr);
     }
 
-    static void dfs(ArrayList<Edge>[] graph, boolean[] vis, int curr) {
-        vis[curr] = true;
+    static void dfs(ArrayList<Edge>[] graph, boolean[] visited, int curr) {
+
+        visited[curr] = true;
         System.out.print(curr + " ");
+
         for (int i = 0; i < graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            if (!vis[e.Destination]) {
-                dfs(graph, vis, e.Destination);
+
+            Edge currentEdge = graph[curr].get(i);
+
+            if (!visited[currentEdge.Destination]) {
+                dfs(graph, visited, currentEdge.Destination);
             }
         }
     }
 
-    static void kosaraju(ArrayList<Edge>[] graph, int V) {
+    static void KosarajusAlgorithm(ArrayList<Edge>[] graph, int Vertex) {
 
         // Step 1
         Stack<Integer> s = new Stack<>();
-        boolean[] vis = new boolean[V];
-        for (int i = 0; i < V; i++) {
-            if (!vis[i]) {
-                topSort(graph, i, s, vis);
+        boolean[] visited = new boolean[Vertex];
+        for (int i = 0; i < Vertex; i++) {
+            if (!visited[i]) {
+                topSort(graph, i, s, visited);
             }
         }
 
         //Step 2
         @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] transpose = new ArrayList[V];
-        for (int i = 0; i < V; i++) {
+        ArrayList<Edge>[] transpose = new ArrayList[Vertex];
+        for (int i = 0; i < Vertex; i++) {
             transpose[i] = new ArrayList<>();
         }
-        for (int i = 0; i < V; i++) {
-            vis[i] = false;
+        for (int i = 0; i < Vertex; i++) {
+
+            visited[i] = false;
+
             for (int j = 0; j < graph[i].size(); j++) {
                 Edge e = graph[i].get(j);
                 transpose[e.Destination].add(new Edge(e.Destination, e.Source));
@@ -86,21 +95,32 @@ public class KosarajusAlgorithm {
         // Step 3
         while (!s.isEmpty()) {
             int curr = s.pop();
-            if (!vis[curr]) {
+            if (!visited[curr]) {
                 System.out.print("SCC : ");
-                dfs(transpose, vis, curr);
+                dfs(transpose, visited, curr);
                 System.out.println();
             }
         }
     }
 
     public static void main(String[] args) {
-        int V = 5;
+        /*
+
+        1 ---- > 0 -------> 3
+       ^|      /            |
+        |    /              |
+        |  /<               |<
+        2                   4
+
+        */
+
+        int Vertex = 5;
 
         @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] graph = new ArrayList[V];
+        ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
-        kosaraju(graph, V);
+
+        KosarajusAlgorithm(graph, Vertex); // Time Complexity O(V+E)
     }
 }
 
