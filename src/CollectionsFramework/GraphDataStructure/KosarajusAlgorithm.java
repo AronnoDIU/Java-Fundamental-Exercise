@@ -8,80 +8,97 @@ import java.util.Stack;
 // the strongly connected components of a directed graph.
 public class KosarajusAlgorithm {
     static class Edge {
-        int src;
-        int dest;
-        public Edge(int s, int d) {
-            this.src = s;
-            this.dest = d;
+        int Source;
+        int Destination;
+
+        public Edge(int source, int destination) {
+            Source = source;
+            Destination = destination;
         }
     }
-    public static void createGraph(ArrayList<Edge> graph[]) {
-        for(int i=0; i<graph.length; i++) {
-            graph[i] = new ArrayList<Edge>();
+
+    static void createGraph(ArrayList<Edge>[] graph) {
+        for (int i = 0; i < graph.length; i++) {
+            graph[i] = new ArrayList<>();
         }
+
+        // for 0 -vertex
         graph[0].add(new Edge(0, 2));
         graph[0].add(new Edge(0, 3));
+
+        // for 1 -vertex
         graph[1].add(new Edge(1, 0));
+
+        // for 2 -vertex
         graph[2].add(new Edge(2, 1));
+
+        // for 3 -vertex
         graph[3].add(new Edge(3, 4));
     }
-    public static void topSort(ArrayList<Edge> graph[], int curr, Stack<Integer> s,
-                               boolean vis[]) {
+
+    static void topSort(ArrayList<Edge>[] graph, int curr, Stack<Integer> s,
+                        boolean[] vis) {
         vis[curr] = true;
-        for(int i=0; i<graph[curr].size(); i++) {
+        for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
-            if(!vis[e.dest]) {
-                topSort(graph, e.dest, s, vis);
+            if (!vis[e.Destination]) {
+                topSort(graph, e.Destination, s, vis);
             }
         }
         s.push(curr);
     }
-    public static void dfs(ArrayList<Edge> graph[], boolean vis[], int curr) {
+
+    static void dfs(ArrayList<Edge>[] graph, boolean[] vis, int curr) {
         vis[curr] = true;
-        System.out.print(curr+" ");
-        for(int i=0; i<graph[curr].size(); i++) {
+        System.out.print(curr + " ");
+        for (int i = 0; i < graph[curr].size(); i++) {
             Edge e = graph[curr].get(i);
-            if(!vis[e.dest]) {
-                dfs(graph, vis, e.dest);
+            if (!vis[e.Destination]) {
+                dfs(graph, vis, e.Destination);
             }
         }
     }
-    public static void kosaraju(ArrayList<Edge> graph[], int V) {
-//Step1
+
+    static void kosaraju(ArrayList<Edge>[] graph, int V) {
+
+        // Step 1
         Stack<Integer> s = new Stack<>();
-        boolean vis[] = new boolean[V];
-        for(int i=0; i<V; i++) {
-            if(!vis[i]) {
+        boolean[] vis = new boolean[V];
+        for (int i = 0; i < V; i++) {
+            if (!vis[i]) {
                 topSort(graph, i, s, vis);
             }
         }
-//Step2
-        ArrayList<Edge> transpose[] = new ArrayList[V];
-        for(int i=0; i<V; i++) {
-            transpose[i] = new ArrayList<Edge>();
+
+        //Step 2
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge>[] transpose = new ArrayList[V];
+        for (int i = 0; i < V; i++) {
+            transpose[i] = new ArrayList<>();
         }
-        for(int i=0; i<V; i++) {
+        for (int i = 0; i < V; i++) {
             vis[i] = false;
-            for(int j=0; j<graph[i].size(); j++) {
+            for (int j = 0; j < graph[i].size(); j++) {
                 Edge e = graph[i].get(j);
-                transpose[e.dest].add(new Edge(e.dest, e.src));
+                transpose[e.Destination].add(new Edge(e.Destination, e.Source));
             }
         }
-//Step3
-        while(!s.isEmpty()) {
+        // Step 3
+        while (!s.isEmpty()) {
             int curr = s.pop();
-            if(!vis[curr]) {
+            if (!vis[curr]) {
                 System.out.print("SCC : ");
                 dfs(transpose, vis, curr);
                 System.out.println();
             }
         }
     }
+
     public static void main(String[] args) {
         int V = 5;
 
         @SuppressWarnings("unchecked")
-        ArrayList<Edge> graph[] = new ArrayList[V];
+        ArrayList<Edge>[] graph = new ArrayList[V];
         createGraph(graph);
         kosaraju(graph, V);
     }
