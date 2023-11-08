@@ -69,7 +69,7 @@ public class PrimsAlgorithmMST {
             this.nodeCost = nodeCost;
         }
 
-        @Override
+        @Override   // Objects are compared based on nodeCost.
         public int compareTo(Pair compareWeight) {
             return this.nodeCost - compareWeight.nodeCost;
         }
