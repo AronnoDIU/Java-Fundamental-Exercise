@@ -72,22 +72,23 @@ public class PrimsAlgorithmMST {
         @Override   // Objects are compared based on nodeCost.
         public int compareTo(Pair compareWeight) {
             return this.nodeCost - compareWeight.nodeCost;
+            // Always return sorted in ascending order.
         }
     }
 
     // Time Complexity O(ElogE)
     static void primsAlgorithm(ArrayList<Edge>[] graph) {
 
-        boolean[] visited = new boolean[graph.length];
-        // Playing a role as a MST set.
-
         // Priority Queue best uses it for Shortest Path repeated times.
         PriorityQueue<Pair> pairQueue = new PriorityQueue<>();
         // Playing a role as a Non-MST set.
 
+        boolean[] visited = new boolean[graph.length];
+        // Playing a role as a MST set.
+
         pairQueue.add(new Pair(0, 0));
 
-        int minimumCost = 0;
+        int FinalCostMST = 0; // Final Cost of the Minimum Spanning Tree.
 
         // if a Non-MST set is not empty.
         while (!pairQueue.isEmpty()) {
@@ -100,7 +101,7 @@ public class PrimsAlgorithmMST {
 
                 // Add the Node to the MST set.
                 visited[currentPair.Node] = true;
-                minimumCost += currentPair.nodeCost; // Track the minimumCost.
+                FinalCostMST += currentPair.nodeCost; // Track the FinalCostMST.
 
                 // Add the Edge to the Non-MST set.
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
@@ -118,8 +119,8 @@ public class PrimsAlgorithmMST {
                 }
             }
         }
-        // Print the minimumCost.
-        System.out.println("Minimum Edge weight is: " + minimumCost);
+        // Print the FinalCostMST.
+        System.out.println("Minimum Edge weight is: " + FinalCostMST);
     }
 
     public static void main(String[] args) {
