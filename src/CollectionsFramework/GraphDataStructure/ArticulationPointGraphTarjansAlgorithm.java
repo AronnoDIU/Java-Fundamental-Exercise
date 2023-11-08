@@ -54,7 +54,7 @@ public class ArticulationPointGraphTarjansAlgorithm {
         // Initially lowestDiscoveryTime[currentNode] = discoveryTime[currentNode];
         discoveryTime[currentNode] = lowestDiscoveryTime[currentNode] = ++timeTracker;
 
-        int child = 0;
+        int child = 0; // Count the Number of children of currentNode.
 
         // Parent => every previous node of currentNode in DFS Traversal.
         for (int i = 0; i < graph[currentNode].size(); i++) {
