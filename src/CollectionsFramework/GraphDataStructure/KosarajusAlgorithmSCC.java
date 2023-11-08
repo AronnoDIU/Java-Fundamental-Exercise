@@ -78,20 +78,27 @@ public class KosarajusAlgorithmSCC {
                 topologicalSort(graph, currentEdge.Destination, stack, visited);
             }
         }
+        // Push the currentNode in stack after visiting all its neighbors.
         stack.push(currentNode);
     }
 
     // Time Complexity of DFS = O(V+E)
-    static void ModifiedDFS(ArrayList<Edge>[] graph, boolean[] visited, int curr) {
+    static void ModifiedDFS(ArrayList<Edge>[] graph,
+                            boolean[] visited, int currentNode) {
 
-        visited[curr] = true;
-        System.out.print(curr + " ");
+        visited[currentNode] = true; // Mark as visited first.
+        System.out.print(currentNode + " "); // And Print the currentNode.
 
-        for (int i = 0; i < graph[curr].size(); i++) {
+        // For all neighbors of currentNode
+        for (int i = 0; i < graph[currentNode].size(); i++) {
 
-            Edge currentEdge = graph[curr].get(i);
+            // Neighbor will be the currentEdge.Destination
+            Edge currentEdge = graph[currentNode].get(i);
 
+            // If the neighbor is not visited yet.
             if (!visited[currentEdge.Destination]) {
+
+                // Here, currentNode => currentEdge.Destination
                 ModifiedDFS(graph, visited, currentEdge.Destination);
             }
         }
@@ -119,26 +126,43 @@ public class KosarajusAlgorithmSCC {
         }
 
         //Step 2 (Transpose the graph -> Reversed the Edge direction)
-        @SuppressWarnings("unchecked")
-        ArrayList<Edge>[] transpose = new ArrayList[Vertex];
+        @SuppressWarnings("unchecked") // Reversed the Edge direction.
+        ArrayList<Edge>[] transposeGraph = new ArrayList[Vertex];
+        // Clone the original graph by changing the direction of the edges.
+
+        // Loop for initializing the transpose graph.
         for (int i = 0; i < Vertex; i++) {
-            transpose[i] = new ArrayList<>();
+            transposeGraph[i] = new ArrayList<>();
         }
+
+        // Loop for adding the edges in the transpose graph from the original graph.
         for (int i = 0; i < Vertex; i++) {
 
-            visited[i] = false;
+            visited[i] = false; // Mark all vertices as not visited.
 
+            // For all neighbors of current vertex
             for (int j = 0; j < graph[i].size(); j++) {
-                Edge e = graph[i].get(j);
-                transpose[e.Destination].add(new Edge(e.Destination, e.Source));
+
+                Edge currentEdge = graph[i].get(j); // get the Edge of Transpose Graph.
+
+                // For transposing the graph, add the edges in reverse direction.
+                // We need to reverse the direction like destination -> source.
+                transposeGraph[currentEdge.Destination]
+                        .add(new Edge(currentEdge.Destination, currentEdge.Source));
             }
         }
+
         // Step 3 (Do DFS according to the stack nodes on the transposed graph).
-        while (!stack.isEmpty()) {
-            int curr = stack.pop();
-            if (!visited[curr]) {
+        // Get Node form Stack and perform DFS.
+        while (!stack.isEmpty()) { // while stack is not empty
+
+            int currentNode = stack.pop(); // pop from stack
+
+            // if currentNode is not visited yet
+            if (!visited[currentNode]) {
+
                 System.out.print("SCC : ");
-                ModifiedDFS(transpose, visited, curr);
+                ModifiedDFS(transposeGraph, visited, currentNode);
                 System.out.println();
             }
         }
