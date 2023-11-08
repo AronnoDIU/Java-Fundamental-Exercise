@@ -103,7 +103,7 @@ public class PrimsAlgorithmMST {
                 visited[currentPair.Node] = true;
                 FinalCostMST += currentPair.nodeCost; // Track the FinalCostMST.
 
-                // Add the Edge to the Non-MST set.
+                // For all neighbors of currentPair.Node in a Non-MST set.
                 for (int i = 0; i < graph[currentPair.Node].size(); i++) {
 
                     // Get the Edge from the Non-MST set.
@@ -119,7 +119,7 @@ public class PrimsAlgorithmMST {
                 }
             }
         }
-        // Print the FinalCostMST.
+        // Print the Final Cost of the MST.
         System.out.println("Minimum Edge weight is: " + FinalCostMST);
     }
 
