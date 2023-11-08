@@ -2,7 +2,11 @@ package CollectionsFramework.GraphDataStructure;
 
 import java.util.ArrayList;
 
-// Articulation Point in Graph (Tarjan’s Algorithm)
+/**
+ * Articulation Point in Graph (Tarjan’s Algorithm)
+ * A vertex in an undirected connected graph is an articulation point(or cut vertex)
+ * if removing it (and edges through it) disconnects the graph.
+ */
 public class ArticulationPointGraphTarjansAlgorithm {
     static class Edge {
         int Source;
@@ -41,54 +45,94 @@ public class ArticulationPointGraphTarjansAlgorithm {
         graph[4].add(new Edge(4, 1));
     }
 
-    static void dfs(ArrayList<Edge> graph[], int curr, int par,
-                    boolean vis[], int dt[], int low[], int time,
-                    boolean isArticulation[]) {
-        vis[curr] = true;
-        dt[curr] = low[curr] = ++time;
+    static void dfs(ArrayList<Edge>[] graph, int currentNode,
+                    int Parent, boolean[] visited, int[] discoveryTime,
+                    int[] lowestDiscoveryTime, int timeTracker, boolean[] isArticulation) {
+
+        visited[currentNode] = true; // Initially mark the current node as visited.
+
+        // Initially lowestDiscoveryTime[currentNode] = discoveryTime[currentNode];
+        discoveryTime[currentNode] = lowestDiscoveryTime[currentNode] = ++timeTracker;
+
         int child = 0;
-        for(int i=0; i<graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            if(e.Destination == par)
-                continue;
-            if(vis[e.Destination]) {
-                low[curr] = Math.min(low[curr], dt[e.Destination]);
-            } else {
-                dfs(graph, e.Destination, curr, vis, dt, low, time, isArticulation);
-                low[curr] = Math.min(low[curr], low[e.Destination]);
-                if(dt[curr] <= low[e.Destination] && par != -1) {
-                    isArticulation[curr] = true;
+
+        // Parent => every previous node of currentNode in DFS Traversal.
+        for (int i = 0; i < graph[currentNode].size(); i++) {
+
+            Edge currentEdge = graph[currentNode].get(i);
+            // Neighbor will be the currentEdge.Destination
+
+            if (currentEdge.Destination == Parent) // If the neighbor is a parent,
+                continue; // Skip it.
+
+            // If the neighbor is visited already, then update the lowestDiscoveryTime.
+            if (visited[currentEdge.Destination]) {
+
+                lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
+                        [currentNode], discoveryTime[currentEdge.Destination]);
+
+            } else { // If the neighbor is not visited yet.
+
+                dfs(graph, currentEdge.Destination, currentNode, visited,
+                        discoveryTime, lowestDiscoveryTime, timeTracker, isArticulation);
+
+                lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
+                        [currentNode], lowestDiscoveryTime[currentEdge.Destination]);
+
+                if (discoveryTime[currentNode] <= lowestDiscoveryTime
+                        [currentEdge.Destination] && Parent != -1) {
+
+                    isArticulation[currentNode] = true;
                 }
-                child++;
+                child++; // Increment the number of children of currentNode.
             }
         }
-        if(par == -1 && child > 1) {
-            isArticulation[curr] = true;
+
+        // If the currentNode is root and has more than 1 child.
+        if (Parent == -1 && child > 1) {
+            isArticulation[currentNode] = true;
         }
     }
 
-    static void getArticulation(ArrayList<Edge> graph[], int V) {
-        int dt[] = new int[V];
-        int low[] = new int[V];
-        int time = 0;
-        boolean vis[] = new boolean[V];
-        boolean isArticulation[] = new boolean[V];
-        for(int i=0; i<V; i++) {
-            if(!vis[i]) {
-                dfs(graph, i, -1, vis, dt, low, time, isArticulation);
+    static void getArticulation(ArrayList<Edge>[] graph, int Vertex) {
+        int[] discoveryTime = new int[Vertex];
+        int[] lowestDiscoveryTime = new int[Vertex];
+        boolean[] visited = new boolean[Vertex];
+        boolean[] isArticulation = new boolean[Vertex];
+        int timeTracker = 0;
+
+        for (int i = 0; i < Vertex; i++) {
+
+            // If the vertex is not visited yet, then call dfs() function.
+            if (!visited[i]) {
+
+                dfs(graph, i, -1, visited, discoveryTime,
+                        lowestDiscoveryTime, timeTracker, isArticulation);
             }
         }
-        for(int i=0; i<V; i++) {
-            if(isArticulation[i]) {
+        for (int i = 0; i < Vertex; i++) {
+            if (isArticulation[i]) {
                 System.out.println(i);
             }
         }
     }
+
     public static void main(String[] args) {
-        int V = 5;
-        ArrayList<Edge> graph[] = new ArrayList[V];
+        /*
+                  1-------- 0--------3
+                  |       /          |
+                  |     /            |
+                  |   /              |
+                  | /                |
+                  2                  4
+        */
+
+        int Vertex = 5;
+
+        @SuppressWarnings("unchecked")
+        ArrayList<Edge>[] graph = new ArrayList[Vertex];
         createGraph(graph);
-        getArticulation(graph, V);
+        getArticulation(graph, Vertex);
     }
 }
 
