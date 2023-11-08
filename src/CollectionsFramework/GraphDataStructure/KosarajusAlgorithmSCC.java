@@ -27,12 +27,15 @@ import java.util.Stack;
  (So we need to reverse the direction of the edges in the graph to make it transposed).
 
  Strongly Connected Components: Only for directed graphs.
+
+ (Do Normal DFS then push to Stack while backtracking.)
  */
 public class KosarajusAlgorithmSCC {
     static class Edge {
         int Source;
         int Destination;
 
+        // Weight value is Not Required for Kosaraju's Algorithm
         public Edge(int source, int destination) {
             Source = source;
             Destination = destination;
@@ -58,19 +61,28 @@ public class KosarajusAlgorithmSCC {
         graph[3].add(new Edge(3, 4));
     }
 
-    static void topSort(ArrayList<Edge>[] graph,
-                        int curr, Stack<Integer> s, boolean[] visited) {
-        visited[curr] = true;
-        for (int i = 0; i < graph[curr].size(); i++) {
-            Edge e = graph[curr].get(i);
-            if (!visited[e.Destination]) {
-                topSort(graph, e.Destination, s, visited);
+    // Time Complexity of Topological Sort = O(V+E)
+    static void topologicalSort(ArrayList<Edge>[] graph,
+                                int currentNode, Stack<Integer> stack, boolean[] visited) {
+
+        // Mark as visited first so that it is not visited again.
+        visited[currentNode] = true;
+
+        // For all neighbors of currentNode
+        for (int i = 0; i < graph[currentNode].size(); i++) {
+
+            Edge currentEdge = graph[currentNode].get(i); // get the Edge.
+
+            // Neighbor will be the currentEdge.Destination
+            if (!visited[currentEdge.Destination]) {
+                topologicalSort(graph, currentEdge.Destination, stack, visited);
             }
         }
-        s.push(curr);
+        stack.push(currentNode);
     }
 
-    static void dfs(ArrayList<Edge>[] graph, boolean[] visited, int curr) {
+    // Time Complexity of DFS = O(V+E)
+    static void ModifiedDFS(ArrayList<Edge>[] graph, boolean[] visited, int curr) {
 
         visited[curr] = true;
         System.out.print(curr + " ");
@@ -80,23 +92,33 @@ public class KosarajusAlgorithmSCC {
             Edge currentEdge = graph[curr].get(i);
 
             if (!visited[currentEdge.Destination]) {
-                dfs(graph, visited, currentEdge.Destination);
+                ModifiedDFS(graph, visited, currentEdge.Destination);
             }
         }
     }
 
+    // Time Complexity of DFS = O(V+E)
     static void KosarajusAlgorithm(ArrayList<Edge>[] graph, int Vertex) {
 
-        // Step 1
-        Stack<Integer> s = new Stack<>();
+        // Step 1 (Do Normal DFS then push to Stack while backtracking)
+        // Pop from Stack will be top Sorted Order which will be used in Step 2.
+        Stack<Integer> stack = new Stack<>();
+        // Stored topological order in stack.
+
         boolean[] visited = new boolean[Vertex];
+
+        // For all vertices
         for (int i = 0; i < Vertex; i++) {
+
+            // If a vertex is not visited yet, then call topSort() function.
             if (!visited[i]) {
-                topSort(graph, i, s, visited);
+
+                // Here, i => current vertex.
+                topologicalSort(graph, i, stack, visited);
             }
         }
 
-        //Step 2
+        //Step 2 (Transpose the graph -> Reversed the Edge direction)
         @SuppressWarnings("unchecked")
         ArrayList<Edge>[] transpose = new ArrayList[Vertex];
         for (int i = 0; i < Vertex; i++) {
@@ -111,12 +133,12 @@ public class KosarajusAlgorithmSCC {
                 transpose[e.Destination].add(new Edge(e.Destination, e.Source));
             }
         }
-        // Step 3
-        while (!s.isEmpty()) {
-            int curr = s.pop();
+        // Step 3 (Do DFS according to the stack nodes on the transposed graph).
+        while (!stack.isEmpty()) {
+            int curr = stack.pop();
             if (!visited[curr]) {
                 System.out.print("SCC : ");
-                dfs(transpose, visited, curr);
+                ModifiedDFS(transpose, visited, curr);
                 System.out.println();
             }
         }
