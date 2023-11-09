@@ -21,6 +21,24 @@ public class GenericClasses {
 
         GSingleType<Character> GSingleType6 = new GSingleType<>('A');
         System.out.println("Character Type : " + GSingleType6.getObject());
+
+        // Another example of Generic classes.
+        System.out.println("\nAnother example of Generic Multiple Type classes.\n");
+        // Multiple type parameters in Java Generics.
+
+        GMultiType<Integer, String, Boolean> GMultiType1 =
+                new GMultiType<>(10, "Yeasir Arafat Aronno", true);
+
+        System.out.println("Integer Type : " + GMultiType1.getObjectT());
+        System.out.println("String Type : " + GMultiType1.getObjectU());
+        System.out.println("Boolean Type : " + GMultiType1.getObjectV());
+
+        GMultiType<Double, Float, Character> GMultiType2 =
+                new GMultiType<>(10.5, 10.5f, 'A');
+
+        System.out.println("Double Type : " + GMultiType2.getObjectT());
+        System.out.println("Float Type : " + GMultiType2.getObjectU());
+        System.out.println("Character Type : " + GMultiType2.getObjectV());
     }
 }
 
@@ -49,13 +67,29 @@ class GMultiType<T, U, V> {
         this.objectV = objectV;
     }
 
-    public T getObj1() {
+    public T getObjectT() {
         return objectT;
+    }
 
+    public U getObjectU() {
+        return objectU;
+    }
+
+    public V getObjectV() {
+        return objectV;
     }
 }
 
 /*Expected Output:
+
+Integer Type : 10
+String Type : Yeasir Arafat Aronno
+Boolean Type : true
+Double Type : 10.5
+Float Type : 10.5
+Character Type : A
+
+Another example of Generic Multiple Type classes.
 
 Integer Type : 10
 String Type : Yeasir Arafat Aronno
