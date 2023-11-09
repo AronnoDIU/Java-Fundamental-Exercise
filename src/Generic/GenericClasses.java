@@ -4,35 +4,54 @@ package Generic;
 public class GenericClasses {
     public static void main(String[] args) {
 
-        GenericTest<Integer> genericTest1 = new GenericTest<>(10);
-        System.out.println("Integer Type : " + genericTest1.getObj());
+        GSingleType<Integer> GSingleType1 = new GSingleType<>(10);
+        System.out.println("Integer Type : " + GSingleType1.getObject());
 
-        GenericTest<String> genericTest2 = new GenericTest<>("Yeasir Arafat Aronno");
-        System.out.println("String Type : " + genericTest2.getObj());
+        GSingleType<String> GSingleType2 = new GSingleType<>("Yeasir Arafat Aronno");
+        System.out.println("String Type : " + GSingleType2.getObject());
 
-        GenericTest<Boolean> genericTest3 = new GenericTest<>(true);
-        System.out.println("Boolean Type : " + genericTest3.getObj());
+        GSingleType<Boolean> GSingleType3 = new GSingleType<>(true);
+        System.out.println("Boolean Type : " + GSingleType3.getObject());
 
-        GenericTest<Double> genericTest4 = new GenericTest<>(10.5);
-        System.out.println("Double Type : " + genericTest4.getObj());
+        GSingleType<Double> GSingleType4 = new GSingleType<>(10.5);
+        System.out.println("Double Type : " + GSingleType4.getObject());
 
-        GenericTest<Float> genericTest5 = new GenericTest<>(10.5f);
-        System.out.println("Float Type : " + genericTest5.getObj());
+        GSingleType<Float> GSingleType5 = new GSingleType<>(10.5f);
+        System.out.println("Float Type : " + GSingleType5.getObject());
 
-        GenericTest<Character> genericTest6 = new GenericTest<>('A');
-        System.out.println("Character Type : " + genericTest6.getObj());
+        GSingleType<Character> GSingleType6 = new GSingleType<>('A');
+        System.out.println("Character Type : " + GSingleType6.getObject());
     }
 }
 
-class GenericTest<T> {
-    T obj; // An object of type T is created.
+class GSingleType<T> {
+    T object; // An object of type T is created.
 
-    GenericTest(T obj) {
-        this.obj = obj;
+    GSingleType(T object) {
+        this.object = object;
     }
 
-    public T getObj() {
-        return obj;
+    public T getObject() {
+        return object;
+    }
+}
+
+// We can also pass multiple Type parameters in Generic classes.
+// Multiple type parameters in Java Generics.
+class GMultiType<T, U, V> {
+    T objectT;
+    U objectU;
+    V objectV;
+
+    GMultiType(T objectT, U objectU, V objectV) {
+        this.objectT = objectT;
+        this.objectU = objectU;
+        this.objectV = objectV;
+    }
+
+    public T getObj1() {
+        return objectT;
+
     }
 }
 
