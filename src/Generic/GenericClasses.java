@@ -6,3 +6,14 @@ public class GenericClasses {
 
     }
 }
+
+class GenericTest<T>{
+    T obj;
+    GenericTest(T obj){
+        this.obj = obj;
+    }
+
+    public T getObj(){
+        return obj;
+    }
+}
