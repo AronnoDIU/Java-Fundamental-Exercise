@@ -11,7 +11,13 @@ import java.util.ArrayList;
  is called the ancestor of the current Node.
  Ancestor => Every previous node of currentNode in DFS Traversal.
  Find Ancestor of currentNode using DFS Traversal through Discovery Time.
- So, Discovery Time indicates which node was visited first by DT value.*/
+ So, Discovery Time indicates which node was visited first by DT value.
+
+ If Discovery Time is less than the current Node,
+ then it is an articulation point or cut vertex of the current Node.
+
+ Lowest Discovery Time => All possible reachable nodes from the current Node.
+ */
 public class ArticulationPointGraphTarjansAlgorithm {
     static class Edge {
         int Source;
@@ -50,9 +56,10 @@ public class ArticulationPointGraphTarjansAlgorithm {
         graph[4].add(new Edge(4, 1));
     }
 
-    static void dfs(ArrayList<Edge>[] graph, int currentNode,
-                    int Parent, boolean[] visited, int[] discoveryTime,
-                    int[] lowestDiscoveryTime, int timeTracker, boolean[] isArticulation) {
+    static void modifiedDFS(ArrayList<Edge>[] graph,
+                            int currentNode, int Parent, boolean[] visited,
+                            int[] discoveryTime, int[] lowestDiscoveryTime,
+                            int timeTracker, boolean[] isArticulation) {
 
         visited[currentNode] = true; // Initially mark the current node as visited.
 
@@ -78,7 +85,7 @@ public class ArticulationPointGraphTarjansAlgorithm {
 
             } else { // If the neighbor is not visited yet.
 
-                dfs(graph, currentEdge.Destination, currentNode, visited,
+                modifiedDFS(graph, currentEdge.Destination, currentNode, visited,
                         discoveryTime, lowestDiscoveryTime, timeTracker, isArticulation);
 
                 lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
@@ -94,7 +101,7 @@ public class ArticulationPointGraphTarjansAlgorithm {
         }
 
         // If the currentNode is root and has more than 1 child.
-        if (Parent == -1 && child > 1) {
+        if (Parent == -1 && child > 1) { // Articulation Point or Cut Vertex.
             isArticulation[currentNode] = true;
         }
     }
@@ -111,7 +118,7 @@ public class ArticulationPointGraphTarjansAlgorithm {
             // If the vertex is not visited yet, then call dfs() function.
             if (!visited[i]) {
 
-                dfs(graph, i, -1, visited, discoveryTime,
+                modifiedDFS(graph, i, -1, visited, discoveryTime,
                         lowestDiscoveryTime, timeTracker, isArticulation);
             }
         }
