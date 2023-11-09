@@ -7,6 +7,11 @@ import java.util.ArrayList;
  * A vertex in an undirected connected graph is an articulation point(or cut vertex)
  * if removing it (and edges through it) disconnects the graph.
  */
+/* Ancestor => a Node A that was discovered before the current Node in the DFS Traversal,
+ is called the ancestor of the current Node.
+ Ancestor => Every previous node of currentNode in DFS Traversal.
+ Find Ancestor of currentNode using DFS Traversal through Discovery Time.
+ So, Discovery Time indicates which node was visited first by DT value.*/
 public class ArticulationPointGraphTarjansAlgorithm {
     static class Edge {
         int Source;
