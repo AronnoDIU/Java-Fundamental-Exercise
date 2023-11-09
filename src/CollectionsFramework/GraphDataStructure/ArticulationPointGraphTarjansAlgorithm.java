@@ -17,6 +17,11 @@ import java.util.ArrayList;
  then it is an articulation point or cut vertex of the current Node.
 
  Lowest Discovery Time => All possible reachable nodes from the current Node.
+
+ [Backedge => A backedge is an edge that is not an articulation point.
+ Someone has visited the child of the current Node before the current Node.]
+
+ Child => A node that is not visited yet in DFS Traversal.
  */
 public class ArticulationPointGraphTarjansAlgorithm {
     static class Edge {
@@ -35,27 +40,27 @@ public class ArticulationPointGraphTarjansAlgorithm {
         }
 
         // for 0 -vertex
+        graph[0].add(new Edge(0, 1));
         graph[0].add(new Edge(0, 2));
         graph[0].add(new Edge(0, 3));
 
         // for 1 -vertex
         graph[1].add(new Edge(1, 0));
         graph[1].add(new Edge(1, 2));
-        graph[1].add(new Edge(1, 4));
 
         // for 2 -vertex
+        graph[2].add(new Edge(2, 0));
         graph[2].add(new Edge(2, 1));
-        graph[2].add(new Edge(2, 3));
 
         // for 3 -vertex
         graph[3].add(new Edge(3, 0));
         graph[3].add(new Edge(3, 4));
 
         // for 4 -vertex
-        graph[4].add(new Edge(4, 0));
-        graph[4].add(new Edge(4, 1));
+        graph[4].add(new Edge(4, 3));
     }
 
+    // Time Complexity of Tarjan's Algorithm = O(V+E)
     static void modifiedDFS(ArrayList<Edge>[] graph,
                             int currentNode, int Parent, boolean[] visited,
                             int[] discoveryTime, int[] lowestDiscoveryTime,
@@ -66,42 +71,56 @@ public class ArticulationPointGraphTarjansAlgorithm {
         // Initially lowestDiscoveryTime[currentNode] = discoveryTime[currentNode];
         discoveryTime[currentNode] = lowestDiscoveryTime[currentNode] = ++timeTracker;
 
-        int child = 0; // Count the Number of children of currentNode.
+        int children = 0; // Count the Number of children of currentNode for Tracking.
 
-        // Parent => every previous node of currentNode in DFS Traversal.
+        // Loop for all neighbors of currentNode
         for (int i = 0; i < graph[currentNode].size(); i++) {
 
             Edge currentEdge = graph[currentNode].get(i);
             // Neighbor will be the currentEdge.Destination
 
-            if (currentEdge.Destination == Parent) // If the neighbor is a parent,
-                continue; // Skip it.
+            // Case 1: If the neighbor is the parent, then skip it.
+            // Parent => every previous node of currentNode in DFS Traversal.
+            if (currentEdge.Destination == Parent)
+                continue; // Skip it & process the next neighbor.
 
-            // If the neighbor is visited already, then update the lowestDiscoveryTime.
+            // Case 2: If the neighbor is visited then Articulation Point not possible.
+            /* [Backedge => A backedge is an edge that is not an articulation point.
+             Someone has visited the child of the current Node before the current Node.]*/
             if (visited[currentEdge.Destination]) {
+                // This is an Ancestor of currentNode. Not a child.
 
+                // Compare & Update the lowestDiscoveryTime[currentNode].
                 lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
                         [currentNode], discoveryTime[currentEdge.Destination]);
 
-            } else { // If the neighbor is not visited yet.
+            }
 
+            // Case 3: If the neighbor is not visited. This is a child of currentNode.
+            else { // Articulation Point might be possible.
+
+                // visited first through DFS Traversal.
                 modifiedDFS(graph, currentEdge.Destination, currentNode, visited,
                         discoveryTime, lowestDiscoveryTime, timeTracker, isArticulation);
 
+                // Compare & Update the lowestDiscoveryTime[currentNode].
                 lowestDiscoveryTime[currentNode] = Math.min(lowestDiscoveryTime
                         [currentNode], lowestDiscoveryTime[currentEdge.Destination]);
 
-                if (discoveryTime[currentNode] <= lowestDiscoveryTime
-                        [currentEdge.Destination] && Parent != -1) {
+                // Find Articulation Point through Discovery Time using Tarjan's Algorithm.
+                if (discoveryTime[currentNode] <=
+                        lowestDiscoveryTime[currentEdge.Destination] && Parent != -1) {
 
+                    // Update as CurrentNode is an Articulation Point.
                     isArticulation[currentNode] = true;
                 }
-                child++; // Increment the number of children of currentNode.
+                children++; // Increment the number of children of currentNode.
             }
         }
 
-        // If the currentNode is root and has more than 1 child.
-        if (Parent == -1 && child > 1) { // Articulation Point or Cut Vertex.
+        // Case 4: If the currentNode is a root/parent/first node/Starting Node
+        // of DFS Traversal and has more than 1 child.
+        if (Parent == -1 && children > 1) { // Articulation Point or Cut Vertex.
             isArticulation[currentNode] = true;
         }
     }
@@ -118,13 +137,16 @@ public class ArticulationPointGraphTarjansAlgorithm {
             // If the vertex is not visited yet, then call dfs() function.
             if (!visited[i]) {
 
+                // visited first through DFS Traversal.
                 modifiedDFS(graph, i, -1, visited, discoveryTime,
                         lowestDiscoveryTime, timeTracker, isArticulation);
             }
         }
+
+        // Print the Articulation Points.
         for (int i = 0; i < Vertex; i++) {
             if (isArticulation[i]) {
-                System.out.println(i);
+                System.out.println("Articulation Points : " + i);
             }
         }
     }
@@ -150,6 +172,7 @@ public class ArticulationPointGraphTarjansAlgorithm {
 
 /*Expected Output:
 
-BRIDGE : 1---4
+Articulation Points : 0
+Articulation Points : 3
 
 * */
