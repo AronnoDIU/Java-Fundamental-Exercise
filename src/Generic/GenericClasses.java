@@ -4,23 +4,23 @@ package Generic;
 public class GenericClasses {
     public static void main(String[] args) {
 
-        GenericTest<Integer> gt = new GenericTest<>(10);
-        System.out.println(gt.getObj());
+        GenericTest<Integer> genericTest1 = new GenericTest<>(10);
+        System.out.println(genericTest1.getObj());
 
-        GenericTest<String> gt1 = new GenericTest<>("Yeasir");
-        System.out.println(gt1.getObj());
+        GenericTest<String> genericTest2 = new GenericTest<>("Yeasir");
+        System.out.println(genericTest2.getObj());
 
-        GenericTest<Boolean> gt2 = new GenericTest<>(true);
-        System.out.println(gt2.getObj());
+        GenericTest<Boolean> genericTest3 = new GenericTest<>(true);
+        System.out.println(genericTest3.getObj());
 
-        GenericTest<Double> gt3 = new GenericTest<>(10.5);
-        System.out.println(gt3.getObj());
+        GenericTest<Double> genericTest4 = new GenericTest<>(10.5);
+        System.out.println(genericTest4.getObj());
 
-        GenericTest<Float> gt4 = new GenericTest<>(10.5f);
-        System.out.println(gt4.getObj());
+        GenericTest<Float> genericTest5 = new GenericTest<>(10.5f);
+        System.out.println(genericTest5.getObj());
 
-        GenericTest<Character> gt5 = new GenericTest<>('A');
-        System.out.println(gt5.getObj());
+        GenericTest<Character> genericTest6 = new GenericTest<>('A');
+        System.out.println(genericTest6.getObj());
     }
 }
 
