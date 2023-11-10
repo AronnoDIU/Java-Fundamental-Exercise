@@ -1,6 +1,7 @@
 package Generic;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 // Generic Reusability Feature
 public class GenericReusabilityFeature {
@@ -61,8 +62,9 @@ public class GenericReusabilityFeature {
                 a[1] + " and " + a[2] + " is " + max); // print max
     }
 
-    public static <T> void genericDisplay(T element) {
-        System.out.println(element.getClass().getName() + " = " + element);
+    @SafeVarargs
+    public static <T> void genericDisplay(T... element) {
+        System.out.println(Arrays.toString(element));
     }
 
     public static void main(String[] args) {
@@ -73,6 +75,7 @@ public class GenericReusabilityFeature {
         Double[] doubles = {1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7};
         Boolean[] booleans = {true, false, true, false, true, false, true};
 
+        System.out.println();
         maxPrint(integers);
         maxPrint(strings);
         maxPrint(characters);
@@ -80,34 +83,38 @@ public class GenericReusabilityFeature {
         maxPrint(doubles);
         maxPrint(booleans);
 
-        System.out.print("Unsorted Integer array : ");
-        for (Integer integer : integers) {
-            System.out.print(integer + ", ");
-        }
-        System.out.println();
-
-        System.out.print("Unsorted Character array : ");
-        for (Character character : characters) {
-            System.out.print(character + ", ");
-        }
-        System.out.println();
-
-        System.out.print("Unsorted String array : ");
-        for (String string : strings) {
-            System.out.print(string + ", ");
-        }
-        System.out.println();
-
+        System.out.print("\nUnsorted Integer array : ");
+        genericDisplay(integers);
         System.out.print("Sorted Integer array : ");
         sortGenerics(integers);
 
-        System.out.print("Sorted Character array : ");
-        sortGenerics(characters);
-
+        System.out.print("Unsorted String array : ");
+        genericDisplay(strings);
         System.out.print("Sorted String array : ");
         sortGenerics(strings);
 
-        System.out.println("Max of " + integers[0] + " and " +
+        System.out.print("Unsorted Character array : ");
+        genericDisplay(characters);
+        System.out.print("Sorted Character array : ");
+        sortGenerics(characters);
+
+        System.out.print("Unsorted Float array : ");
+        genericDisplay(floats);
+        System.out.print("Sorted Float array : ");
+        sortGenerics(floats);
+
+        System.out.print("Unsorted Double array : ");
+        genericDisplay(doubles);
+        System.out.print("Sorted Double array : ");
+        sortGenerics(doubles);
+
+        System.out.print("Unsorted Boolean array : ");
+        genericDisplay(booleans);
+        System.out.print("Sorted Boolean array : ");
+        sortGenerics(booleans);
+
+
+        System.out.println("\nMax of " + integers[0] + " and " +
                 integers[1] + " and " + integers[2] + " is " + max(integers));
 
         System.out.println("Max of " + strings[0] + " and " +
@@ -120,8 +127,28 @@ public class GenericReusabilityFeature {
 
 /*Expected Output:
 
+Max of 100 and 22 and 58 is 50
+Max of Virat and Rohit and Abhinay is Kalam
+Max of v and g and a is t
+Max of 1.1 and 2.2 and 3.3 is 7.7
+Max of 1.1 and 2.2 and 3.3 is 7.7
+Max of true and false and true is true
+
+Unsorted Integer array : [100, 22, 58, 41, 6, 50]
 Sorted Integer array : 6, 22, 41, 50, 58, 100,
-Sorted Character array : a, c, d, g, t, v, x,
+Unsorted String array : [Virat, Rohit, Abhinay, Chandu, Sam, Bharat, Kalam]
 Sorted String array : Abhinay, Bharat, Chandu, Kalam, Rohit, Sam, Virat,
+Unsorted Character array : [v, g, a, c, x, d, t]
+Sorted Character array : a, c, d, g, t, v, x,
+Unsorted Float array : [1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7]
+Sorted Float array : 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7,
+Unsorted Double array : [1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7]
+Sorted Double array : 1.1, 2.2, 3.3, 4.4, 5.5, 6.6, 7.7,
+Unsorted Boolean array : [true, false, true, false, true, false, true]
+Sorted Boolean array : false, false, false, true, true, true, true,
+
+Max of 6 and 22 and 41 is 100
+Max of Abhinay and Bharat and Chandu is Virat
+Max of a and c and d is x
 
 * */
