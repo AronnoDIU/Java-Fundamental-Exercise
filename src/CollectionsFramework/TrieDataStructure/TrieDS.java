@@ -249,7 +249,7 @@ public class TrieDS {
 
 /*Expected Output:
 
-inserted the
+Inserted the
 inserted a
 inserted there
 inserted their
