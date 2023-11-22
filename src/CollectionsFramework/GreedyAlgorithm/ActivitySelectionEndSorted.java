@@ -30,7 +30,7 @@ decreasing order of finish time and increasing order of start time respectively.
         Then, Activity counts ++;
 
  */
-public class ActivitySelection {
+public class ActivitySelectionEndSorted {
     public static void main(String[] args) {
         int[] start = {1, 3, 0, 5, 8, 5};
         int[] end = {2, 4, 6, 7, 9, 9};
@@ -46,6 +46,7 @@ public class ActivitySelection {
         selectedActivities.add(0);
         int lastEnd = end[0];
 
+        // Time complexity: O(n)
         for (int index = 1; index < end.length; index++) {
             /* If the start time of this activity is greater
              than or equal to the finish time of the previously selected activity,
