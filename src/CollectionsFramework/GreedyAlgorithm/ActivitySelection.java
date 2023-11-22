@@ -55,15 +55,20 @@ public class ActivitySelection {
              Then, Activity counts ++;*/
 
             if (start[index] >= lastEnd) {
+
                 // Select this activity
                 maxActivities++;
+
+                // Add index to selectedActivities list
                 selectedActivities.add(index);
                 lastEnd = end[index];
             }
         }
 
-        System.out.println("Maximum number of activities that can be performed by a single person = " + maxActivities);
-        System.out.println("Selected Activities: " + selectedActivities);
+        System.out.println("Maximum number of activities that can " +
+                "be performed by a single person = " + maxActivities);
+
+        System.out.println("Selected Activities: A" + selectedActivities);
     }
 }
 
@@ -71,6 +76,6 @@ public class ActivitySelection {
 Expected Output:
 
 Maximum number of activities that can be performed by a single person = 4
-Selected Activities: [0, 1, 3, 4]
+Selected Activities: A[0, 1, 3, 4]
 
 */
