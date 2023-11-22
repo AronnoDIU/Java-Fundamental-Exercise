@@ -14,7 +14,18 @@ For example, if the given set of activities is
 { {1, 2}, {3, 4}, {0, 6}, {5, 7}, {8, 9}, {5, 9} },
 then the output should be {0, 6}, {5, 7}, {8, 9}
 which are the selected activities from the given list of activities in the
-decreasing order of finish time and increasing order of start time respectively . */
+decreasing order of finish time and increasing order of start time respectively.
+
+    1. Sort the activities according to their finishing time.
+    2. Select the first activity from the sorted array and select it.
+    3. Do the following for the remaining activities in the sorted array.
+        a. If the start time of this activity is greater than or equal to the finish time
+        of the previously selected activity, then select this activity and print it.
+
+        Non-overlapping Intervals(Disjoint Intervals)
+        Start time >= Finish time of previously selected activity.
+
+ */
 public class ActivitySelection {
     public static void main(String[] args) {
         int[] s = {1, 3, 0, 5, 8, 5};
