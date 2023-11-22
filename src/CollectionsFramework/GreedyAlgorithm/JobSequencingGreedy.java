@@ -19,13 +19,13 @@ public class JobSequencingGreedy {
 
     // Function to schedule the jobs takes 2 arguments
     // arraylist and no of jobs to schedule
-    void printJobScheduling(ArrayList<JobSequencingGreedy> arr) {
+    void printJobScheduling(ArrayList<JobSequencingGreedy> array) {
         // Length of an array
-        int n = arr.size();
+        int n = array.size();
 
         // Sort all jobs according to decreasing order of
         // profit
-        arr.sort((a, b) -> b.profit - a.profit);
+        array.sort((a, b) -> b.profit - a.profit);
 
         // To keep track of free time slots
         boolean[] result = new boolean[3];
@@ -38,12 +38,12 @@ public class JobSequencingGreedy {
             // Find a free slot for this job (Note that we
             // start from the last possible slot)
             for (int j
-                 = Math.min(3 - 1, arr.get(i).deadline - 1);
+                 = Math.min(3 - 1, array.get(i).deadline - 1);
                  j >= 0; j--) {
                 // Free slot found
                 if (!result[j]) {
                     result[j] = true;
-                    job[j] = arr.get(i).id;
+                    job[j] = array.get(i).id;
                     break;
                 }
             }
