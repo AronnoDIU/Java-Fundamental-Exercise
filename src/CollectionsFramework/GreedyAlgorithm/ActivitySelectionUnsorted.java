@@ -1,5 +1,7 @@
 package CollectionsFramework.GreedyAlgorithm;
 
+import java.util.Arrays;
+
 /*
  A job has a start time, finish time and profit.
 
@@ -33,5 +35,7 @@ public class ActivitySelectionUnsorted {
             maxActivities[index][1] = start[index];
             maxActivities[index][2] = end[index];
         }
+        // Lambda Expression/Function for sorting the 2D Array
+        Arrays.sort(maxActivities, (a, b) -> Integer.compare(a[2], b[2]));
     }
 }
