@@ -1,5 +1,6 @@
 package CollectionsFramework.GreedyAlgorithm;
 
+//import java.util.ArrayList;
 import java.util.Arrays;
 
 /*  Indian Coins Problem:
@@ -72,6 +73,35 @@ public class IndianCoins {
             }
         }
         System.out.println(" These are the Minimum number of coins: " + count);
+
+        // OR,
+
+//        Integer[] coins = {1, 2, 5, 10, 20, 50, 100, 500, 2000}; // Wrapper class for Descending order
+//
+//        Arrays.sort(coins, (a, b) -> b - a); // Sort in descending order
+//        // OR, Arrays.sort(coins, Comparator.reverseOrder()); // Sort in descending order
+//        // OR, Arrays.sort(coins, Collections.reverseOrder()); // Sort in descending order
+//
+//        int amount = 590;
+//        int countOfCoins = 0;
+//
+//        ArrayList<Integer> result = new ArrayList<>();
+//
+//        for (Integer coin : coins) {
+//            if (coin <= amount) {
+//                while (amount >= coin) {
+//                    amount -= coin;
+//                    result.add(coin);
+//                    countOfCoins++;
+//                }
+//            }
+//        }
+//        System.out.println(" These are the Minimum number of coins: " + countOfCoins);
+//
+//        for (Integer integer : result) {
+//            System.out.print(integer + ", ");
+//        }
+//        System.out.println();
     }
 }
 
