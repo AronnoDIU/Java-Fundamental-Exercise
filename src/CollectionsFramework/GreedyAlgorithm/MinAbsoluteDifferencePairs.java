@@ -1,5 +1,7 @@
 package CollectionsFramework.GreedyAlgorithm;
 
+import java.util.Arrays;
+
 /* Given two arrays A and B of equal length N, pair each element of array A with to an
  element in array B, such that sum S of absolute differences of all the pairs is minimum.
 
@@ -12,28 +14,87 @@ package CollectionsFramework.GreedyAlgorithm;
     Case 4: Pairing {1, 3}, {2, 1}, {3, 2} and S = |1-3| + |2-1| + |3-2| = 2 + 1 + 1 = 4
     Case 5: Pairing {1, 1}, {2, 2}, {3, 3} and S = |1-1| + |2-2| + |3-3| = 0 + 0 + 0 = 0
 
-    S = |1-2| + |2-3| + |3-1| = 2 + 1 + 2 = 5
-    We can shuffle array B to {1, 2, 3} to get the minimum value of S.
+Greedy Algorithm:
+    1. Sort both arrays A and B in ascending order.
+    2. Initialize S = 0
+    3. Iterate over the array and for each index i, add abs(A[i] – B[i]) to S.
+    4. Return S
 
- Formally, if element A[i] is paired with element B[j],
- then S = S + abs(A[i] – B[j]) where 0 <= i < N and 0 <= j < N
-                                    and abs(x) is absolute value of x.
+Example:
+    A[] = {1, 2, 3} and B[] = {2, 1, 3}
+    After sorting, A[] = {1, 2, 3} and B[] = {1, 2, 3}
+    S = |1-1| + |2-2| + |3-3| = 0 + 0 + 0 = 0
+    Hence, the minimum absolute difference is 0.
 
- Value of A[0] * B[0] + A[1] * B[1] + … + A[N-1] * B[N-1],
- where shuffling of elements of arrays A and B is allowed.
- Input: arr[] = {10, 12, 21, 15, 22, 33, 11}
- Output : 1
- Explanation: Difference between 10 and 11 is 1.
- Input: arr[] = {5, 4, 3, 2, 1}
- Output : 1
- Explanation: Difference between 2 and 1 is 1.
- Input: arr[] = {1, 2, 3, 4, 5}
- Output : 1
- Explanation: Difference between 2 and 1 is 1.*/
+Another Example:
+    A[] = {4, 1, 8, 7} and B[] = {2, 3, 6, 5}
+    After sorting, A[] = {1, 4, 7, 8} and B[] = {2, 3, 5, 6}
+    S = |1-2| + |4-3| + |7-5| + |8-6| = 1 + 1 + 2 + 2 = 6
+    Hence, the minimum absolute difference is 6.
+
+*/
 public class MinAbsoluteDifferencePairs {
+    /*public static int minAbsoluteDifferencePairs(int[] A, int[] B) {
+        int n = A.length;
+        int S = 0;
+
+        // Sort both arrays in ascending order
+        for (int i = 0; i < n; i++) {
+            int min = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (A[j] < A[min]) {
+                    min = j;
+                }
+            }
+
+            int temp = A[i];
+            A[i] = A[min];
+            A[min] = temp;
+        }
+
+        for (int i = 0; i < n; i++) {
+            int min = i;
+
+            for (int j = i + 1; j < n; j++) {
+                if (B[j] < B[min]) {
+                    min = j;
+                }
+            }
+
+            int temp = B[i];
+            B[i] = B[min];
+            B[min] = temp;
+        }
+
+        // Calculate S
+        for (int i = 0; i < n; i++) {
+            S += Math.abs(A[i] - B[i]);
+        }
+
+        return S;
+    }*/
+
     public static void main(String[] args) {
-        int[] array = {1, 5, 3, 19, 18, 25};
-        int n = array.length;
-//        System.out.println("Minimum absolute difference is: " + findMinDiff(array, n));
+        int[] A = {1, 2, 3};
+        int[] B = {2, 1, 3};
+
+        Arrays.sort(A);
+        Arrays.sort(B);
+
+        int minDiffPairs = 0;
+
+        for (int i = 0; i < A.length; i++) {
+            minDiffPairs += Math.abs(A[i] - B[i]);
+        }
+
+        System.out.println(" Minimum Absolute Difference Pairs: " + minDiffPairs);
+
+//        System.out.println(minAbsoluteDifferencePairs(A, B)); // Scratch code
     }
 }
+
+/*
+ Expected Output:
+    Minimum Absolute Difference Pairs: 0
+*/
