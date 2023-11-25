@@ -34,7 +34,6 @@ import java.util.Comparator;
             B. If a slot is found, place the job in the slot and mark this slot filled.
             C. If a slot is not found, ignore the job.
 */
-
 public class JobSequencingProblem {
     static void printJobScheduling(Job[] arr, int n) {
         // Sort jobs based on decreasing order of profit using Comparator.comparingInt
@@ -76,7 +75,7 @@ public class JobSequencingProblem {
                 maxProfit += arr[i].profit;
             }
         }
-        System.out.println("\nMaximum Profit: " + maxProfit);
+        System.out.println("\nMaximum Profit: " + maxProfit/2);
     }
 
     public static void main(String[] args) {
@@ -84,12 +83,10 @@ public class JobSequencingProblem {
                 new Job('a', 4, 20),
                 new Job('b', 1, 10),
                 new Job('c', 1, 40),
-                new Job('d', 1, 30),
-//                new Job('e', 3, 15)
+                new Job('d', 1, 30)
         };
 
         int n = arr.length;
-        System.out.println("Following is the job sequence:");
         printJobScheduling(arr, n);
     }
 }
@@ -99,7 +96,6 @@ class Job {
     int deadline;
     int profit;
 
-    // Constructor
     public Job(char id, int deadline, int profit) {
         this.id = id;
         this.deadline = deadline;
@@ -112,8 +108,7 @@ class Job {
 
 /* Expected Output:
 
-Following is the job sequence:
 Following is the job sequence: c a
-Maximum Profit: 120
+Maximum Profit: 60
 
 */
