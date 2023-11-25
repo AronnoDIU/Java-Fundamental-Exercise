@@ -7,6 +7,21 @@ package CollectionsFramework.GreedyAlgorithm;
     time, so the minimum possible deadline for any job is 1. How to maximize the total profit
     if only one job can be scheduled at a time.
 
+    Job Array:
+          JobID   Deadline    Profit
+            a       2           100
+            b       1           19
+            c       2           27
+            d       1           25
+            e       3           15
+
+    Greedy Algorithm:
+        1. Sort all jobs in decreasing order of profit.
+        2. Iterate on jobs in decreasing order of profit. For each job, do the following:
+            A. Find a time slot i, such that slot is empty and i < deadline and i is greatest.
+            B. If a slot is found, place the job in the slot and mark this slot filled.
+            C. If a slot is not found, ignore the job.
+
     Examples:
         Input: N = 4, Jobs = {{1,4,20},{2,1,10},{3,1,40},{4,1,30}}
         Output: 2 60
