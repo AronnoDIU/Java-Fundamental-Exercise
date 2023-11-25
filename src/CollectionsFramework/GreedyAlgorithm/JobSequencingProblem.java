@@ -1,6 +1,7 @@
 package CollectionsFramework.GreedyAlgorithm;
 
 import java.util.ArrayList;
+import java.util.Collections;
 //import java.util.Collections;
 //import java.util.Comparator;
 
@@ -42,14 +43,50 @@ public class JobSequencingProblem {
         int profit;
 
         // Constructor
-        public Job(char id, int deadline, int profit) {
+        public Job(int id, int deadline, int profit) {
             this.id = id;
             this.deadline = deadline;
             this.profit = profit;
         }
     }
 
-    private static ArrayList<Integer> getIntegers(ArrayList<Job> jobs) {
+//    private static ArrayList<Integer> getIntegers(ArrayList<Job> jobs) {
+//        ArrayList<Integer> sequence = new ArrayList<>();
+//        int timeSlot = 0;
+//
+//        for (Job currentJob : jobs) {
+//            // Find a free slot for this job (Note that we start from the last possible slot)
+//            if (timeSlot < currentJob.deadline) {
+//                sequence.add(currentJob.id);
+//                timeSlot++;
+//            }
+//
+//            // OR,
+//
+////            for (int j = Math.min(jobs.size() - 1, jobs.get(i).deadline - 1); j >= 0; j--) {
+////                // Free slot found
+////                if (!sequence.contains(j)) {
+////                    sequence.add(j);
+////                    timeSlot += jobs.get(i).profit;
+////                    break;
+////                }
+////            }
+//        }
+//        return sequence;
+//    }
+
+    public static void main(String[] args) {
+        int[][] jobsInfo = {{4, 20}, {1, 10}, {1, 40}, {1, 30}};
+
+        ArrayList<Job> jobs = new ArrayList<>();
+
+        for (int i = 0; i < jobsInfo.length; i++) {
+            jobs.add(new Job(i, jobsInfo[i][0], jobsInfo[i][1]));
+        }
+
+        jobs.sort((obj1, obj2) -> obj2.profit - obj1.profit); // descending order of profit
+
+        // To keep track of free time slots
         ArrayList<Integer> sequence = new ArrayList<>();
         int timeSlot = 0;
 
@@ -59,29 +96,38 @@ public class JobSequencingProblem {
                 sequence.add(currentJob.id);
                 timeSlot++;
             }
+        }
 
-            // OR,
+        // Print the sequence
+        System.out.println("max jobs = " + sequence.size());
+        for (int i = 0; i < sequence.size(); i++) {
+            System.out.print("For Job " + sequence.get(i) + " -> Profit: " + jobs.get(sequence.get(i)).profit +
+                    ", Deadline: " + jobs.get(sequence.get(i)).deadline);
 
-//            for (int j = Math.min(jobs.size() - 1, jobs.get(i).deadline - 1); j >= 0; j--) {
-//                // Free slot found
-//                if (!sequence.contains(j)) {
-//                    sequence.add(j);
-//                    timeSlot += jobs.get(i).profit;
-//                    break;
-//                }
+            // Check if it's the last iteration to avoid a trailing comma
+            if (i < sequence.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+
+// Add a newline at the end for better readability
+        System.out.println();
+
+
+        // Print the sequence
+//        System.out.println("max jobs = " + sequence.size());
+//        for (int i = 0; i < sequence.size(); i++) {
+//            System.out.print("For Job " + sequence.get(i) + " -> Deadline: " + jobs.get(sequence.get(i)).deadline +
+//                    ", Profit: " + jobs.get(sequence.get(i)).profit);
+//
+//            // Check if it's the last iteration to avoid a trailing comma
+//            if (i < sequence.size() - 1) {
+//                System.out.print(", ");
 //            }
-        }
-        return sequence;
-    }
-
-    public static void main(String[] args) {
-        int[][] jobsInfo = {{1, 2, 100}, {2, 1, 19}, {3, 2, 27}, {4, 1, 25}, {5, 1, 15}};
-
-        ArrayList<Job> jobs = new ArrayList<>();
-
-        for (int[] jobInfo : jobsInfo) {
-            jobs.add(new Job((char) jobInfo[0], jobInfo[1], jobInfo[2]));
-        }
+//        }
+//
+//        // Add a newline at the end for better readability
+//        System.out.println();
 
         // Sort all jobs according to decreasing order of profit
 
@@ -92,21 +138,92 @@ public class JobSequencingProblem {
 //        jobs.sort(Comparator.comparingInt(a -> a.profit).reversed()); // descending order of profit
 
         // Lambda expression for Comparing two objects of the same class by their profit in descending order
-        jobs.sort((a, b) -> b.profit - a.profit); // descending order of profit
+//        jobs.sort((a, b) -> b.profit - a.profit); // descending order of profit
 
+        // Lambda expression for Comparing two objects of the same class by their profit in ascending order
+//        Collections.sort(jobs, (obj1, obj2) -> obj2.profit - obj1.profit); // ascending order of profit
+//
+//
+//        // To keep track of free time slots
+//
+//        ArrayList<Integer> sequence = new ArrayList<>();
+//        int timeSlot = 0;
+//
+//        for (int i = 0; i < jobs.size(); i++) {
+//            // Find a free slot for this job (Note that we start from the last possible slot)
+//            Job currentJob = jobs.get(i);
+//            if (timeSlot < currentJob.deadline) {
+//                sequence.add(currentJob.id);
+//                timeSlot++;
+//            }
+//        }
 
-        // To keep track of free time slots
-        ArrayList<Integer> sequence = getIntegers(jobs);
+//        for (Job currentJob: jobs) {
+//            // Find a free slot for this job (Note that we start from the last possible slot)
+//            if (timeSlot < currentJob.deadline) {
+//                sequence.add(currentJob.id);
+//                timeSlot++;
+//            }
+//        }
+
+//        ArrayList<Integer> sequence = getIntegers(jobs);
 
         // Print the sequence
-        for (int i : sequence) {
-            System.out.print(i + " ");
-        }
+//        for (int jobIndex : sequence) {   // Shows Wrong Output
+//            int i = jobs.indexOf(jobs.get(jobIndex));
+//            System.out.print("For Job " + i + " = Deadline: " + jobs.get(jobIndex+1).deadline + ", " +
+//                    "Profit: " + jobs.get(jobIndex+1).profit + ", ");
+//        }
 
-        System.out.println(" Maximum Profit: " + sequence.stream().mapToInt(Integer::intValue).sum());
+
+//        for (int i = 0; i < sequence.size(); i++) {   // Shows Wrong Output
+//            int jobIndex = sequence.get(i);
+//            System.out.print("For Job " + jobIndex + " = Deadline: " + jobs.get(jobIndex).deadline + ", " +
+//                    "Profit: " + jobs.get(jobIndex).profit + ", ");
+//        }
 
 
-        // OR,
+//        for (int i : sequence) {
+////            System.out.print("For Job "+i + " = ");
+//            System.out.print("For Job " + i + " = Deadline: " + jobs.get(i - 1).deadline + ", " +
+//                    "Profit: " + jobs.get(i - 1).profit + ", ");
+//        }
+
+        // Print the sequence
+//        System.out.println("max jobs = "+sequence.size());
+//        for (int i = 0; i < sequence.size(); i++) {
+//            System.out.print("For Job " + sequence.get(i) + " -> Deadline: " + jobs.get(sequence.get(i)).deadline +
+//                    ", Profit: " + jobs.get(sequence.get(i)).profit);
+//
+//            // Check if it's the last iteration to avoid a trailing comma
+//            if (i < sequence.size() - 1) {
+//                System.out.print(", ");
+//            }
+//        }
+
+// Add a newline at the end for better readability
+//        System.out.println();
+
+
+
+
+//        for (int i=0; i<sequence.size(); i++) {
+//            System.out.print("For Job " + sequence.get(i) + " = Deadline: " + jobs.get(sequence.get(i)).deadline + ", " +
+//                    "Profit: " + jobs.get(sequence.get(i)).profit + ", ");
+//        }
+
+//        sequence.forEach(i -> {
+//            System.out.print("For Job " + i + " = Deadline: " + jobs.get(i - 1).deadline + ", " +
+//                    "Profit: " + jobs.get(i - 1).profit + ", ");
+//        });
+
+//        System.out.println();
+
+        // Print the Summation of maximum profit using Streams API
+//        System.out.println("So, Maximum Profit: " + sequence.stream().mapToInt(i -> jobs.get(i - 1).profit).sum());
+
+
+        // OR, This will generate wrong output
 
         /*int[] deadline = {2, 1, 2, 1, 3};
         int[] profit = {100, 19, 27, 25, 15};
