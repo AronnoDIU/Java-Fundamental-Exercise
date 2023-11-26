@@ -37,11 +37,11 @@ public class ChocolaProblem {
         int columnsN = 4; // Number of columns
 
         // Cost of breaking chocolate along horizontal lines
-        int[] horizontalX = {2, 1, 3, 1, 4};
-        int[] verticalY = {4, 1, 2}; // Cost of breaking chocolate along vertical lines
+        int[] horizontalCostX = {2, 1, 3, 1, 4};
+        int[] verticalCostY = {4, 1, 2}; // Cost of breaking chocolate along vertical lines
 
-        Arrays.sort(horizontalX); // Sort in ascending order
-        Arrays.sort(verticalY); // Sort in ascending order
+        Arrays.sort(horizontalCostX); // Sort in ascending order
+        Arrays.sort(verticalCostY); // Sort in ascending order
 
         int result = 0; // Initialize the result as 0.
         // This variable will store the minimum cost.
@@ -58,35 +58,35 @@ public class ChocolaProblem {
         while (i >= 0 && j >= 0) {
             /* If the cost of breaking chocolate along horizontal lines is greater
              than the cost of breaking chocolate along vertical lines,
-             then add horizontalX[i] to the result.*/
-            if (horizontalX[i] > verticalY[j]) {
+             then add horizontalCostX[i] to the result.*/
+            if (horizontalCostX[i] > verticalCostY[j]) {
 
-                // Add horizontalX[i] to the result.
-                result += horizontalX[i] * verticalPieces;
+                // Add horizontalCostX[i] to the result.
+                result += horizontalCostX[i] * verticalPieces;
                 horizontalPieces++;
                 i--;
             } else {
                 /* If the cost of breaking chocolate along vertical lines is greater
                 than the cost of breaking chocolate along horizontal lines,
-                then add verticalY[j] to the result.*/
-                result += verticalY[j] * horizontalPieces;
+                then add verticalCostY[j] to the result.*/
+                result += verticalCostY[j] * horizontalPieces;
                 verticalPieces++;
                 j--;
             }
         }
 
-        // Add the remaining horizontalX[i] to the result.
+        // Add the remaining horizontalCostX[i] to the result.
         while (i >= 0) {
-            // Add horizontalX[i] to the result.
-            result += horizontalX[i] * verticalPieces;
+            // Add horizontalCostX[i] to the result.
+            result += horizontalCostX[i] * verticalPieces;
             horizontalPieces++;
             i--;
         }
 
-        // Add the remaining verticalY[j] to the result.
+        // Add the remaining verticalCostY[j] to the result.
         while (j >= 0) {
-            // Add verticalY[j] to the result.
-            result += verticalY[j] * horizontalPieces;
+            // Add verticalCostY[j] to the result.
+            result += verticalCostY[j] * horizontalPieces;
             verticalPieces++;
             j--;
         }
