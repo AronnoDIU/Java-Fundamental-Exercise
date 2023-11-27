@@ -28,19 +28,34 @@ package CollectionsFramework.GreedyAlgorithm;
 
  */
 public class MaximumBalancedStringPartitions {
-    public static void main(String[] args) {
-        String s = "ababbbabbababa";
-        int count = 0;
-        int max = 0;
+    static int maxBalancedStringPartitions(String string) {
+        if (string == null || string.isEmpty()) return 0;
 
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == 'a') count++;
-            else count--;
+        int maxAns = 0; // Maximum Balanced String Partitions
+        int R = 0; // Count of 'R'
+        int L = 0; // Count of 'L'
 
-            if (count == 0) max++;
+        for (int i = 0; i < string.length(); i++) {
+            // If the current character is 'R', then increment R
+            if (string.charAt(i) == 'R') {
+                R++;
+            } else if (string.charAt(i) == 'L') {
+                L++;
+            }
+
+            // If the count of 'R' and 'L' is equal, then increment maxAns
+            if (R == L) {
+                maxAns++;
+            }
         }
 
-        System.out.println(" Maximum Balanced String Partitions: " + max);
+        return maxAns;
+    }
+
+    public static void main(String[] args) {
+        String string = "LLRRRLLRRL";
+
+        System.out.println("Maximum Balanced String Partitions: " + maxBalancedStringPartitions(string));
     }
 }
 
