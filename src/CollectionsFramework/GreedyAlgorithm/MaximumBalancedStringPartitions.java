@@ -43,3 +43,10 @@ public class MaximumBalancedStringPartitions {
         System.out.println(" Maximum Balanced String Partitions: " + max);
     }
 }
+
+/*
+Expected Output:
+
+Maximum Balanced String Partitions: 4
+
+ */
