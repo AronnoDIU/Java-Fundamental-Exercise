@@ -98,3 +98,20 @@ class MinHeapNode implements Comparable<MinHeapNode> {
         return this.freq - other.freq;
     }
 }
+
+/*
+Expected Output:
+
+Character With their Frequencies:
+f 5
+r 2
+o 2
+g 2
+k 2
+e 4
+s 2
+h 1
+u 1
+i 1
+
+ */
