@@ -25,7 +25,7 @@ public class WaterJugBFS {
             path.add(new Pair(this.j1, this.j2));
         }
     }
-}
+
     public static void main(String[] args) throws java.lang.Exception {
         int jug1 = 4;
         int jug2 = 3;
@@ -66,8 +66,7 @@ public class WaterJugBFS {
                     // empty the jug2 and push it into our
                     // path.
                     curr.path.add(new Pair(curr.j1, 0));
-                }
-                else {
+                } else {
                     // else, If in our current state, jug2
                     // holds the required amount of water,
                     // then we empty the jug1 and push it
@@ -122,7 +121,7 @@ public class WaterJugBFS {
             int j1 = curr.j1 - amountTransferred;
             queue.offer(new Pair(j1, j2, curr.path));
 
-            // Tranferring water form jug2 to jug1
+            // Transferring water form jug2 to jug1
             emptyJug = jug1 - curr.j1;
             amountTransferred = Math.min(curr.j2, emptyJug);
             j2 = curr.j2 - amountTransferred;
@@ -132,4 +131,5 @@ public class WaterJugBFS {
 
         System.out.println("Not Possible to obtain target");
 
-    }}
+    }
+}
