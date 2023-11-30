@@ -86,14 +86,30 @@ public class WaterConnection {
     }
 
     public static void main(String[] args) {
-        int n = 9;
-        int[] p = {7, 5, 4, 2, 9, 3, 6, 8, 1};
-        int[] q = {4, 9, 6, 8, 7, 1, 3, 2, 5};
-        int[] d = {98, 72, 10, 22, 17, 66, 75, 41, 82};
-        int[] result = solve(n, p, q, d);
-        for (int j : result) {
-            System.out.print(j + " ");
-        }
-        // 4 5 5 2 2 0 0 0 0
+        number_of_houses = 9;
+        number_of_pipes = 6;
+
+        // set the value of the array
+        // to zero
+        for (int i = 0; i < 1100; i++)
+            ending_vertex_of_pipes[i]
+                    = starting_vertex_of_pipes[i]
+                    = diameter_of_pipes[i] = 0;
+
+        int[][] arr
+                = {{7, 4, 98}, {5, 9, 72}, {4, 6, 10},
+                {2, 8, 22}, {9, 7, 17}, {3, 1, 66}};
+        solve(arr);
     }
 }
+
+/*
+Expected Output:
+
+3
+2 8 22
+3 1 66
+5 6 10
+9 7 17
+
+*/
