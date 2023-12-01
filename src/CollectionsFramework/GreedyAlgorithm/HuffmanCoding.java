@@ -25,9 +25,7 @@ public class HuffmanCoding {
         printCode(root.right, s + "1");
     }
 
-    public static <Scanner> void main(String[] args) {
-        Scanner userInput = new Scanner(System.in);
-
+    public static void main(String[] args) {
         // number of characters.
         int n = 6;
         char[] charArray = {'a', 'b', 'c', 'd', 'e', 'f'};
@@ -36,7 +34,7 @@ public class HuffmanCoding {
         // creating a priority queue q.
         // makes a min-priority queue(min-heap).
         PriorityQueue<HuffmanNode> q
-                = new PriorityQueue<HuffmanNode>(
+                = new PriorityQueue<>(
                 n, new MyComparator());
 
         for (int i = 0; i < n; i++) {
@@ -75,6 +73,7 @@ public class HuffmanCoding {
 
             // to the sum of the frequency of the two nodes
             // assigning values to the f node.
+            assert y != null;
             f.data = x.data + y.data;
             f.c = '-';
 
