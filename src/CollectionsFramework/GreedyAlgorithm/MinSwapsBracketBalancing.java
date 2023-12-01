@@ -54,6 +54,10 @@ public class MinSwapsBracketBalancing {
         return ans;
     }
     public static void main(String[] args) {
+        String s = "[]][][";
+        System.out.println(swapCount(s));
 
+        s = "[[][]]";
+        System.out.println(swapCount(s));
     }
 }
