@@ -40,7 +40,7 @@ public class MinSwapsBracketBalancing {
 
                 //Bring character at jth position to ith position
                 //and shift all character from i to j-1
-                //towards a right
+                //towards the right
                 char ch = s.charAt(j);
                 StringBuilder newString = new StringBuilder(s);
                 for (int k = j; k > i; k--) {
@@ -53,6 +53,7 @@ public class MinSwapsBracketBalancing {
 
         return ans;
     }
+
     public static void main(String[] args) {
         String s = "[]][][";
         System.out.println(swapCount(s));
@@ -61,3 +62,11 @@ public class MinSwapsBracketBalancing {
         System.out.println(swapCount(s));
     }
 }
+
+/*
+Expected Output:
+
+2
+0
+
+*/
