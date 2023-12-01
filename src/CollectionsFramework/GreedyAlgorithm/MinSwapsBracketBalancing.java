@@ -5,7 +5,7 @@ public class MinSwapsBracketBalancing {
     static int swapCount(String s) {
 
         //To store answer
-        int ans = 0;
+        int finalAnswer = 0;
 
         //To store count of '['
         int count = 0;
@@ -33,7 +33,7 @@ public class MinSwapsBracketBalancing {
                 }
 
                 //Increment answer
-                ans += j - i;
+                finalAnswer += j - i;
 
                 //Set Count to 1 again
                 count = 1;
@@ -51,7 +51,7 @@ public class MinSwapsBracketBalancing {
             }
         }
 
-        return ans;
+        return finalAnswer;
     }
 
     public static void main(String[] args) {
