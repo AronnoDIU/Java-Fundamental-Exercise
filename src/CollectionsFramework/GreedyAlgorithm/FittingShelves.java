@@ -10,7 +10,17 @@ public class FittingShelves {
         // p and q are no of shelves of length m and n
         // rem is the empty space
         int p = wall/m, q = 0, rem=wall%m;
-    
+
+        num_m=p;
+          num_n=q;
+          min_empty=rem;
+        while (wall >= n) {
+            q += 1;
+            wall = wall - n;
+            // place as many shelves of length m
+            // in the remaining part
+            p = wall / m;
+            rem = wall % m;
     
     public static void main(String[] args) {
         String s = "[]][][";
