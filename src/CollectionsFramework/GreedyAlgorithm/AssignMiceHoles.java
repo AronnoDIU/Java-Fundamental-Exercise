@@ -27,5 +27,16 @@ public class AssignMiceHoles {
     }
     public static void main(String[] args) {
         String s = "[]][][";
+        GFG gfg = new GFG();
+        ArrayList<Integer> mice = new ArrayList<Integer>();
+        mice.add(4);
+        mice.add(-4);
+        mice.add(2);
+        ArrayList<Integer> holes= new ArrayList<Integer>();
+        holes.add(4);
+        holes.add(0);
+        holes.add(5);
+        System.out.println("The last mouse gets into "+
+         "the hole in time: "+gfg.assignHole(mice, holes));
     }
 }
