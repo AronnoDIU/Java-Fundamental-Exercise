@@ -11,7 +11,7 @@ public class AssignMiceHoles {
         if (mice.size() != holes.size())
            return -1;
  
-        /* Sort the lists */
+        // Sort the lists
         Collections.sort(mice);
         Collections.sort(holes);
  
@@ -27,7 +27,7 @@ public class AssignMiceHoles {
     }
     public static void main(String[] args) {
         String s = "[]][][";
-        GFG gfg = new GFG();
+        AssignMiceHoles gfg = new AssignMiceHoles();
         ArrayList<Integer> mice = new ArrayList<Integer>();
         mice.add(4);
         mice.add(-4);
