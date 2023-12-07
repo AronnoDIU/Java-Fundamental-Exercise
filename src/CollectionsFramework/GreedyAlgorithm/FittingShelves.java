@@ -21,6 +21,13 @@ public class FittingShelves {
             // in the remaining part
             p = wall / m;
             rem = wall % m;
+        // update output variablse if curr
+        // min_empty <= overall empty
+            if (rem <= min_empty) {
+                num_m = p;
+                num_n = q;
+                min_empty = rem;
+            }
     
     public static void main(String[] args) {
         String s = "[]][][";
