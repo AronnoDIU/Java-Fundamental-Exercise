@@ -7,8 +7,7 @@ public class AssignMiceHoles {
     // Returns minimum time required to place mice
     // in holes.
     public int assignHole(ArrayList<Integer> mice,
-                         ArrayList<Integer> holes)
-    {
+                         ArrayList<Integer> holes){
         if (mice.size() != holes.size())
            return -1;
  
