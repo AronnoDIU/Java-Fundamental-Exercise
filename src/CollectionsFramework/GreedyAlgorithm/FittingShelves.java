@@ -37,5 +37,12 @@ public class FittingShelves {
     }
     public static void main(String[] args) {
         String s = "[]][][";
+        int wall = 24, m = 3, n = 5;
+        minSpacePreferLarge(wall, m, n);
+ 
+        wall = 24;
+        m = 4;
+        n = 7;
+        minSpacePreferLarge(wall, m, n);
     }
 }
