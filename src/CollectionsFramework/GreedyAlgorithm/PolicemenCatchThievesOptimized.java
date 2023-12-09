@@ -57,7 +57,18 @@ public class PolicemenCatchThievesOptimized {
                 thi++;
                 while (thi < n && arr[thi] != 'T')
                     thi++;
+            } else {
+                // as the index of police is behind the
+                // thief, it cannot catch the thief. Hence,
+                // we need the index of next police and
+                // check if it can catch the current thief
+                // (it will be checked in the next
+                // iteration)
+                pol++;
+                while (pol < n && arr[pol] != 'P')
+                    pol++;
             }
+        }
     public static void main(String[] args) {
         String s = "[]][][";
     }
