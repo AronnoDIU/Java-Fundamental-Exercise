@@ -15,7 +15,14 @@ public class PolicemenCatchThievesOptimized {
                 break;
             }
         }
-    
+
+    // store the first index of thief in thi
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 'T') {
+                thi = i;
+                break;
+            }
+        }
     public static void main(String[] args) {
         String s = "[]][][";
     }
