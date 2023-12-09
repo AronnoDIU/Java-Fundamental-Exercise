@@ -23,6 +23,25 @@ public class PolicemenCatchThievesOptimized {
                 break;
             }
         }
+
+    // return 0 if no police OR no thief found
+        if (thi == -1 || pol == -1)
+            return 0;
+        // loop to increase res if distance between police
+        // and thief <= k
+        while (pol < n && thi < n) {
+            // thief can be caught
+            if (Math.abs(pol - thi) <= k) {
+                pol++;
+                // to find the index of next police for next
+                // iteration
+                while (pol < n && arr[pol] != 'P')
+                    pol++;
+                // to find the index of next thief for next
+                // iteration
+                thi = thi + 1;
+                while (thi < n && arr[thi] != 'T')
+                    thi++;
     public static void main(String[] args) {
         String s = "[]][][";
     }
