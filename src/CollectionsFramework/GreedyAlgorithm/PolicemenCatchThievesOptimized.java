@@ -46,6 +46,18 @@ public class PolicemenCatchThievesOptimized {
                 // caugh
                 res++;
             }
+            // thief cannot be caught as dist > k
+            else if (thi < pol) {
+                // as index of thief is behind police, we
+                // need to find the next thief and check if
+                // it can be caught by the current police
+                // (it will be checked in the next
+                // iteration) Hence, find the index of next
+                // thief
+                thi++;
+                while (thi < n && arr[thi] != 'T')
+                    thi++;
+            }
     public static void main(String[] args) {
         String s = "[]][][";
     }
