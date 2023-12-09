@@ -85,6 +85,10 @@ public class PolicemenCatchThievesOptimized {
         System.out.println("Maximum thieves caught: "
                            + policeThief(arr2, n, k));
 
-        
+        char arr3[] = { 'P', 'T', 'P', 'T', 'T', 'P' };
+        n = arr3.length;
+        k = 3;
+        System.out.println("Maximum thieves caught: "
+                           + policeThief(arr3, n, k));
     }
 }
