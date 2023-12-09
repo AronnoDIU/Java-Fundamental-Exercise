@@ -69,6 +69,8 @@ public class PolicemenCatchThievesOptimized {
                     pol++;
             }
         }
+        return res;
+    }
     public static void main(String[] args) {
         String s = "[]][][";
     }
