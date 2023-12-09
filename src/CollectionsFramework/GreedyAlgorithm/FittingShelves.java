@@ -28,7 +28,13 @@ public class FittingShelves {
                 num_n = q;
                 min_empty = rem;
             }
-    
+        
+    // place one more shelf of length n
+            q += 1;
+            wall = wall - n;
+        }
+        System.out.println(num_m + " " + num_n + " " + min_empty);
+    }
     public static void main(String[] args) {
         String s = "[]][][";
     }
