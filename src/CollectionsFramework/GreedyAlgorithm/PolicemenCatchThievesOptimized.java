@@ -42,6 +42,10 @@ public class PolicemenCatchThievesOptimized {
                 thi = thi + 1;
                 while (thi < n && arr[thi] != 'T')
                     thi++;
+            // increment res, as the thief has been
+                // caugh
+                res++;
+            }
     public static void main(String[] args) {
         String s = "[]][][";
     }
