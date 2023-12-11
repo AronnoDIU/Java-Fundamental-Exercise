@@ -20,6 +20,18 @@ public class PolicemenCatchThieves {
             else if (arr[i] == 'T')
                 thi.add(i);
         }
+        
+        // track lowest current indices of
+        // thief: thi[l], police: pol[r]
+        int l = 0, r = 0;
+        while (l < thi.size() && r < pol.size()) {
+            // can be caught
+            if (Math.abs(thi.get(l) - pol.get(r)) <= k) {
+                res++;
+                l++;
+                r++;
+                // increment the minimum index
+            }
     
     public static void main(String[] args) {
         String s = "[]][][";
