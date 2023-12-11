@@ -12,7 +12,14 @@ public class PolicemenCatchThieves {
         int res = 0;
         ArrayList<Integer> thi = new ArrayList<Integer>();
         ArrayList<Integer> pol = new ArrayList<Integer>();
-        
+
+        // store indices in the ArrayList
+        for (int i = 0; i < n; i++) {
+            if (arr[i] == 'P')
+                pol.add(i);
+            else if (arr[i] == 'T')
+                thi.add(i);
+        }
     
     public static void main(String[] args) {
         String s = "[]][][";
