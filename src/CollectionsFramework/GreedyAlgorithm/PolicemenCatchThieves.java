@@ -32,6 +32,13 @@ public class PolicemenCatchThieves {
                 r++;
                 // increment the minimum index
             }
+            else if (thi.get(l) < pol.get(r))
+                l++;
+            else
+                r++;
+        }
+        return res;
+    }
     
     public static void main(String[] args) {
         String s = "[]][][";
