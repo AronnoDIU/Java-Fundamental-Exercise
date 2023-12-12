@@ -42,5 +42,14 @@ public class PolicemenCatchThieves {
     
     public static void main(String[] args) {
         String s = "[]][][";
+        int k, n;
+        char arr1[]
+            = new char[] { 'P', 'T', 'T', 'P', 'T' };
+        k = 2;
+        n = arr1.length;
+        System.out.println("Maximum thieves caught: "
+                           + policeThief(arr1, n, k));
+
+        
     }
 }
