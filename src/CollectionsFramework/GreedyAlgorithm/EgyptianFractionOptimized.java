@@ -30,6 +30,12 @@ public class EgyptianFractionOptimized {
 
         for (int denom : output)
             str += "1/" + Integer.toString(denom) + " + ";
+
+        String strCopy = str.substring(
+            0,
+            str.length() - 3); // removing the last + sign
+        return strCopy;
+    }
     
     public static void main(String[] args) {
         String s = "[]][][";
