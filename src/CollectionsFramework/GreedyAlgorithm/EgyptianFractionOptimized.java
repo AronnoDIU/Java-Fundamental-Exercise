@@ -7,6 +7,9 @@ public class EgyptianFractionOptimized {
                             Vector<Integer> listOfDenoms) {
         if (numerator == 0)
             return listOfDenoms;
+
+        int newDenom = (int)Math.ceil((double)denominator
+                                      / numerator);
     
     public static void main(String[] args) {
         String s = "[]][][";
