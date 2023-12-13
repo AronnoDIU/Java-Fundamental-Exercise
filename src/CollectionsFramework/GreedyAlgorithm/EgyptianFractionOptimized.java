@@ -23,6 +23,10 @@ public class EgyptianFractionOptimized {
 
     static String getEgyptianFraction(int numerator,
                                       int denominator) {
+
+        String str = "";
+        Vector<Integer> output = getEgyptianFractionUtil(
+            numerator, denominator, new Vector<Integer>());
     
     public static void main(String[] args) {
         String s = "[]][][";
