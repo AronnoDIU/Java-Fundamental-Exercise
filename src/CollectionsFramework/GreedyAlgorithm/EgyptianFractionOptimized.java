@@ -13,6 +13,13 @@ public class EgyptianFractionOptimized {
 
         // append in output list
         listOfDenoms.add(newDenom);
+
+        listOfDenoms = getEgyptianFractionUtil(
+            numerator * newDenom - denominator,
+            newDenom * denominator, listOfDenoms);
+ 
+        return listOfDenoms;
+    }
     
     public static void main(String[] args) {
         String s = "[]][][";
