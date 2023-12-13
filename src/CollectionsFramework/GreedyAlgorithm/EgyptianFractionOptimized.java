@@ -20,6 +20,9 @@ public class EgyptianFractionOptimized {
  
         return listOfDenoms;
     }
+
+    static String getEgyptianFraction(int numerator,
+                                      int denominator) {
     
     public static void main(String[] args) {
         String s = "[]][][";
