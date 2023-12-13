@@ -27,6 +27,9 @@ public class EgyptianFractionOptimized {
         String str = "";
         Vector<Integer> output = getEgyptianFractionUtil(
             numerator, denominator, new Vector<Integer>());
+
+        for (int denom : output)
+            str += "1/" + Integer.toString(denom) + " + ";
     
     public static void main(String[] args) {
         String s = "[]][][";
