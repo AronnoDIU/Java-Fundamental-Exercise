@@ -10,6 +10,9 @@ public class EgyptianFractionOptimized {
 
         int newDenom = (int)Math.ceil((double)denominator
                                       / numerator);
+
+        // append in output list
+        listOfDenoms.add(newDenom);
     
     public static void main(String[] args) {
         String s = "[]][][";
