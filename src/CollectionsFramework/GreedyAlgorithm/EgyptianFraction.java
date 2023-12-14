@@ -17,6 +17,13 @@ public class EgyptianFraction {
             System.out.print("1/" + dr / nr);
             return;
         }
+
+        // If denominator divides numerator,
+        // then the given number is not fraction
+        if (nr % dr == 0) {
+            System.out.print(nr / dr);
+            return;
+        }
     
     public static void main(String[] args) {
         String s = "[]][][";
