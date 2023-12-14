@@ -9,6 +9,14 @@ public class EgyptianFraction {
         if (dr == 0 || nr == 0) {
             return;
         }
+
+        // If numerator divides denominator,
+        // then simple division makes
+        // the fraction in 1/n form
+        if (dr % nr == 0) {
+            System.out.print("1/" + dr / nr);
+            return;
+        }
     
     public static void main(String[] args) {
         String s = "[]][][";
