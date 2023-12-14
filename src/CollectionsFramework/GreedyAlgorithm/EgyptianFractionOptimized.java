@@ -39,5 +39,6 @@ public class EgyptianFractionOptimized {
     
     public static void main(String[] args) {
         String s = "[]][][";
+        System.out.println(getEgyptianFraction(6, 14));
     }
 }
