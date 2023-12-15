@@ -49,5 +49,10 @@ public class EgyptianFraction {
  
         // Calling the function and printing  the
         // corresponding Egyptian Fraction
+        Representation
+        System.out.print(
+            "Egyptian Fraction Representation of " + nr
+            + "/" + dr + " is\n ");
+        printEgyptian(nr, dr);
     }
 }
