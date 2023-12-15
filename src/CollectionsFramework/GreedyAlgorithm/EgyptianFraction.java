@@ -31,6 +31,15 @@ public class EgyptianFraction {
             printEgyptian(nr % dr, dr);
             return;
         }
+
+        // We reach here dr > nr and dr%nr
+        // is non-zero. Find ceiling of
+        // dr/nr and print it as first
+        // fraction
+        int n = dr / nr + 1;
+        System.out.print("1/" + n + " + ");
+
+        
     
     public static void main(String[] args) {
         String s = "[]][][";
