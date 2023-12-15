@@ -24,6 +24,13 @@ public class EgyptianFraction {
             System.out.print(nr / dr);
             return;
         }
+
+        // If numerator is more than denominator
+        if (nr > dr) {
+            System.out.print(nr / dr + " + ");
+            printEgyptian(nr % dr, dr);
+            return;
+        }
     
     public static void main(String[] args) {
         String s = "[]][][";
