@@ -39,7 +39,9 @@ public class EgyptianFraction {
         int n = dr / nr + 1;
         System.out.print("1/" + n + " + ");
 
-        
+        // Recur for remaining part
+        printEgyptian(nr * n - dr, dr * n);
+    }
     
     public static void main(String[] args) {
         String s = "[]][][";
