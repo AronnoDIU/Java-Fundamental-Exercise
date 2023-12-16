@@ -4,6 +4,12 @@ package CollectionsFramework.GreedyAlgorithm;
 public class MinSwapsAnotherApproach {
     static long swapCount(String s) {
         char[] chars = s.toCharArray();
+
+        // stores total number of Left and Right 
+        // brackets encountered
+        int countLeft = 0, countRight = 0; 
+                // swap stores the number of swaps required
+        //imbalance maintains the number of imbalance pair
     
     public static void main(String[] args) {
         String s = "[]][][";
