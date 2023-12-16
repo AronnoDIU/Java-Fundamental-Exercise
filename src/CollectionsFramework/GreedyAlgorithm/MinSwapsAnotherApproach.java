@@ -10,6 +10,9 @@ public class MinSwapsAnotherApproach {
         int countLeft = 0, countRight = 0; 
                 // swap stores the number of swaps required
         //imbalance maintains the number of imbalance pair
+        int swap = 0 , imbalance = 0; 
+         
+        for(int i =0; i< chars.length; i++) {
     
     public static void main(String[] args) {
         String s = "[]][][";
