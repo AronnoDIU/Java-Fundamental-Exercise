@@ -17,6 +17,12 @@ public class MinSwapsAnotherApproach {
                 // increment count of Left bracket
                 countLeft++; 
                 if(imbalance > 0) {
+                    // swaps count is last swap count + total 
+                    // number imbalanced brackets
+                    swap += imbalance; 
+                    // imbalance decremented by 1 as it solved
+                    // only one imbalance of Left and Right
+                    imbalance--;
     
     public static void main(String[] args) {
         String s = "[]][][";
