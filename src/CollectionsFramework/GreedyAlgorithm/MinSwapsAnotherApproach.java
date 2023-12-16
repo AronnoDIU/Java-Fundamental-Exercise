@@ -23,6 +23,18 @@ public class MinSwapsAnotherApproach {
                     // imbalance decremented by 1 as it solved
                     // only one imbalance of Left and Right
                     imbalance--;
+                }
+            } else if(chars[i] == ']' ) 
+            {
+                // increment count of Right bracket
+                countRight++; 
+                // imbalance is reset to current difference 
+                // between Left and Right brackets
+                imbalance = (countRight-countLeft); 
+            }
+        }
+        return swap;
+    }
     
     public static void main(String[] args) {
         String s = "[]][][";
