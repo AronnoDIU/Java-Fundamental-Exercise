@@ -13,6 +13,10 @@ public class MinSwapsAnotherApproach {
         int swap = 0 , imbalance = 0; 
          
         for(int i =0; i< chars.length; i++) {
+            if(chars[i] == '[') {
+                // increment count of Left bracket
+                countLeft++; 
+                if(imbalance > 0) {
     
     public static void main(String[] args) {
         String s = "[]][][";
