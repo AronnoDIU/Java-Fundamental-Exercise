@@ -20,7 +20,15 @@ public static long swapCount(String s) {
     int p = 0;  
      
     // To store result
-    long sum = 0; 
+    long sum = 0;
+
+    char[] S = s.toCharArray(); 
+     
+    for(int i = 0; i < s.length(); ++i)
+    {
+         
+        // Increment count and move p 
+        // to next position
     
     public static void main(String[] args) {
         String s = "[]][][";
