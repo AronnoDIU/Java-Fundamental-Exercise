@@ -36,6 +36,9 @@ public static long swapCount(String s) {
         }
         else if (S[i] == ']')
             --count;
+
+        // We have encountered an 
+        // unbalanced part of string
     
     public static void main(String[] args) {
         String s = "[]][][";
