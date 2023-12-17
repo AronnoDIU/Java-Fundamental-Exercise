@@ -12,6 +12,15 @@ public static long swapCount(String s) {
     for(int i = 0; i < s.length(); ++i)
         if (s.charAt(i) == '[')
             pos.add(i);
+
+    // To count number of encountered '['
+    int count = 0; 
+     
+    // To track position of next '[' in pos
+    int p = 0;  
+     
+    // To store result
+    long sum = 0; 
     
     public static void main(String[] args) {
         String s = "[]][][";
