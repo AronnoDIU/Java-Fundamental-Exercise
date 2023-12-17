@@ -29,6 +29,13 @@ public static long swapCount(String s) {
          
         // Increment count and move p 
         // to next position
+        if (S[i] == '[')
+        {
+            ++count;
+            ++p;
+        }
+        else if (S[i] == ']')
+            --count;
     
     public static void main(String[] args) {
         String s = "[]][][";
