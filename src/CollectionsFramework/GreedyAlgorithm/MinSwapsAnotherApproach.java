@@ -38,5 +38,10 @@ public class MinSwapsAnotherApproach {
     
     public static void main(String[] args) {
         String s = "[]][][";
+        String s = "[]][][";
+        System.out.println(swapCount(s) );
+ 
+        s = "[[][]]";
+        System.out.println(swapCount(s) );
     }
 }
