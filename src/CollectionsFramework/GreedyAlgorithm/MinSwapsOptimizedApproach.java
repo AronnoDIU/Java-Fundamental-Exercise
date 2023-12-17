@@ -50,6 +50,12 @@ public static long swapCount(String s) {
             S[i] = S[pos.get(p)];
             S[pos.get(p)] = temp;
             ++p;
+            // Reset count to 1
+            count = 1;
+        }
+    }
+    return sum;
+}
     
     public static void main(String[] args) {
         String s = "[]][][";
