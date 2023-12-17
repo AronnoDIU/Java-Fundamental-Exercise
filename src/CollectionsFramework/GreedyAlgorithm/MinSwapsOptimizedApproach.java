@@ -39,6 +39,17 @@ public static long swapCount(String s) {
 
         // We have encountered an 
         // unbalanced part of string
+        if (count < 0)
+        {
+             
+            // Increment sum by number of 
+            // swaps required i.e. position 
+            // of next '[' - current position
+            sum += pos.get(p) - i;
+            char temp = S[i];
+            S[i] = S[pos.get(p)];
+            S[pos.get(p)] = temp;
+            ++p;
     
     public static void main(String[] args) {
         String s = "[]][][";
