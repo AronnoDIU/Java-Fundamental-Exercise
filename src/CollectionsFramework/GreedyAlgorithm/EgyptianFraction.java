@@ -10,7 +10,7 @@ public class EgyptianFraction {
             return;
         }
 
-        // If numerator divides denominator,
+        // If numerator divides the denominator,
         // then simple division makes
         // the fraction in 1/n form
         if (dr % nr == 0) {
@@ -18,7 +18,7 @@ public class EgyptianFraction {
             return;
         }
 
-        // If denominator divides numerator,
+        // If the denominator divides numerator,
         // then the given number is not fraction
         if (nr % dr == 0) {
             System.out.print(nr / dr);
@@ -33,7 +33,7 @@ public class EgyptianFraction {
         }
 
         // We reach here dr > nr and dr%nr
-        // is non-zero. Find ceiling of
+        // is non-zero. Find the ceiling of
         // dr/nr and print it as first
         // fraction
         int n = dr / nr + 1;
