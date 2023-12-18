@@ -1,17 +1,17 @@
 package CollectionsFramework.GreedyAlgorithm;
 
-// Java program to find maximum number of
+// Java program to find the maximum number of
 // thieves caught
-import java.io.*;
+
 import java.util.*;
 
 public class PolicemenCatchThieves {
     // Returns maximum number of thieves
     // that can be caught.
-    static int policeThief(char arr[], int n, int k) {
+    static int policeThief(char[] arr, int n, int k) {
         int res = 0;
-        ArrayList<Integer> thi = new ArrayList<Integer>();
-        ArrayList<Integer> pol = new ArrayList<Integer>();
+        ArrayList<Integer> thi = new ArrayList<>();
+        ArrayList<Integer> pol = new ArrayList<>();
 
         // store indices in the ArrayList
         for (int i = 0; i < n; i++) {
@@ -20,8 +20,8 @@ public class PolicemenCatchThieves {
             else if (arr[i] == 'T')
                 thi.add(i);
         }
-        
-        // track lowest current indices of
+
+        // track the lowest current indices of
         // thief: thi[l], police: pol[r]
         int l = 0, r = 0;
         while (l < thi.size() && r < pol.size()) {
@@ -31,37 +31,33 @@ public class PolicemenCatchThieves {
                 l++;
                 r++;
                 // increment the minimum index
-            }
-            else if (thi.get(l) < pol.get(r))
+            } else if (thi.get(l) < pol.get(r))
                 l++;
             else
                 r++;
         }
         return res;
     }
-    
+
     public static void main(String[] args) {
-        String s = "[]][][";
         int k, n;
-        char arr1[]
-            = new char[] { 'P', 'T', 'T', 'P', 'T' };
+        char[] arr1
+                = new char[]{'P', 'T', 'T', 'P', 'T'};
         k = 2;
         n = arr1.length;
         System.out.println("Maximum thieves caught: "
-                           + policeThief(arr1, n, k));
+                + policeThief(arr1, n, k));
 
-        char arr2[]
-            = new char[] { 'T', 'T', 'P', 'P', 'T', 'P' };
-        k = 2;
+        char[] arr2
+                = new char[]{'T', 'T', 'P', 'P', 'T', 'P'};
         n = arr2.length;
         System.out.println("Maximum thieves caught: "
-                           + policeThief(arr2, n, k));
+                + policeThief(arr2, n, k));
 
-        char arr3[]
-            = new char[] { 'P', 'T', 'P', 'T', 'T', 'P' };
+        char[] arr3
+                = new char[]{'P', 'T', 'P', 'T', 'T', 'P'};
         k = 3;
-        n = arr3.length;
         System.out.println("Maximum thieves caught: "
-                           + policeThief(arr3, n, k));
+                + policeThief(arr3, n, k));
     }
 }
