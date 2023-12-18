@@ -1,4 +1,5 @@
 package CollectionsFramework.GreedyAlgorithm;
+
 import java.util.*;
 
 public class EgyptianFractionOptimized {
@@ -8,37 +9,32 @@ public class EgyptianFractionOptimized {
         if (numerator == 0)
             return listOfDenoms;
 
-        int newDenom = (int)Math.ceil((double)denominator
-                                      / numerator);
+        int newDenom = (int) Math.ceil((double) denominator
+                / numerator);
 
         // append in output list
         listOfDenoms.add(newDenom);
 
         listOfDenoms = getEgyptianFractionUtil(
-            numerator * newDenom - denominator,
-            newDenom * denominator, listOfDenoms);
- 
+                numerator * newDenom - denominator,
+                newDenom * denominator, listOfDenoms);
+
         return listOfDenoms;
     }
 
-    static String getEgyptianFraction(int numerator,
-                                      int denominator) {
+    static String getEgyptianFraction() {
 
-        String str = "";
+        StringBuilder str = new StringBuilder();
         Vector<Integer> output = getEgyptianFractionUtil(
-            numerator, denominator, new Vector<Integer>());
+                6, 14, new Vector<>());
 
         for (int denom : output)
-            str += "1/" + Integer.toString(denom) + " + ";
+            str.append("1/").append(denom).append(" + ");
 
-        String strCopy = str.substring(
-            0,
-            str.length() - 3); // removing the last + sign
-        return strCopy;
+        return str.substring(0, str.length() - 3);
     }
-    
+
     public static void main(String[] args) {
-        String s = "[]][][";
-        System.out.println(getEgyptianFraction(6, 14));
+        System.out.println(getEgyptianFraction());
     }
 }
