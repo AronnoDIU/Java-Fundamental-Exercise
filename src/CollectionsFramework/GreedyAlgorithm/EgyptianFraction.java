@@ -44,7 +44,6 @@ public class EgyptianFraction {
     }
 
     public static void main(String[] args) {
-        String s = "[]][][";
         int nr = 6, dr = 14;
 
         // Calling the function and printing the
