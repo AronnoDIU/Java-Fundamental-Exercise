@@ -13,10 +13,10 @@ public static long swapCount(String s) {
         if (s.charAt(i) == '[')
             pos.add(i);
 
-    // To count number of encountered '['
+    // To count the number of encountered '['
     int count = 0; 
      
-    // To track position of next '[' in pos
+    // To track the position of next '[' in pos
     int p = 0;  
      
     // To store result
@@ -43,7 +43,7 @@ public static long swapCount(String s) {
         {
              
             // Increment sum by number of 
-            // swaps required i.e. position 
+            // swaps required i.e., position
             // of next '[' - current position
             sum += pos.get(p) - i;
             char temp = S[i];
@@ -58,7 +58,6 @@ public static long swapCount(String s) {
 }
     
     public static void main(String[] args) {
-        String s = "[]][][";
         String s = "[]][][";
     System.out.println(swapCount(s));
   

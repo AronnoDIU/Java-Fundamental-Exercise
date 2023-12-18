@@ -42,17 +42,16 @@ public class EgyptianFraction {
         // Recur for remaining part
         printEgyptian(nr * n - dr, dr * n);
     }
-    
+
     public static void main(String[] args) {
         String s = "[]][][";
         int nr = 6, dr = 14;
- 
-        // Calling the function and printing  the
-        // corresponding Egyptian Fraction
-        Representation
+
+        // Calling the function and printing the
+        // corresponding Egyptian Fraction Representation
         System.out.print(
-            "Egyptian Fraction Representation of " + nr
-            + "/" + dr + " is\n ");
+                "Egyptian Fraction Representation of " + nr
+                        + "/" + dr + " is\n ");
         printEgyptian(nr, dr);
     }
 }

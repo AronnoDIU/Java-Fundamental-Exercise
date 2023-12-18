@@ -10,34 +10,32 @@ public class MinSwapsAnotherApproach {
         int countLeft = 0, countRight = 0; 
                 // swap stores the number of swaps required
         //imbalance maintains the number of imbalance pair
-        int swap = 0 , imbalance = 0; 
-         
-        for(int i =0; i< chars.length; i++) {
-            if(chars[i] == '[') {
+        int swap = 0 , imbalance = 0;
+
+        for (char aChar : chars) {
+            if (aChar == '[') {
                 // increment count of Left bracket
-                countLeft++; 
-                if(imbalance > 0) {
-                    // swaps count is last swap count + total 
+                countLeft++;
+                if (imbalance > 0) {
+                    // swap count is last swap count + total
                     // number imbalanced brackets
-                    swap += imbalance; 
-                    // imbalance decremented by 1 as it solved
+                    swap += imbalance;
+                    // the imbalance decremented by 1 as it solved
                     // only one imbalance of Left and Right
                     imbalance--;
                 }
-            } else if(chars[i] == ']' ) 
-            {
+            } else if (aChar == ']') {
                 // increment count of Right bracket
-                countRight++; 
+                countRight++;
                 // imbalance is reset to current difference 
                 // between Left and Right brackets
-                imbalance = (countRight-countLeft); 
+                imbalance = (countRight - countLeft);
             }
         }
         return swap;
     }
     
     public static void main(String[] args) {
-        String s = "[]][][";
         String s = "[]][][";
         System.out.println(swapCount(s) );
  
