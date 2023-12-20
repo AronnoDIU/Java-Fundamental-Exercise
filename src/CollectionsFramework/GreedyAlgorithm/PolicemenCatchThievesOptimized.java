@@ -14,7 +14,7 @@ public class PolicemenCatchThievesOptimized {
             }
         }
 
-    // store the first index of thief in thi
+        // store the first index of thief in thi
         for (int i = 0; i < n; i++) {
             if (arr[i] == 'T') {
                 thi = i;
@@ -22,7 +22,7 @@ public class PolicemenCatchThievesOptimized {
             }
         }
 
-    // return 0 if no police OR no thief found
+        // return 0 if no police OR no thief found
         if (thi == -1 || pol == -1)
             return 0;
         // loop to increase res if distance between police
@@ -31,37 +31,29 @@ public class PolicemenCatchThievesOptimized {
             // thief can be caught
             if (Math.abs(pol - thi) <= k) {
                 pol++;
-                // to find the index of next police for next
-                // iteration
+                // to find the index of next police for next iteration
                 while (pol < n && arr[pol] != 'P')
                     pol++;
-                // to find the index of next thief for next
-                // iteration
+                // to find the index of next thief for next iteration
                 thi = thi + 1;
                 while (thi < n && arr[thi] != 'T')
                     thi++;
-            // increment res, as the thief has been
-                // caught
+                // increment res, as the thief has been caught
                 res++;
             }
             // thief cannot be caught as dist > k
             else if (thi < pol) {
-                // as the index of thief is behind police, we
-                // need to find the next thief and check if
-                // it can be caught by the current police
+                // as the index of thief is behind police, we need to find the next
+                // thief and check if it can be caught by the current police
                 // (it will be checked in the next
-                // iteration) Hence, find the index of the next
-                // thief
+                // iteration) Hence, find the index of the next thief
                 thi++;
                 while (thi < n && arr[thi] != 'T')
                     thi++;
             } else {
-                // As the index of police is behind the
-                // thief, it cannot catch the thief. Hence,
-                // we need the index of next police and
-                // check if it can catch the current thief
-                // (it will be checked in the next
-                // iteration)
+                // As the index of police is behind the thief, it cannot catch the thief.
+                // Hence, we need the index of next police and check if it can catch
+                // the current thief (it will be checked in the next iteration)
                 pol++;
                 while (pol < n && arr[pol] != 'P')
                     pol++;
@@ -69,21 +61,31 @@ public class PolicemenCatchThievesOptimized {
         }
         return res;
     }
+
     public static void main(String[] args) {
-        char[] arr1 = { 'P', 'T', 'T', 'P', 'T' };
+        char[] arr1 = {'P', 'T', 'T', 'P', 'T'};
         int n = arr1.length;
         int k = 2;
         System.out.println("Maximum thieves caught: "
-                           + policeThief(arr1, n, k));
+                + policeThief(arr1, n, k));
 
-        char[] arr2 = { 'T', 'T', 'P', 'P', 'T', 'P' };
+        char[] arr2 = {'T', 'T', 'P', 'P', 'T', 'P'};
         n = arr2.length;
         System.out.println("Maximum thieves caught: "
-                           + policeThief(arr2, n, k));
+                + policeThief(arr2, n, k));
 
-        char[] arr3 = { 'P', 'T', 'P', 'T', 'T', 'P' };
+        char[] arr3 = {'P', 'T', 'P', 'T', 'T', 'P'};
         k = 3;
         System.out.println("Maximum thieves caught: "
-                           + policeThief(arr3, n, k));
+                + policeThief(arr3, n, k));
     }
 }
+
+/*
+Expected Output:
+
+Maximum thieves caught: 3
+Maximum thieves caught: 3
+Maximum thieves caught: 3
+
+ */
