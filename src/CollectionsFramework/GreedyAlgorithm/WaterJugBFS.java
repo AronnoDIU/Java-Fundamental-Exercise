@@ -78,29 +78,23 @@ public class WaterJugBFS {
                 return;
             }
 
-            // If we have not yet found the target, then we
-            // have three cases left I. Fill the jug and
-            // Empty the other II. Fill the jug and let the
-            // other remain untouched III. Empty the jug and
-            // let the other remain untouched
+            // If we have not yet found the target, then we have three cases left
+            // I. Fill the jug and Empty the other II. Fill the jug and let the
+            // other remain untouched III. Empty the jug and let the other remain untouched
             // IV. Transfer amounts from one jug to another
 
             // Please refer to the table attached above to
-            // understand the cases that we are taking into
-            // consideration
+            // understand the cases that we are taking into consideration
 
-            // Now,
-            // I. Fill the jug and Empty the other
+            // Now, I. Fill the jug and Empty the other
             queue.offer(new Pair(jug1, 0, curr.path));
             queue.offer(new Pair(0, jug2, curr.path));
 
-            // II. Fill the jug and let the other remain
-            // untouched
+            // II. Fill the jug and let the other remain untouched
             queue.offer(new Pair(jug1, curr.j2, curr.path));
             queue.offer(new Pair(curr.j1, jug2, curr.path));
 
-            // III. Empty the jug and let the other remain
-            // untouched
+            // III. Empty the jug and let the other remain untouched
             queue.offer(new Pair(0, curr.j2, curr.path));
             queue.offer(new Pair(curr.j1, 0, curr.path));
 
