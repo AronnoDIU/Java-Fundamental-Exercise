@@ -49,8 +49,7 @@ public class WaterJugBFS {
         while (!queue.isEmpty()) {
             Pair curr = queue.poll();
 
-            // Skip already visited states and overflowing
-            // water states
+            // Skip already visited states and overflowing water states
             if (curr.j1 > jug1 || curr.j2 > jug2
                     || visited[curr.j1][curr.j2])
                 continue;
@@ -61,16 +60,12 @@ public class WaterJugBFS {
             // the target amount of water or not
             if (curr.j1 == target || curr.j2 == target) {
                 if (curr.j1 == target) {
-                    // If in our current state, jug1 holds
-                    // the required amount of water, then we
-                    // empty the jug2 and push it into our
-                    // path.
+                    // If in our current state, jug1 holds the required amount of water,
+                    // then we empty the jug2 and push it into our path.
                     curr.path.add(new Pair(curr.j1, 0));
                 } else {
-                    // else, If in our current state, jug2
-                    // holds the required amount of water,
-                    // then we empty the jug1 and push it
-                    // into our path.
+                    // else, If in our current state, jug2 holds the required amount of water,
+                    // then we empty the jug1 and push it into our path.
                     curr.path.add(new Pair(0, curr.j2));
                 }
                 int n = curr.path.size();
