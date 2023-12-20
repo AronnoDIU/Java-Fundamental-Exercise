@@ -4,16 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WaterConnection {
-    // number of houses and number
-    // of pipes
+    // number of houses and number of pipes
     static int number_of_houses, number_of_pipes;
 
-    // Array rd stores the
-    // ending vertex of pipe
+    // Array rd stores the ending vertex of pipe
     static int[] ending_vertex_of_pipes = new int[1100];
 
-    // Array wd stores the value
-    // of diameters between two pipes
+    // Array wd stores the value of diameters between two pipes
     static int[] diameter_of_pipes = new int[1100];
 
     // Array cd stores the
@@ -22,11 +19,11 @@ public class WaterConnection {
 
     // arraylist a, b, c are used
     // to store the final output
-    static List<Integer> a = new ArrayList<Integer>();
+    static List<Integer> a = new ArrayList<>();
 
-    static List<Integer> b = new ArrayList<Integer>();
+    static List<Integer> b = new ArrayList<>();
 
-    static List<Integer> c = new ArrayList<Integer>();
+    static List<Integer> c = new ArrayList<>();
 
     static int ans;
 
@@ -55,15 +52,15 @@ public class WaterConnection {
             i++;
         }
 
-        a = new ArrayList<Integer>();
-        b = new ArrayList<Integer>();
-        c = new ArrayList<Integer>();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
+        c = new ArrayList<>();
 
         for (int j = 1; j <= number_of_houses; ++j)
 
             /*If a pipe has no ending vertex
-            but has starting vertex i.e is
-            an outgoing pipe then we need
+            but has a starting vertex i.e., is
+            an outgoing pipe, then we need
             to start DFS with this vertex.*/
             if (ending_vertex_of_pipes[j] == 0
                     && starting_vertex_of_pipes[j] > 0) {
