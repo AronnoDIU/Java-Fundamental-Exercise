@@ -128,3 +128,16 @@ public class WaterJugBFS {
 
     }
 }
+
+/*
+ Expected output:
+
+Path of states of jugs followed is :
+0 , 0
+0 , 3
+3 , 0
+3 , 3
+4 , 2
+0 , 2
+
+*/
