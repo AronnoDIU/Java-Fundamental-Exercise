@@ -28,8 +28,7 @@ public class MinSwapsOptimizedApproach {
 
         for (int i = 0; i < s.length(); ++i) {
 
-            // Increment count and move p
-            // to next position
+            // Increment count and move p to next position
             if (S[i] == '[') {
                 ++count;
                 ++p;
@@ -40,8 +39,7 @@ public class MinSwapsOptimizedApproach {
             // unbalanced part of string
             if (count < 0) {
 
-                // Increment sum by number of
-                // swaps required i.e., position
+                // Increment sum by number of swaps required i.e., position
                 // of next '[' - current position
                 sum += pos.get(p) - i;
                 char temp = S[i];
@@ -63,3 +61,11 @@ public class MinSwapsOptimizedApproach {
         System.out.println(swapCount(s));
     }
 }
+
+/*
+Expected Output:
+
+2
+0
+
+*/
