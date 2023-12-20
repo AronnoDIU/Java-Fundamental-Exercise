@@ -13,12 +13,10 @@ public class WaterConnection {
     // Array wd stores the value of diameters between two pipes
     static int[] diameter_of_pipes = new int[1100];
 
-    // Array cd stores the
-    // starting end of pipe
+    // Array cd stores the starting end of pipe
     static int[] starting_vertex_of_pipes = new int[1100];
 
-    // arraylist a, b, c are used
-    // to store the final output
+    // arraylist a, b, c are used to store the final output
     static List<Integer> a = new ArrayList<>();
 
     static List<Integer> b = new ArrayList<>();
@@ -58,18 +56,14 @@ public class WaterConnection {
 
         for (int j = 1; j <= number_of_houses; ++j)
 
-            /*If a pipe has no ending vertex
-            but has a starting vertex i.e., is
-            an outgoing pipe, then we need
-            to start DFS with this vertex.*/
+            /*If a pipe has no ending vertex but has a starting vertex i.e., is
+            an outgoing pipe, then we need to start DFS with this vertex.*/
             if (ending_vertex_of_pipes[j] == 0
                     && starting_vertex_of_pipes[j] > 0) {
                 ans = 1000000000;
                 int w = dfs(j);
 
-                // We put the details of
-                // component in a final output
-                // array
+                // We put the details of component in a final output array
                 a.add(j);
                 b.add(w);
                 c.add(ans);
@@ -86,8 +80,7 @@ public class WaterConnection {
         number_of_houses = 9;
         number_of_pipes = 6;
 
-        // set the value of the array
-        // to zero
+        // set the value of the array to zero
         for (int i = 0; i < 1100; i++)
             ending_vertex_of_pipes[i]
                     = starting_vertex_of_pipes[i]
