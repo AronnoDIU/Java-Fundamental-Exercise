@@ -36,8 +36,7 @@ public class WaterJugBFS {
 
     private static void
     getPathIfPossible(int jug1, int jug2, int target) {
-        boolean[][] visited
-                = new boolean[jug1 + 1][jug2 + 1];
+        boolean[][] visited = new boolean[jug1 + 1][jug2 + 1];
         Queue<Pair> queue = new LinkedList<>();
 
         // Initial State: Both Jugs are empty so,
@@ -47,34 +46,34 @@ public class WaterJugBFS {
         queue.offer(initialState);
 
         while (!queue.isEmpty()) {
-            Pair curr = queue.poll();
+            Pair currentPair = queue.poll();
 
             // Skip already visited states and overflowing water states
-            if (curr.jug1 > jug1 || curr.jug2 > jug2
-                    || visited[curr.jug1][curr.jug2])
+            if (currentPair.jug1 > jug1 || currentPair.jug2 > jug2
+                    || visited[currentPair.jug1][currentPair.jug2])
                 continue;
             // mark current jugs state as visited
-            visited[curr.jug1][curr.jug2] = true;
+            visited[currentPair.jug1][currentPair.jug2] = true;
 
             // Check if the current state has already reached
             // the target amount of water or not
-            if (curr.jug1 == target || curr.jug2 == target) {
-                if (curr.jug1 == target) {
+            if (currentPair.jug1 == target || currentPair.jug2 == target) {
+                if (currentPair.jug1 == target) {
                     // If in our current state, jug1 holds the required amount of water,
                     // then we empty the jug2 and push it into our path.
-                    curr.path.add(new Pair(curr.jug1, 0));
+                    currentPair.path.add(new Pair(currentPair.jug1, 0));
                 } else {
                     // else, If in our current state, jug2 holds the required amount of water,
                     // then we empty the jug1 and push it into our path.
-                    curr.path.add(new Pair(0, curr.jug2));
+                    currentPair.path.add(new Pair(0, currentPair.jug2));
                 }
-                int n = curr.path.size();
+                int n = currentPair.path.size();
                 System.out.println(
                         "Path of states of jugs followed is :");
                 for (int i = 0; i < n; i++)
                     System.out.println(
-                            curr.path.get(i).jug1 + " , "
-                                    + curr.path.get(i).jug2);
+                            currentPair.path.get(i).jug1 + " , "
+                                    + currentPair.path.get(i).jug2);
                 return;
             }
 
@@ -87,35 +86,35 @@ public class WaterJugBFS {
             // understand the cases that we are taking into consideration
 
             // Now, I. Fill the jug and Empty the other
-            queue.offer(new Pair(jug1, 0, curr.path));
-            queue.offer(new Pair(0, jug2, curr.path));
+            queue.offer(new Pair(jug1, 0, currentPair.path));
+            queue.offer(new Pair(0, jug2, currentPair.path));
 
             // II. Fill the jug and let the other remain untouched
-            queue.offer(new Pair(jug1, curr.jug2, curr.path));
-            queue.offer(new Pair(curr.jug1, jug2, curr.path));
+            queue.offer(new Pair(jug1, currentPair.jug2, currentPair.path));
+            queue.offer(new Pair(currentPair.jug1, jug2, currentPair.path));
 
             // III. Empty the jug and let the other remain untouched
-            queue.offer(new Pair(0, curr.jug2, curr.path));
-            queue.offer(new Pair(curr.jug1, 0, curr.path));
+            queue.offer(new Pair(0, currentPair.jug2, currentPair.path));
+            queue.offer(new Pair(currentPair.jug1, 0, currentPair.path));
 
             // IV. Transfer water from one to another until
             // one jug becomes empty or until one jug
             // becomes full in this process
 
             // Transferring water form jug1 to jug2
-            int emptyJug = jug2 - curr.jug2;
+            int emptyJug = jug2 - currentPair.jug2;
             int amountTransferred
-                    = Math.min(curr.jug1, emptyJug);
-            int j2 = curr.jug2 + amountTransferred;
-            int j1 = curr.jug1 - amountTransferred;
-            queue.offer(new Pair(j1, j2, curr.path));
+                    = Math.min(currentPair.jug1, emptyJug);
+            int j2 = currentPair.jug2 + amountTransferred;
+            int j1 = currentPair.jug1 - amountTransferred;
+            queue.offer(new Pair(j1, j2, currentPair.path));
 
             // Transferring water form jug2 to jug1
-            emptyJug = jug1 - curr.jug1;
-            amountTransferred = Math.min(curr.jug2, emptyJug);
-            j2 = curr.jug2 - amountTransferred;
-            j1 = curr.jug1 + amountTransferred;
-            queue.offer(new Pair(j1, j2, curr.path));
+            emptyJug = jug1 - currentPair.jug1;
+            amountTransferred = Math.min(currentPair.jug2, emptyJug);
+            j2 = currentPair.jug2 - amountTransferred;
+            j1 = currentPair.jug1 + amountTransferred;
+            queue.offer(new Pair(j1, j2, currentPair.path));
         }
 
         System.out.println("Not Possible to obtain target");
