@@ -52,11 +52,11 @@ public class MinSwapsOptimizedApproach {
     }
 
     public static void main(String[] args) {
-        String s = "[]][][";
-        System.out.println(swapCount(s));
+        String string = "[]][][";
+        System.out.println(swapCount(string));
 
-        s = "[[][]]";
-        System.out.println(swapCount(s));
+        string = "[[][]]";
+        System.out.println(swapCount(string));
     }
 }
 
