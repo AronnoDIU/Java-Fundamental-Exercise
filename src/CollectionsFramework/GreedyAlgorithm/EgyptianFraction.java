@@ -4,15 +4,13 @@ package CollectionsFramework.GreedyAlgorithm;
 // in Egyptian Form using Greedy Algorithm
 public class EgyptianFraction {
     static void printEgyptian(int nr, int dr) {
-        // If either numerator or
-        // denominator is 0
+        // If either numerator or denominator is 0
         if (dr == 0 || nr == 0) {
             return;
         }
 
-        // If numerator divides the denominator,
-        // then simple division makes
-        // the fraction in 1/n form
+        // If numerator divides the denominator, then simple
+        // division makes the fraction in 1/n form
         if (dr % nr == 0) {
             System.out.print("1/" + dr / nr);
             return;
@@ -32,10 +30,8 @@ public class EgyptianFraction {
             return;
         }
 
-        // We reach here dr > nr and dr%nr
-        // is non-zero. Find the ceiling of
-        // dr/nr and print it as first
-        // fraction
+        // We reach here dr > nr and dr%nr is non-zero.Find the ceiling of
+        // dr/nr and print it as a first fraction
         int n = dr / nr + 1;
         System.out.print("1/" + n + " + ");
 
@@ -54,3 +50,11 @@ public class EgyptianFraction {
         printEgyptian(nr, dr);
     }
 }
+
+/*
+Expected Output:
+
+Egyptian Fraction Representation of 6/14 is
+    1/3 + 1/11 + 1/231
+
+ */
