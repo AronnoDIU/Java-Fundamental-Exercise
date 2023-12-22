@@ -16,12 +16,10 @@ public class FittingShelves {
         while (wall >= n) {
             q += 1;
             wall = wall - n;
-            // place as many shelves of length m
-            // in the remaining part
+            // place as many shelves of length m in the remaining part
             p = wall / m;
             rem = wall % m;
-            // update output variable if curr
-            // min_empty <= overall empty
+            // update output variable if curr min_empty <= overall empty
             if (rem <= min_empty) {
                 num_m = p;
                 num_n = q;
@@ -44,3 +42,11 @@ public class FittingShelves {
         minSpacePreferLarge(wall, m, n);
     }
 }
+
+/*
+Expected Output:
+
+3 3 0
+6 0 0
+
+*/
