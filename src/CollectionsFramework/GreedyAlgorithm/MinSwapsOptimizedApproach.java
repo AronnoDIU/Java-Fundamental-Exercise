@@ -1,12 +1,11 @@
 package CollectionsFramework.GreedyAlgorithm;
 
-// Java program to count swaps 
-// required to balance string
+// Java program to count swaps required to balance string
 
 import java.util.*;
 
 public class MinSwapsOptimizedApproach {
-    // Function to calculate swaps required
+    // Function to calculate swaps required to balance string
     public static long swapCount(String s) {
 
         // Keep track of '['
@@ -35,8 +34,7 @@ public class MinSwapsOptimizedApproach {
             } else if (S[i] == ']')
                 --count;
 
-            // We have encountered an
-            // unbalanced part of string
+            // We have encountered an unbalanced part of string
             if (count < 0) {
 
                 // Increment sum by number of swaps required i.e., position
