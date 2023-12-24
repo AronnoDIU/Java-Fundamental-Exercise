@@ -6,8 +6,7 @@ package CollectionsFramework.GreedyAlgorithm;
 import java.util.*;
 
 public class PolicemenCatchThieves {
-    // Returns maximum number of thieves
-    // that can be caught.
+    // Returns maximum number of thieves that can be caught.
     static int policeThief(char[] arr, int n, int k) {
         int res = 0;
         ArrayList<Integer> thi = new ArrayList<>();
