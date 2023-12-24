@@ -25,8 +25,7 @@ public class PolicemenCatchThievesOptimized {
         // return 0 if no police OR no thief found
         if (thi == -1 || pol == -1)
             return 0;
-        // loop to increase res if distance between police
-        // and thief <= k
+        // loop to increase res if distance between police and thief <= k
         while (pol < n && thi < n) {
             // thief can be caught
             if (Math.abs(pol - thi) <= k) {
