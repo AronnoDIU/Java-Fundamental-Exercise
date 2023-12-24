@@ -52,6 +52,7 @@ public class WaterJugBFS {
             if (currentPair.jug1 > jug1 || currentPair.jug2 > jug2
                     || visited[currentPair.jug1][currentPair.jug2])
                 continue;
+
             // mark current jugs state as visited
             visited[currentPair.jug1][currentPair.jug2] = true;
 
@@ -97,9 +98,8 @@ public class WaterJugBFS {
             queue.offer(new Pair(0, currentPair.jug2, currentPair.path));
             queue.offer(new Pair(currentPair.jug1, 0, currentPair.path));
 
-            // IV. Transfer water from one to another until
-            // one jug becomes empty or until one jug
-            // becomes full in this process
+            // IV.Transfer water from one to another until one jug becomes empty
+            // or until one jug becomes full in this process
 
             // Transferring water form jug1 to jug2
             int emptyJug = jug2 - currentPair.jug2;
