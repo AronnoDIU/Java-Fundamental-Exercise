@@ -88,10 +88,10 @@ public class WaterConnection {
                     = starting_vertex_of_pipes[i]
                     = diameter_of_pipes[i] = 0;
 
-        int[][] arr
+        int[][] arrays
                 = {{7, 4, 98}, {5, 9, 72}, {4, 6, 10},
                 {2, 8, 22}, {9, 7, 17}, {3, 1, 66}};
-        solve(arr);
+        solve(arrays);
     }
 }
 
