@@ -25,6 +25,8 @@ public class WaterConnection {
 
     static int ans;
 
+    // Function performing calculations, Printing the answer,
+    // the number of pipes, followed by the pipes themselves.
     static int dfs(int w) {
         if (starting_vertex_of_pipes[w] == 0)
             return w;
@@ -100,6 +102,5 @@ Expected Output:
 2 8 22
 3 1 66
 5 6 10
-9 7 17
 
 */
