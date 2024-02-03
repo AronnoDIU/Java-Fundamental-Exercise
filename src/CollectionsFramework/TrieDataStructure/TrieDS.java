@@ -98,7 +98,7 @@ public class TrieDS {
         return currentRoot.endOfWord;
     }
 
-    // Word Break Method Implement
+    // Word Break Method Imple
     public static boolean wordBreak(String key) {
         if (key.isEmpty()) { // Base Case
             return true;     // Because the root Node is empty;
