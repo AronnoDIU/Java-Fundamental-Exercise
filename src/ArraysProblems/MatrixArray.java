@@ -1,6 +1,6 @@
 package ArraysProblems;
 
-//Initialized a two-dimen
+//Initialized a two-D
 public class MatrixArray {
     public static void main(String[] args) {
 
