@@ -45,7 +45,7 @@ public class IOStreamsDemo {
 		writeFileToPathFileWriter(filePath, textToWrite);
 		writeFileToPathFileWriterBuffered(filePath, textToWrite);
 		
-		// ===== Read examples
+		// ===== File Read examples
 		printFileWithFileInputStream(filePath);
 		printFileWithFileInputStreamWithBuffer(filePath);
 		printFileWithFileReader(filePath);
