@@ -38,7 +38,7 @@ public class IOStreamsDemo {
 				+ "characters: Тут кириллические символы" + System.lineSeparator();
 		
 		
-		//===== Write examples
+		//===== File Write examples
 		writeFileToPathFileOutputStream(filePath, textToWrite);
 		writeFileToPathFileOutputStreamWithBuffer(filePath, textToWrite);
 		noWriteWithoutFlush(filePath, textToWrite);
