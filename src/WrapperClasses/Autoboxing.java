@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 public class Autoboxing {
     public static void main(String[] args) {
-        char chr = 'a';
 
         // Autoboxing- primitive to Character object
         // conversion
-        Character a = chr;
+        Character a = 'a';
 
         ArrayList<Integer> arrayList
                 = new ArrayList<Integer>();
@@ -17,7 +16,7 @@ public class Autoboxing {
         arrayList.add(25);
 
         // printing the values from object
-        System.out.println(arrayList.get(0));
+        System.out.println(arrayList.getFirst());
     }
 }
 
