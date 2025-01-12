@@ -1,0 +1,9 @@
+/.idea
+/out
+/node_modules
+/node_modules/.bin
+/node_modules/.cache
+/node_modules/.staging
+/node_modules/.yarn-integrity
+/node_modules/.yarn-metadata.json
+/node_modules/.yarn-tarball.tgz
